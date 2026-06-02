@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UpToAI - AI implementace pro české a slovenské firmy | Méně rutiny, víc výsledků</title>
+  <meta name="description" content="Nasazujeme AI nástroje a automatizace přímo do vašich firemních procesů. Pro české a slovenské SME, kteří chtějí výsledky, ne přednášky o AI.">
+  <meta name="keywords" content="AI implementace, AI pro firmy, marketing automation, AI konzultace, ChatGPT pro firmy, AI workflow, automatizace marketingu, UpToAI">
+  <link rel="canonical" href="https://uptoai.cz/">
+  <meta property="og:title" content="UpToAI - AI implementace pro česky a slovensky mluvící firmy">
+  <meta property="og:description" content="Nasazujeme AI nástroje do vašich procesů. Méně rutiny, víc výsledků. Pro SME, kteří nechtějí hype - chtějí výsledky.">
+  <meta property="og:url" content="https://uptoai.cz/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "UpToAI",
+    "url": "https://uptoai.cz",
+    "description": "AI implementace a marketing automation pro české a slovenské SME.",
+    "email": "adam@uptoai.cz",
+    "founder": {
+      "@type": "Person",
+      "name": "Adam Klásek"
+    },
+    "foundingLocation": "Česká republika"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-up">Up</span><span class="logo-to">To</span><span class="logo-ai">AI</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#jak">Jak pracujeme</a></li>
+        <li><a href="#proc">Proč UpToAI</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#kontakt" class="nav-cta">Nezávazná konzultace →</a></li>
+      </ul>
+      <button class="nav-burger" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <span class="pulse-dot"></span>
+          AI pro české a slovenské firmy
+        </div>
+        <h1 class="hero-headline">
+          AI<br>PRACUJE.<br>VY<br>ROSTETE.
+        </h1>
+        <p class="hero-sub">
+          Nasazujeme AI nástroje a automatizace přímo do vašich procesů.
+          Žádné teorie, žádné generické workshopy. Konkrétní výsledky
+          pro firmy s 5-200 zaměstnanci.
+        </p>
+        <div class="hero-cta-row">
+          <a href="#kontakt" class="btn-primary">Chci konzultaci zdarma →</a>
+          <a href="#sluzby" class="btn-ghost">Co konkrétně děláme?</a>
+        </div>
+        <div class="hero-accent-line"></div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hc-header">
+            <span class="hc-dot green"></span>
+            <span class="hc-dot yellow"></span>
+            <span class="hc-dot red"></span>
+            <span class="hc-title">AI Workflow — spuštěno</span>
+          </div>
+          <div class="hc-body">
+            <div class="hc-metric">
+              <span class="hc-metric-label">Ušetřené hodiny / týden</span>
+              <span class="hc-metric-val" data-target="32">0</span>
+              <span class="hc-metric-unit">h</span>
+            </div>
+            <div class="hc-divider"></div>
+            <div class="hc-metric">
+              <span class="hc-metric-label">Automatizované úkoly</span>
+              <span class="hc-metric-val" data-target="87">0</span>
+              <span class="hc-metric-unit">%</span>
+            </div>
+            <div class="hc-divider"></div>
+            <div class="hc-metric">
+              <span class="hc-metric-label">Čas do spuštění</span>
+              <span class="hc-metric-val" data-target="14">0</span>
+              <span class="hc-metric-unit">dní</span>
+            </div>
+          </div>
+          <div class="hc-log">
+            <div class="hc-log-item"><span class="log-check">✓</span> Audit procesů dokončen</div>
+            <div class="hc-log-item"><span class="log-check">✓</span> AI workflow nasazen</div>
+            <div class="hc-log-item active"><span class="log-dot"></span> Marketing automation běží</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-ticker">
+      <div class="ticker-inner">
+        <span>AI IMPLEMENTACE</span><span>·</span>
+        <span>MARKETING AUTOMATION</span><span>·</span>
+        <span>KONKRÉTNÍ VÝSLEDKY</span><span>·</span>
+        <span>ČESKÉ A SLOVENSKÉ SME</span><span>·</span>
+        <span>ŽÁDNÝ HYPE, JEN VÝSLEDKY</span><span>·</span>
+        <span>AI AUDIT ZDARMA</span><span>·</span>
+        <span>CHATGPT · MAKE · ZAPIER · N8N</span><span>·</span>
+        <span>NASADÍME TO ZA VÁS</span><span>·</span>
+        <span>5-200 ZAMĚSTNANCŮ</span><span>·</span>
+        <span>VÝSLEDKY DO 14 DNÍ</span><span>·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLUŽBY -->
+  <section class="sluzby" id="sluzby">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">Co děláme</span>
+        <h2>Čtyři způsoby, jak AI dostaneme do vašeho byznysu.</h2>
+        <p>Každá firma je jiná. Výchozí bod je vždy stejný - zjistit, kde AI reálně ušetří čas a peníze.</p>
+      </div>
+      <div class="sluzby-grid">
+
+        <div class="sluzba-card featured">
+          <div class="sluzba-num">01</div>
+          <h3>AI Audit & Roadmapa</h3>
+          <p>Projdeme vaše procesy a identifikujeme konkrétní místa, kde AI ušetří nejvíc. Dostanete prioritizovaný plán implementace - ne teorii, ale seznam kroků s odhadnutými přínosy.</p>
+          <ul class="sluzba-list">
+            <li>1,5h audit vašich klíčových procesů</li>
+            <li>Identifikace top 5 příležitostí pro AI</li>
+            <li>Konkrétní nástroje a workflow návrhy</li>
+            <li>Prioritizovaná roadmapa implementace</li>
+          </ul>
+          <div class="sluzba-footer">
+            <span class="sluzba-price">Zdarma</span>
+            <a href="#kontakt" class="btn-primary-sm">Chci audit →</a>
+          </div>
+        </div>
+
+        <div class="sluzba-card">
+          <div class="sluzba-num">02</div>
+          <h3>AI Implementace</h3>
+          <p>Nasadíme AI nástroje přímo do vašich procesů. Od nastavení po spuštění - váš tým dostane fungující řešení, ne prezentaci o tom, jak by to mohlo fungovat.</p>
+          <ul class="sluzba-list">
+            <li>Nastavení a integrace AI nástrojů</li>
+            <li>Propojení s vašimi stávajícími systémy</li>
+            <li>Testování a ladění na reálných datech</li>
+            <li>Předání s dokumentací a tréninkem</li>
+          </ul>
+          <div class="sluzba-footer">
+            <span class="sluzba-price">Od 25 000 Kč</span>
+            <a href="#kontakt" class="btn-ghost-sm">Zjistit víc →</a>
+          </div>
+        </div>
+
+        <div class="sluzba-card">
+          <div class="sluzba-num">03</div>
+          <h3>Marketing Automation</h3>
+          <p>Automatizujeme opakující se marketingové úkoly pomocí AI. Tvorba obsahu, e-mail sekvence, sledování výkonu - věci, které váš tým dělá manuálně každý týden.</p>
+          <ul class="sluzba-list">
+            <li>Automatická tvorba a plánování obsahu</li>
+            <li>AI e-mail sekvence a follow-upy</li>
+            <li>Monitoring a reporting s AI</li>
+            <li>Integrace s CRM a dalšími nástroji</li>
+          </ul>
+          <div class="sluzba-footer">
+            <span class="sluzba-price">Od 18 000 Kč / měs.</span>
+            <a href="#kontakt" class="btn-ghost-sm">Zjistit víc →</a>
+          </div>
+        </div>
+
+        <div class="sluzba-card">
+          <div class="sluzba-num">04</div>
+          <h3>AI Trénink týmu</h3>
+          <p>Naučíme váš tým pracovat s AI efektivně - ne kurz plný buzzwordů, ale praktické sezení na vašich reálných úkolech. Výsledek: tým, který AI skutečně používá.</p>
+          <ul class="sluzba-list">
+            <li>Half-day nebo full-day workshop</li>
+            <li>Zaměřeno na vaše konkrétní role a úkoly</li>
+            <li>Prompt knihovna pro váš byznys</li>
+            <li>30 dní follow-up support</li>
+          </ul>
+          <div class="sluzba-footer">
+            <span class="sluzba-price">Od 12 000 Kč</span>
+            <a href="#kontakt" class="btn-ghost-sm">Zjistit víc →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRO KOHO -->
+  <section class="prokoho" id="prokoho">
+    <div class="section-inner">
+      <div class="prokoho-inner">
+        <div class="prokoho-left">
+          <span class="section-eyebrow light">Pro koho</span>
+          <h2>Tohle není pro každého.</h2>
+          <p class="prokoho-lead">Pracujeme s firmami, které mají konkrétní problém a chtějí ho vyřešit. Ne s těmi, kdo hledají modul "AI" do výroční zprávy.</p>
+          <a href="#kontakt" class="btn-primary">Jsem připravený →</a>
+        </div>
+        <div class="prokoho-right">
+          <div class="fit-card fit-yes">
+            <div class="fit-header">
+              <span class="fit-icon">✓</span>
+              <h4>Funguje pro vás, pokud...</h4>
+            </div>
+            <ul>
+              <li>Máte 5-200 zaměstnanců v CZ nebo SK</li>
+              <li>Váš tým tráví hodiny rutinovými úkoly</li>
+              <li>Máte marketing, ale nestíháte ho dělat dobře</li>
+              <li>Chcete výsledky do 30 dnů, ne roadmapu na 2 roky</li>
+              <li>Jste ochotni investovat čas na začátku implementace</li>
+            </ul>
+          </div>
+          <div class="fit-card fit-no">
+            <div class="fit-header">
+              <span class="fit-icon">✕</span>
+              <h4>Nebude fungovat, pokud...</h4>
+            </div>
+            <ul>
+              <li>Chcete AI pro PR účely, ne pro reálné použití</li>
+              <li>Nejste ochotni změnit žádný stávající proces</li>
+              <li>Hledáte nejlevnější variantu na trhu</li>
+              <li>Máte pocit, že AI vaše firmě stejně nepomůže</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAK PRACUJEME -->
+  <section class="jak" id="jak">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">Proces</span>
+        <h2>Od nuly k fungujícímu AI za 4 kroky.</h2>
+        <p>Bez zbytečných mezikroků. Bez nekonečných prezentací. Od prvního hovoru k výsledku.</p>
+      </div>
+      <div class="jak-steps">
+        <div class="jak-step">
+          <div class="jak-step-num">1</div>
+          <div class="jak-step-content">
+            <h3>Audit (zdarma)</h3>
+            <p>1,5h hovor, kde projdeme vaše procesy. Identifikujeme top příležitosti pro AI. Dostanete konkrétní zpětnou vazbu - bez závazku pokračovat.</p>
+            <span class="jak-time">~90 minut</span>
+          </div>
+        </div>
+        <div class="jak-connector"></div>
+        <div class="jak-step">
+          <div class="jak-step-num">2</div>
+          <div class="jak-step-content">
+            <h3>Plán implementace</h3>
+            <p>Na základě auditu sestavíme konkrétní plán - co nasadíme, v jakém pořadí, co to bude stát a co ušetří. Žádné překvapení v průběhu.</p>
+            <span class="jak-time">3-5 pracovních dnů</span>
+          </div>
+        </div>
+        <div class="jak-connector"></div>
+        <div class="jak-step">
+          <div class="jak-step-num">3</div>
+          <div class="jak-step-content">
+            <h3>Implementace</h3>
+            <p>Nasadíme AI nástroje a workflows. Pracujeme rychle - typická implementace trvá 1-3 týdny. Průběžně vás informujeme o postupu.</p>
+            <span class="jak-time">1-3 týdny</span>
+          </div>
+        </div>
+        <div class="jak-connector"></div>
+        <div class="jak-step">
+          <div class="jak-step-num">4</div>
+          <div class="jak-step-content">
+            <h3>Předání & podpora</h3>
+            <p>Předáme vám fungující řešení s dokumentací. Projdeme to s vaším týmem. 30 dní support zahrnuto - aby to skutečně začalo fungovat.</p>
+            <span class="jak-time">30 dní support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROČ UPTOAI -->
+  <section class="proc" id="proc">
+    <div class="section-inner">
+      <div class="proc-grid">
+        <div class="proc-left">
+          <span class="section-eyebrow light">Proč UpToAI</span>
+          <h2>Nejsme AI evangelisti.<br>Jsme<br>implementátoři.</h2>
+          <p class="proc-lead">Svět je plný lidí, kteří vám řeknou, jak AI změní byznys. Těch, kteří to reálně nasadí a budou tam s vámi, když to přestane fungovat, je výrazně méně.</p>
+          <p>UpToAI zakládá Adam Klásek - marketér s 10 lety zkušeností v B2B a 5 lety v AI implementacích. Pracoval s firmami od 5 do 200 lidí v ČR i SK. Ví, co funguje, co ne, a hlavně co se reálně dá nasadit bez ročního projektu.</p>
+          <p>Konkrétně: ChatGPT, Claude, Cursor, Make, Zapier, n8n, Perplexity, Midjourney a desítky dalších nástrojů. Víme, kdy který použít a kdy říct, že to není ten správný nástroj.</p>
+          <div class="proc-values">
+            <div class="proc-val">
+              <span class="val-icon">→</span>
+              <div>
+                <strong>Výsledky, ne prezentace</strong>
+                <span>Měříme úspěch v ušetřených hodinách a automatizovaných procesech, ne v počtu slidů.</span>
+              </div>
+            </div>
+            <div class="proc-val">
+              <span class="val-icon">→</span>
+              <div>
+                <strong>Rychlost, ne perfekcionismus</strong>
+                <span>Fungující řešení za 2 týdny je lepší než dokonalé za 6 měsíců. Iterujeme rychle.</span>
+              </div>
+            </div>
+            <div class="proc-val">
+              <span class="val-icon">→</span>
+              <div>
+                <strong>Přímá komunikace</strong>
+                <span>Říkáme, co funguje a co ne. Pokud AI vaší firmě nepomůže, řekneme to rovnou.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="proc-right">
+          <div class="adam-card">
+            <div class="adam-avatar">AK</div>
+            <div class="adam-info">
+              <strong>Adam Klásek</strong>
+              <span>Zakladatel UpToAI</span>
+            </div>
+            <blockquote>"Viděl jsem příliš mnoho AI projektů, které skončily v šuplíku. Buď proto, že byly příliš složité, nebo proto, že nikdo neřekl zaměstnancům, proč to mají používat. UpToAI existuje proto, aby to bylo jinak."</blockquote>
+            <div class="adam-tools">
+              <span class="tool-tag">ChatGPT</span>
+              <span class="tool-tag">Claude</span>
+              <span class="tool-tag">Make</span>
+              <span class="tool-tag">n8n</span>
+              <span class="tool-tag">Zapier</span>
+              <span class="tool-tag">+20 dalších</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Otázky, které stejně přijdou.</h2>
+        <p>Raději odpovíme předem.</p>
+      </div>
+      <div class="faq-grid">
+        <details class="faq-item">
+          <summary>Jsme příliš malá firma na AI?</summary>
+          <p>Ne. Firmy s 5-15 zaměstnanci mají z AI implementace největší poměr užitku k investici - protože každá ušetřená hodina má velkou váhu. AI není jen pro korporáty.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Jak rychle uvidíme výsledky?</summary>
+          <p>U jednodušších implementací (automatizace e-mailů, AI asistent pro obsah) typicky do 2 týdnů. Komplexnější integrace trvají 4-8 týdnů. Nikdy nenasazujeme nic, aniž bychom měli definovanou metriku úspěchu.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Potřebujeme technické znalosti?</summary>
+          <p>Ne. Nastavíme vše my. Váš tým potřebuje vědět, jak to používat - ne jak to funguje uvnitř. Součástí každé implementace je trénink přesně na vaše procesy.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Kolik to reálně stojí?</summary>
+          <p>Záleží na rozsahu. AI audit je zdarma. Implementace začínají od 25 000 Kč. Než dostanete cenu, víte přesně co za ni dostanete - žádné otevřené položky.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Co konkrétně AI může udělat pro náš marketing?</summary>
+          <p>Tvorba textů, e-mail sekvence, social media plánování, lead nurturing, reporting, analýza výkonu kampaní, personalizace komunikace... Záleží na tom, co vám teď zabere nejvíc času. Tohle zjistíme při auditu.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Budeme závislí na vás dlouhodobě?</summary>
+          <p>Ne záměrně. Předáváme vám dokumentaci a trénujeme váš tým tak, aby to zvládal sám. Pokud chcete pokračující podporu nebo rozvíjet implementaci dál - jsme tu. Ale není to podmínka.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="kontakt" id="kontakt">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">Nezávazná konzultace</span>
+        <h2>Začněte auditem.<br>Je zdarma.</h2>
+        <p class="form-note-top">Vyplňte formulář. Ozveme se do 24 hodin a domluvíme bezplatný 90minutový audit vašich procesů.</p>
+      </div>
+      <form class="contact-form" action="https://formspree.io/f/REPLACE_ME" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Jméno a příjmení *</label>
+            <input type="text" name="jmeno" required placeholder="Jan Novák">
+          </div>
+          <div class="form-group">
+            <label>Firemní email *</label>
+            <input type="email" name="email" required placeholder="jan@firma.cz">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Firma a pozice *</label>
+            <input type="text" name="firma" required placeholder="ACME s.r.o. - majitel / marketing manažer">
+          </div>
+          <div class="form-group">
+            <label>Počet zaměstnanců</label>
+            <select name="velikost">
+              <option value="">- Vyberte -</option>
+              <option value="1-10">1-10</option>
+              <option value="11-30">11-30</option>
+              <option value="31-100">31-100</option>
+              <option value="100+">100+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Kde vidíte největší příležitost pro AI? *</label>
+          <textarea name="situace" rows="4" required placeholder="Popište, co váš tým teď dělá manuálně a trvá to zbytečně dlouho. Nebo jaký problém chcete vyřešit."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Telefon (pro rychlejší domluvu)</label>
+            <input type="tel" name="telefon" placeholder="+420 777 123 456">
+          </div>
+          <div class="form-group">
+            <label>Zájem o</label>
+            <select name="sluzba">
+              <option value="audit">AI Audit (zdarma) - nejdřív chci vědět kde stojím</option>
+              <option value="implementace">AI Implementace</option>
+              <option value="marketing">Marketing Automation</option>
+              <option value="trenink">AI Trénink týmu</option>
+              <option value="nevim">Nevím ještě - poraďte mi</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn-primary large">Chci bezplatný audit →</button>
+          <p class="form-alt">Nebo napište přímo: <a href="mailto:adam@uptoai.cz">adam@uptoai.cz</a></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-accent-line"></div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="logo-up">Up</span><span class="logo-to">To</span><span class="logo-ai">AI</span>
+        </div>
+        <p class="footer-claim">AI PRACUJE. VY ROSTETE.</p>
+        <p class="footer-sub">AI implementace pro české a slovenské SME</p>
+      </div>
+      <div class="footer-col">
+        <h5>Kontakt</h5>
+        <p>Adam Klásek</p>
+        <p>IČO: 09422668</p>
+        <p><a href="mailto:adam@uptoai.cz">adam@uptoai.cz</a></p>
+      </div>
+      <div class="footer-col">
+        <h5>Nástroje</h5>
+        <p>ChatGPT · Claude · Make</p>
+        <p>n8n · Zapier · Cursor</p>
+        <p>Perplexity · Midjourney</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigace</h5>
+        <ul>
+          <li><a href="#sluzby">Služby</a></li>
+          <li><a href="#jak">Jak pracujeme</a></li>
+          <li><a href="#proc">O nás</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 UpToAI · Adam Klásek, IČO 09422668 · <a href="mailto:adam@uptoai.cz">adam@uptoai.cz</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
