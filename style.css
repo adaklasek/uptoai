@@ -979,6 +979,22 @@ footer { background: var(--black); color: var(--white); }
 }
 .ref-result-label { font-size: 0.75rem; color: var(--gray); }
 
+/* === BOOKING / CALENDLY === */
+.booking { background: var(--black); }
+.booking .section-header { margin-bottom: 2.5rem; }
+.booking .section-eyebrow { color: var(--teal); }
+.booking h2 { color: var(--white); }
+.booking-sub {
+  color: var(--gray-light);
+  max-width: 520px;
+  margin: 0.75rem auto 0;
+}
+.calendly-inline-widget {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
 /* === FORM STATES === */
 .form-success {
   text-align: center;
