@@ -197,6 +197,9 @@ strong { font-weight: 700; }
   margin-left: 0.5rem;
 }
 .nav-links a.nav-cta:hover { background: var(--blue-bright); }
+.lang-sep { color: rgba(248,249,255,0.2); font-size: 0.8rem; padding: 0 0.1rem; }
+.lang-switch { font-size: 0.78rem !important; font-weight: 700 !important; letter-spacing: 0.08em; color: rgba(248,249,255,0.4) !important; }
+.lang-switch:hover { color: var(--teal) !important; background: transparent !important; }
 
 .nav-burger {
   display: none;
