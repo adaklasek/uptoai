@@ -301,6 +301,23 @@ strong { font-weight: 700; }
   flex-wrap: wrap;
   margin-bottom: 2rem;
 }
+.hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+.trust-item {
+  font-size: 0.78rem;
+  color: rgba(248,249,255,0.45);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.trust-icon {
+  color: var(--teal);
+  font-weight: 700;
+}
 .hero-accent-line {
   width: 48px;
   height: 3px;
@@ -490,8 +507,17 @@ strong { font-weight: 700; }
   font-size: 1rem;
   font-weight: 800;
   color: var(--black);
+  display: block;
+}
+.sluzba-scope {
+  display: block;
+  font-size: 0.72rem;
+  color: #9CA3AF;
+  margin-top: 0.2rem;
+  line-height: 1.4;
 }
 .sluzba-card.featured .sluzba-price { color: var(--teal); }
+.sluzba-card.featured .sluzba-scope { color: rgba(248,249,255,0.35); }
 
 /* === PRO KOHO === */
 .prokoho {
@@ -711,6 +737,25 @@ strong { font-weight: 700; }
 .adam-info { margin-bottom: 1.25rem; }
 .adam-info strong { display: block; color: var(--white); font-size: 1rem; }
 .adam-info span { font-size: 0.8rem; color: rgba(248,249,255,0.4); }
+.adam-bio {
+  font-size: 0.83rem;
+  color: rgba(248,249,255,0.45);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.adam-links {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.adam-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--teal);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.adam-link:hover { text-decoration: underline; }
 .adam-card blockquote {
   font-size: 0.88rem;
   color: rgba(248,249,255,0.6);
@@ -736,6 +781,95 @@ strong { font-weight: 700; }
 }
 
 /* === FAQ === */
+/* === CASE STUDY === */
+.casestudy { background: var(--dark); padding: 5rem 0; }
+.cs-card {
+  background: var(--dark-card);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cs-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+.cs-industry {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.cs-timeframe {
+  font-size: 0.78rem;
+  color: rgba(248,249,255,0.4);
+  background: rgba(248,249,255,0.06);
+  border: 1px solid rgba(248,249,255,0.1);
+  border-radius: 20px;
+  padding: 0.2rem 0.75rem;
+}
+.cs-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 640px) { .cs-columns { grid-template-columns: 1fr; } }
+.cs-col-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+.cs-col-label.before { background: rgba(239,68,68,0.15); color: #EF4444; }
+.cs-col-label.after  { background: rgba(0,212,170,0.15); color: var(--teal); }
+.cs-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+.cs-col li {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: rgba(248,249,255,0.6);
+  padding-left: 1rem;
+  position: relative;
+}
+.cs-col li::before { content: '·'; position: absolute; left: 0; }
+.cs-before li::before { color: #EF4444; }
+.cs-after li::before { color: var(--teal); }
+.cs-results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 2rem;
+}
+@media (max-width: 640px) { .cs-results { grid-template-columns: 1fr 1fr; } }
+.cs-result-item { text-align: center; }
+.cs-num {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--teal);
+  line-height: 1.1;
+}
+.cs-label { font-size: 0.75rem; color: rgba(248,249,255,0.4); line-height: 1.4; margin-top: 0.3rem; display: block; }
+.cs-cta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.cs-note { font-size: 0.8rem; color: rgba(248,249,255,0.35); }
+
 .faq { background: var(--white); }
 .faq-grid {
   display: grid;
@@ -1010,6 +1144,59 @@ footer { background: var(--black); color: var(--white); }
 .ref-result-label { font-size: 0.75rem; color: var(--gray); }
 
 /* === BOOKING / CALENDLY === */
+/* === ROI KALKULÁTOR === */
+.roi-calc { background: var(--dark); padding: 5rem 0; }
+.calc-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  background: var(--dark-card);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) { .calc-card { grid-template-columns: 1fr; } }
+.calc-inputs { display: flex; flex-direction: column; gap: 2rem; }
+.calc-group { display: flex; flex-direction: column; gap: 0.75rem; }
+.calc-label { font-size: 0.82rem; color: rgba(248,249,255,0.55); font-weight: 500; }
+.calc-input-row { display: flex; align-items: center; gap: 1rem; }
+.calc-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.1);
+  outline: none;
+}
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--teal);
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(0,212,170,0.2);
+}
+.calc-val { font-size: 0.9rem; font-weight: 700; color: var(--white); min-width: 60px; text-align: right; }
+.calc-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  border-left: 1px solid rgba(255,255,255,0.07);
+  padding-left: 3rem;
+}
+@media (max-width: 700px) { .calc-result { border-left: none; border-top: 1px solid rgba(255,255,255,0.07); padding-left: 0; padding-top: 2rem; } }
+.calc-result-label { font-size: 0.78rem; color: rgba(248,249,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.5rem; }
+.calc-result-num { font-size: 2.2rem; font-weight: 900; color: #EF4444; line-height: 1.1; }
+.calc-result-sub { display: flex; flex-direction: column; gap: 0.6rem; }
+.calc-sub-item { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.calc-sub-label { font-size: 0.78rem; color: rgba(248,249,255,0.35); }
+.calc-sub-val { font-size: 0.88rem; font-weight: 700; color: rgba(248,249,255,0.6); }
+.calc-sub-val.green { color: var(--teal); }
+.calc-cta { margin-top: 0.5rem; text-align: center; }
+
 .booking { background: var(--black); }
 .booking .section-header { margin-bottom: 2.5rem; }
 .booking .section-eyebrow { color: var(--teal); }

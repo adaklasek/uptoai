@@ -52,6 +52,32 @@ if (ticker) {
   ticker.innerHTML += ticker.innerHTML;
 }
 
+// ROI Calculator
+function formatCzk(n) {
+  return n.toLocaleString('cs-CZ') + ' Kč';
+}
+const calcPeople = document.getElementById('calc-people');
+const calcHours  = document.getElementById('calc-hours');
+const calcRate   = document.getElementById('calc-rate');
+if (calcPeople && calcHours && calcRate) {
+  function updateCalc() {
+    const people  = parseInt(calcPeople.value);
+    const hours   = parseInt(calcHours.value);
+    const rate    = parseInt(calcRate.value);
+    const yearly  = people * hours * rate * 52;
+    const monthly = Math.round(yearly / 12);
+    const saving  = Math.round(yearly * 0.7);
+    document.getElementById('calc-people-val').textContent = people;
+    document.getElementById('calc-hours-val').textContent  = hours;
+    document.getElementById('calc-rate-val').textContent   = rate + ' Kč';
+    document.getElementById('calc-output').textContent     = formatCzk(yearly);
+    document.getElementById('calc-monthly').textContent    = formatCzk(monthly);
+    document.getElementById('calc-saving').textContent     = formatCzk(saving) + ' ušetřeno ročně';
+  }
+  [calcPeople, calcHours, calcRate].forEach(el => el.addEventListener('input', updateCalc));
+  updateCalc();
+}
+
 // AJAX contact form – language-aware, no page redirect
 const lang = document.documentElement.lang || 'cs';
 const i18n = {
