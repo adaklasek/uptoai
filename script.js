@@ -21,6 +21,7 @@ navLinks.querySelectorAll('a').forEach(a => {
 // Counter animation
 function animateCounter(el) {
   const target = parseInt(el.dataset.target);
+  el.textContent = '0';
   const duration = 1400;
   const step = 16;
   const increment = target / (duration / step);

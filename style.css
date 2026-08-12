@@ -634,6 +634,33 @@ strong { font-weight: 700; }
   margin-bottom: 1rem;
 }
 .proc-left p { font-size: 0.92rem; color: rgba(248,249,255,0.5); line-height: 1.8; margin-bottom: 1rem; }
+.proc-tools {
+  margin-bottom: 1.75rem;
+}
+.proc-tools-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(248,249,255,0.3);
+  margin-bottom: 0.75rem;
+}
+.proc-tools-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tool-badge {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(248,249,255,0.55);
+  background: rgba(248,249,255,0.06);
+  border: 1px solid rgba(248,249,255,0.1);
+  border-radius: 6px;
+  padding: 0.3rem 0.75rem;
+  letter-spacing: 0.02em;
+}
 .proc-values {
   margin-top: 2rem;
   display: flex;
