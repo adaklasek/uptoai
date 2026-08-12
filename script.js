@@ -53,8 +53,12 @@ if (ticker) {
 }
 
 // ROI Calculator
-function formatCzk(n) {
-  return n.toLocaleString('cs-CZ') + ' Kč';
+const calcLang = document.documentElement.lang || 'cs';
+const isEN = calcLang === 'en';
+function formatMoney(n) {
+  return isEN
+    ? n.toLocaleString('en-US') + ' CZK'
+    : n.toLocaleString('cs-CZ') + ' Kč';
 }
 const calcPeople = document.getElementById('calc-people');
 const calcHours  = document.getElementById('calc-hours');
@@ -67,12 +71,14 @@ if (calcPeople && calcHours && calcRate) {
     const yearly  = people * hours * rate * 52;
     const monthly = Math.round(yearly / 12);
     const saving  = Math.round(yearly * 0.7);
+    const rateSuffix = isEN ? ' CZK' : ' Kč';
+    const saveSuffix = isEN ? ' saved per year' : ' ušetřeno ročně';
     document.getElementById('calc-people-val').textContent = people;
     document.getElementById('calc-hours-val').textContent  = hours;
-    document.getElementById('calc-rate-val').textContent   = rate + ' Kč';
-    document.getElementById('calc-output').textContent     = formatCzk(yearly);
-    document.getElementById('calc-monthly').textContent    = formatCzk(monthly);
-    document.getElementById('calc-saving').textContent     = formatCzk(saving) + ' ušetřeno ročně';
+    document.getElementById('calc-rate-val').textContent   = rate + rateSuffix;
+    document.getElementById('calc-output').textContent     = formatMoney(yearly);
+    document.getElementById('calc-monthly').textContent    = formatMoney(monthly);
+    document.getElementById('calc-saving').textContent     = formatMoney(saving) + saveSuffix;
   }
   [calcPeople, calcHours, calcRate].forEach(el => el.addEventListener('input', updateCalc));
   updateCalc();
