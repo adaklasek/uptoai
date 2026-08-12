@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 – Stránka nenalezena | UpToAI</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .page-404 {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: var(--dark);
+    }
+    .err-code {
+      font-size: clamp(6rem, 20vw, 12rem);
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--teal) 0%, #2563EB 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+    .err-title {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 800;
+      color: var(--light);
+      margin-bottom: 1rem;
+    }
+    .err-sub {
+      color: var(--gray);
+      max-width: 400px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .err-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-up">Up</span><span class="logo-to">To</span><span class="logo-ai">AI</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="page-404">
+    <div class="err-code">404</div>
+    <h1 class="err-title">Tahle stránka neexistuje.</h1>
+    <p class="err-sub">Buď byl odkaz špatný, nebo jsme stránku přesunuli. Zkuste to od začátku – nebo nás rovnou kontaktujte.</p>
+    <div class="err-actions">
+      <a href="/" class="btn-primary">← Zpět na hlavní stránku</a>
+      <a href="/#booking" class="btn-ghost">Chci bezplatný audit</a>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
