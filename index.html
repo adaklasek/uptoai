@@ -622,6 +622,59 @@
     </div>
   </section>
 
+  <!-- ROI KALKULÁTOR -->
+  <section class="roi-calc" id="kalkulator">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-eyebrow">Kalkulátor</span>
+        <h2>Kolik vás stojí ruční práce?</h2>
+        <p>Vyplňte tři čísla. Výsledek vás možná překvapí.</p>
+      </div>
+      <div class="calc-card">
+        <div class="calc-inputs">
+          <div class="calc-group">
+            <label class="calc-label">Počet lidí v týmu</label>
+            <div class="calc-input-row">
+              <input type="range" id="calc-people" min="1" max="50" value="8" class="calc-slider">
+              <span class="calc-val" id="calc-people-val">8</span>
+            </div>
+          </div>
+          <div class="calc-group">
+            <label class="calc-label">Hodin týdně na opakující se ruční práci (na osobu)</label>
+            <div class="calc-input-row">
+              <input type="range" id="calc-hours" min="1" max="20" value="6" class="calc-slider">
+              <span class="calc-val" id="calc-hours-val">6</span>
+            </div>
+          </div>
+          <div class="calc-group">
+            <label class="calc-label">Průměrná hodinová sazba zaměstnance (Kč)</label>
+            <div class="calc-input-row">
+              <input type="range" id="calc-rate" min="200" max="1500" value="450" step="50" class="calc-slider">
+              <span class="calc-val" id="calc-rate-val">450 Kč</span>
+            </div>
+          </div>
+        </div>
+        <div class="calc-result">
+          <div class="calc-result-main">
+            <span class="calc-result-label">Zbytečné náklady ročně</span>
+            <span class="calc-result-num" id="calc-output">1 123 200 Kč</span>
+          </div>
+          <div class="calc-result-sub">
+            <div class="calc-sub-item">
+              <span class="calc-sub-label">Za měsíc</span>
+              <span class="calc-sub-val" id="calc-monthly">93 600 Kč</span>
+            </div>
+            <div class="calc-sub-item">
+              <span class="calc-sub-label">Pokud automatizujeme 70 %</span>
+              <span class="calc-sub-val green" id="calc-saving">786 240 Kč ušetřeno ročně</span>
+            </div>
+          </div>
+          <a href="#booking" class="btn-primary calc-cta">Zjistit, co konkrétně automatizovat →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="faq" id="faq">
     <div class="section-inner">
@@ -674,59 +727,6 @@
           <summary>Jsme příliš malá firma na AI?</summary>
           <p>Malé firmy z toho mají zpravidla nejvíc – každá ušetřená hodina tam váží víc než v korporátu, a každý zákazník, který neodejde ke konkurenci, je viditelný na tržbách. Pracujeme s firmami od 5 zaměstnanců. Na velikosti nezáleží – záleží na tom, zda chcete výsledky.</p>
         </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ROI KALKULÁTOR -->
-  <section class="roi-calc" id="kalkulator">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-eyebrow">Kalkulátor</span>
-        <h2>Kolik vás stojí ruční práce?</h2>
-        <p>Vyplňte tři čísla. Výsledek vás možná překvapí.</p>
-      </div>
-      <div class="calc-card">
-        <div class="calc-inputs">
-          <div class="calc-group">
-            <label class="calc-label">Počet lidí v týmu</label>
-            <div class="calc-input-row">
-              <input type="range" id="calc-people" min="1" max="50" value="8" class="calc-slider">
-              <span class="calc-val" id="calc-people-val">8</span>
-            </div>
-          </div>
-          <div class="calc-group">
-            <label class="calc-label">Hodin týdně na opakující se ruční práci (na osobu)</label>
-            <div class="calc-input-row">
-              <input type="range" id="calc-hours" min="1" max="20" value="6" class="calc-slider">
-              <span class="calc-val" id="calc-hours-val">6</span>
-            </div>
-          </div>
-          <div class="calc-group">
-            <label class="calc-label">Průměrná hodinová sazba zaměstnance (Kč)</label>
-            <div class="calc-input-row">
-              <input type="range" id="calc-rate" min="200" max="1500" value="450" step="50" class="calc-slider">
-              <span class="calc-val" id="calc-rate-val">450 Kč</span>
-            </div>
-          </div>
-        </div>
-        <div class="calc-result">
-          <div class="calc-result-main">
-            <span class="calc-result-label">Zbytečné náklady ročně</span>
-            <span class="calc-result-num" id="calc-output">1 123 200 Kč</span>
-          </div>
-          <div class="calc-result-sub">
-            <div class="calc-sub-item">
-              <span class="calc-sub-label">Za měsíc</span>
-              <span class="calc-sub-val" id="calc-monthly">93 600 Kč</span>
-            </div>
-            <div class="calc-sub-item">
-              <span class="calc-sub-label">Pokud automatizujeme 70 %</span>
-              <span class="calc-sub-val green" id="calc-saving">786 240 Kč ušetřeno ročně</span>
-            </div>
-          </div>
-          <a href="#booking" class="btn-primary calc-cta">Zjistit, co konkrétně automatizovat →</a>
-        </div>
       </div>
     </div>
   </section>
