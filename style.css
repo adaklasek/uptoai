@@ -1146,6 +1146,9 @@ footer { background: var(--black); color: var(--white); }
 /* === BOOKING / CALENDLY === */
 /* === ROI KALKULÁTOR === */
 .roi-calc { background: var(--dark); padding: 5rem 0; }
+.roi-calc h2 { color: var(--white); }
+.roi-calc .section-header p { color: rgba(248,249,255,0.6); }
+.roi-calc .section-eyebrow { color: var(--teal); }
 .calc-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
