@@ -1,0 +1,43 @@
+# UpToAI
+
+> UpToAI je specializovana firma na implementaci AI automatizaci pro ceske a slovenske firmy. Automatizujeme firemni procesy pomoci Make.com, n8n, Claude AI, Zapier, Airtable a Notion. Sidlime v Praze, pracujeme online po cele CR a SR.
+
+## Co delame
+
+Navrhujeme a implementujeme AI automatizace na miru. Firmy diky nam usetrily 20+ hodin tydne na rutinni praci - e-maily, follow-upy, CRM aktualizace, reporty a zakaznicka komunikace jdou samy.
+
+## Sluzby
+
+- **Automatizace e-mailove schranky**: Trideni, prioritizace, automaticke odpovedi pomoci Claude AI a Make.com
+- **Automatizace obchodnich procesu**: Follow-upy, pripominky, CRM aktualizace pres n8n a Airtable
+- **Automaticke odpovedi v nepritomnosti**: AI odpovida zakaznikum 24/7 pres WhatsApp, e-mail, SMS
+- **Automaticke potvrzeni poptavky**: Okamzita reakce na poptavky, zapis do CRM, notifikace
+- **Bezplatny AI audit**: 90minutova analyza firemni procesuu zdarma - zjistite, kde ztracite cas
+
+## Nastroje se kterymi pracujeme
+
+Make.com, n8n, Claude AI (Anthropic), Zapier, Airtable, Notion, HubSpot, Gmail, Google Workspace, WhatsApp Business API
+
+## Kdo jsme
+
+UpToAI zalozil Adam Klasek. Specializujeme se na male a stredni firmy v Ceske republice a Slovensku (5-200 zamestnancu). Neprodavame prezentace a proof of concept - stavime realne systemy v produkci.
+
+## Vysledky
+
+- Prumerne usetreno 20+ hodin tydne na administrativni praci
+- Reakcni doba na poptavky zkracena z hodin na minuty
+- Implementace typicky 2-4 tydny od prvniho hovoru
+
+## Kontakt
+
+- Web: https://uptoai.cz
+- E-mail: info@uptoai.cz
+- Lokace: Praha, Ceska republika (pracujeme online)
+- LinkedIn: https://www.linkedin.com/company/uptoai
+
+## Cesta ke spolupaci
+
+1. Bezplatny 90minutovy audit (zdarma)
+2. Navrh reseni a plan implementace
+3. Implementace na miru (hodinova sazba)
+4. Volitelny mesicni retainer pro provoz a rozvoj
