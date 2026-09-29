@@ -422,7 +422,7 @@ strong { font-weight: 700; }
 .ticker-inner {
   display: inline-flex;
   gap: 1.8rem;
-  animation: ticker 28s linear infinite;
+  animation: ticker 56s linear infinite;
   white-space: nowrap;
   font-size: 0.7rem;
   font-weight: 700;
