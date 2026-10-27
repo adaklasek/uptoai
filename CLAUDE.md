@@ -26,7 +26,11 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 ## Tech stack agentury
 
 - **Make.com** – orchestrace automatizací (Organization: My Organization, Team: My Team, ID: 2180018, zone: eu2.make.com)
-- **Airtable** – CRM (Leads, Clients, Projects)
+- **Airtable** – CRM (Base ID: app2by9c8PSO1bKyi)
+  - Leads: tblSLScVF1xL0gILR
+  - Clients: tblo7xClSBenPpmA5
+  - Projects: tblQz7JsE0cywGm6B
+  - API Token: v environment secrets (AIRTABLE_TOKEN)
 - **Claude API** – AI mozek (model: claude-opus-5-5, thinking: adaptive)
 - **Telegram** – komunikace s COO agentem
 - **GitHub Pages** – web (uptoai.cz)
