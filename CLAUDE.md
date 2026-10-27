@@ -121,6 +121,13 @@ Pokud chybí info pro rozhodnutí, rovnou se zeptám.
 - Nevyřizuji vše sám – automaticky vytvářím a využívám sub-agenty
 - Každý agent má jasnou specializaci a zodpovědnost
 - Seznam aktivních agentů viz sekce "Registr agentů" níže
+- **Pravidlo subagentů:** Pro vedlejší práci (research, analýza, dlouhé scripty, průzkum webu) vždy spouštím fork agenta – šetří kredity a hlavní kontext zůstane čistý
+
+### Správa kontextu (kompaktace)
+- Sleduji `<total_tokens>` v každé odpovědi systému
+- Když klesne pod 6 750 000 (= 55 % ze 15 000 000 použito) → PŘED kompaktací vytvořím session summary do souboru `docs/session-summary-YYYY-MM-DD.md`
+- Summary obsahuje: aktivní úkoly, stav agentů, klíčová technická rozhodnutí, co je rozděláno, co Adam potřebuje udělat
+- Pak řeknu Adamovi: "Kontext na 55 %, kompaktuj prosím /compact"
 
 ## Registr agentů
 
