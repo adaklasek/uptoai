@@ -59,7 +59,9 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 - **COO-Telegram-Sender** (ID: 10051783) – příjem textu → Telegram zpráva; aktivní
   - Webhook: `https://hook.eu2.make.com/ybk7d485ja85fs7ewmsraqi6vur071hy`
   - Z Claude Code: `mcp__Make__scenarios_run` s `scenarioId: 10051783`, `data: {"text": "..."}`
-- **COO-Leads** – TODO: Airtable CRUD pro add_lead/update_lead intenty
+- **COO-Leads** (ID: 10052185) – webhook → router → Airtable CRUD; aktivní (nutno doplnit token viz TODO)
+  - Webhook: `https://hook.eu2.make.com/1pddpzybkl1mntlc5lywptasaovc3fi3`
+  - Interface: action, name, email, phone, notes, city, status, record_id
 
 ### Claude Code scheduled task
 - **CEO Daily Briefing** (ID: trig_011Y71uiLHcLyEY8WwbG7bSL) – 6:43 CET každý den; první run: 2026-10-28
@@ -67,7 +69,7 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
   - Testováno: 27.10.2026 – funguje
 
 ### Intenty (COO-Router)
-- `add_lead` / `update_lead` → response + TODO: COO-Leads scénář
+- `add_lead` / `update_lead` → COO-Leads scénář (ID: 10052185) → Airtable
 - `get_status` / `weekly_report` → response (TODO: live Airtable data)
 - `build_agent` → response (TODO: Make.com API volání)
 - `update_project` → response
@@ -80,9 +82,12 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 - Při adaptive thinking má response 2 content bloky – použij `last()` pro text blok
 
 ### Setup potřeba (TODO)
-1. **Adam**: Opravit Status field v Airtable Leads – přejmenovat možnosti na česky (Nový, Kontaktovaný, Odpověděl, Schůzka, Nabídka, Retainer, Implementace, Ztráta)
+1. ~~**Adam**: Opravit Status field v Airtable Leads~~ – HOTOVO (27.10.2026)
 2. **Adam**: Nastavit `AIRTABLE_TOKEN` v environment secrets → aktivuje COO Daily Briefing scénář v Make.com
 3. **Adam**: Aktivovat COO Daily Briefing scénář v Make.com (ID: 10051722) po nastavení tokenu
+4. **Adam**: V Make.com otevřít COO-Leads (ID: 10052185) → HTTP moduly → nahradit `VLOZ_SEM_AIRTABLE_TOKEN` skutečným tokenem
+5. **Adam**: V Make.com otevřít COO-Router (ID: 10042629) → modul "Watch Updates" → uložit/reconnect (fix Telegram webhook)
+6. **Adam**: V Make.com aktualizovat COO-Router – propojit add_lead/update_lead větve s COO-Leads webhookem
 
 ## Moje odpovědnosti jako CEO
 
@@ -127,7 +132,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | COO-Router | Make.com | 10042629 | Aktivni | Telegram → intent detection → routing na akce |
 | COO-Telegram-Sender | Make.com | 10051783 | Aktivni | Prijme text → posle Telegram zprávu Adamovi |
 | COO-Daily-Briefing | Make.com | 10051722 | Neaktivni | Rezerva k CEO Daily Briefing (potreba AIRTABLE_TOKEN) |
-| COO-Leads | Make.com | TODO | TODO | Airtable CRUD pro pridavani a update leadů z Telegramu |
+| COO-Leads | Make.com | 10052185 | Aktivni (nutno token) | Webhook → router → Airtable CRUD pro pridavani a update leadů |
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
 
