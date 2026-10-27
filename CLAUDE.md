@@ -56,10 +56,15 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 ### Make.com scénáře (folder: Up to AI, ID: 539841)
 - **COO-Router** (ID: 10042629) – Telegram webhook → intent detection → akce; aktivní
 - **COO - Daily Briefing** (ID: 10051722) – denní analýza Airtable → Claude → Telegram; NEAKTIVNÍ (potřeba AIRTABLE_TOKEN)
+- **COO-Telegram-Sender** (ID: 10051783) – příjem textu → Telegram zpráva; aktivní
+  - Webhook: `https://hook.eu2.make.com/ybk7d485ja85fs7ewmsraqi6vur071hy`
+  - Z Claude Code: `mcp__Make__scenarios_run` s `scenarioId: 10051783`, `data: {"text": "..."}`
 - **COO-Leads** – TODO: Airtable CRUD pro add_lead/update_lead intenty
 
 ### Claude Code scheduled task
 - **CEO Daily Briefing** (ID: trig_011Y71uiLHcLyEY8WwbG7bSL) – 6:43 CET každý den; první run: 2026-10-28
+  - Používá: Airtable MCP + Make MCP (scenarios_run na COO-Telegram-Sender)
+  - Testováno: 27.10.2026 – funguje
 
 ### Intenty (COO-Router)
 - `add_lead` / `update_lead` → response + TODO: COO-Leads scénář
@@ -75,8 +80,10 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 - Při adaptive thinking má response 2 content bloky – použij `last()` pro text blok
 
 ### Setup potřeba (TODO)
-1. Nastavit `AIRTABLE_TOKEN` v environment secrets → aktivuje COO Daily Briefing scénář
-2. Aktivovat COO Daily Briefing scénář v Make.com (ID: 10051722) po nastavení tokenu
+1. **Adam**: `git push -u origin main` – push 2 commitů z lokálu
+2. **Adam**: Opravit Status field v Airtable Leads – přejmenovat možnosti na česky (Nový, Kontaktovaný, ...)
+3. **Adam**: Nastavit `AIRTABLE_TOKEN` v environment secrets → aktivuje COO Daily Briefing scénář v Make.com
+4. **Adam**: Aktivovat COO Daily Briefing scénář v Make.com (ID: 10051722) po nastavení tokenu
 
 ## Moje odpovědnosti jako CEO
 
