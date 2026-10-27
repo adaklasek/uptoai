@@ -4,7 +4,7 @@
 
 ## Diagnóza
 
-**Hlavní problém:** Pricing je freelancer-level (25k implementace), positioning je agency-level. Mismatch zabíjí marži a attracts wrong clients.
+**Byl hlavní problém:** Pricing byl freelancer-level (25k implementace), positioning agency-level. Mismatch zabíjel marži. **Opraveno říjen 2026 – nyní 45k.**
 
 **Silné stránky:**
 - Fungující Make.com pipeline (Hunter + Analyst + Writer + Sender)
@@ -12,7 +12,7 @@
 - Fokus na česky mluvící trh (méně konkurence než EN)
 
 **Slabé stránky:**
-- Nízká cena implementace (25k vs. market 50-150k)
+- ~~Nízká cena implementace (25k vs. market 50-150k)~~ – opraveno na 45k
 - Placeholder testimonials (žádní skuteční klienti viditelně)
 - Chybí case studies s čísly
 - Žádný retainer pipeline
@@ -55,7 +55,7 @@
 ### Immediate pipeline (Oct-Nov 2026)
 1. Opravit Analyst Agent (invalid) → odemknout celý outreach pipeline
 2. Přidat 2 skutečné case studies na web s konkrétními čísly (% úspora času)
-3. Zvýšit pricing na webu: 45k implementace
+3. ~~Zvýšit pricing na webu: 45k implementace~~ – ✅ HOTOVO (říjen 2026)
 4. Aktivovat Sender Agent → 50 emailů/týden
 
 ## 6-měsíční roadmapa
