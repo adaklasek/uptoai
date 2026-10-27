@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{NAZEV_FIRMY}} | Kadeřnictví {{MESTO}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #111010;
+      --bg2: #1a1818;
+      --bg3: #222020;
+      --accent: #c9a84c;
+      --accent-l: #e2c06e;
+      --cream: #f5f0e8;
+      --text: #e8e4dc;
+      --muted: #8a8070;
+      --r: 4px;
+      --max: 1080px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Lato', sans-serif; line-height: 1.7; }
+
+    .demo-bar {
+      background: var(--accent); color: #111; text-align: center;
+      padding: 9px max(16px, env(safe-area-inset-left, 0px));
+      font-size: 13px; font-weight: 700;
+    }
+    .demo-bar a { color: #111; text-decoration: underline; }
+
+    header {
+      background: var(--bg2); border-bottom: 1px solid rgba(201,168,76,.15);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .hdr {
+      max-width: var(--max); margin: 0 auto;
+      padding: 18px max(16px, env(safe-area-inset-left, 0px));
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--cream); text-decoration: none; letter-spacing: 1px; }
+    .logo em { color: var(--accent); font-style: normal; }
+    nav { display: flex; gap: 24px; align-items: center; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; transition: color .2s; }
+    nav a:hover { color: var(--accent); }
+    .cta-nav { background: var(--accent); color: #111 !important; padding: 10px 20px; border-radius: var(--r); font-size: 13px !important; }
+    .cta-nav:hover { background: var(--accent-l) !important; }
+    @media (max-width: 620px) { nav .hide { display: none; } }
+
+    .hero {
+      padding: 100px max(16px, env(safe-area-inset-left, 0px)) 80px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+      border-bottom: 1px solid rgba(201,168,76,.1);
+    }
+    .hero-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(38px,7vw,72px);
+      font-weight: 600; line-height: 1.1; color: var(--cream); margin-bottom: 20px;
+      text-wrap: balance;
+    }
+    .sub { font-size: clamp(15px,1.8vw,18px); color: var(--muted); max-width: 500px; margin: 0 auto 40px; font-weight: 300; }
+    .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-p { background: var(--accent); color: #111; padding: 14px 30px; border-radius: var(--r); text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: .5px; transition: background .2s; }
+    .btn-p:hover { background: var(--accent-l); }
+    .btn-s { background: transparent; color: var(--text); padding: 14px 30px; border-radius: var(--r); text-decoration: none; font-size: 15px; border: 1px solid rgba(201,168,76,.3); transition: border-color .2s; }
+    .btn-s:hover { border-color: var(--accent); }
+    .divider { width: 60px; height: 1px; background: var(--accent); margin: 60px auto 0; opacity: .5; }
+
+    section { padding: 80px max(16px, env(safe-area-inset-left, 0px)); }
+    .in { max-width: var(--max); margin: 0 auto; }
+    .tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,4vw,46px); font-weight: 600; color: var(--cream); margin-bottom: 12px; text-wrap: balance; }
+    .lead { color: var(--muted); margin-bottom: 48px; font-weight: 300; }
+
+    .s-bg { background: var(--bg2); }
+
+    .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; }
+    .pcard {
+      background: var(--bg3); border: 1px solid rgba(201,168,76,.12); border-radius: 8px; overflow: hidden;
+      transition: border-color .2s;
+    }
+    .pcard:hover { border-color: rgba(201,168,76,.4); }
+    .pcard-head { background: rgba(201,168,76,.07); padding: 20px 24px; border-bottom: 1px solid rgba(201,168,76,.12); }
+    .pcard-head h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--cream); }
+    .pcard-body { padding: 20px 24px; }
+    .price-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.04); }
+    .price-row:last-child { border-bottom: none; }
+    .price-name { font-size: 14px; color: var(--text); }
+    .price-val { font-size: 15px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+    .gallery { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 48px; }
+    @media (max-width: 560px) { .gallery { grid-template-columns: 1fr 1fr; } }
+    .gbox {
+      aspect-ratio: 3/4; background: var(--bg3); border-radius: 6px;
+      border: 1px solid rgba(255,255,255,.06);
+      display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 12px;
+    }
+
+    .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-top: 0; }
+    @media (max-width: 640px) { .hours-grid { grid-template-columns: 1fr; } }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    td { padding: 10px 0; font-size: 15px; border-bottom: 1px solid rgba(255,255,255,.05); }
+    td:last-child { text-align: right; color: var(--accent); font-weight: 700; }
+    tr:last-child td { border-bottom: none; }
+
+    .cgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    @media (max-width: 680px) { .cgrid { grid-template-columns: 1fr; gap: 36px; } }
+    .ci { display: flex; gap: 14px; margin-bottom: 22px; align-items: flex-start; }
+    .ci-i { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .ci strong { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .ci a { color: var(--accent); text-decoration: none; font-size: 18px; font-weight: 700; font-family: 'Cormorant Garamond', serif; }
+    .ci span { font-size: 15px; }
+
+    form { display: flex; flex-direction: column; gap: 12px; }
+    input, textarea, select {
+      background: var(--bg3); border: 1px solid rgba(255,255,255,.09);
+      border-radius: var(--r); padding: 12px 16px; color: var(--text);
+      font-family: 'Lato', sans-serif; font-size: 15px; outline: none;
+      transition: border-color .2s; width: 100%;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    select option { background: var(--bg3); }
+    textarea { resize: vertical; min-height: 100px; }
+    .form-h { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--cream); margin-bottom: 20px; }
+    button[type="submit"] {
+      background: var(--accent); color: #111; border: none; padding: 14px;
+      border-radius: var(--r); font-weight: 700; font-size: 16px; cursor: pointer; transition: background .2s; letter-spacing: .5px;
+    }
+    button[type="submit"]:hover { background: var(--accent-l); }
+    .form-ok { display: none; background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.3); border-radius: var(--r); padding: 16px; text-align: center; color: var(--accent); font-weight: 600; }
+
+    footer {
+      background: var(--bg); border-top: 1px solid rgba(201,168,76,.1);
+      padding: 28px max(16px, env(safe-area-inset-left, 0px));
+      text-align: center; font-size: 13px; color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="demo-bar">
+  ✂️ Tento web jsme pro vás připravili zdarma jako ukázku. <a href="mailto:adam@uptoai.cz">Chci takový web pro svůj salon</a>
+</div>
+
+<header>
+  <div class="hdr">
+    <a href="#" class="logo"><em>{{NAZEV_FIRMY}}</em></a>
+    <nav>
+      <a href="#sluzby" class="hide">Služby</a>
+      <a href="#cenik" class="hide">Ceník</a>
+      <a href="#rezervace" class="cta-nav">Rezervovat</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-label">Kadeřnictví · {{MESTO}}</div>
+  <h1>Střihy, které<br>mluví za vás</h1>
+  <p class="sub">Profesionální kadeřnictví s důrazem na kvalitu a individuální přístup ke každému klientovi.</p>
+  <div class="btns">
+    <a href="#rezervace" class="btn-p">Rezervovat termín</a>
+    <a href="tel:{{TELEFON}}" class="btn-s">📞 {{TELEFON}}</a>
+  </div>
+  <div class="divider"></div>
+</section>
+
+<section class="s-bg" id="sluzby">
+  <div class="in">
+    <div class="tag">Naše služby</div>
+    <h2>Ceník služeb</h2>
+    <p class="lead">Transparentní ceny bez překvapení.</p>
+    <div class="price-grid" id="cenik">
+      <div class="pcard">
+        <div class="pcard-head"><h3>Dámské služby</h3></div>
+        <div class="pcard-body">
+          <div class="price-row"><span class="price-name">Střih + foukaná</span><span class="price-val">od 500 Kč</span></div>
+          <div class="price-row"><span class="price-name">Střih bez foukané</span><span class="price-val">od 380 Kč</span></div>
+          <div class="price-row"><span class="price-name">Barvení (krátké vlasy)</span><span class="price-val">od 700 Kč</span></div>
+          <div class="price-row"><span class="price-name">Melír / Highlights</span><span class="price-val">od 900 Kč</span></div>
+          <div class="price-row"><span class="price-name">Regenerační kúra</span><span class="price-val">od 350 Kč</span></div>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-head"><h3>Pánské služby</h3></div>
+        <div class="pcard-body">
+          <div class="price-row"><span class="price-name">Střih</span><span class="price-val">od 280 Kč</span></div>
+          <div class="price-row"><span class="price-name">Střih + úprava vousů</span><span class="price-val">od 380 Kč</span></div>
+          <div class="price-row"><span class="price-name">Dětský střih (do 12 let)</span><span class="price-val">od 200 Kč</span></div>
+          <div class="price-row"><span class="price-name">Barvení</span><span class="price-val">od 500 Kč</span></div>
+          <div class="price-row"><span class="price-name">Holení přímou žiletkou</span><span class="price-val">od 350 Kč</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="in">
+    <div class="tag">Galerie prací</div>
+    <h2>Výsledky mluví<br>za vše</h2>
+    <div class="gallery">
+      <div class="gbox">foto 1</div>
+      <div class="gbox">foto 2</div>
+      <div class="gbox">foto 3</div>
+      <div class="gbox">foto 4</div>
+      <div class="gbox">foto 5</div>
+      <div class="gbox">foto 6</div>
+    </div>
+  </div>
+</section>
+
+<section class="s-bg" id="rezervace">
+  <div class="in">
+    <div class="cgrid">
+      <div>
+        <div class="tag">Kontakt</div>
+        <h2>Objednání<br>&amp; kontakt</h2>
+        <div class="ci">
+          <div class="ci-i">📞</div>
+          <div><strong>Telefon</strong><a href="tel:{{TELEFON}}">{{TELEFON}}</a></div>
+        </div>
+        <div class="ci">
+          <div class="ci-i">📍</div>
+          <div><strong>Adresa</strong><span>{{ADRESA}}, {{MESTO}}</span></div>
+        </div>
+        <div class="tag" style="margin-top:32px">Otevírací doba</div>
+        <table>
+          <tr><td>Pondělí – Pátek</td><td>9:00 – 19:00</td></tr>
+          <tr><td>Sobota</td><td>9:00 – 14:00</td></tr>
+          <tr><td>Neděle</td><td>zavřeno</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="form-h">Rezervovat termín</div>
+        <form id="f">
+          <input type="text" placeholder="Vaše jméno" required>
+          <input type="tel" placeholder="Telefon" required>
+          <select>
+            <option value="">Vyberte službu</option>
+            <option>Dámský střih + foukaná</option>
+            <option>Dámský střih bez foukané</option>
+            <option>Barvení / melír</option>
+            <option>Pánský střih</option>
+            <option>Pánský střih + vousy</option>
+            <option>Dětský střih</option>
+          </select>
+          <input type="text" placeholder="Preferovaný termín (datum, čas)">
+          <button type="submit">Odeslat rezervaci →</button>
+        </form>
+        <div class="form-ok" id="ok">✓ Rezervace přijata! Brzy se vám ozveme pro potvrzení.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 {{NAZEV_FIRMY}} · {{MESTO}} | Web vytvořen pomocí <a href="https://uptoai.cz">UpToAI</a></p>
+</footer>
+
+<script>
+  document.getElementById('f').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('ok').style.display = 'block';
+  });
+</script>
+</body>
+</html>

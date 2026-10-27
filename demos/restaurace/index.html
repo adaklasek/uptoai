@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{NAZEV_FIRMY}} | Restaurace &amp; Bistro {{MESTO}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1a0f0a;
+      --bg2: #221510;
+      --bg3: #2c1c14;
+      --accent: #c0392b;
+      --accent-l: #e04535;
+      --gold: #d4a843;
+      --cream: #f5ead8;
+      --text: #e8d8c4;
+      --muted: #8a7260;
+      --white: #fff;
+      --r: 4px;
+      --max: 1060px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Open Sans', sans-serif; line-height: 1.7; }
+
+    .demo-bar {
+      background: var(--accent); color: #fff; text-align: center;
+      padding: 9px max(16px, env(safe-area-inset-left, 0px));
+      font-size: 13px; font-weight: 600;
+    }
+    .demo-bar a { color: #fff; text-decoration: underline; }
+
+    header {
+      background: rgba(26,15,10,.96); border-bottom: 1px solid rgba(212,168,67,.15);
+      position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px);
+    }
+    .hdr {
+      max-width: var(--max); margin: 0 auto;
+      padding: 16px max(16px, env(safe-area-inset-left, 0px));
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .logo { font-family: 'Libre Baskerville', serif; font-size: 20px; font-weight: 700; color: var(--cream); text-decoration: none; }
+    .logo em { color: var(--gold); font-style: italic; }
+    nav { display: flex; gap: 22px; align-items: center; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color .2s; }
+    nav a:hover { color: var(--gold); }
+    .cta-nav { background: var(--accent); color: #fff !important; padding: 9px 18px; border-radius: var(--r); }
+    .cta-nav:hover { background: var(--accent-l) !important; }
+    @media (max-width: 600px) { nav .hide { display: none; } }
+
+    .hero {
+      position: relative; padding: 120px max(16px, env(safe-area-inset-left, 0px)) 100px;
+      text-align: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, #2a0f08 0%, #1a0f0a 50%, #0f0806 100%);
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(192,57,43,.18) 0%, transparent 70%);
+    }
+    .hero-in { max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; }
+    .hero-line { display: flex; align-items: center; gap: 16px; justify-content: center; margin-bottom: 20px; }
+    .hl { width: 40px; height: 1px; background: var(--gold); opacity: .6; }
+    .hero-tag { font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+    h1 { font-family: 'Libre Baskerville', serif; font-size: clamp(34px,7vw,68px); font-weight: 700; line-height: 1.1; color: var(--cream); margin-bottom: 20px; text-wrap: balance; }
+    h1 em { color: var(--gold); font-style: italic; }
+    .sub { font-size: clamp(15px,1.8vw,18px); color: var(--muted); max-width: 500px; margin: 0 auto 40px; font-weight: 300; }
+    .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-p { background: var(--accent); color: #fff; padding: 14px 28px; border-radius: var(--r); text-decoration: none; font-weight: 600; font-size: 15px; transition: background .2s; }
+    .btn-p:hover { background: var(--accent-l); }
+    .btn-g { background: transparent; color: var(--cream); padding: 14px 28px; border-radius: var(--r); text-decoration: none; font-size: 15px; border: 1px solid rgba(212,168,67,.35); transition: border-color .2s; }
+    .btn-g:hover { border-color: var(--gold); }
+    .hours-strip { display: flex; gap: 0; justify-content: center; margin-top: 60px; flex-wrap: wrap; }
+    .hs { padding: 14px 28px; border: 1px solid rgba(212,168,67,.15); border-right: none; font-size: 13px; text-align: center; }
+    .hs:first-child { border-radius: var(--r) 0 0 var(--r); }
+    .hs:last-child { border-right: 1px solid rgba(212,168,67,.15); border-radius: 0 var(--r) var(--r) 0; }
+    .hs strong { display: block; color: var(--gold); font-size: 15px; margin-top: 2px; }
+
+    section { padding: 80px max(16px, env(safe-area-inset-left, 0px)); }
+    .in { max-width: var(--max); margin: 0 auto; }
+    .tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(28px,4vw,46px); font-weight: 700; color: var(--cream); margin-bottom: 14px; text-wrap: balance; }
+    .lead { color: var(--muted); margin-bottom: 48px; font-weight: 300; }
+    .s-bg { background: var(--bg2); }
+
+    .menu-tabs { display: flex; gap: 4px; margin-bottom: 32px; flex-wrap: wrap; }
+    .tab { padding: 9px 18px; border-radius: var(--r); cursor: pointer; font-size: 14px; font-weight: 600; color: var(--muted); border: 1px solid rgba(255,255,255,.07); background: transparent; transition: all .2s; font-family: 'Open Sans', sans-serif; }
+    .tab.active, .tab:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .menu-section { display: none; }
+    .menu-section.active { display: block; }
+    .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 600px) { .menu-grid { grid-template-columns: 1fr; } }
+    .mitem {
+      background: var(--bg3); border: 1px solid rgba(255,255,255,.04); border-radius: 8px;
+      padding: 18px 20px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+    }
+    .mitem-name { font-size: 15px; font-weight: 600; color: var(--text); }
+    .mitem-desc { font-size: 13px; color: var(--muted); margin-top: 3px; }
+    .mitem-price { font-size: 15px; font-weight: 700; color: var(--gold); white-space: nowrap; }
+
+    .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 18px; }
+    .spec-card {
+      background: var(--bg3); border: 1px solid rgba(212,168,67,.1); border-radius: 8px;
+      padding: 24px; text-align: center; transition: border-color .2s;
+    }
+    .spec-card:hover { border-color: rgba(212,168,67,.3); }
+    .spec-i { font-size: 36px; margin-bottom: 12px; }
+    .spec-card h3 { font-family: 'Libre Baskerville', serif; font-size: 18px; color: var(--cream); margin-bottom: 6px; }
+    .spec-card p { font-size: 13px; color: var(--muted); }
+
+    .cgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    @media (max-width: 680px) { .cgrid { grid-template-columns: 1fr; gap: 36px; } }
+    .ci { display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start; }
+    .ci-i { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .ci strong { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .ci a { color: var(--gold); text-decoration: none; font-size: 18px; font-weight: 700; }
+    .ci span { font-size: 15px; }
+
+    form { display: flex; flex-direction: column; gap: 12px; }
+    input, textarea, select {
+      background: var(--bg3); border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--r); padding: 12px 16px; color: var(--text);
+      font-family: 'Open Sans', sans-serif; font-size: 15px; outline: none;
+      transition: border-color .2s; width: 100%;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--gold); }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    select option { background: var(--bg3); }
+    textarea { resize: vertical; min-height: 90px; }
+    .form-h { font-family: 'Libre Baskerville', serif; font-size: 24px; font-weight: 700; color: var(--cream); margin-bottom: 20px; }
+    button[type="submit"] {
+      background: var(--accent); color: #fff; border: none; padding: 14px;
+      border-radius: var(--r); font-weight: 700; font-size: 16px; cursor: pointer; transition: background .2s;
+    }
+    button[type="submit"]:hover { background: var(--accent-l); }
+    .form-ok { display: none; background: rgba(212,168,67,.1); border: 1px solid rgba(212,168,67,.3); border-radius: var(--r); padding: 16px; text-align: center; color: var(--gold); font-weight: 600; }
+
+    footer {
+      background: var(--bg); border-top: 1px solid rgba(212,168,67,.1);
+      padding: 28px max(16px, env(safe-area-inset-left, 0px));
+      text-align: center; font-size: 13px; color: var(--muted);
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="demo-bar">
+  🍽️ Tento web jsme pro vás připravili zdarma jako ukázku. <a href="mailto:adam@uptoai.cz">Chci takový web pro svůj podnik</a>
+</div>
+
+<header>
+  <div class="hdr">
+    <a href="#" class="logo"><em>{{NAZEV_FIRMY}}</em></a>
+    <nav>
+      <a href="#menu" class="hide">Menu</a>
+      <a href="#o-nas" class="hide">O nás</a>
+      <a href="#rezervace" class="cta-nav">Rezervovat stůl</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-in">
+    <div class="hero-line"><span class="hl"></span><span class="hero-tag">{{MESTO}} · od roku {{ROK}}</span><span class="hl"></span></div>
+    <h1>Domácí kuchyně<br><em>plná chutí</em></h1>
+    <p class="sub">Vařte vám s láskou z lokálních surovin. Přijďte posedět — anebo si nechte zarezervovat stůl předem.</p>
+    <div class="btns">
+      <a href="#rezervace" class="btn-p">Rezervovat stůl</a>
+      <a href="#menu" class="btn-g">Zobrazit menu</a>
+    </div>
+    <div class="hours-strip">
+      <div class="hs">Po – Čt<strong>11:00 – 22:00</strong></div>
+      <div class="hs">Pá – So<strong>11:00 – 23:00</strong></div>
+      <div class="hs">Neděle<strong>11:00 – 21:00</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="s-bg" id="menu">
+  <div class="in">
+    <div class="tag">Co vaříme</div>
+    <h2>Dnešní menu</h2>
+    <p class="lead">Čerstvé suroviny, poctivé recepty. Menu měníme každý den.</p>
+    <div class="menu-tabs">
+      <button class="tab active" onclick="showTab('polevky',this)">Polévky</button>
+      <button class="tab" onclick="showTab('hlavni',this)">Hlavní chody</button>
+      <button class="tab" onclick="showTab('dezerty',this)">Dezerty</button>
+      <button class="tab" onclick="showTab('napoje',this)">Nápoje</button>
+    </div>
+    <div id="polevky" class="menu-section active">
+      <div class="menu-grid">
+        <div class="mitem"><div><div class="mitem-name">Česnečka</div><div class="mitem-desc">Hustá česnečka se sýrem a krutony</div></div><div class="mitem-price">69 Kč</div></div>
+        <div class="mitem"><div><div class="mitem-name">Hovězí vývar</div><div class="mitem-desc">S nudlemi a zeleninou, domácí</div></div><div class="mitem-price">79 Kč</div></div>
+        <div class="mitem"><div><div class="mitem-name">Polévka dne</div><div class="mitem-desc">Ptejte se obsluhy</div></div><div class="mitem-price">59 Kč</div></div>
+      </div>
+    </div>
+    <div id="hlavni" class="menu-section">
+      <div class="menu-grid">
+        <div class="mitem"><div><div class="mitem-name">Svíčková na smetaně</div><div class="mitem-desc">S knedlíkem, brusinkami a šlehačkou</div></div><div class="mitem-price">265 Kč</div></div>
+        <div class="mitem"><div><div class="mitem-name">Kuřecí steak</div><div class="mitem-desc">S grilovanou zeleninou a bramborem</div></div><div class="mitem-price">235 Kč</div></div>
+        <div class="mitem"><div><div class="mitem-name">Pstruh na másle</div><div class="mitem-desc">S bramborovým salátem</div></div><div class="mitem-price">285 Kč</div></div>
+        <div class="mitem"><div><div class="mitem-name">Domácí burger</div><div class="mitem-desc">200g hovězí, brioche, hranolky</div></div><div class="mitem-price">245 Kč</div></div>
+      </div>
+    </div>
+    <div id="dezerty" class="menu-section">
+      <div class="menu-grid">
+        <div class="mitem"><div><div class="mitem-name">Štrůdl</div><div class="mitem-desc">Teplý jablečný, se šlehačkou</div></div><div class="mitem-price">99 Kč</div></div>
+        <div class="mitem"><div><div class="mitem-name">Čokoládový fondán</div><div class="mitem-desc">S vanilkovou zmrzlinou</div></div><div class="mitem-price">120 Kč</div></div>
+      </div>
+    </div>
+    <div id="napoje" class="menu-section">
+      <div class="menu-grid">
+        <div class="mitem"><div><div class="mitem-name">Pivo čepované</div><div class="mitem-desc">0,5 l</div></div><div class="mitem-price">45 Kč</div></div>
+        <div class="mitem"><div><div class="mitem-name">Vína sklenička</div><div class="mitem-desc">Moravské víno 0,15 l</div></div><div class="mitem-price">69 Kč</div></div>
+        <div class="mitem"><div><div class="mitem-name">Nealkoholické</div><div class="mitem-desc">Voda, džusy, limonády</div></div><div class="mitem-price">od 39 Kč</div></div>
+        <div class="mitem"><div><div class="mitem-name">Káva</div><div class="mitem-desc">Espresso, cappuccino, latte</div></div><div class="mitem-price">od 55 Kč</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="o-nas">
+  <div class="in">
+    <div class="tag">O nás</div>
+    <h2>Proč k nám chodit</h2>
+    <p class="lead">Malý podnik s velkým srdcem.</p>
+    <div class="spec-grid">
+      <div class="spec-card">
+        <div class="spec-i">👨‍🍳</div>
+        <h3>Domácí vaření</h3>
+        <p>Vše připravujeme z čerstvých surovin podle osvědčených rodinných receptů.</p>
+      </div>
+      <div class="spec-card">
+        <div class="spec-i">🥬</div>
+        <h3>Lokální suroviny</h3>
+        <p>Zelenina, maso i mléčné výrobky pocházejí od lokálních farmářů.</p>
+      </div>
+      <div class="spec-card">
+        <div class="spec-i">🎉</div>
+        <h3>Soukromé akce</h3>
+        <p>Narozeniny, firemní večírky, rodinné oslavy — rádi připravíme prostor pro vaši událost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-bg" id="rezervace">
+  <div class="in">
+    <div class="cgrid">
+      <div>
+        <div class="tag">Kde nás najdete</div>
+        <h2>Kontakt &amp;<br>rezervace</h2>
+        <div class="ci">
+          <div class="ci-i">📞</div>
+          <div><strong>Telefon</strong><a href="tel:{{TELEFON}}">{{TELEFON}}</a></div>
+        </div>
+        <div class="ci">
+          <div class="ci-i">📍</div>
+          <div><strong>Adresa</strong><span>{{ADRESA}}, {{MESTO}}</span></div>
+        </div>
+        <div class="ci">
+          <div class="ci-i">✉️</div>
+          <div><strong>Email</strong><span>{{EMAIL}}</span></div>
+        </div>
+        <div style="margin-top:28px;background:var(--bg3);border-radius:8px;padding:20px;font-size:14px;color:var(--muted);">
+          💳 Přijímáme hotovost i kartu. Parkování v okolí restaurace.
+        </div>
+      </div>
+      <div>
+        <div class="form-h">Rezervovat stůl</div>
+        <form id="f">
+          <input type="text" placeholder="Jméno" required>
+          <input type="tel" placeholder="Telefon" required>
+          <input type="datetime-local" style="color-scheme: dark;">
+          <select>
+            <option value="">Počet osob</option>
+            <option>1–2 osoby</option>
+            <option>3–4 osoby</option>
+            <option>5–6 osob</option>
+            <option>7+ osob</option>
+          </select>
+          <textarea placeholder="Poznámka (alergie, speciální přání...)"></textarea>
+          <button type="submit">Odeslat rezervaci →</button>
+        </form>
+        <div class="form-ok" id="ok">✓ Rezervace přijata! Potvrdíme vám ji telefonicky.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 {{NAZEV_FIRMY}} · {{MESTO}} | Web vytvořen pomocí <a href="https://uptoai.cz">UpToAI</a></p>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+  document.getElementById('f').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('ok').style.display = 'block';
+  });
+</script>
+</body>
+</html>
