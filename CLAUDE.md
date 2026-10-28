@@ -142,6 +142,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | COO-Leads | Make.com | 10052185 | Aktivni (nutno token) | Webhook → router → Airtable CRUD pro pridavani a update leadů |
 | Web-Offer-Drafter | Make.com | 10054653 | Aktivni | Kazde hodinu: Google Sheets web_offer → Claude kategorizace + email draft → Zoho draft + Telegram notif |
 | Web-Lead-Hunter | Make.com | 10054674 | Aktivni (on-demand) | hunter_targets (F=yes) → Apify Google Places → filtr bez webu → Google Sheets leads jako web_offer; toString() fix pro Apify number/null typy |
+| Web-Demo-Builder | Claude Code scheduled task | trig_01HE5UQk9vppsj7re9ATDgRd | Aktivni (on-demand) | web_offer leady bez demo_url → Lovable projekt (industry-specific prompt) → preview_url do leads!S + Telegram notif; max 3/run |
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
 
