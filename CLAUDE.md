@@ -133,15 +133,24 @@ Pokud chybí info pro rozhodnutí, rovnou se zeptám.
 
 Aktualni seznam sub-agentu. Udrzuji aktualni.
 
+### Pipeline flow (statusy v leads sheetu):
+`web_offer` → (Analyst) → `bid_web`/`bid_auto`/`bid_all` → (Drafter) → `prepared` → (Telegram notif) → `schvaleno` → (Sender) → `odeslano` → (Reply Watcher) → `deal`/`lost`/`needs_response`
+
 | Agent | Platforma | ID | Status | Zodpovednost |
 |-------|-----------|-----|--------|--------------|
-| CEO Daily Briefing | Claude Code scheduled task | trig_011Y71uiLHcLyEY8WwbG7bSL | Aktivni | Kazdy den 6:43 CET: Airtable → analyza → Telegram briefing |
+| CEO Daily Briefing | Claude Code scheduled task | trig_011Y71uiLHcLyEY8WwbG7bSL | Aktivni | Kazdy den 6:43 CET: ToolSearch → Airtable → analyza → Telegram briefing |
 | COO-Router | Make.com | 10042629 | Aktivni | Telegram → intent detection → routing na akce |
 | COO-Telegram-Sender | Make.com | 10051783 | Aktivni | Prijme text → posle Telegram zprávu Adamovi |
 | COO-Daily-Briefing | Make.com | 10051722 | Neaktivni | Rezerva k CEO Daily Briefing (potreba AIRTABLE_TOKEN) |
 | COO-Leads | Make.com | 10052185 | Aktivni (nutno token) | Webhook → router → Airtable CRUD pro pridavani a update leadů |
-| Web-Offer-Drafter | Make.com | 10054653 | Aktivni | Kazde hodinu: Google Sheets web_offer → Claude kategorizace + email draft → Zoho draft + Telegram notif |
-| Web-Lead-Hunter | Make.com | 10054674 | Aktivni (on-demand) | hunter_targets (F=yes) → Apify Google Places → filtr bez webu → Google Sheets leads jako web_offer; toString() fix pro Apify number/null typy |
+| Hunter Agent | Make.com | 10030268 | Aktivni | Kazdy den 9:00 pracovni dny: hunter_targets → Apify → leads sheet |
+| Web-Lead-Hunter | Make.com | 10054674 | Aktivni | Kazdych 6h pracovni dny 8-20: hunter_targets (F=yes) → Apify → leads web_offer; toString() fix |
+| Analyst Agent | Make.com | 9987177 | Aktivni | Kazdych 15min 11-18h: web_offer leads → Claude klasifikace → bid_web/bid_auto/bid_all |
+| Drafter v2 | Make.com | 10022573 | Aktivni | Kazdych 15min 11:30-18:30: bid_web/bid_auto/bid_all → Claude → Gmail draft → prepared |
+| Telegram Approval Notifier | Make.com | 10022585 | Aktivni | Kazdych 15min 11:45-18:45: prepared leads → Telegram notifikace Adamovi |
+| Sender Agent | Make.com | 10029764 | Aktivni | Kazdych 15min: schvaleno → odesle email → odeslano |
+| Reply Watcher | Make.com | 10050828 | Aktivni | Kazdych 15min: sleduje Gmail odpovedi → Claude klasifikace → Telegram notif |
+| Web-Offer-Drafter | Make.com | 10054653 | ROZBITY (isinvalid) | Puvodni drafter pro web_offer - email connection nefunguje |
 | Web-Demo-Builder | Claude Code scheduled task | trig_01HE5UQk9vppsj7re9ATDgRd | Aktivni (on-demand) | web_offer leady bez demo_url → Lovable projekt (industry-specific prompt) → preview_url do leads!S + Telegram notif; max 3/run |
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
