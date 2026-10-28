@@ -152,3 +152,10 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 - `docs/coo-blueprint.md` – technický blueprint COO agenta
 - Artifact (strategie): https://claude.ai/artifact/TDpWdD22ZBxPqWiWTeZG1d
 - Artifact (COO blueprint): https://claude.ai/artifact/9xanopC9U8NSm7ZsaE5xsC
+
+## Google Drive – Document Hub
+
+- **Složka**: https://drive.google.com/drive/folders/1R2xBXThvw5nKamHag6VVpX-k8fp-iAWK (ID: 1R2xBXThvw5nKamHag6VVpX-k8fp-iAWK)
+- **Účel**: všechny výstupní materiály agentury – nabídky, smlouvy, purchase ordery, faktury, demo weby
+- **CRM spreadsheet**: 1qS0Ei6yWnXFchSrfPabpHKJdICUGZ4ZCoM6y9rD-q0o (záložky: leads, hunter_targets, Untitled/import)
+- **Pravidlo**: každý dokument vyrobený pro klienta nebo interně ukládám sem přes Google Drive MCP
