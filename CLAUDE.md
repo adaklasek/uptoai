@@ -145,7 +145,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | COO-Leads | Make.com | 10052185 | Aktivni (nutno token) | Webhook → router → Airtable CRUD pro pridavani a update leadů |
 | Hunter Agent | Make.com | 10030268 | Aktivni | Kazdy den 9:00 pracovni dny: hunter_targets → Apify → leads sheet |
 | Web-Lead-Hunter | Make.com | 10054674 | Aktivni | Kazdych 6h pracovni dny 8-20: hunter_targets (F=yes) → Apify → leads web_offer; toString() fix |
-| Analyst Agent | Make.com | 9987177 | Aktivni | Kazdych 15min 11-18h: web_offer leads → Claude klasifikace → bid_web/bid_auto/bid_all |
+| Analyst Agent | Make.com | 9987177 | Aktivni (opraveno 2026-10-28) | Kazdych 15min 11-18h: web_offer leads → Claude klasifikace → bid_web/bid_auto/bid_all; route filter fix + 4.jsonResponse fix |
 | Drafter v2 | Make.com | 10022573 | Aktivni | Kazdych 15min 11:30-18:30: bid_web/bid_auto/bid_all → Claude → Gmail draft → prepared |
 | Telegram Approval Notifier | Make.com | 10022585 | Aktivni | Kazdych 15min 11:45-18:45: prepared leads → Telegram notifikace Adamovi |
 | Sender Agent | Make.com | 10029764 | Aktivni | Kazdych 15min: schvaleno → odesle email → odeslano |
