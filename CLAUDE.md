@@ -35,7 +35,7 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 
 - **Make.com** – orchestrace automatizací (Organization: My Organization, Team: My Team, ID: 2180018, zone: eu2.make.com)
 - **Airtable** – CRM (Base ID: app2by9c8PSO1bKyi)
-  - Leads: tblSLScVF1xL0gILR
+  - Leads: tblSLScVF1xL0gILR (field demo_url: fldF1Oz4RY4W6mrGz)
   - Clients: tblo7xClSBenPpmA5
   - Projects: tblQz7JsE0cywGm6B
   - API Token: v environment secrets (AIRTABLE_TOKEN)
@@ -154,7 +154,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Sender Agent | Make.com | 10029764 | isinvalid (potreba re-save v Make.com UI) | Kazdych 15min: schvaleno → Gmail DRAFT (adaklasek@gmail.com) → draft_ready; prepsan z SMTP send na Gmail draft 2026-10-28; potreba otevrit modul 3 v Make.com a re-save |
 | Reply Watcher | Make.com | 10050828 | Aktivni | Kazdych 15min: sleduje Gmail odpovedi → Claude klasifikace → Telegram notif |
 | Web-Offer-Drafter | Make.com | 10054653 | ROZBITY (isinvalid) | Puvodni drafter pro web_offer - email connection nefunguje |
-| Web-Demo-Builder | Claude Code scheduled task | trig_01HE5UQk9vppsj7re9ATDgRd | Aktivni (on-demand) | web_offer leady bez demo_url → Lovable projekt (industry-specific prompt) → preview_url do leads!S + Telegram notif; max 3/run |
+| Web-Demo-Builder | Claude Code scheduled task | trig_01HE5UQk9vppsj7re9ATDgRd | Aktivni (on-demand) | Airtable leady (status=new, demo_url empty) → research notes → Claude custom Lovable prompt (industry-specific design) → Lovable projekt → preview_url do Airtable fldF1Oz4RY4W6mrGz → Telegram notif; max 2/run; testovano 28.10.2026 (Nikol Jahnova) |
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
 
