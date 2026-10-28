@@ -141,7 +141,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | COO-Daily-Briefing | Make.com | 10051722 | Neaktivni | Rezerva k CEO Daily Briefing (potreba AIRTABLE_TOKEN) |
 | COO-Leads | Make.com | 10052185 | Aktivni (nutno token) | Webhook → router → Airtable CRUD pro pridavani a update leadů |
 | Web-Offer-Drafter | Make.com | 10054653 | Aktivni | Kazde hodinu: Google Sheets web_offer → Claude kategorizace + email draft → Zoho draft + Telegram notif |
-| Web-Lead-Hunter | Make.com | 10054674 | On-demand | hunter_targets (F=yes) → Apify Google Places → filtr bez webu → Google Sheets jako web_offer |
+| Web-Lead-Hunter | Make.com | 10054674 | Aktivni (on-demand) | hunter_targets (F=yes) → Apify Google Places → filtr bez webu → Google Sheets leads jako web_offer; toString() fix pro Apify number/null typy |
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
 
