@@ -76,10 +76,12 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 - `general` → přímá odpověď
 
 ### Klíčová technická pravidla Make.com + Claude
-- Model: `claude-opus-5-5`
+- Model: `claude-opus-5-5` (pro COO agenty); `claude-sonnet-5-5` pro Analyst/Drafter (jsonResponse parsing)
+- **DŮLEŽITÉ**: `claude-haiku-5-5` NEFUNGUJE s `jsonResponse` v Make.com anthropic modulu – vrací null pro všechna pole. Vždy používej `claude-sonnet-5-5` nebo vyšší.
 - Thinking: `{"type": "adaptive"}` – NIKDY `budget_tokens` (vrátí 400)
-- Claude vrací vždy JSON, ne prose
+- Claude vrací vždy JSON, ne prose; přidej system message: "You output ONLY raw JSON. No markdown. No code blocks."
 - Při adaptive thinking má response 2 content bloky – použij `last()` pro text blok
+- Route filter na každý scénář: `{{1.__ROW_NUMBER__}} != ""` zabraňuje pádu při prázdných bundle
 
 ### Setup potřeba (TODO)
 1. ~~**Adam**: Opravit Status field v Airtable Leads~~ – HOTOVO (27.10.2026)
@@ -145,9 +147,9 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | COO-Leads | Make.com | 10052185 | Aktivni (nutno token) | Webhook → router → Airtable CRUD pro pridavani a update leadů |
 | Hunter Agent | Make.com | 10030268 | Aktivni | Kazdy den 9:00 pracovni dny: hunter_targets → Apify → leads sheet |
 | Web-Lead-Hunter | Make.com | 10054674 | Aktivni | Kazdych 6h pracovni dny 8-20: hunter_targets (F=yes) → Apify → leads web_offer; toString() fix |
-| Analyst Agent | Make.com | 9987177 | Aktivni (opraveno 2026-10-28) | Kazdych 15min 11-18h: web_offer leads → Claude klasifikace → bid_web/bid_auto/bid_all; route filter fix + 4.jsonResponse fix |
+| Analyst Agent | Make.com | 9987177 | Aktivni (opraveno 2026-10-28) | Kazdych 15min 11-18h: web_offer leads → Claude klasifikace → bid_web/bid_auto/bid_all; model: claude-sonnet-5-5 (haiku nefungoval s jsonResponse); route filter fix; testovano 28.10.2026 |
 | Drafter v2 | Make.com | 10022573 | Aktivni | Kazdych 15min 11:30-18:30: bid_web/bid_auto/bid_all → Claude → Gmail draft → prepared |
-| Telegram Approval Notifier | Make.com | 10022585 | Aktivni | Kazdych 15min 11:45-18:45: prepared leads → Telegram notifikace Adamovi |
+| Telegram Approval Notifier | Make.com | 10022585 | Aktivni (opraveno 2026-10-28) | Kazdych 15min 11:45-18:45: prepared leads → Telegram notifikace Adamovi; fix: filter "prepared" (bylo k_schvaleni), HTML parseMode (bylo MarkdownV2), route filter |
 | Sender Agent | Make.com | 10029764 | Aktivni | Kazdych 15min: schvaleno → odesle email → odeslano |
 | Reply Watcher | Make.com | 10050828 | Aktivni | Kazdych 15min: sleduje Gmail odpovedi → Claude klasifikace → Telegram notif |
 | Web-Offer-Drafter | Make.com | 10054653 | ROZBITY (isinvalid) | Puvodni drafter pro web_offer - email connection nefunguje |
