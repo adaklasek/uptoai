@@ -78,6 +78,7 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 ### Klíčová technická pravidla Make.com + Claude
 - Model: `claude-opus-5-5` (pro COO agenty); `claude-sonnet-5-5` pro Analyst/Drafter (jsonResponse parsing)
 - **DŮLEŽITÉ**: `claude-haiku-5-5` NEFUNGUJE s `jsonResponse` v Make.com anthropic modulu – vrací null pro všechna pole. Vždy používej `claude-sonnet-5-5` nebo vyšší.
+- **Airtable MCP create_records/update_records**: singleSelect pole musí být plain string `"new"`, NE object `{"name": "new"}` – object vrátí 422 "Cannot parse value for field _DELETE_ME"
 - Thinking: `{"type": "adaptive"}` – NIKDY `budget_tokens` (vrátí 400)
 - Claude vrací vždy JSON, ne prose; přidej system message: "You output ONLY raw JSON. No markdown. No code blocks."
 - Při adaptive thinking má response 2 content bloky – použij `last()` pro text blok
@@ -150,7 +151,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Analyst Agent | Make.com | 9987177 | Aktivni (opraveno 2026-10-28) | Kazdych 15min 11-18h: web_offer leads → Claude klasifikace → bid_web/bid_auto/bid_all; model: claude-sonnet-5-5 (haiku nefungoval s jsonResponse); route filter fix; testovano 28.10.2026 |
 | Drafter v2 | Make.com | 10022573 | Aktivni | Kazdych 15min 11:30-18:30: bid_web/bid_auto/bid_all → Claude → Gmail draft → prepared |
 | Telegram Approval Notifier | Make.com | 10022585 | Aktivni (opraveno 2026-10-28) | Kazdych 15min 11:45-18:45: prepared leads → Telegram notifikace Adamovi; fix: filter "prepared" (bylo k_schvaleni), HTML parseMode (bylo MarkdownV2), route filter |
-| Sender Agent | Make.com | 10029764 | Aktivni | Kazdych 15min: schvaleno → odesle email → odeslano |
+| Sender Agent | Make.com | 10029764 | isinvalid (potreba re-save v Make.com UI) | Kazdych 15min: schvaleno → Gmail DRAFT (adaklasek@gmail.com) → draft_ready; prepsan z SMTP send na Gmail draft 2026-10-28; potreba otevrit modul 3 v Make.com a re-save |
 | Reply Watcher | Make.com | 10050828 | Aktivni | Kazdych 15min: sleduje Gmail odpovedi → Claude klasifikace → Telegram notif |
 | Web-Offer-Drafter | Make.com | 10054653 | ROZBITY (isinvalid) | Puvodni drafter pro web_offer - email connection nefunguje |
 | Web-Demo-Builder | Claude Code scheduled task | trig_01HE5UQk9vppsj7re9ATDgRd | Aktivni (on-demand) | web_offer leady bez demo_url → Lovable projekt (industry-specific prompt) → preview_url do leads!S + Telegram notif; max 3/run |
