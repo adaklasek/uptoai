@@ -84,13 +84,20 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 - Při adaptive thinking má response 2 content bloky – použij `last()` pro text blok
 - Route filter na každý scénář: `{{1.__ROW_NUMBER__}} != ""` zabraňuje pádu při prázdných bundle
 
+### Airtable leads (nové pole, 30.10.2026)
+- **pipeline_status** field ID: `fldOr6PMZa8xaw2mP` (singleSelect)
+- Choices: web_offer → bid_web/bid_auto/bid_all → prepared → schvaleno → odeslano → deal/lost/needs_response
+- 47 leadů importováno z Google Sheets (30.10.2026)
+- Analyst Agent filtruje na `fldOr6PMZa8xaw2mP = "web_offer"` a updatuje na bid_web/bid_auto/bid_all
+
 ### Setup potřeba (TODO)
 1. ~~**Adam**: Opravit Status field v Airtable Leads~~ – HOTOVO (27.10.2026)
 2. **Adam**: Nastavit `AIRTABLE_TOKEN` v environment secrets → aktivuje COO Daily Briefing scénář v Make.com
 3. **Adam**: Aktivovat COO Daily Briefing scénář v Make.com (ID: 10051722) po nastavení tokenu
 4. **Adam**: V Make.com otevřít COO-Leads (ID: 10052185) → HTTP moduly → nahradit `VLOZ_SEM_AIRTABLE_TOKEN` skutečným tokenem
-5. **Adam**: V Make.com otevřít COO-Router (ID: 10042629) → modul "Watch Updates" → uložit/reconnect (fix Telegram webhook)
-6. **Adam**: V Make.com aktualizovat COO-Router – propojit add_lead/update_lead větve s COO-Leads webhookem
+5. **Adam**: V Make.com otevřít Web-Lead-Hunter (ID: 10054674) → HTTP modul (poslední) → nahradit `VLOZ_SEM_AIRTABLE_TOKEN` skutečným Airtable tokenem → aktivovat scénář
+6. **Adam**: V Make.com otevřít COO-Router (ID: 10042629) → modul "Watch Updates" → uložit/reconnect (fix Telegram webhook)
+7. **Adam**: V Make.com aktualizovat COO-Router – propojit add_lead/update_lead větve s COO-Leads webhookem
 
 ## Moje odpovědnosti jako CEO
 
@@ -147,9 +154,9 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | COO-Daily-Briefing | Make.com | 10051722 | Neaktivni | Rezerva k CEO Daily Briefing (potreba AIRTABLE_TOKEN) |
 | COO-Leads | Make.com | 10052185 | Aktivni (nutno token) | Webhook → router → Airtable CRUD pro pridavani a update leadů |
 | Hunter Agent | Make.com | 10030268 | Aktivni | Kazdy den 9:00 pracovni dny: hunter_targets → Apify → leads sheet |
-| Web-Lead-Hunter | Make.com | 10054674 | Aktivni | Kazdych 6h pracovni dny 8-20: hunter_targets (F=yes) → Apify → leads web_offer; toString() fix |
+| Web-Lead-Hunter | Make.com | 10054674 | isinvalid (nutno token) | Kazdych 6h pracovni dny 8-20: hunter_targets (F=yes) → Apify → Airtable (field: fldOr6PMZa8xaw2mP=web_offer); prepsan z Google Sheets na Airtable 30.10.2026; nutno nahradit VLOZ_SEM_AIRTABLE_TOKEN tokenem |
 | Analyst Agent (Make) | Make.com | 9987177 | DEAKTIVOVAN (30.10.2026) | Nahrazen Claude Code triggerem |
-| Analyst Agent | Claude Code scheduled task | trig_01EmjYqj9ha1tQpNn1jVjxux | Aktivni | Kazde hodiny 11-18h CET po-pa: Airtable web_offer → Claude klasifikace → bid_web/bid_auto/bid_all; POZOR: Hunter zatim pise do Google Sheets, az bude n8n Hunter psat do Airtable, tento agent zacne plne fungovat |
+| Analyst Agent | Claude Code scheduled task | trig_01EmjYqj9ha1tQpNn1jVjxux | Aktivni | Kazde hodiny 11-18h CET po-pa: Airtable fldOr6PMZa8xaw2mP=web_offer → Claude klasifikace → bid_web/bid_auto/bid_all (pole fldOr6PMZa8xaw2mP); opraveno 30.10.2026 |
 | Drafter v2 | Make.com | 10022573 | Aktivni | Kazdych 15min 11:30-18:30: bid_web/bid_auto/bid_all → Claude → Gmail draft → prepared |
 | Telegram Approval Notifier | Make.com | 10022585 | Aktivni (opraveno 2026-10-28) | Kazdych 15min 11:45-18:45: prepared leads → Telegram notifikace Adamovi; fix: filter "prepared" (bylo k_schvaleni), HTML parseMode (bylo MarkdownV2), route filter |
 | Sender Agent | Make.com | 10029764 | isinvalid (potreba re-save v Make.com UI) | Kazdych 15min: schvaleno → Gmail DRAFT (adaklasek@gmail.com) → draft_ready; prepsan z SMTP send na Gmail draft 2026-10-28; potreba otevrit modul 3 v Make.com a re-save |
