@@ -157,9 +157,11 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Web-Lead-Hunter | Make.com | 10054674 | isinvalid (nutno token) | Kazdych 6h pracovni dny 8-20: hunter_targets (F=yes) → Apify → Airtable (field: fldOr6PMZa8xaw2mP=web_offer); prepsan z Google Sheets na Airtable 30.10.2026; nutno nahradit VLOZ_SEM_AIRTABLE_TOKEN tokenem |
 | Analyst Agent (Make) | Make.com | 9987177 | DEAKTIVOVAN (30.10.2026) | Nahrazen Claude Code triggerem |
 | Analyst Agent | Claude Code scheduled task | trig_01EmjYqj9ha1tQpNn1jVjxux | Aktivni | Kazde hodiny 11-18h CET po-pa: Airtable fldOr6PMZa8xaw2mP=web_offer → Claude klasifikace → bid_web/bid_auto/bid_all (pole fldOr6PMZa8xaw2mP); opraveno 30.10.2026 |
-| Drafter v2 | Make.com | 10022573 | Aktivni | Kazdych 15min 11:30-18:30: bid_web/bid_auto/bid_all → Claude → Gmail draft → prepared |
+| Drafter v2 | Make.com | 10022573 | DEAKTIVOVAN (1.11.2026) | Nahrazen n8n Drafter Agent v2 |
+| Drafter Agent v2 | n8n | dx76QKy76Na3OyiQ | Aktivni | Kazdych 30min 11-18 Po-Pa: bid_auto/bid_all → Claude personalizovany email → email_draft do Airtable → notif Adamovi → prepared; bid_web jde pres Analyst rovnou do draft_web |
+| Sender Agent | n8n | yRA3kCuQauHtzRME | Aktivni | Kazdych 15min 11-18 Po-Pa: schvaleno + email_draft != "" → odeslani emailu z adam@uptoai.cz na lead → odeslano |
 | Telegram Approval Notifier | Make.com | 10022585 | Aktivni (opraveno 2026-10-28) | Kazdych 15min 11:45-18:45: prepared leads → Telegram notifikace Adamovi; fix: filter "prepared" (bylo k_schvaleni), HTML parseMode (bylo MarkdownV2), route filter |
-| Sender Agent | Make.com | 10029764 | isinvalid (potreba re-save v Make.com UI) | Kazdych 15min: schvaleno → Gmail DRAFT (adaklasek@gmail.com) → draft_ready; prepsan z SMTP send na Gmail draft 2026-10-28; potreba otevrit modul 3 v Make.com a re-save |
+| Sender Agent (Make) | Make.com | 10029764 | isinvalid (nahrazen n8n Sender) | Nahrazen n8n Sender Agent |
 | Reply Watcher | Make.com | 10050828 | Aktivni | Kazdych 15min: sleduje Gmail odpovedi → Claude klasifikace → Telegram notif |
 | Web-Offer-Drafter | Make.com | 10054653 | ROZBITY (isinvalid) | Puvodni drafter pro web_offer - email connection nefunguje |
 | Web-Demo-Builder | Claude Code scheduled task | trig_01HE5UQk9vppsj7re9ATDgRd | Aktivni (on-demand) | Airtable leady (status=new, demo_url empty) → research notes → Claude custom Lovable prompt (industry-specific design) → Lovable projekt → preview_url do Airtable fldF1Oz4RY4W6mrGz → Telegram notif; max 2/run; testovano 28.10.2026 (Nikol Jahnova) |
@@ -177,20 +179,19 @@ Make.com = lineární workflow, ne skutečné agenty. n8n má nativní AI Agent 
 - Railway: $5/měs, 1-click n8n šablona, HTTPS automaticky
 - Proměnné: CLAUDE_API_KEY, AIRTABLE_TOKEN, APIFY_KEY
 
+### n8n nasazeno (1.11.2026)
+- **URL**: https://n8n.uptoai.cz (Hetzner VPS, Caddy reverse proxy, Docker)
+- **Credentials**: Airtable, Anthropic, SMTP (Zoho), Apify, Telegram – vše nastaveno
+- **Aktivní workflows**: Analyst Agent (cOEBh1jIYPL8SUI7), Drafter v2 (dx76QKy76Na3OyiQ), Sender (yRA3kCuQauHtzRME)
+
 ### Agenti plánovaní pro n8n
 - **Hunter Agent v2**: Apify scraping → web research → Airtable (nahradí Make Web-Lead-Hunter)
 - **Prospect Researcher**: Pro každý lead fetchuje web, IG, recenze → obohacuje Airtable záznamy
 
-### Jak nasadit n8n na Railway
-1. railway.app → New Project → Deploy from template → "n8n"
-2. Přidej env vars: N8N_BASIC_AUTH_USER, N8N_BASIC_AUTH_PASSWORD, WEBHOOK_URL
-3. Nastav custom domain nebo použij Railway URL
-4. V n8n: nový workflow → AI Agent node → připoj nástroje (HTTP Request pro Apify, Airtable node)
-
 ### Přechod - co zůstane v Make.com
 - COO-Router (Telegram webhook)
 - COO-Telegram-Sender (odesílání zpráv)
-- Drafter v2 (Gmail drafty)
+- Telegram Approval Notifier (notifikace prepared leadů)
 - Jednoduché integrace bez AI logiky
 
 ## Dokumenty
