@@ -166,6 +166,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Web-Offer-Drafter | Make.com | 10054653 | ROZBITY (isinvalid) | Puvodni drafter pro web_offer - email connection nefunguje |
 | Web-Demo-Builder | Claude Code scheduled task | trig_01HE5UQk9vppsj7re9ATDgRd | Aktivni (on-demand) | Airtable leady (status=new, demo_url empty) → research notes → Claude custom Lovable prompt (industry-specific design) → Lovable projekt → preview_url do Airtable fldF1Oz4RY4W6mrGz → Telegram notif; max 2/run; testovano 28.10.2026 (Nikol Jahnova) |
 | Web Builder Agent | Claude Code scheduled task | trig_01S5dMhxryiHV7sYugKtazNW | Aktivni | Kazde hodiny 11:45-18:45 CET Po-Pa: Airtable draft_web leady → web research → Lovable projekt → demo_url do Airtable → Gmail draft pro Adama → status=prepared → Telegram notif; max 2/run; vytvoren 1.11.2026 |
+| Web Agent - Blog Publisher | Claude Code scheduled task | trig_017CqyqxszHRPJoYUQony7p3 | Aktivni | 1. a 15. kazdy mesic 9:23 CET: fronta článků z CLAUDE.md → web research → HTML článek → /blog/[slug]/ → aktualizace blog/index.html + sitemap → git push → Telegram notif Adamovi; vytvoren 1.11.2026 |
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
 

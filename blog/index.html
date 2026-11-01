@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | UpToAI – AI automatizace pro české firmy</title>
+  <meta name="description" content="Praktické tipy na AI automatizaci, návody jak začít, doporučení nástrojů a reálné case studies. Píše Adam Klásek, zakladatel UpToAI.">
+  <link rel="canonical" href="https://uptoai.cz/blog/">
+  <meta property="og:title" content="Blog – UpToAI">
+  <meta property="og:description" content="Praktické tipy na AI automatizaci pro české firmy. Bez bullshitu.">
+  <meta property="og:url" content="https://uptoai.cz/blog/">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "UpToAI Blog",
+    "url": "https://uptoai.cz/blog/",
+    "description": "Praktické tipy na AI automatizaci pro české a slovenské firmy",
+    "author": {
+      "@type": "Person",
+      "name": "Adam Klásek",
+      "url": "https://uptoai.cz"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "UpToAI",
+      "url": "https://uptoai.cz"
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .blog-hero {
+      padding: 120px 0 60px;
+      background: var(--bg, #0a0a0f);
+    }
+    .blog-hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .blog-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #6c63ff);
+      margin-bottom: 16px;
+    }
+    .blog-hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      color: var(--fg, #f0f0f5);
+    }
+    .blog-hero p {
+      font-size: 18px;
+      color: var(--muted, #8888a8);
+      max-width: 560px;
+    }
+    .blog-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    .blog-card {
+      border-bottom: 1px solid var(--border, rgba(255,255,255,0.08));
+      padding-bottom: 48px;
+    }
+    .blog-card:last-child {
+      border-bottom: none;
+    }
+    .blog-meta {
+      font-size: 13px;
+      color: var(--muted, #8888a8);
+      margin-bottom: 12px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .blog-tag {
+      background: rgba(108,99,255,0.12);
+      color: var(--accent, #6c63ff);
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .blog-card h2 {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      color: var(--fg, #f0f0f5);
+    }
+    .blog-card h2 a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .blog-card h2 a:hover {
+      color: var(--accent, #6c63ff);
+    }
+    .blog-card p {
+      color: var(--muted, #8888a8);
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .blog-readmore {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent, #6c63ff);
+      text-decoration: none;
+    }
+    .blog-readmore:hover {
+      text-decoration: underline;
+    }
+    .blog-empty {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--muted, #8888a8);
+    }
+    .blog-empty h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: var(--fg, #f0f0f5);
+    }
+    @media (max-width: 600px) {
+      .blog-hero { padding: 100px 0 40px; }
+      .blog-grid { padding: 40px 16px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-up">Up</span><span class="logo-to">To</span><span class="logo-ai">AI</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#sluzby">Služby</a></li>
+        <li><a href="/#jak">Jak pracujeme</a></li>
+        <li><a href="/#reference">Reference</a></li>
+        <li><a href="/blog/" class="active">Blog</a></li>
+        <li><a href="/#booking" class="nav-cta">Audit zdarma →</a></li>
+      </ul>
+      <button class="nav-burger" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- BLOG HERO -->
+  <section class="blog-hero">
+    <div class="blog-hero-inner">
+      <div class="blog-eyebrow">Blog</div>
+      <h1>AI automatizace bez bullshitu</h1>
+      <p>Praktické tipy, návody a reálné zkušenosti z práce s českými firmami. Vychází každé 2 týdny.</p>
+    </div>
+  </section>
+
+  <!-- BLOG ARTICLES -->
+  <main class="blog-grid" id="blog-list">
+    <!-- ARTICLES INSERTED HERE BY WEB AGENT -->
+    <div class="blog-empty">
+      <h2>Připravujeme první články</h2>
+      <p>První artikel vychází brzy. Sledujte nás na <a href="https://www.linkedin.com/company/uptoai" style="color: var(--accent)">LinkedIn</a>.</p>
+    </div>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
