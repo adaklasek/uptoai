@@ -5,7 +5,14 @@ echo "=== UpToAI n8n Setup ==="
 
 # Docker
 apt-get update -qq
-apt-get install -y -qq docker.io docker-compose-plugin git
+apt-get install -y -qq docker.io git
+
+# Docker Compose v2 binary (docker-compose-plugin not available on Ubuntu 24.04 default repos)
+if ! command -v docker-compose &> /dev/null; then
+  curl -fsSL "https://github.com/docker/compose/releases/download/v2.24.0/docker-compose-linux-x86_64" \
+    -o /usr/local/bin/docker-compose
+  chmod +x /usr/local/bin/docker-compose
+fi
 
 # Repo
 git clone https://github.com/adaklasek/uptoai.git /opt/uptoai
