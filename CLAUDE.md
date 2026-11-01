@@ -144,7 +144,7 @@ Pokud chybí info pro rozhodnutí, rovnou se zeptám.
 Aktualni seznam sub-agentu. Udrzuji aktualni.
 
 ### Pipeline flow (statusy v leads sheetu):
-`web_offer` → (Analyst) → `bid_web`/`bid_auto`/`bid_all` → (Drafter) → `prepared` → (Telegram notif) → `schvaleno` → (Sender) → `odeslano` → (Reply Watcher) → `deal`/`lost`/`needs_response`
+`web_offer` → (Analyst) → `bid_web`/`bid_auto`/`bid_all` → Adam zmeni na `draft_web` → (Web Builder) → `prepared` → (Telegram notif) → `schvaleno` → (Sender) → `odeslano` → (Reply Watcher) → `deal`/`lost`/`needs_response`
 
 | Agent | Platforma | ID | Status | Zodpovednost |
 |-------|-----------|-----|--------|--------------|
@@ -163,6 +163,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Reply Watcher | Make.com | 10050828 | Aktivni | Kazdych 15min: sleduje Gmail odpovedi → Claude klasifikace → Telegram notif |
 | Web-Offer-Drafter | Make.com | 10054653 | ROZBITY (isinvalid) | Puvodni drafter pro web_offer - email connection nefunguje |
 | Web-Demo-Builder | Claude Code scheduled task | trig_01HE5UQk9vppsj7re9ATDgRd | Aktivni (on-demand) | Airtable leady (status=new, demo_url empty) → research notes → Claude custom Lovable prompt (industry-specific design) → Lovable projekt → preview_url do Airtable fldF1Oz4RY4W6mrGz → Telegram notif; max 2/run; testovano 28.10.2026 (Nikol Jahnova) |
+| Web Builder Agent | Claude Code scheduled task | trig_01S5dMhxryiHV7sYugKtazNW | Aktivni | Kazde hodiny 11:45-18:45 CET Po-Pa: Airtable draft_web leady → web research → Lovable projekt → demo_url do Airtable → Gmail draft pro Adama → status=prepared → Telegram notif; max 2/run; vytvoren 1.11.2026 |
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
 
