@@ -293,6 +293,13 @@ strong { font-weight: 700; }
   color: var(--white);
   margin-bottom: 1.8rem;
 }
+.hero-kw {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--teal);
+  margin-bottom: 0.75rem;
+  max-width: 520px;
+}
 .hero-sub {
   font-size: 1.05rem;
   color: rgba(248,249,255,0.65);

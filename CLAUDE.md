@@ -169,6 +169,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Web Agent - Blog Publisher | Claude Code scheduled task | trig_017CqyqxszHRPJoYUQony7p3 | Aktivni | 1. a 15. kazdy mesic 9:23 CET: fronta článků z CLAUDE.md → web research → HTML článek → /blog/[slug]/ → aktualizace blog/index.html + sitemap → git push → Telegram notif Adamovi; vytvoren 1.11.2026 |
 | Email Warmup – gmail→uptoai | Claude Code scheduled task | trig_01C2j2MuHdND3WAJUVucivXo | Aktivni | Po-Pa 10:17 CET: Gmail MCP odesle email adaklasek@gmail.com → adam@uptoai.cz (rotating 5 templates); zahrivani domeny; vytvoren 2.11.2026 |
 | Email Warmup – uptoai→gmail | n8n | 7IojZRRDcCSn3I97 | Aktivni | Po-Pa 11:23 CET: SMTP z adam@uptoai.cz → adaklasek@gmail.com (rotating 5 templates); zahrivani domeny; vytvoren 2.11.2026 |
+| Email Warmup – uptoai→externi | n8n | AUP95izGefnZRev8 | Aktivni | Po/St/Pa 12:17 CET: SMTP z adam@uptoai.cz → damian@e8markets.com + adam@flocklock.cz + qeds2012@seznam.cz (rotating 3 templates/kontakt); externi zahrivani domeny; vytvoren 2.11.2026 |
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
 
