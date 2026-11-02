@@ -166,13 +166,18 @@ strong { font-weight: 700; }
 }
 .nav-logo {
   font-size: 1.5rem;
-  font-weight: 900;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  font-family: 'Outfit', system-ui, sans-serif;
+  letter-spacing: -0.02em;
   flex-shrink: 0;
 }
-.logo-up { color: var(--white); }
-.logo-to { color: var(--white); }
-.logo-ai { color: var(--teal); }
+.logo-upto { color: var(--white); }
+.logo-ai {
+  background: linear-gradient(100deg, #6c63ff 20%, #3ecfca 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
 .nav-links {
   display: flex;
@@ -990,8 +995,9 @@ footer { background: var(--black); color: var(--white); }
 }
 .footer-logo {
   font-size: 2rem;
-  font-weight: 900;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  font-family: 'Outfit', system-ui, sans-serif;
+  letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
 }
 .footer-claim {
