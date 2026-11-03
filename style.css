@@ -599,62 +599,36 @@ strong { font-weight: 700; }
   background: var(--bg-alt);
   color: var(--text);
 }
-.prokoho-inner {
-  display: flex;
-  gap: 5rem;
-  align-items: flex-start;
-}
-.prokoho-left {
-  flex: 0 0 340px;
-  position: sticky;
-  top: 8rem;
-}
-.prokoho-left h2 { color: var(--text); margin-bottom: 1rem; }
-.prokoho-lead {
-  font-size: 1rem;
-  color: var(--text-muted);
-  line-height: 1.75;
-  margin-bottom: 2rem;
-}
-.prokoho-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.prokoho .section-header { margin-bottom: 2.5rem; }
+.painpoints-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
+  margin-bottom: 3rem;
 }
-.fit-card {
+.pain-card {
   background: var(--white);
   border-radius: var(--radius-lg);
-  padding: 1.75rem;
-  border: 1.5px solid transparent;
+  padding: 1.5rem 1.75rem;
+  border-left: 3px solid var(--green-light);
 }
-.fit-card.fit-yes { border-color: rgba(82,183,136,0.3); }
-.fit-card.fit-no { border-color: rgba(239,68,68,0.15); }
-.fit-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+.pain-text {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.65;
+  font-style: italic;
 }
-.fit-svg {
-  display: inline-flex;
-  flex-shrink: 0;
-}
-.fit-yes .fit-svg { color: var(--green); }
-.fit-svg-no { color: #D45656; }
-.fit-card h4 { font-size: 0.9rem; color: var(--text); }
-.fit-card ul {
-  list-style: none;
+.prokoho-cta {
+  text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  font-size: 0.88rem;
+  align-items: center;
+  gap: 1.25rem;
+}
+.prokoho-cta p {
+  font-size: 1rem;
   color: var(--text-muted);
 }
-.fit-yes li::before { content: ''; display: none; }
-.fit-no li::before { content: ''; display: none; }
-.fit-yes li { padding-left: 0.75rem; border-left: 2px solid var(--green-pale); }
-.fit-no li { padding-left: 0.75rem; border-left: 2px solid rgba(212,86,86,0.25); }
 
 /* === JAK PRACUJEME === */
 .jak { background: var(--bg); }
@@ -1339,8 +1313,7 @@ footer { background: var(--bg-dark); color: #fff; }
 
   .sluzby-grid { grid-template-columns: 1fr; }
 
-  .prokoho-inner { flex-direction: column; gap: 2.5rem; }
-  .prokoho-left { position: static; flex: none; }
+  .painpoints-grid { grid-template-columns: 1fr 1fr; }
 
   .jak-steps { flex-direction: column; gap: 1.5rem; }
   .jak-step { flex-direction: row; text-align: left; align-items: flex-start; padding: 0; gap: 1.25rem; }
@@ -1358,4 +1331,5 @@ footer { background: var(--bg-dark); color: #fff; }
   .hero-inner { padding: 5.5rem 1.25rem 3rem; }
   .hero-cta-row { flex-direction: column; }
   .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+  .painpoints-grid { grid-template-columns: 1fr; }
 }
