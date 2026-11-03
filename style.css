@@ -340,6 +340,7 @@ strong { font-weight: 700; }
   gap: 0.35rem;
 }
 .trust-icon { color: var(--green-light); font-weight: 700; }
+.trust-svg { color: var(--green-light); display: inline-block; vertical-align: middle; flex-shrink: 0; }
 .hero-accent-line {
   width: 48px;
   height: 3px;
@@ -426,6 +427,7 @@ strong { font-weight: 700; }
 }
 .hc-log-item.active { color: var(--green); }
 .log-check { color: var(--green-light); font-weight: 700; }
+.log-svg { color: var(--green-light); display: inline-block; vertical-align: middle; flex-shrink: 0; }
 .log-dot {
   width: 6px; height: 6px;
   background: var(--green-light);
@@ -634,18 +636,12 @@ strong { font-weight: 700; }
   gap: 0.75rem;
   margin-bottom: 1rem;
 }
-.fit-icon {
-  width: 28px; height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-weight: 800;
-  font-size: 0.9rem;
+.fit-svg {
+  display: inline-flex;
   flex-shrink: 0;
 }
-.fit-yes .fit-icon { background: var(--green-pale); color: var(--green); }
-.fit-no .fit-icon { background: rgba(239,68,68,0.1); color: #EF4444; }
+.fit-yes .fit-svg { color: var(--green); }
+.fit-svg-no { color: #D45656; }
 .fit-card h4 { font-size: 0.9rem; color: var(--text); }
 .fit-card ul {
   list-style: none;
@@ -655,8 +651,10 @@ strong { font-weight: 700; }
   font-size: 0.88rem;
   color: var(--text-muted);
 }
-.fit-yes li::before { content: '✓  '; color: var(--green-light); font-weight: 700; }
-.fit-no li::before { content: '✕  '; color: #EF4444; font-weight: 700; }
+.fit-yes li::before { content: ''; display: none; }
+.fit-no li::before { content: ''; display: none; }
+.fit-yes li { padding-left: 0.75rem; border-left: 2px solid var(--green-pale); }
+.fit-no li { padding-left: 0.75rem; border-left: 2px solid rgba(212,86,86,0.25); }
 
 /* === JAK PRACUJEME === */
 .jak { background: var(--bg); }
@@ -773,6 +771,14 @@ strong { font-weight: 700; }
   font-weight: 900;
   font-size: 1.1rem;
   margin-top: 2px;
+}
+.val-mark {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green-light);
+  margin-top: 8px;
 }
 .proc-val strong {
   display: block;
