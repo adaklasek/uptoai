@@ -170,6 +170,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Email Warmup – gmail→uptoai | Claude Code scheduled task | trig_01C2j2MuHdND3WAJUVucivXo | Aktivni | Po-Pa 10:17 CET: Gmail MCP odesle email adaklasek@gmail.com → adam@uptoai.cz (rotating 5 templates); zahrivani domeny; vytvoren 2.11.2026 |
 | Email Warmup – uptoai→gmail | n8n | 7IojZRRDcCSn3I97 | Aktivni | Po-Pa 11:23 CET: SMTP z adam@uptoai.cz → adaklasek@gmail.com (rotating 5 templates); zahrivani domeny; vytvoren 2.11.2026 |
 | Email Warmup – uptoai→externi | n8n | AUP95izGefnZRev8 | Aktivni | Po/St/Pa 12:17 CET: SMTP z adam@uptoai.cz → damian@e8markets.com + adam@flocklock.cz + qeds2012@seznam.cz (rotating 3 templates/kontakt); externi zahrivani domeny; vytvoren 2.11.2026 |
+| COO Telegram Agent | n8n | wrEFWuIA79kQwqck | Aktivni | Webhook POST /coo-agent → AI Agent (Claude Opus 5-5) → tools: Research Website + Create Lead in CRM + Send Telegram; zpracovava zpravy z Make.com COO-Router; vytvoren 4.11.2026 |
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
 
