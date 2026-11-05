@@ -8,8 +8,10 @@
   --ink-3: #6B7079;
   --line: #DEDAD1;
   --accent: #1F6F4A;
+  --accent-2: #3DB87B;
   --accent-ink: #FFFFFF;
   --accent-soft: #DCEFE3;
+  --accent-gradient: linear-gradient(135deg, #1F6F4A 0%, #3DB87B 100%);
   --dark: #0E1116;
   --dark-2: #171B22;
   --dark-line: #2A2F38;
