@@ -51,6 +51,7 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
   - Leads: tblSLScVF1xL0gILR (field demo_url: fldF1Oz4RY4W6mrGz)
   - Clients: tblo7xClSBenPpmA5
   - Projects: tblQz7JsE0cywGm6B
+  - Telegram Queue: tblqZ6NgY4xFfSW7T (message, chat_id, received_at, processed) – fronta Telegram zpráv pro CEO session polling
   - API Token: v environment secrets (AIRTABLE_TOKEN)
 - **Claude API** – AI mozek (model: claude-opus-5-5, thinking: adaptive)
 - **Telegram** – komunikace s COO agentem
@@ -165,7 +166,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Agent | Platforma | ID | Status | Zodpovednost |
 |-------|-----------|-----|--------|--------------|
 | CEO Daily Briefing | Claude Code scheduled task | trig_011Y71uiLHcLyEY8WwbG7bSL | Aktivni | Kazdy den 6:43 CET: ToolSearch → Airtable → analyza → Telegram briefing |
-| Telegram Receiver | n8n | fnbyyhsyqwcKyxSu | Aktivni | Adam Telegram → n8n Telegram Trigger (auto-webhook) → Extract text+chat_id → HTTP POST /coo-agent → COO Agent; vytvoren 5.11.2026, nahradil Make.com COO-Router |
+| Telegram Receiver | n8n | fnbyyhsyqwcKyxSu | Aktivni | Adam Telegram → n8n Telegram Trigger → Extract text+chat_id → paralelne: (1) HTTP POST /coo-agent → COO Agent, (2) Airtable create Telegram Queue (tblqZ6NgY4xFfSW7T); upgradovan 5.11.2026 |
 | COO-Router | Make.com | 10042629 | OBSOLETE (nahrazen 5.11.2026) | Nahrazen n8n Telegram Receiver; Telegram webhook uz registrovan v n8n |
 | COO-Telegram-Sender | Make.com | 10051783 | Aktivni | Prijme text → posle Telegram zprávu Adamovi |
 | COO-Daily-Briefing | Make.com | 10051722 | Neaktivni | Rezerva k CEO Daily Briefing (potreba AIRTABLE_TOKEN) |
@@ -187,7 +188,8 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Email Warmup – gmail→uptoai | Claude Code scheduled task | trig_01C2j2MuHdND3WAJUVucivXo | Aktivni | Po-Pa 10:17 CET: Gmail MCP odesle email adaklasek@gmail.com → adam@uptoai.cz (rotating 5 templates); zahrivani domeny; vytvoren 2.11.2026 |
 | Email Warmup – uptoai→gmail | n8n | 7IojZRRDcCSn3I97 | Aktivni | Po-Pa 11:23 CET: SMTP z adam@uptoai.cz → adaklasek@gmail.com (rotating 5 templates); zahrivani domeny; vytvoren 2.11.2026 |
 | Email Warmup – uptoai→externi | n8n | AUP95izGefnZRev8 | Aktivni | Po/St/Pa 12:17 CET: SMTP z adam@uptoai.cz → damian@e8markets.com + adam@flocklock.cz + qeds2012@seznam.cz (rotating 3 templates/kontakt); externi zahrivani domeny; vytvoren 2.11.2026 |
-| COO Telegram Agent | n8n | wrEFWuIA79kQwqck | Aktivni | Webhook POST /coo-agent → AI Agent (Claude Opus 5-5, maxIter 20) → 5 tools: Research Website, Create Lead, List Leads, Update Lead Status, Send Telegram; plny kontext pipeline + pravidel; vytvoren 4.11.2026, upgradovan 5.11.2026 |
+| COO Telegram Agent | n8n | wrEFWuIA79kQwqck | Aktivni | Webhook POST /coo-agent → AI Agent (Claude Opus 5-5, maxIter 20) → 5 tools: Research Website, Create Lead, List Leads, Update Lead Status, Send Telegram; plny kontext pipeline + pravidel; vytvoren 4.11.2026, oprava+publish 5.11.2026 (byl aktivni stary draft bez List Leads/Update Status) |
+| Telegram Queue Processor | Claude Code scheduled task | trig_01LzABvJUH4bHgLhHbHEer1w | Aktivni | Kazde hodiny 8-21 CET: cte Airtable Telegram Queue (tblqZ6NgY4xFfSW7T), zpracovava nezpracovane zpravy od Adama, posila potvrzeni pres Make.com COO-Telegram-Sender; vytvoren 5.11.2026 |
 | Drafter Agent (stary) | n8n | yPYTLTAgY0icGK8N | DEAKTIVOVAN (5.11.2026) | Duplicit Drafter Agent v2; mel "Send Draft to Adam" node ktery posilal SMTP emaily na adaklasek@gmail.com; email node disablovano 5.11 |
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
