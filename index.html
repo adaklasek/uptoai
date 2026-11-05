@@ -51,13 +51,13 @@
       "@type": "OfferCatalog",
       "name": "Služby UpToAI",
       "itemListElement": [
-        {"@type": "Offer", "name": "Audit automatizace zdarma", "description": "90minutový rozbor procesů. Výstupem je seznam, co automatizovat jako první, a odhad úspory.", "price": "0", "priceCurrency": "CZK"},
+        {"@type": "Offer", "name": "Audit automatizace zdarma", "description": "30minutový rozbor procesů. Výstupem je seznam, co automatizovat jako první, a odhad úspory.", "price": "0", "priceCurrency": "CZK"},
         {"@type": "Offer", "name": "AI agent nebo automatizace na míru", "description": "Návrh, stavba a spuštění 1 až 3 automatizací nebo AI agentů, 30 dní podpory v ceně.", "price": "45000", "priceCurrency": "CZK"},
         {"@type": "Offer", "name": "Provoz a rozvoj", "description": "Měsíční správa, monitoring a rozšiřování automatizací. Bez dlouhodobého závazku.", "price": "18000", "priceCurrency": "CZK"},
         {"@type": "Offer", "name": "Školení týmu", "description": "Půldenní workshop pro 3 až 15 lidí na jejich vlastních úkolech.", "price": "12000", "priceCurrency": "CZK"}
       ]
     },
-    "sameAs": ["https://www.linkedin.com/company/uptoai", "https://www.linkedin.com/in/adam-klasek/", "https://www.instagram.com/uptoai.cz/"]
+    "sameAs": ["https://www.linkedin.com/company/uptoai.cz", "https://www.linkedin.com/in/adam-klasek/", "https://www.instagram.com/uptoai.cz/"]
   }
   </script>
   <script type="application/ld+json">
@@ -113,7 +113,7 @@
             <a href="#audit" class="btn btn-volt">Domluvit audit zdarma <span class="arr">→</span></a>
             <a href="#co-stavime" class="hero-link">Co konkrétně umíme postavit</a>
           </div>
-          <p class="micro">90 minut · bez závazku · na konci máte konkrétní plán, i když s námi nepůjdete dál</p>
+          <p class="micro">30 minut · bez závazku · na konci máte konkrétní plán, i když s námi nepůjdete dál</p>
           <div class="hero-trust">
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Pevná cena předem</span>
             <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Systém patří vám</span>
@@ -121,21 +121,48 @@
           </div>
         </div>
 
-        <div class="console" aria-label="Ukázka provozu AI agentů">
-          <div class="console-top">
+        <div class="demo-widget" aria-label="Ukázka provozu AI agentů">
+          <div class="demo-header">
             <div class="dots"><i></i><i></i><i></i></div>
-            <span>uptoai / agenti</span>
-            <span class="live">běží</span>
+            <nav class="demo-tabs-nav" role="tablist">
+              <button class="demo-tab active" role="tab" data-idx="0">Hledání klientů</button>
+              <button class="demo-tab" role="tab" data-idx="1">Odpověď zákazníkovi</button>
+              <button class="demo-tab" role="tab" data-idx="2">Týdenní report</button>
+            </nav>
           </div>
-          <div class="console-body" id="console">
-            <div class="log"><time>07:58</time><span class="who">Hunter</span><span class="what">Našel 14 nových firem v Opavě, které nemají online objednávky.</span></div>
-            <div class="log"><time>08:03</time><span class="who">Analyst</span><span class="what">Prošel jejich weby. U 6 z nich chybí rezervace i rychlá odpověď na poptávky.</span></div>
-            <div class="log"><time>08:09</time><span class="who">Drafter</span><span class="what">Napsal 6 e-mailů. Každý odkazuje na konkrétní věc z webu dané firmy.</span></div>
-            <div class="log"><time>08:10</time><span class="who k">Kontrolor</span><span class="what">Vrátil 1 e-mail: úvodní věta byla obecná. Opraveno.</span></div>
-            <div class="log"><time>08:12</time><span class="who k">Kontrolor</span><span class="what">6 ze 6 prošlo kontrolou proti zadání a pravidlům.</span></div>
-            <div class="log"><time>08:14</time><span class="who a">Adam</span><span class="what">Schválil v Telegramu. Odesláno.</span></div>
+          <div class="demo-body">
+            <div class="demo-card active" data-card="0">
+              <div class="demo-flow">
+                <div class="demo-step" data-delay="0"><span class="ds-agent">Hunter</span><span class="ds-msg">Našel 14 firem v Opavě bez online objednávek.</span></div>
+                <div class="demo-step" data-delay="1600"><span class="ds-agent">Analyst</span><span class="ds-msg">6 z nich nemá rezervace ani rychlou odpověď na poptávky.</span></div>
+                <div class="demo-step" data-delay="3200"><span class="ds-agent">Drafter</span><span class="ds-msg">Napsal 6 e-mailů, každý odkazuje na konkrétní věc z webu.</span></div>
+                <div class="demo-step" data-delay="4800"><span class="ds-agent ds-k">Kontrolor</span><span class="ds-msg">1 vrácen k přepisu. 5 prošlo. Opraveno.</span></div>
+                <div class="demo-step" data-delay="6000"><span class="ds-agent ds-a">Adam</span><span class="ds-msg">Schválil v Telegramu jedním klikem.</span></div>
+              </div>
+              <div class="demo-result" data-delay="7200"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>7 oslovení odesláno · 08:14</div>
+            </div>
+            <div class="demo-card" data-card="1">
+              <div class="demo-flow">
+                <div class="demo-step" data-delay="0"><span class="ds-agent ds-ext">Zákazník</span><span class="ds-msg">Napsal v sobotu v 9:12. „Mám zájem o cenovou nabídku."</span></div>
+                <div class="demo-step" data-delay="1600"><span class="ds-agent">Agent</span><span class="ds-msg">Přečetl poptávku, identifikoval zájem o základní balíček.</span></div>
+                <div class="demo-step" data-delay="3200"><span class="ds-agent ds-k">Kontrolor</span><span class="ds-msg">Ověřil odpověď. Vše sedí, cena správná.</span></div>
+                <div class="demo-step" data-delay="4800"><span class="ds-agent ds-a">Vy</span><span class="ds-msg">Dostali jste shrnutí. Odpověď odeslána automaticky.</span></div>
+              </div>
+              <div class="demo-result" data-delay="6200"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Odpověď za 4 minuty · i o víkendu</div>
+            </div>
+            <div class="demo-card" data-card="2">
+              <div class="demo-flow">
+                <div class="demo-step" data-delay="0"><span class="ds-agent">Reporter</span><span class="ds-msg">Vytáhl data z CRM, e-mailu a Airtable. Pondělí 7:00.</span></div>
+                <div class="demo-step" data-delay="1600"><span class="ds-agent">Analyst</span><span class="ds-msg">3 nové leady tento týden. 2 čekají na follow-up.</span></div>
+                <div class="demo-step" data-delay="3200"><span class="ds-agent">Reporter</span><span class="ds-msg">Sestavil přehled. Upozornil na 2 otevřené nabídky starší 7 dní.</span></div>
+              </div>
+              <div class="demo-result" data-delay="4800"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Report v Telegramu v 7:03</div>
+            </div>
           </div>
-          <div class="console-foot">Zjednodušená ukázka z provozu naší vlastní agentury</div>
+          <div class="demo-footer">
+            <div class="demo-progress"><div class="demo-bar"></div></div>
+            <span>Zjednodušená ukázka z provozu vlastní agentury</span>
+          </div>
         </div>
       </div>
     </section>
@@ -170,43 +197,70 @@
           <h2>Konkrétní agenti na konkrétní práci.</h2>
           <p>Neprodáváme „AI transformaci“. Vezmeme jednu otravnou věc, kterou děláte každý týden, a předáme ji agentovi. Pak další.</p>
         </div>
-        <div class="uses">
-          <article class="use rv">
-            <span class="num">Zákaznická komunikace</span>
-            <h3>Odpověď na poptávku do 5 minut</h3>
-            <p>Agent přečte e-mail, formulář nebo zprávu, pozná, co zákazník chce, odpoví podle vašich podkladů a nabídne termín. Složité případy předá vám i se shrnutím.</p>
-            <span class="gain">Žádná poptávka nevychladne přes víkend</span>
+        <div class=”uses”>
+          <article class=”use rv”>
+            <span class=”use-idx”>01</span>
+            <div>
+              <span class=”num”>Zákaznická komunikace</span>
+              <h3>Odpověď na poptávku do 5 minut</h3>
+              <p>Agent přečte e-mail, formulář nebo zprávu, pozná, co zákazník chce, odpoví podle vašich podkladů a nabídne termín. Složité případy předá vám i se shrnutím.</p>
+              <span class=”gain”>Žádná poptávka nevychladne přes víkend</span>
+            </div>
           </article>
-          <article class="use rv">
-            <span class="num">Obchod</span>
-            <h3>Follow-upy, které se nezapomenou</h3>
-            <p>Po schůzce nebo nabídce agent hlídá, kdo neodpověděl, napíše připomínku vaším stylem a zapíše stav do CRM. Vy jen schvalujete.</p>
-            <span class="gain">Víc zakázek z kontaktů, které už máte</span>
+          <article class=”use rv”>
+            <span class=”use-idx”>02</span>
+            <div>
+              <span class=”num”>Obchod</span>
+              <h3>Follow-upy, které se nezapomenou</h3>
+              <p>Po schůzce nebo nabídce agent hlídá, kdo neodpověděl, napíše připomínku vaším stylem a zapíše stav do CRM. Vy jen schvalujete.</p>
+              <span class=”gain”>Víc zakázek z kontaktů, které už máte</span>
+            </div>
           </article>
-          <article class="use rv">
-            <span class="num">Hledání klientů</span>
-            <h3>Leady, které si hledají samy</h3>
-            <p>Agent najde firmy podle vašich kritérií, projde jejich web, vyhodnotí, komu můžete pomoct, a připraví personalizované oslovení.</p>
-            <span class="gain">Plná pipeline bez ručního hledání</span>
+          <article class=”use rv”>
+            <span class=”use-idx”>03</span>
+            <div>
+              <span class=”num”>Hledání klientů</span>
+              <h3>Leady, které si hledají samy</h3>
+              <p>Agent najde firmy podle vašich kritérií, projde jejich web, vyhodnotí, komu můžete pomoct, a připraví personalizované oslovení.</p>
+              <span class=”gain”>Plná pipeline bez ručního hledání</span>
+            </div>
           </article>
-          <article class="use rv">
-            <span class="num">Back-office</span>
-            <h3>Faktury, objednávky, přepisování</h3>
-            <p>Data z e-mailů, PDF a formulářů se sama dostanou tam, kam patří: do účetnictví, tabulky nebo CRM. Bez kopírování a bez překlepů.</p>
-            <span class="gain">Hodiny týdně zpátky, nula chyb z přepisu</span>
+          <article class=”use rv”>
+            <span class=”use-idx”>04</span>
+            <div>
+              <span class=”num”>Back-office</span>
+              <h3>Faktury, objednávky, přepisování</h3>
+              <p>Data z e-mailů, PDF a formulářů se sama dostanou tam, kam patří: do účetnictví, tabulky nebo CRM. Bez kopírování a bez překlepů.</p>
+              <span class=”gain”>Hodiny týdně zpátky, nula chyb z přepisu</span>
+            </div>
           </article>
-          <article class="use rv">
-            <span class="num">Reporting</span>
-            <h3>Přehled, který přijde sám</h3>
-            <p>Každé pondělí ráno vám do Telegramu nebo e-mailu přijde shrnutí: co se prodalo, co visí, na co se podívat. Bez otevírání pěti systémů.</p>
-            <span class="gain">Rozhodujete podle čísel, ne podle pocitu</span>
+          <article class=”use rv”>
+            <span class=”use-idx”>05</span>
+            <div>
+              <span class=”num”>Reporting</span>
+              <h3>Přehled, který přijde sám</h3>
+              <p>Každé pondělí ráno vám do Telegramu nebo e-mailu přijde shrnutí: co se prodalo, co visí, na co se podívat. Bez otevírání pěti systémů.</p>
+              <span class=”gain”>Rozhodujete podle čísel, ne podle pocitu</span>
+            </div>
           </article>
-          <article class="use rv">
-            <span class="num">Interní asistent</span>
-            <h3>Agent, který zná vaši firmu</h3>
-            <p>Asistent nad vašimi dokumenty, ceníky a postupy. Odpoví týmu na dotazy, připraví nabídku nebo podklady, a nemusíte to vysvětlovat podesáté.</p>
-            <span class="gain">Méně „hele, jak se dělá…“</span>
+          <article class=”use rv”>
+            <span class=”use-idx”>06</span>
+            <div>
+              <span class=”num”>Interní asistent</span>
+              <h3>Agent, který zná vaši firmu</h3>
+              <p>Asistent nad vašimi dokumenty, ceníky a postupy. Odpoví týmu na dotazy, připraví nabídku nebo podklady, a nemusíte to vysvětlovat podesáté.</p>
+              <span class=”gain”>Méně „hele, jak se dělá…”</span>
+            </div>
           </article>
+        </div>
+
+        <div class=”service-secondary rv”>
+          <span class=”eyebrow”><b>+</b> · Vedlejší služba</span>
+          <div class=”ss-content”>
+            <h3>Weby, které prodávají</h3>
+            <p>Stavíme weby připravené na automatizace – pro firmy, které chtějí mít jednu veřejnou tvář a rovnou ji zapojit do svých procesů.</p>
+          </div>
+          <a href=”https://joearon.cz” target=”_blank” rel=”noopener” class=”btn btn-ghost”>Příklad: joearon.cz →</a>
         </div>
       </div>
     </section>
@@ -255,7 +309,7 @@
           <div>
             <span class="eyebrow" style="color:#BFE0CB"><b style="color:#fff">Krok 1</b> · pro každého</span>
             <h3 style="margin-top:12px">Audit automatizace</h3>
-            <p>90 minut nad vaším byznysem. Odcházíte se seznamem, co automatizovat jako první, odhadem úspory a cenou. Když vyjde, že se to nevyplatí, řekneme vám to.</p>
+            <p>30 minut nad vaším byznysem. Odcházíte se seznamem, co automatizovat jako první, odhadem úspory a cenou. Když vyjde, že se to nevyplatí, řekneme vám to.</p>
           </div>
           <div>
             <div class="price">0 Kč<small>bez závazku</small></div>
@@ -329,7 +383,7 @@
             <span class="n">01</span>
             <h3>Audit</h3>
             <p>Projdeme, kde ztrácíte čas a zákazníky. Konkrétně, na vašich procesech, ne na slajdech.</p>
-            <span class="when">zdarma · 90 minut</span>
+            <span class="when">zdarma · 30 minut</span>
           </div>
           <div class="step rv">
             <span class="n">02</span>
@@ -467,7 +521,7 @@
     <section class="final" id="audit">
       <div class="wrap final-grid">
         <div class="rv">
-          <span class="eyebrow"><b>Audit zdarma</b> · 90 minut</span>
+          <span class="eyebrow"><b>Audit zdarma</b> · 30 minut</span>
           <h2>Pojďme najít první věc, <span class="em">kterou už nebudete dělat ručně.</span></h2>
           <p class="lead">Vyberte si termín. Na konci hovoru budete vědět, co automatizovat jako první, kolik to ušetří a kolik to bude stát.</p>
           <ul>
@@ -505,7 +559,7 @@
         <a href="/blog/">Blog</a>
         <a href="/en/">English</a>
         <a href="/ochrana-osobnich-udaju/">Ochrana osobních údajů</a>
-        <a href="https://www.linkedin.com/company/uptoai" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/company/uptoai.cz" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://www.instagram.com/uptoai.cz/" target="_blank" rel="noopener">Instagram</a>
         <a href="mailto:info@uptoai.cz">info@uptoai.cz</a>
       </nav>

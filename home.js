@@ -17,14 +17,77 @@
     });
   }
 
-  // Console log, lines appear one by one
-  var logs = document.querySelectorAll('#console .log');
-  if (reduce || !('IntersectionObserver' in window)) {
-    logs.forEach(function (l) { l.classList.add('on'); });
-  } else {
-    logs.forEach(function (l, i) {
-      setTimeout(function () { l.classList.add('on'); }, 350 + i * 650);
+  // Demo widget
+  var demoWidget = document.querySelector('.demo-widget');
+  if (demoWidget) {
+    var CYCLE = 9000;
+    var cards = demoWidget.querySelectorAll('.demo-card');
+    var tabs = demoWidget.querySelectorAll('.demo-tab');
+    var bar = demoWidget.querySelector('.demo-bar');
+    var current = 0;
+    var timer = null;
+
+    function resetCard(card) {
+      card.querySelectorAll('.demo-step, .demo-result').forEach(function (el) {
+        el.classList.remove('on');
+      });
+    }
+
+    function animateCard(card) {
+      if (reduce) {
+        card.querySelectorAll('.demo-step, .demo-result').forEach(function (el) { el.classList.add('on'); });
+        return;
+      }
+      card.querySelectorAll('.demo-step').forEach(function (step) {
+        var delay = parseInt(step.getAttribute('data-delay') || '0');
+        setTimeout(function () { step.classList.add('on'); }, delay);
+      });
+      var result = card.querySelector('.demo-result');
+      if (result) {
+        var rDelay = parseInt(result.getAttribute('data-delay') || '7200');
+        setTimeout(function () { result.classList.add('on'); }, rDelay);
+      }
+    }
+
+    function startBar() {
+      if (!bar || reduce) return;
+      bar.style.transition = 'none';
+      bar.style.width = '0';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          bar.style.transition = 'width ' + CYCLE + 'ms linear';
+          bar.style.width = '100%';
+        });
+      });
+    }
+
+    function showCard(idx) {
+      cards.forEach(function (c, i) {
+        var active = i === idx;
+        c.classList.toggle('active', active);
+        resetCard(c);
+      });
+      tabs.forEach(function (t, i) { t.classList.toggle('active', i === idx); });
+      current = idx;
+      animateCard(cards[idx]);
+      startBar();
+    }
+
+    function startCycle() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(function () { showCard((current + 1) % cards.length); }, CYCLE);
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () {
+        clearInterval(timer);
+        showCard(i);
+        startCycle();
+      });
     });
+
+    showCard(0);
+    if (!reduce) startCycle();
   }
 
   // Reveal on scroll
