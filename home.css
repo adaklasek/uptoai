@@ -252,6 +252,8 @@ p { margin: 0; }
 a.port-item:hover { border-color: var(--accent); transform: translateY(-2px); }
 .port-domain { font-family: var(--mono); font-size: 12.5px; font-weight: 600; color: var(--ink); }
 .port-type { font-size: 12.5px; color: var(--ink-3); }
+.port-more { display: inline-block; margin-top: 4px; font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; }
+.port-more:hover { text-decoration: underline; }
 
 /* Explainer */
 .explain { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }

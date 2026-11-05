@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio webů | UpToAI</title>
+  <meta name="description" content="Weby postavené Adamem Kláskem – od osobních prezentací přes sportovní kluby až po SaaS produkty. Každý web připravený na automatizaci.">
+  <link rel="canonical" href="https://uptoai.cz/portfolio/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    :root {
+      --bg: #0a0a0f; --fg: #f0f0f5; --ink: #e8e8ef; --ink-2: #9aa1ab; --ink-3: #6b7280;
+      --accent: #1F6F4A; --accent2: #3DB87B; --volt: #B9F45C;
+      --line: rgba(255,255,255,0.08); --surface: rgba(255,255,255,0.03);
+      --radius: 14px; --mono: 'JetBrains Mono', monospace;
+    }
+    body { background: var(--bg); color: var(--fg); font-family: 'Inter', sans-serif; }
+
+    /* HERO */
+    .pf-hero {
+      padding: 120px 0 56px;
+    }
+    .pf-hero-inner {
+      max-width: 900px; margin: 0 auto;
+      padding: 0 max(24px, env(safe-area-inset-left, 0px));
+    }
+    .pf-eyebrow {
+      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 16px;
+    }
+    .pf-hero h1 {
+      font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.1;
+      margin: 0 0 16px; color: var(--fg);
+    }
+    .pf-hero h1 em { font-style: normal; color: var(--accent2); }
+    .pf-hero p {
+      font-size: 17px; color: var(--ink-2); max-width: 540px; line-height: 1.65;
+    }
+    .pf-cta-row {
+      display: flex; align-items: center; gap: 20px; margin-top: 32px; flex-wrap: wrap;
+    }
+    .pf-cta-row a.btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      text-decoration: none; border: 1px solid transparent; transition: .15s;
+    }
+    .pf-cta-row a.btn-green { background: var(--accent2); color: #0a0a0f; }
+    .pf-cta-row a.btn-green:hover { background: #4de090; }
+    .pf-cta-row a.btn-ghost { border-color: var(--line); color: var(--ink-2); }
+    .pf-cta-row a.btn-ghost:hover { border-color: var(--ink-2); color: var(--fg); }
+
+    /* GRID */
+    .pf-grid {
+      max-width: 900px; margin: 0 auto;
+      padding: 0 max(24px, env(safe-area-inset-left, 0px)) 100px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    /* CARD */
+    .pf-card {
+      border: 1px solid var(--line); border-radius: var(--radius);
+      background: var(--surface); overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color .2s, transform .2s;
+    }
+    a.pf-card:hover { border-color: var(--accent2); transform: translateY(-3px); text-decoration: none; }
+    .pf-card-shot {
+      width: 100%; aspect-ratio: 16/10; overflow: hidden;
+      background: rgba(255,255,255,0.04); position: relative;
+    }
+    .pf-card-shot img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top;
+      display: block;
+    }
+    .pf-card-shot .shot-placeholder {
+      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 11px; color: var(--ink-3);
+    }
+    .pf-card-body { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .pf-card-domain {
+      font-family: var(--mono); font-size: 12px; font-weight: 600;
+      color: var(--accent2);
+    }
+    .pf-card-type {
+      display: inline-flex; align-items: center;
+      background: rgba(63,184,123,0.1); color: var(--accent2);
+      border-radius: 6px; padding: 2px 9px; font-size: 11px; font-weight: 600;
+      width: fit-content; margin-bottom: 4px;
+    }
+    .pf-card h3 {
+      font-size: 16px; font-weight: 700; color: var(--fg); margin: 0;
+    }
+    .pf-card p {
+      font-size: 13.5px; color: var(--ink-2); line-height: 1.6; margin: 0;
+    }
+    .pf-card-result {
+      margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line);
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .pf-card-result-icon { font-size: 14px; flex: none; margin-top: 1px; }
+    .pf-card-result-text { font-size: 12.5px; color: var(--ink-3); line-height: 1.5; }
+    .pf-card-result-text strong { color: var(--ink-2); }
+
+    .pf-card-no-link { cursor: default; }
+    .pf-card-no-link:hover { transform: none; border-color: var(--line); }
+
+    /* CTA BOTTOM */
+    .pf-bottom {
+      border-top: 1px solid var(--line);
+      padding: 56px max(24px, env(safe-area-inset-left, 0px)) 80px;
+      text-align: center;
+    }
+    .pf-bottom-inner { max-width: 540px; margin: 0 auto; }
+    .pf-bottom h2 { font-size: 28px; font-weight: 800; color: var(--fg); margin: 0 0 12px; }
+    .pf-bottom p { font-size: 16px; color: var(--ink-2); margin: 0 0 28px; line-height: 1.6; }
+
+    @media (max-width: 600px) {
+      .pf-hero { padding: 100px 0 40px; }
+      .pf-grid { grid-template-columns: 1fr; gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-upto">upto</span><span class="logo-ai">ai</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#sluzby">Služby</a></li>
+        <li><a href="/#jak">Jak pracujeme</a></li>
+        <li><a href="/#reference">Reference</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#booking" class="nav-cta">Audit zdarma →</a></li>
+      </ul>
+      <button class="nav-burger" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pf-hero">
+    <div class="pf-hero-inner">
+      <div class="pf-eyebrow">Portfolio</div>
+      <h1>Weby, které <em>fungují.</em></h1>
+      <p>Každý web stavíme s výhledem na automatizaci. Formulář, rezervace nebo chat rovnou vstupuje do procesů firmy.</p>
+      <div class="pf-cta-row">
+        <a href="/#booking" class="btn btn-green">Chci web pro svou firmu →</a>
+        <a href="/" class="btn btn-ghost">← Zpět na hlavní stránku</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO GRID -->
+  <main class="pf-grid">
+
+    <!-- josefaron.eu -->
+    <a href="https://www.josefaron.eu" target="_blank" rel="noopener" class="pf-card">
+      <div class="pf-card-shot">
+        <img src="https://image.thum.io/get/width/600/crop/400/https://www.josefaron.eu" alt="josefaron.eu náhled" loading="lazy">
+      </div>
+      <div class="pf-card-body">
+        <span class="pf-card-domain">josefaron.eu</span>
+        <span class="pf-card-type">Osobní prezentace</span>
+        <h3>Josef Aron</h3>
+        <p>Filmový skladatel a muzikant. Čistý osobní web s audio ukázkami a životopisem pro filmové producenty.</p>
+        <div class="pf-card-result">
+          <span class="pf-card-result-icon">🎯</span>
+          <span class="pf-card-result-text"><strong>SEO pro jméno</strong> – snadno dohledatelný při googlu jménem.</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- tenisjindrichuvhradec.cz -->
+    <a href="https://tenisjindrichuvhradec.cz" target="_blank" rel="noopener" class="pf-card">
+      <div class="pf-card-shot">
+        <img src="https://image.thum.io/get/width/600/crop/400/https://tenisjindrichuvhradec.cz" alt="tenisjindrichuvhradec.cz náhled" loading="lazy">
+      </div>
+      <div class="pf-card-body">
+        <span class="pf-card-domain">tenisjindrichuvhradec.cz</span>
+        <span class="pf-card-type">Sportovní klub</span>
+        <h3>Tenis Jindřichův Hradec</h3>
+        <p>Tenisový oddíl s online přehledem kurztů, turnajů a kontaktů. Mobilní verze pro hráče v pohybu.</p>
+        <div class="pf-card-result">
+          <span class="pf-card-result-icon">📱</span>
+          <span class="pf-card-result-text"><strong>Mobile-first</strong> – informace dostupné přímo na kurtu.</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- coffeeforua.cz -->
+    <a href="https://coffeeforua.cz" target="_blank" rel="noopener" class="pf-card">
+      <div class="pf-card-shot">
+        <img src="https://image.thum.io/get/width/600/crop/400/https://coffeeforua.cz" alt="coffeeforua.cz náhled" loading="lazy">
+      </div>
+      <div class="pf-card-body">
+        <span class="pf-card-domain">coffeeforua.cz</span>
+        <span class="pf-card-type">Dobročinná iniciativa</span>
+        <h3>Coffee for Ukraine</h3>
+        <p>Solidární kavárna na podporu Ukrajiny. Čistý, sdílitelný web s jasnou výzvou k akci a transparentní komunikací.</p>
+        <div class="pf-card-result">
+          <span class="pf-card-result-icon">🤝</span>
+          <span class="pf-card-result-text"><strong>Virální sdílitelnost</strong> – jednoduchý odkaz, který se šíří dál.</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- flocklock.eu -->
+    <a href="https://flocklock.eu" target="_blank" rel="noopener" class="pf-card">
+      <div class="pf-card-shot">
+        <img src="https://image.thum.io/get/width/600/crop/400/https://flocklock.eu" alt="flocklock.eu náhled" loading="lazy">
+      </div>
+      <div class="pf-card-body">
+        <span class="pf-card-domain">flocklock.eu</span>
+        <span class="pf-card-type">SaaS produkt</span>
+        <h3>Flocklock</h3>
+        <p>Produktový web SaaS platformy v angličtině. Zaměřený na konverzi – od prvního dojmu po registraci.</p>
+        <div class="pf-card-result">
+          <span class="pf-card-result-icon">🚀</span>
+          <span class="pf-card-result-text"><strong>Conversion-first</strong> – jasná hodnota, minimální tření při nákupu.</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- adamklasek.cz -->
+    <a href="https://adamklasek.cz" target="_blank" rel="noopener" class="pf-card">
+      <div class="pf-card-shot">
+        <img src="https://image.thum.io/get/width/600/crop/400/https://adamklasek.cz" alt="adamklasek.cz náhled" loading="lazy">
+      </div>
+      <div class="pf-card-body">
+        <span class="pf-card-domain">adamklasek.cz</span>
+        <span class="pf-card-type">Osobní brand</span>
+        <h3>Adam Klásek</h3>
+        <p>Osobní web zakladatele UpToAI. Blog, projekty a kontakt – vše na jednom místě.</p>
+        <div class="pf-card-result">
+          <span class="pf-card-result-icon">✍️</span>
+          <span class="pf-card-result-text"><strong>Osobní brand</strong> – profesionální online přítomnost mimo LinkedIn.</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Kadeřnictví Jane Mark -->
+    <div class="pf-card pf-card-no-link">
+      <div class="pf-card-shot">
+        <div class="shot-placeholder">Web připravujeme</div>
+      </div>
+      <div class="pf-card-body">
+        <span class="pf-card-domain">Kadeřnictví Jane Mark</span>
+        <span class="pf-card-type">Lokální provozovna</span>
+        <h3>Jane Mark</h3>
+        <p>Kadeřnický salón. Web s galerií prací, ceníkem a rezervací online přes systém přímo napojený na kalendář.</p>
+        <div class="pf-card-result">
+          <span class="pf-card-result-icon">📅</span>
+          <span class="pf-card-result-text"><strong>Online rezervace</strong> – zákazník si zarezervuje bez telefonátu.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Elektroprojekt M. Muller -->
+    <div class="pf-card pf-card-no-link">
+      <div class="pf-card-shot">
+        <div class="shot-placeholder">Web připravujeme</div>
+      </div>
+      <div class="pf-card-body">
+        <span class="pf-card-domain">Elektroprojekt M. Muller</span>
+        <span class="pf-card-type">Řemeslná firma</span>
+        <h3>Martin Muller</h3>
+        <p>Elektroprojektant. Firemní prezentace s portfoliem realizovaných projektů a kontaktním formulářem do CRM.</p>
+        <div class="pf-card-result">
+          <span class="pf-card-result-icon">⚡</span>
+          <span class="pf-card-result-text"><strong>Poptávky do CRM</strong> – formulář přímo spouští zpracování zakázky.</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- BOTTOM CTA -->
+  <section class="pf-bottom">
+    <div class="pf-bottom-inner">
+      <h2>Chcete web pro svou firmu?</h2>
+      <p>Stavíme weby, které se rovnou zapojí do vašich procesů. Rezervace, formuláře a chaty vchází přímo do CRM nebo spouštějí agenta.</p>
+      <a href="/#booking" style="display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:8px;background:#3DB87B;color:#0a0a0f;font-size:15px;font-weight:700;text-decoration:none;">
+        Domluvit schůzku →
+      </a>
+    </div>
+  </section>
+
+  <script src="/script.js"></script>
+</body>
+</html>
