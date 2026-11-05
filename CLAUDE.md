@@ -61,12 +61,12 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 ## CEO Agent architektura
 
 ### Komunikační kanály
-- **Telegram** (@uptoai_coo_bot): text zprávy (hlasovky: odpovím s návodem) → COO-Router → Claude → akce
+- **Telegram** (@uptoai_coo_bot): text zprávy (hlasovky: odpovím s návodem) → n8n Telegram Receiver → COO Agent → akce
 - **Claude Code**: přímá komunikace, hlasovky nativně přes mikrofon v Claude app
 - **Denní autonomous run**: každý den 6:43 CET automaticky
 
 ### Make.com scénáře (folder: Up to AI, ID: 539841)
-- **COO-Router** (ID: 10042629) – Telegram webhook → intent detection → akce; **ROZBITY (isinvalid, 5.11.2026)** – Adam musí otevřít v Make.com UI a reconnectovat modul "Watch Updates" (TODO #6)
+- **COO-Router** (ID: 10042629) – **NAHRAZEN (5.11.2026)** – Telegram pipeline přesunuta do n8n Telegram Receiver (fnbyyhsyqwcKyxSu); Make.com COO-Router je zbytečný
 - **COO - Daily Briefing** (ID: 10051722) – denní analýza Airtable → Claude → Telegram; NEAKTIVNÍ (potřeba AIRTABLE_TOKEN)
 - **COO-Telegram-Sender** (ID: 10051783) – příjem textu → Telegram zpráva; aktivní
   - Webhook: `https://hook.eu2.make.com/ybk7d485ja85fs7ewmsraqi6vur071hy`
@@ -108,8 +108,8 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 3. **Adam**: Aktivovat COO Daily Briefing scénář v Make.com (ID: 10051722) po nastavení tokenu
 4. **Adam**: V Make.com otevřít COO-Leads (ID: 10052185) → HTTP moduly → nahradit `VLOZ_SEM_AIRTABLE_TOKEN` skutečným tokenem
 5. ~~**Adam**: V Make.com otevřít Web-Lead-Hunter (ID: 10054674) → HTTP modul (poslední) → nahradit VLOZ_SEM_AIRTABLE_TOKEN skutečným Airtable tokenem → aktivovat scénář~~ – HOTOVO (5.11.2026): HTTP method opravena get→post, token byl již v blueprint, scénář aktivován
-6. **Adam**: V Make.com otevřít COO-Router (ID: 10042629) → modul "Watch Updates" → uložit/reconnect (fix Telegram webhook)
-7. **Adam**: V Make.com aktualizovat COO-Router – propojit add_lead/update_lead větve s COO-Leads webhookem
+6. ~~**Adam**: V Make.com otevřít COO-Router (ID: 10042629) → modul "Watch Updates" → uložit/reconnect~~ – OBSOLETE (5.11.2026): Telegram pipeline přesunuta do n8n; COO-Router nepotřeba
+7. ~~**Adam**: V Make.com aktualizovat COO-Router~~ – OBSOLETE (5.11.2026): nahrazen n8n Telegram Receiver
 
 ## Moje odpovědnosti jako CEO
 
@@ -164,7 +164,8 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Agent | Platforma | ID | Status | Zodpovednost |
 |-------|-----------|-----|--------|--------------|
 | CEO Daily Briefing | Claude Code scheduled task | trig_011Y71uiLHcLyEY8WwbG7bSL | Aktivni | Kazdy den 6:43 CET: ToolSearch → Airtable → analyza → Telegram briefing |
-| COO-Router | Make.com | 10042629 | ROZBITY (isinvalid, 5.11.2026) | Telegram → intent detection → routing; Adam musí reconnectnout Telegram "Watch Updates" modul v Make.com UI |
+| Telegram Receiver | n8n | fnbyyhsyqwcKyxSu | Aktivni | Adam Telegram → n8n Telegram Trigger (auto-webhook) → Extract text+chat_id → HTTP POST /coo-agent → COO Agent; vytvoren 5.11.2026, nahradil Make.com COO-Router |
+| COO-Router | Make.com | 10042629 | OBSOLETE (nahrazen 5.11.2026) | Nahrazen n8n Telegram Receiver; Telegram webhook uz registrovan v n8n |
 | COO-Telegram-Sender | Make.com | 10051783 | Aktivni | Prijme text → posle Telegram zprávu Adamovi |
 | COO-Daily-Briefing | Make.com | 10051722 | Neaktivni | Rezerva k CEO Daily Briefing (potreba AIRTABLE_TOKEN) |
 | COO-Leads | Make.com | 10052185 | Aktivni (nutno token) | Webhook → router → Airtable CRUD pro pridavani a update leadů |
@@ -210,7 +211,7 @@ Make.com = lineární workflow, ne skutečné agenty. n8n má nativní AI Agent 
 - **Prospect Researcher**: Pro každý lead fetchuje web, IG, recenze → obohacuje Airtable záznamy
 
 ### Přechod - co zůstane v Make.com
-- COO-Router (Telegram webhook)
+- ~~COO-Router (Telegram webhook)~~ – nahrazen n8n Telegram Receiver
 - COO-Telegram-Sender (odesílání zpráv)
 - Telegram Approval Notifier (notifikace prepared leadů)
 - Jednoduché integrace bez AI logiky
