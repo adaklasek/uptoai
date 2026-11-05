@@ -95,7 +95,7 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 2. **Adam**: Nastavit `AIRTABLE_TOKEN` v environment secrets → aktivuje COO Daily Briefing scénář v Make.com
 3. **Adam**: Aktivovat COO Daily Briefing scénář v Make.com (ID: 10051722) po nastavení tokenu
 4. **Adam**: V Make.com otevřít COO-Leads (ID: 10052185) → HTTP moduly → nahradit `VLOZ_SEM_AIRTABLE_TOKEN` skutečným tokenem
-5. **Adam**: V Make.com otevřít Web-Lead-Hunter (ID: 10054674) → HTTP modul (poslední) → nahradit `VLOZ_SEM_AIRTABLE_TOKEN` skutečným Airtable tokenem → aktivovat scénář
+5. ~~**Adam**: V Make.com otevřít Web-Lead-Hunter (ID: 10054674) → HTTP modul (poslední) → nahradit VLOZ_SEM_AIRTABLE_TOKEN skutečným Airtable tokenem → aktivovat scénář~~ – HOTOVO (5.11.2026): HTTP method opravena get→post, token byl již v blueprint, scénář aktivován
 6. **Adam**: V Make.com otevřít COO-Router (ID: 10042629) → modul "Watch Updates" → uložit/reconnect (fix Telegram webhook)
 7. **Adam**: V Make.com aktualizovat COO-Router – propojit add_lead/update_lead větve s COO-Leads webhookem
 
@@ -154,7 +154,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | COO-Daily-Briefing | Make.com | 10051722 | Neaktivni | Rezerva k CEO Daily Briefing (potreba AIRTABLE_TOKEN) |
 | COO-Leads | Make.com | 10052185 | Aktivni (nutno token) | Webhook → router → Airtable CRUD pro pridavani a update leadů |
 | Hunter Agent | Make.com | 10030268 | Aktivni | Kazdy den 9:00 pracovni dny: hunter_targets → Apify → leads sheet |
-| Web-Lead-Hunter | Make.com | 10054674 | isinvalid (nutno token) | Kazdych 6h pracovni dny 8-20: hunter_targets (F=yes) → Apify → Airtable (field: fldOr6PMZa8xaw2mP=web_offer); prepsan z Google Sheets na Airtable 30.10.2026; nutno nahradit VLOZ_SEM_AIRTABLE_TOKEN tokenem |
+| Web-Lead-Hunter | Make.com | 10054674 | Aktivni (opraveno 5.11.2026) | Kazdych 6h pracovni dny 8-20: hunter_targets (F=yes) → Apify → Airtable (field: fldOr6PMZa8xaw2mP=web_offer); oprava 5.11: HTTP method get→post, aktivovano |
 | Analyst Agent (Make) | Make.com | 9987177 | DEAKTIVOVAN (30.10.2026) | Nahrazen Claude Code triggerem |
 | Analyst Agent | Claude Code scheduled task | trig_01EmjYqj9ha1tQpNn1jVjxux | Aktivni | Kazde hodiny 11-18h CET po-pa: Airtable fldOr6PMZa8xaw2mP=web_offer → Claude klasifikace → bid_web/bid_auto/bid_all (pole fldOr6PMZa8xaw2mP); opraveno 30.10.2026 |
 | Drafter v2 | Make.com | 10022573 | DEAKTIVOVAN (1.11.2026) | Nahrazen n8n Drafter Agent v2 |
@@ -171,6 +171,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Email Warmup – uptoai→gmail | n8n | 7IojZRRDcCSn3I97 | Aktivni | Po-Pa 11:23 CET: SMTP z adam@uptoai.cz → adaklasek@gmail.com (rotating 5 templates); zahrivani domeny; vytvoren 2.11.2026 |
 | Email Warmup – uptoai→externi | n8n | AUP95izGefnZRev8 | Aktivni | Po/St/Pa 12:17 CET: SMTP z adam@uptoai.cz → damian@e8markets.com + adam@flocklock.cz + qeds2012@seznam.cz (rotating 3 templates/kontakt); externi zahrivani domeny; vytvoren 2.11.2026 |
 | COO Telegram Agent | n8n | wrEFWuIA79kQwqck | Aktivni | Webhook POST /coo-agent → AI Agent (Claude Opus 5-5) → tools: Research Website + Create Lead in CRM + Send Telegram; zpracovava zpravy z Make.com COO-Router; vytvoren 4.11.2026 |
+| Drafter Agent (stary) | n8n | yPYTLTAgY0icGK8N | DEAKTIVOVAN (5.11.2026) | Duplicit Drafter Agent v2; mel "Send Draft to Adam" node ktery posilal SMTP emaily na adaklasek@gmail.com; email node disablovano 5.11 |
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
 
