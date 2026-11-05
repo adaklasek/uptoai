@@ -98,6 +98,20 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 - Při adaptive thinking má response 2 content bloky – použij `last()` pro text blok
 - Route filter na každý scénář: `{{1.__ROW_NUMBER__}} != ""` zabraňuje pádu při prázdných bundle
 
+### Klíčová technická pravidla n8n
+- **n8n Airtable v2.2 `update` operace**: NEMÁ samostatný `id` parametr. Record ID musí být v `columns.value` a `matchingColumns: ["id"]`. Správná struktura:
+  ```json
+  "columns": {
+    "mappingMode": "defineBelow",
+    "value": {"id": "={{ $json.id }}", "pipeline_status": "prepared"},
+    "matchingColumns": ["id"],
+    "schema": [{"id": "id", "displayName": "id", "required": true, "defaultMatch": true, "canBeUsedToMatch": true, "type": "string"}, ...]
+  }
+  ```
+  Chyba bez toho: "Could not get parameter columns.matchingColumns" nebo "Your request is invalid or could not be processed by the service"
+- **n8n update_workflow**: Použij `replace: true` pro kompletní přepis parametrů node; bez toho se parametry mergují a původní špatná struktura zůstane
+- **n8n publish_workflow**: Po každém update_workflow VŽDY zavolat publish_workflow – jinak sameAsDraft=false a agent běží starý kód
+
 ### Airtable leads (nové pole, 30.10.2026)
 - **pipeline_status** field ID: `fldOr6PMZa8xaw2mP` (singleSelect)
 - Choices: web_offer → bid_web/bid_auto/bid_all → prepared → schvaleno → odeslano → deal/lost/needs_response
