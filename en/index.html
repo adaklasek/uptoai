@@ -3,18 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UpToAI | AI Implementation for SMEs – Free Business Audit</title>
-  <meta name="description" content="Custom AI automation for Czech & Slovak businesses. Make.com, n8n, Claude AI, Zapier. Save 20+ hours per week on emails, CRM and repetitive tasks. Free 30-minute audit.">
-  <meta name="keywords" content="Make.com consultant, n8n implementation, business process automation, email automation, AI CRM automation, Claude AI implementation, Zapier consultant, Airtable automation, AI automation Prague, UpToAI">
+  <title>UpToAI | AI Agents & Automation for Small Business – Free Audit</title>
+  <meta name="description" content="We design, build and run AI agents that reply to customers, track follow-ups and handle back-office. On your tools, with your control. First results in 14 days. Free audit.">
   <link rel="canonical" href="https://uptoai.cz/en/">
   <link rel="alternate" hreflang="en" href="https://uptoai.cz/en/">
   <link rel="alternate" hreflang="cs" href="https://uptoai.cz/">
   <link rel="alternate" hreflang="x-default" href="https://uptoai.cz/">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZL82EMB1N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QZL82EMB1N');
+  </script>
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/favicon-180.png">
-  <meta property="og:title" content="UpToAI | Business Process Automation – Make.com, n8n, Claude AI">
-  <meta property="og:description" content="Custom AI automation using Make.com, n8n, Claude AI and Zapier. Save 20+ hours per week. Free 30-minute audit for Czech & Slovak businesses.">
+  <meta property="og:title" content="UpToAI | AI Agents & Automation for Small Business">
+  <meta property="og:description" content="We hand routine work to AI agents. You keep the work you get paid for. For small businesses and freelancers.">
   <meta property="og:url" content="https://uptoai.cz/en/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://uptoai.cz/og-image.png">
@@ -22,10 +29,11 @@
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="UpToAI | Make.com, n8n & Claude AI Automation – Prague">
-  <meta name="twitter:description" content="Custom AI automation for your business. Make.com, n8n, Claude AI, Zapier. Save 20+ hours/week. Free audit.">
+  <meta name="twitter:title" content="UpToAI | AI Agents & Automation for Small Business">
+  <meta name="twitter:description" content="We hand routine work to AI agents. You keep the work you get paid for.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Adam Klásek, UpToAI">
+  <meta name="theme-color" content="#0E1116">
   <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
   <script type="application/ld+json">
   {
@@ -34,30 +42,22 @@
     "name": "UpToAI",
     "url": "https://uptoai.cz",
     "email": "info@uptoai.cz",
-    "description": "AI implementation agency for Czech and Slovak SMEs. More customers, more revenue, less manual work. Free business audit.",
-    "areaServed": ["CZ", "SK"],
-    "priceRange": "Free audit",
-    "serviceType": ["AI Implementation", "Process Automation", "Marketing Automation", "AI Consulting"],
+    "founder": {"@type": "Person", "name": "Adam Klásek"},
+    "description": "UpToAI designs, builds and operates custom AI agents and automations for small businesses and freelancers in Czech Republic and Slovakia. Works with n8n, Make.com, Claude AI and Airtable.",
+    "areaServed": [{"@type": "Country", "name": "CZ"}, {"@type": "Country", "name": "SK"}],
+    "priceRange": "Free audit, implementation from CZK 45,000, maintenance from CZK 18,000/month",
+    "knowsAbout": ["AI agents", "process automation", "n8n", "Make.com", "Claude AI", "Airtable", "email automation", "CRM automation"],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "UpToAI Services",
       "itemListElement": [
-        {
-          "@type": "Offer",
-          "name": "Free AI Business Audit",
-          "description": "30-minute audit of your business processes. Find exactly where you're losing time and customers.",
-          "price": "0",
-          "priceCurrency": "CZK"
-        },
-        {
-          "@type": "Offer",
-          "name": "AI Implementation",
-          "description": "End-to-end setup of AI-powered business automation.",
-          "price": "45000",
-          "priceCurrency": "CZK"
-        }
+        {"@type": "Offer", "name": "Free Automation Audit", "description": "30-minute review of your processes. Output: a list of what to automate first and an estimated saving.", "price": "0", "priceCurrency": "CZK"},
+        {"@type": "Offer", "name": "Custom AI agent or automation", "description": "Design, build and launch 1–3 automations or AI agents, 30 days support included.", "price": "45000", "priceCurrency": "CZK"},
+        {"@type": "Offer", "name": "Ongoing management", "description": "Monthly monitoring, maintenance and expansion of automations. No long-term commitment.", "price": "18000", "priceCurrency": "CZK"},
+        {"@type": "Offer", "name": "Team training", "description": "Half-day workshop for 3–15 people on their own tasks.", "price": "12000", "priceCurrency": "CZK"}
       ]
-    }
+    },
+    "sameAs": ["https://www.linkedin.com/company/uptoai.cz", "https://www.linkedin.com/in/adam-klasek/", "https://www.instagram.com/uptoai.cz/"]
   }
   </script>
   <script type="application/ld+json">
@@ -65,785 +65,552 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Are we too small for AI?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Smaller businesses typically get the most out of it – every saved hour weighs more than in a corporation. We work with businesses from 5 employees up."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How fast will we see results?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Customer communication and content – within two weeks. More complex setups typically take a month."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do we need technical knowledge?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Not at all. The technical side is our job. Your team only learns what they'll actually use every day."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What does it realistically cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The audit is free. Implementation starts from CZK 45,000 (approx. €1,800). You'll get an exact number after the audit."
-        }
-      }
+      {"@type": "Question", "name": "What's the difference between an AI agent and an automation?", "acceptedAnswer": {"@type": "Answer", "text": "An automation follows fixed steps: when an order arrives, write it to a spreadsheet and send a confirmation. An AI agent gets a goal and decides the steps itself: it reads an inquiry, recognises what the customer wants, looks up information and prepares a reply. Most businesses benefit from a combination: automations for fixed steps, agents where judgement is needed."}},
+      {"@type": "Question", "name": "I'm a freelancer or small business. Is it worth it for me?", "acceptedAnswer": {"@type": "Answer", "text": "Small businesses and freelancers benefit the most – every hour saved is an hour you can invoice. If you spend at least 5 hours a week on routine work, it's worth calculating. If the numbers don't work out, we'll tell you at the audit."}},
+      {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "The audit is free. Implementation starts at CZK 45,000 for 1–3 automations or agents. Ongoing management from CZK 18,000/month, no long-term commitment. You'll get the exact price in writing after the audit, before committing to anything."}},
+      {"@type": "Question", "name": "How fast will it work?", "acceptedAnswer": {"@type": "Answer", "text": "The first automation usually runs within 14 days of approving the plan. The whole project typically takes 2–4 weeks."}},
+      {"@type": "Question", "name": "Who owns what you build?", "acceptedAnswer": {"@type": "Answer", "text": "You do. Everything runs on your accounts and tools, you get documentation and access. If you decide to stop working with us, the system stays yours."}},
+      {"@type": "Question", "name": "What if AI makes a mistake in front of a customer?", "acceptedAnswer": {"@type": "Answer", "text": "Where money or customer relationships are involved, we build in an approval step: the agent prepares, a human approves with one click. Every agent also has output checks and rules about what it cannot do. We only switch on automatic sending once results have been consistently good."}},
+      {"@type": "Question", "name": "What happens to our data?", "acceptedAnswer": {"@type": "Answer", "text": "Data stays in your systems. We use tools with business terms that don't use data for model training, and we address personal data processing under GDPR with every client."}}
     ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/home.css">
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <div class="nav-inner">
-      <a href="/en/" class="nav-logo">
-        <span class="logo-upto">upto</span><span class="logo-ai">ai</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#how">How we work</a></li>
-        <li><a href="#results">Results</a></li>
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a href="/en/" class="logo" aria-label="UpToAI home">upto<span>ai</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#what-we-build">What we build</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#how">How it works</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="#booking" class="nav-cta">Free Audit →</a></li>
-        <li class="lang-sep">|</li>
-        <li><a href="/" class="lang-switch">CS</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/" class="nav-lang" hreflang="cs">CS</a></li>
+        <li><a href="#audit" class="btn btn-volt nav-cta">Free Audit</a></li>
       </ul>
-      <button class="nav-burger" id="burger">
-        <span></span><span></span><span></span>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
-  </nav>
+  </header>
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="hero-inner">
-      <div class="hero-left">
-        <div class="hero-eyebrow">
-          <span class="pulse-dot"></span>
-          For Czech &amp; Slovak businesses
-        </div>
-        <h1 class="hero-headline">
-          AI<br>WORKS.<br>YOU<br>GROW.
-        </h1>
-        <p class="hero-sub">
-          Customers answered in under an hour.
-          Follow-ups happen automatically. Your business runs-even when you're not there.
-          Results in 14 days. Not another AI presentation.
-        </p>
-        <div class="hero-cta-row">
-          <a href="#booking" class="btn-primary">Get free audit →</a>
-          <a href="#services" class="btn-ghost">What exactly do I get?</a>
-        </div>
-        <div class="hero-trust-row">
-          <span class="trust-item"><span class="trust-icon">✓</span> Free audit, no commitment</span>
-          <span class="trust-item"><span class="trust-icon">✓</span> Results in 14 days</span>
-          <span class="trust-item"><span class="trust-icon">✓</span> Guarantee – you pay for results</span>
-        </div>
-        <div class="hero-accent-line"></div>
-      </div>
-      <div class="hero-right">
-        <div class="hero-card">
-          <div class="hc-header">
-            <span class="hc-dot green"></span>
-            <span class="hc-dot yellow"></span>
-            <span class="hc-dot red"></span>
-            <span class="hc-title">Business on autopilot - running</span>
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow"><b>AI agents & automations</b> · for small businesses and freelancers</span>
+          <h1>We hand routine work to AI&nbsp;agents. You keep the work <span class="em">you get paid for.</span></h1>
+          <p class="hero-sub">We design, build and run AI agents that reply to customers, track follow-ups and handle back-office. On your tools, with your control. First results in 14 days.</p>
+          <div class="hero-actions">
+            <a href="#audit" class="btn btn-volt">Book free audit <span class="arr">→</span></a>
+            <a href="#what-we-build" class="hero-link">What exactly we can build</a>
           </div>
-          <div class="hc-body">
-            <div class="hc-metric">
-              <span class="hc-metric-label">Free time back every week</span>
-              <span class="hc-metric-val" data-target="32">32</span>
-              <span class="hc-metric-unit">h</span>
-            </div>
-            <div class="hc-divider"></div>
-            <div class="hc-metric">
-              <span class="hc-metric-label">More customers served</span>
-              <span class="hc-metric-val" data-target="87">87</span>
-              <span class="hc-metric-unit">%</span>
-            </div>
-            <div class="hc-divider"></div>
-            <div class="hc-metric">
-              <span class="hc-metric-label">From first call to first results</span>
-              <span class="hc-metric-val" data-target="14">14</span>
-              <span class="hc-metric-unit">days</span>
-            </div>
-          </div>
-          <div class="hc-log">
-            <div class="hc-log-item"><span class="log-check">✓</span> Wasted work identified</div>
-            <div class="hc-log-item"><span class="log-check">✓</span> Business running on autopilot</div>
-            <div class="hc-log-item active"><span class="log-dot"></span> Customers coming in on their own</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-ticker">
-      <div class="ticker-inner">
-        <span>MORE CUSTOMERS</span><span>·</span>
-        <span>MORE REVENUE</span><span>·</span>
-        <span>LOWER COSTS</span><span>·</span>
-        <span>BEST CUSTOMER SERVICE IN YOUR INDUSTRY</span><span>·</span>
-        <span>MORE FREE TIME</span><span>·</span>
-        <span>CUSTOMERS WAIT AN HOUR, NOT A DAY</span><span>·</span>
-        <span>20–32 HOURS BACK EVERY WEEK</span><span>·</span>
-        <span>BUSINESS RUNS ON WEEKENDS TOO</span><span>·</span>
-        <span>REVENUE GROWS, HEADCOUNT DOESN'T</span><span>·</span>
-        <span>RESULTS IN 14 DAYS</span><span>·</span>
-        <span>MORE CUSTOMERS</span><span>·</span>
-        <span>MORE REVENUE</span><span>·</span>
-        <span>LOWER COSTS</span><span>·</span>
-        <span>BEST CUSTOMER SERVICE IN YOUR INDUSTRY</span><span>·</span>
-        <span>MORE FREE TIME</span><span>·</span>
-        <span>CUSTOMERS WAIT AN HOUR, NOT A DAY</span><span>·</span>
-        <span>20–32 HOURS BACK EVERY WEEK</span><span>·</span>
-        <span>BUSINESS RUNS ON WEEKENDS TOO</span><span>·</span>
-        <span>REVENUE GROWS, HEADCOUNT DOESN'T</span><span>·</span>
-        <span>RESULTS IN 14 DAYS</span><span>·</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <section class="vysledky" id="stats">
-    <div class="section-inner">
-      <div class="vysledky-grid">
-        <div class="vysledky-item">
-          <span class="vy-num">32<span class="vy-unit">h</span></span>
-          <span class="vy-label">of free time back every week</span>
-        </div>
-        <div class="vy-divider"></div>
-        <div class="vysledky-item">
-          <span class="vy-num">3<span class="vy-unit">×</span></span>
-          <span class="vy-label">faster customer response-without hiring</span>
-        </div>
-        <div class="vy-divider"></div>
-        <div class="vysledky-item">
-          <span class="vy-num">14<span class="vy-unit">days</span></span>
-          <span class="vy-label">from first call to first results</span>
-        </div>
-        <div class="vy-divider"></div>
-        <div class="vysledky-item">
-          <span class="vy-num">90<span class="vy-unit">days</span></span>
-          <span class="vy-label">average time to full return on investment</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="sluzby" id="services">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-eyebrow">What you actually get</span>
-        <h2>We don't sell technology.<br>We sell outcomes.</h2>
-        <p>No chatbots. No AI hype. Here are the specific results you get after working with us.</p>
-      </div>
-      <div class="sluzby-grid">
-
-        <div class="sluzba-card featured">
-          <div class="sluzba-num">01</div>
-          <h3>Know exactly where your business is losing customers and time</h3>
-          <p>In 30 minutes you'll know more about your business than you have in the past year. Specific numbers, specific bottlenecks, specific opportunities-not generic advice.</p>
-          <ul class="sluzba-list">
-            <li>See how many customers slip through each week</li>
-            <li>See how many hours your team spends on zero-value work</li>
-            <li>Leave with a written action plan-not a presentation</li>
-            <li>Walk away with a clear next step, not a proposal</li>
-          </ul>
-          <div class="sluzba-footer">
-            <span class="sluzba-price">Free</span>
-            <a href="#booking" class="btn-primary-sm">Book audit →</a>
+          <p class="micro">30 minutes · no commitment · you leave with a concrete plan even if you don't go further</p>
+          <div class="hero-trust">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Fixed price upfront</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>System stays yours</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>30 days support included</span>
           </div>
         </div>
 
-        <div class="sluzba-card">
-          <div class="sluzba-num">02</div>
-          <h3>Your business runs. Even when you're not there.</h3>
-          <p>Customers get a reply within 60 minutes-even on Saturdays. Reports generate automatically. Follow-ups go out on their own. Your team does work that actually gets paid.</p>
-          <ul class="sluzba-list">
-            <li>Customers wait an hour, not a day</li>
-            <li>No opportunity goes without a follow-up</li>
-            <li>Routine work at half the cost-without hiring</li>
-            <li>20–32 hours back every week</li>
-          </ul>
-          <div class="sluzba-footer">
-            <span class="sluzba-price">From CZK 45,000</span>
-            <a href="#booking" class="btn-ghost-sm">I want these results →</a>
+        <div class="demo-widget" aria-label="AI agents in action">
+          <div class="demo-header">
+            <div class="dots"><i></i><i></i><i></i></div>
+            <nav class="demo-tabs-nav" role="tablist">
+              <button class="demo-tab active" role="tab" data-idx="0">Finding clients</button>
+              <button class="demo-tab" role="tab" data-idx="1">Customer reply</button>
+              <button class="demo-tab" role="tab" data-idx="2">Weekly report</button>
+            </nav>
           </div>
-        </div>
-
-        <div class="sluzba-card">
-          <div class="sluzba-num">03</div>
-          <h3>More customers. More revenue. Without more work.</h3>
-          <p>Every potential customer gets a follow-up. Every opportunity is captured. Content and communications run 24/7. And you know exactly what's generating money.</p>
-          <ul class="sluzba-list">
-            <li>More deals closed from leads you already have</li>
-            <li>Revenue grows-headcount doesn't</li>
-            <li>Content and outreach run around the clock</li>
-            <li>Know what works-without manual tracking</li>
-          </ul>
-          <div class="sluzba-footer">
-            <span class="sluzba-price">From CZK 18,000/mo</span>
-            <a href="#booking" class="btn-ghost-sm">I want more customers →</a>
-          </div>
-        </div>
-
-        <div class="sluzba-card">
-          <div class="sluzba-num">04</div>
-          <h3>Your team saves 5–10 hours a week. From day one.</h3>
-          <p>Not generic AI tips. Concrete workflows for their actual daily tasks. Everyone leaves with something they can use immediately-and results show within a week.</p>
-          <ul class="sluzba-list">
-            <li>5–10 hours saved per person, per week</li>
-            <li>Recurring tasks done in a third of the time</li>
-            <li>Team stops doing work customers won't pay for</li>
-            <li>Faster responses-customers notice</li>
-          </ul>
-          <div class="sluzba-footer">
-            <span class="sluzba-price">From CZK 12,000</span>
-            <a href="#booking" class="btn-ghost-sm">I want a faster team →</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- WHO IT'S FOR -->
-  <section class="prokoho" id="who">
-    <div class="section-inner">
-      <div class="prokoho-inner">
-        <div class="prokoho-left">
-          <span class="section-eyebrow light">Who it's for</span>
-          <h2>This isn't for everyone.</h2>
-          <p class="prokoho-lead">We work with owners who want specific results-more customers, more revenue, less manual work. Not those looking for a buzzword for their annual report.</p>
-          <a href="#booking" class="btn-primary">I want these results →</a>
-        </div>
-        <div class="prokoho-right">
-          <div class="fit-card fit-yes">
-            <div class="fit-header">
-              <span class="fit-icon">✓</span>
-              <h4>Works for you if...</h4>
-            </div>
-            <ul>
-              <li>You want more customers-without more people or more work</li>
-              <li>You want higher revenue-from customers you already have</li>
-              <li>You want lower costs-without layoffs</li>
-              <li>You want the best customer service in your industry</li>
-              <li>You want to leave on Friday at 5pm knowing the business is fine</li>
-            </ul>
-          </div>
-          <div class="fit-card fit-no">
-            <div class="fit-header">
-              <span class="fit-icon">✕</span>
-              <h4>Won't work if...</h4>
-            </div>
-            <ul>
-              <li>You want a buzzword for the annual report, not real results</li>
-              <li>You're unwilling to change anything, just want better numbers</li>
-              <li>The only criterion is lowest price</li>
-              <li>Every decision takes months and goes through five people</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW WE WORK -->
-  <section class="jak" id="how">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-eyebrow">UpToAI Sprint · Our process</span>
-        <h2>Four steps. No surprises.</h2>
-        <p>From first call to working results-you know exactly what happens when, and what it costs. Average 3 weeks from audit to launch.</p>
-      </div>
-      <div class="jak-steps">
-        <div class="jak-step">
-          <div class="jak-step-num">1</div>
-          <div class="jak-step-content">
-            <h3>Free Audit</h3>
-            <p>30 minutes after which you know precisely where your business is losing time and customers. No commitment, no sales pitch-just facts about your business.</p>
-            <span class="jak-time">Free · ~30 minutes</span>
-          </div>
-        </div>
-        <div class="jak-connector"></div>
-        <div class="jak-step">
-          <div class="jak-step-num">2</div>
-          <div class="jak-step-content">
-            <h3>Clear Plan</h3>
-            <p>You get a straightforward plan: what we'll do, in what order, what it costs, and what it returns. Nothing hidden. No surprises mid-project.</p>
-            <span class="jak-time">Within 5 business days</span>
-          </div>
-        </div>
-        <div class="jak-connector"></div>
-        <div class="jak-step">
-          <div class="jak-step-num">3</div>
-          <div class="jak-step-content">
-            <h3>We set it up</h3>
-            <p>The technical side is our job. You track progress and approve results. Typically within two weeks, the first part is live and saving you hours.</p>
-            <span class="jak-time">1–3 weeks</span>
-          </div>
-        </div>
-        <div class="jak-connector"></div>
-        <div class="jak-step">
-          <div class="jak-step-num">4</div>
-          <div class="jak-step-content">
-            <h3>Business runs itself</h3>
-            <p>We hand over a working system. Your team knows what to do. And we're here for 30 days if anything needs fine-tuning.</p>
-            <span class="jak-time">30-day support included</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY UPTOAI -->
-  <section class="proc" id="why">
-    <div class="section-inner">
-      <div class="proc-grid">
-        <div class="proc-left">
-          <span class="section-eyebrow light">Why UpToAI</span>
-          <h2>No lectures.<br>No hype.<br>Just results.</h2>
-          <p class="proc-lead">Every agency will tell you what they'll deploy. Chatbot. Workflow. AI agent. We'll tell you what you'll get: more customers, more revenue, lower costs, more free time.</p>
-          <p>We work with owners who don't want technology. They want customers to get a response within the hour. Reports that don't need manual work. A business that runs even when they're on holiday.</p>
-          <p>We don't sell a tool. We sell the outcome. No buzzwords, no six-month implementation timelines. Working results-visible within 14 days.</p>
-          <div class="proc-tools">
-            <span class="proc-tools-label">Tools we work with</span>
-            <div class="proc-tools-row">
-              <span class="tool-badge">Make.com</span>
-              <span class="tool-badge">n8n</span>
-              <span class="tool-badge">Claude AI</span>
-              <span class="tool-badge">Zapier</span>
-              <span class="tool-badge">OpenAI</span>
-              <span class="tool-badge">Airtable</span>
-              <span class="tool-badge">Notion</span>
-              <span class="tool-badge">HubSpot</span>
-            </div>
-          </div>
-          <div class="proc-values">
-            <div class="proc-val">
-              <span class="val-icon">→</span>
-              <div>
-                <strong>Customers and time, not slides</strong>
-                <span>We measure success in customers, orders, and hours returned to you.</span>
+          <div class="demo-body">
+            <div class="demo-card active" data-card="0">
+              <div class="demo-flow">
+                <div class="demo-step" data-delay="0"><span class="ds-agent">Hunter</span><span class="ds-msg">Found 14 companies in Brno without online booking.</span></div>
+                <div class="demo-step" data-delay="1600"><span class="ds-agent">Analyst</span><span class="ds-msg">6 of them have no reservations or fast inquiry response.</span></div>
+                <div class="demo-step" data-delay="3200"><span class="ds-agent">Drafter</span><span class="ds-msg">Wrote 6 emails, each referencing something specific from their website.</span></div>
+                <div class="demo-step" data-delay="4800"><span class="ds-agent ds-k">Reviewer</span><span class="ds-msg">1 returned for rewrite. 5 passed. Fixed.</span></div>
+                <div class="demo-step" data-delay="6000"><span class="ds-agent ds-a">Adam</span><span class="ds-msg">Approved in Telegram with one tap.</span></div>
               </div>
+              <div class="demo-result" data-delay="7200"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>7 outreach emails sent · 08:14</div>
             </div>
-            <div class="proc-val">
-              <span class="val-icon">→</span>
-              <div>
-                <strong>Speed over perfectionism</strong>
-                <span>A working solution in two weeks beats a perfect one in six months. Every time.</span>
+            <div class="demo-card" data-card="1">
+              <div class="demo-flow">
+                <div class="demo-step" data-delay="0"><span class="ds-agent ds-ext">Customer</span><span class="ds-msg">Wrote on Saturday at 9:12. "I'm interested in a quote."</span></div>
+                <div class="demo-step" data-delay="1600"><span class="ds-agent">Agent</span><span class="ds-msg">Read the inquiry, identified interest in the starter package.</span></div>
+                <div class="demo-step" data-delay="3200"><span class="ds-agent ds-k">Reviewer</span><span class="ds-msg">Checked the reply. Everything correct, price right.</span></div>
+                <div class="demo-step" data-delay="4800"><span class="ds-agent ds-a">You</span><span class="ds-msg">Got a summary. Reply sent automatically.</span></div>
               </div>
+              <div class="demo-result" data-delay="6200"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Reply in 4 minutes · even on weekends</div>
             </div>
-            <div class="proc-val">
-              <span class="val-icon">→</span>
-              <div>
-                <strong>Straight talk</strong>
-                <span>We'll tell you what works and what doesn't-including when AI isn't the right answer for your case.</span>
+            <div class="demo-card" data-card="2">
+              <div class="demo-flow">
+                <div class="demo-step" data-delay="0"><span class="ds-agent">Reporter</span><span class="ds-msg">Pulled data from CRM, email and Airtable. Monday 7:00.</span></div>
+                <div class="demo-step" data-delay="1600"><span class="ds-agent">Analyst</span><span class="ds-msg">3 new leads this week. 2 waiting for follow-up.</span></div>
+                <div class="demo-step" data-delay="3200"><span class="ds-agent">Reporter</span><span class="ds-msg">Compiled overview. Flagged 2 open offers older than 7 days.</span></div>
               </div>
+              <div class="demo-result" data-delay="4800"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Report in Telegram at 7:03</div>
             </div>
           </div>
-        </div>
-        <div class="proc-right">
-          <div class="adam-card">
-            <div class="adam-avatar">AK</div>
-            <div class="adam-info">
-              <strong>Adam Klásek</strong>
-              <span>Founder, UpToAI</span>
-            </div>
-            <blockquote>"The goal is never to deploy AI. The goal is a better-running business-more customers, less wasted work, more time back. AI is just the tool to get there."</blockquote>
-            <p class="adam-bio">Adam focuses on business process optimization and automating unnecessary manual work. He helps Czech and Slovak SMEs do more with what they already have-without hiring, without complex systems, without six-month timelines.</p>
-            <div class="adam-links">
-              <a href="https://www.linkedin.com/in/adam-klasek/" target="_blank" rel="noopener" class="adam-link">LinkedIn →</a>
-              <a href="mailto:info@uptoai.cz" class="adam-link">info@uptoai.cz</a>
-            </div>
-            <div class="adam-tools">
-              <span class="tool-tag">Process optimization</span>
-              <span class="tool-tag">AI implementation</span>
-              <span class="tool-tag">Automation</span>
-              <span class="tool-tag">Results in 14 days</span>
-            </div>
+          <div class="demo-footer">
+            <div class="demo-progress"><div class="demo-bar"></div></div>
+            <span>Simplified view from our own agency's pipeline</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- RESULTS -->
-  <section class="reference" id="results">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-eyebrow">Results</span>
-        <h2>Numbers don't lie.</h2>
-        <p>Real businesses. Real results.</p>
+    <!-- 01 PAINS -->
+    <section class="section" id="problem">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow"><b>01</b> · Sound familiar?</span>
+          <h2>This is the kind of business where we help <span class="em">the most.</span></h2>
+        </div>
+        <div class="pains">
+          <div class="pain rv"><p>A customer wrote on Saturday morning. By Monday it was too late – they went elsewhere.</p></div>
+          <div class="pain rv"><p>Every Friday afternoon I manually put together reports that should build themselves.</p></div>
+          <div class="pain rv"><p>I was going to send that follow-up. Then a new project came in. The customer didn't wait.</p></div>
+          <div class="pain rv"><p>I'll post on social media when I have a moment.<small>That moment never came all year.</small></p></div>
+          <div class="pain rv"><p>I reply to inquiries myself, manually, one by one. There are more and more of them.</p></div>
+          <div class="pain rv"><p>I know exactly what could be automated. There's just never the right time.</p></div>
+        </div>
+        <div class="pains-cta rv">
+          <p>If even one of these resonates, it's worth a conversation.</p>
+          <a href="#audit" class="btn btn-primary">Book free audit <span class="arr">→</span></a>
+        </div>
       </div>
-      <div class="ref-grid">
+    </section>
 
-        <div class="ref-card">
-          <div class="ref-stars">★★★★★</div>
-          <blockquote>"I finally have time for things I never had space for before. Social content used to be a nightmare-now it's done before my morning coffee. And it looks better than before."</blockquote>
-          <div class="ref-author">
-            <div class="ref-avatar">MH</div>
-            <div class="ref-info">
-              <strong>Markéta H.</strong>
-              <span>Marketing Manager · e-commerce, 18 employees</span>
+    <!-- 02 USE CASES -->
+    <section class="section alt" id="what-we-build">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow"><b>02</b> · What we build</span>
+          <h2>Specific agents for specific work.</h2>
+          <p>We don't sell "AI transformation". We take one annoying thing you do every week and hand it to an agent. Then another.</p>
+        </div>
+        <div class="uses">
+          <article class="use rv">
+            <span class="use-idx">01</span>
+            <div>
+              <span class="num">Customer communication & email</span>
+              <h3>Reply to an inquiry within 5 minutes</h3>
+              <p>Email today isn't about the interface – it's about automation. The agent recognises priorities, creates a lead in your CRM from a new email or form, and sends a notification to your phone. If you want, it replies on its own – based on your materials, pricing and communication style.</p>
+              <ol class="use-flow">
+                <li>New email or inquiry form</li>
+                <li>Agent reads, categorises, sets priority</li>
+                <li>Creates lead in CRM</li>
+                <li>Notification to your phone</li>
+                <li>Optional: agent replies automatically</li>
+              </ol>
+              <span class="gain">No inquiry goes cold over the weekend</span>
             </div>
-          </div>
-          <div class="ref-result">
-            <span class="ref-result-num">-15h</span>
-            <span class="ref-result-label">of wasted work every week</span>
-          </div>
+          </article>
+          <article class="use rv">
+            <span class="use-idx">02</span>
+            <div>
+              <span class="num">Sales</span>
+              <h3>Follow-ups that never get forgotten</h3>
+              <p>After a meeting or a proposal, the agent monitors who hasn't replied, writes a reminder in your style and logs the status in the CRM. You only approve.</p>
+              <span class="gain">More deals from contacts you already have</span>
+            </div>
+          </article>
+          <article class="use rv">
+            <span class="use-idx">03</span>
+            <div>
+              <span class="num">Client acquisition</span>
+              <h3>Leads that find themselves</h3>
+              <p>The agent finds businesses matching your criteria, reviews their website, evaluates who you can help, and prepares personalised outreach.</p>
+              <span class="gain">Full pipeline without manual searching</span>
+            </div>
+          </article>
+          <article class="use rv">
+            <span class="use-idx">04</span>
+            <div>
+              <span class="num">Back-office</span>
+              <h3>Invoices, orders, data entry</h3>
+              <p>Data from emails, PDFs and forms gets to where it belongs automatically: accounting, spreadsheet or CRM. No copy-pasting, no typos.</p>
+              <span class="gain">Hours per week back, zero transcription errors</span>
+            </div>
+          </article>
+          <article class="use rv">
+            <span class="use-idx">05</span>
+            <div>
+              <span class="num">Reporting</span>
+              <h3>An overview that arrives on its own</h3>
+              <p>Every Monday morning you get a summary in Telegram or email: what was sold, what's pending, what to look at. No opening five systems.</p>
+              <span class="gain">Decisions based on numbers, not gut feeling</span>
+            </div>
+          </article>
+          <article class="use rv">
+            <span class="use-idx">06</span>
+            <div>
+              <span class="num">Internal assistant</span>
+              <h3>An agent that knows your business</h3>
+              <p>An assistant over your documents, pricing and procedures. Answers team questions, prepares a proposal or brief – without you explaining it for the tenth time.</p>
+              <span class="gain">Less "hey, how do we handle…"</span>
+            </div>
+          </article>
         </div>
 
-        <div class="ref-card">
-          <div class="ref-stars">★★★★★</div>
-          <blockquote>"I was afraid we'd lose deals because of slow responses. Today no customer waits overnight-and I'm not involved at all. That's the best possible combination."</blockquote>
-          <div class="ref-author">
-            <div class="ref-avatar">TD</div>
-            <div class="ref-info">
-              <strong>Tomáš D.</strong>
-              <span>Owner · consulting firm, 7 employees</span>
+        <div class="service-secondary rv">
+          <div class="ss-top">
+            <span class="eyebrow"><b>+</b> · Secondary service</span>
+            <div class="ss-content">
+              <h3>Websites that convert</h3>
+              <p>We build websites ready for automation – for businesses that want one public face and immediately connect it to their processes. Contact forms and bookings feed directly into your CRM and trigger an agent.</p>
             </div>
           </div>
-          <div class="ref-result">
-            <span class="ref-result-num">0</span>
-            <span class="ref-result-label">missed opportunities</span>
+          <div class="portfolio">
+            <a href="https://www.josefaron.eu" target="_blank" rel="noopener" class="port-item">
+              <span class="port-domain">josefaron.eu</span>
+              <span class="port-type">Personal showcase</span>
+            </a>
+            <a href="https://tenisjindrichuvhradec.cz" target="_blank" rel="noopener" class="port-item">
+              <span class="port-domain">tenisjindrichuvhradec.cz</span>
+              <span class="port-type">Sports club</span>
+            </a>
+            <a href="https://coffeeforua.cz" target="_blank" rel="noopener" class="port-item">
+              <span class="port-domain">coffeeforua.cz</span>
+              <span class="port-type">Charity initiative</span>
+            </a>
+            <a href="https://flocklock.eu" target="_blank" rel="noopener" class="port-item">
+              <span class="port-domain">flocklock.eu</span>
+              <span class="port-type">Startup / product</span>
+            </a>
+            <a href="https://adamklasek.cz" target="_blank" rel="noopener" class="port-item">
+              <span class="port-domain">adamklasek.cz</span>
+              <span class="port-type">Personal brand</span>
+            </a>
+            <span class="port-item">
+              <span class="port-domain">Kadeřnictví Jane Mark</span>
+              <span class="port-type">Local salon</span>
+            </span>
+            <span class="port-item">
+              <span class="port-domain">Elektroprojekt M. Muller</span>
+              <span class="port-type">Trades business</span>
+            </span>
           </div>
         </div>
-
-        <div class="ref-card">
-          <div class="ref-stars">★★★★★</div>
-          <blockquote>"I thought it wouldn't work for us-our processes are too specific. I was wrong. Now I invest that time in things that actually move the company forward."</blockquote>
-          <div class="ref-author">
-            <div class="ref-avatar">JP</div>
-            <div class="ref-info">
-              <strong>Jana P.</strong>
-              <span>CEO · HR agency, 12 employees</span>
-            </div>
-          </div>
-          <div class="ref-result">
-            <span class="ref-result-num">-40%</span>
-            <span class="ref-result-label">time on work that doesn't generate revenue</span>
-          </div>
-        </div>
-
-        <div class="ref-card">
-          <div class="ref-stars">★★★★★</div>
-          <blockquote>"I expected another training session where nothing changes. This was different-people used what they learned immediately, and within a month it showed in the numbers."</blockquote>
-          <div class="ref-author">
-            <div class="ref-avatar">MK</div>
-            <div class="ref-info">
-              <strong>Michal K.</strong>
-              <span>Sales Director · manufacturing, 45 employees</span>
-            </div>
-          </div>
-          <div class="ref-result">
-            <span class="ref-result-num">+30%</span>
-            <span class="ref-result-label">sales team performance in one month</span>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CASE STUDY -->
-  <section class="casestudy" id="casestudy">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-eyebrow">Case study</span>
-        <h2>Before and after. Specifically.</h2>
-        <p>What it looks like when a business stops handling customers manually.</p>
-      </div>
-      <div class="cs-card">
-        <div class="cs-meta">
-          <span class="cs-industry">HR agency · 12 employees</span>
-          <span class="cs-timeframe">Results in 3 weeks</span>
+    <!-- 03 EXPLAINER -->
+    <section class="section dark" id="agent-vs-automation">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow"><b>03</b> · Agent or automation?</span>
+          <h2>You don't need to know the difference. <span class="em">We do.</span></h2>
+          <p>In brief, so you know what you're buying.</p>
         </div>
-        <div class="cs-columns">
-          <div class="cs-col cs-before">
-            <div class="cs-col-label before">Before</div>
+        <div class="explain">
+          <div class="ex-card rv">
+            <span class="tag">Automation</span>
+            <h3>Fixed steps</h3>
+            <p>When A happens, do B and C. Reliable, cheap to run, ideal for recurring work that doesn't require decisions.</p>
+            <p class="eg"><b>Example</b>A new order gets written to a spreadsheet and a confirmation goes to the customer.</p>
+          </div>
+          <div class="ex-card rv">
+            <span class="tag">AI agent</span>
+            <h3>Goal & judgement</h3>
+            <p>Gets a goal, not a procedure. Reads, decides, looks things up and chooses the next step on its own. For work that requires thinking.</p>
+            <p class="eg"><b>Example</b>Reads an inquiry, recognises it's a complaint, looks up the order and prepares a reply.</p>
+          </div>
+          <div class="ex-card hl rv">
+            <span class="tag">What we build</span>
+            <h3>Both, with a safety net</h3>
+            <p>Automations where fixed steps are enough. Agents where judgement is needed. And everywhere – checks and human approval where money or the customer is involved.</p>
+            <p class="eg"><b>Result</b>A system you can trust, because you know when it decides on its own and when it asks you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PRICING -->
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow"><b>04</b> · Pricing</span>
+          <h2>Clear prices. <span class="em">No surprises.</span></h2>
+          <p>We always start with a free audit. You get the exact price in writing before committing to anything.</p>
+        </div>
+
+        <div class="offer-audit rv" id="audit-offer">
+          <div>
+            <span class="eyebrow" style="color:#BFE0CB"><b style="color:#fff">Step 1</b> · for everyone</span>
+            <h3 style="margin-top:12px">Automation audit</h3>
+            <p>30 minutes on your business. You leave with a list of what to automate first, an estimated saving and a price. If the numbers don't work out, we'll tell you.</p>
+          </div>
+          <div>
+            <div class="price">Free<small>no commitment</small></div>
+            <a href="#audit" class="btn">Book audit <span class="arr">→</span></a>
+          </div>
+        </div>
+
+        <div class="plans">
+          <div class="plan feat rv">
+            <span class="badge">Most common start</span>
+            <span class="for">Implementation</span>
+            <h3>Custom agent</h3>
+            <p class="desc">We design, build and launch 1–3 automations or AI agents for your biggest time drains.</p>
+            <div class="price">from CZK 45,000</div>
+            <div class="terms">one-off · 2–4 weeks</div>
             <ul>
-              <li>Every incoming inquiry processed manually - 2–4 hours before a candidate got a reply</li>
-              <li>Follow-ups forgotten - 30–40% of opportunities lost without any response</li>
-              <li>Weekly client reports: 3–4 hours of manual work every Friday</li>
-              <li>The owner couldn't leave the office without unanswered messages piling up</li>
+              <li>Solution design and fixed price upfront</li>
+              <li>Built on your accounts and tools</li>
+              <li>Output checks and approvals where needed</li>
+              <li>Training and documentation</li>
+              <li>30 days support and tuning included</li>
             </ul>
+            <a href="#audit" class="btn btn-primary">Start with an audit <span class="arr">→</span></a>
           </div>
-          <div class="cs-col cs-after">
-            <div class="cs-col-label after">After 3 weeks</div>
+          <div class="plan rv">
+            <span class="for">Ongoing management</span>
+            <h3>Agents under supervision</h3>
+            <p class="desc">We monitor, tune and add more automations. Like having your own AI specialist, without the hire.</p>
+            <div class="price">from CZK 18,000 <small>/ month</small></div>
+            <div class="terms">monthly · no long-term commitment</div>
             <ul>
-              <li>Every candidate gets a personalised reply within 15 minutes - automatically</li>
-              <li>Follow-up sequences: no contact slips through without at least 3 touchpoints</li>
-              <li>Reports generate every Friday on their own - delivered by email in the client's preferred format</li>
-              <li>For the first time in 4 years, the owner turned her phone off at 2pm on Friday</li>
+              <li>Monitoring and fixes when things change</li>
+              <li>New automation or improvement every month</li>
+              <li>Monthly report: what agents did and saved</li>
+              <li>Direct contact, reply within 1 business day</li>
             </ul>
+            <a href="#audit" class="btn btn-ghost">Discuss at audit</a>
+          </div>
+          <div class="plan rv">
+            <span class="for">Training</span>
+            <h3>AI for your team</h3>
+            <p class="desc">Half-day workshop on your team's actual tasks. No generic tips – everyone leaves with something they can use the same day.</p>
+            <div class="price">from CZK 12,000</div>
+            <div class="terms">3–15 people · half day</div>
+            <ul>
+              <li>Tailored to your work</li>
+              <li>Ready-made processes and templates to take home</li>
+              <li>Ideal first step before full automation</li>
+            </ul>
+            <a href="#audit" class="btn btn-ghost">Arrange training</a>
           </div>
         </div>
-        <div class="cs-results">
-          <div class="cs-result-item">
-            <span class="cs-num">-40%</span>
-            <span class="cs-label">admin workload</span>
-          </div>
-          <div class="cs-result-item">
-            <span class="cs-num">15 min</span>
-            <span class="cs-label">avg. response time (was 3 h)</span>
-          </div>
-          <div class="cs-result-item">
-            <span class="cs-num">+28%</span>
-            <span class="cs-label">more positions filled</span>
-          </div>
-          <div class="cs-result-item">
-            <span class="cs-num">20 h</span>
-            <span class="cs-label">back every week</span>
-          </div>
-        </div>
-        <div class="cs-cta">
-          <a href="#booking" class="btn-primary">I want results like these →</a>
-          <span class="cs-note">The free audit shows exactly what's waiting for your business</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ROI CALCULATOR -->
-  <section class="roi-calc" id="calculator">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-eyebrow">Calculator</span>
-        <h2>How much does manual work cost you?</h2>
-        <p>Fill in three numbers. The result might surprise you.</p>
+        <div class="offer-note rv">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>No vendor lock-in, the system stays yours</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Prices ex VAT</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Tool running costs typically a few hundred CZK per month</span>
+        </div>
       </div>
-      <div class="calc-card">
-        <div class="calc-inputs">
-          <div class="calc-group">
-            <label class="calc-label">Team size</label>
-            <div class="calc-input-row">
-              <input type="range" id="calc-people" min="1" max="50" value="8" class="calc-slider">
-              <span class="calc-val" id="calc-people-val">8</span>
+    </section>
+
+    <!-- 05 PROCESS -->
+    <section class="section alt" id="how">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow"><b>05</b> · How it works</span>
+          <h2>Four steps. You know what happens when and for how much.</h2>
+        </div>
+        <div class="steps">
+          <div class="step rv">
+            <span class="n">01</span>
+            <h3>Audit</h3>
+            <p>We look at where you're losing time and customers. Specifically, on your processes – not on slides.</p>
+            <span class="when">free · 30 minutes</span>
+          </div>
+          <div class="step rv">
+            <span class="n">02</span>
+            <h3>Plan & price</h3>
+            <p>You get it in writing: what we'll build, in what order, what it costs and what it brings.</p>
+            <span class="when">within 5 business days</span>
+          </div>
+          <div class="step rv">
+            <span class="n">03</span>
+            <h3>Build</h3>
+            <p>The technical side is our job. You see results along the way and approve. The first part usually runs within 14 days.</p>
+            <span class="when">2–4 weeks</span>
+          </div>
+          <div class="step rv">
+            <span class="n">04</span>
+            <h3>Handover & operation</h3>
+            <p>We hand over a working system with a guide. 30 days of tuning included, then you decide whether you want ongoing management.</p>
+            <span class="when">30 days support included</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 PROOF -->
+    <section class="section dark" id="proof">
+      <div class="wrap proof-grid">
+        <div class="proof-copy rv">
+          <span class="eyebrow"><b>06</b> · First-hand experience</span>
+          <h2 style="font-size:clamp(34px,4.6vw,54px);margin-top:18px">Our agency runs <span class="em">on its own agents.</span></h2>
+          <p>We won't sell you something we don't use ourselves. Finding clients, evaluation, writing outreach, review and sending – at UpToAI, all of that is done by AI agents. <strong>A human only approves.</strong></p>
+          <p>That's exactly the approach we bring to you: each agent has one clear job, another agent checks the output, and where the customer is involved, a human has the final say.</p>
+          <ul class="proof-list">
+            <li><b>Client acquisition</b> Hunter searches daily for businesses by industry and location, Analyst reviews their website and Drafter writes personalised outreach. Adam approves with one tap in Telegram.</li>
+            <li><b>Email automation</b> Incoming emails are automatically categorised, added to the CRM and a notification arrives on the phone. Replies are prepared for sending or sent automatically.</li>
+            <li><b>Daily briefing</b> Every day at 6:43 a pipeline status arrives in Telegram: what's waiting for approval and what needs a follow-up.</li>
+            <li><b>Demo websites for leads</b> An agent builds a demo website for every company in the pipeline, so the outreach email includes a concrete visual.</li>
+          </ul>
+        </div>
+        <div class="pipeline rv" aria-label="Agents running UpToAI">
+          <div class="agent"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div><div><h4>Hunter</h4><p>Finds businesses we can help</p></div><span class="st">every day</span></div>
+          <div class="agent"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div><div><h4>Analyst</h4><p>Reviews their website and evaluates fit</p></div><span class="st">every hour</span></div>
+          <div class="agent"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><div><h4>Drafter</h4><p>Writes personalised outreach for each company</p></div><span class="st">every 30 min</span></div>
+          <div class="agent"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div><div><h4>Reviewer</h4><p>Compares output against brief and returns what doesn't fit</p></div><span class="st">on every output</span></div>
+          <div class="agent human"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><div><h4>Human</h4><p>Approves with one tap in Telegram</p></div><span class="st">final say</span></div>
+          <div class="agent"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></div><div><h4>Sender</h4><p>Sends approved emails and monitors replies</p></div><span class="st">every 15 min</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 BEFORE / AFTER -->
+    <section class="section" id="before-after">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow"><b>07</b> · Before & after</span>
+          <h2>What changes in your week.</h2>
+        </div>
+        <table class="ba rv">
+          <thead><tr><th>Area</th><th>Today</th><th>With agents</th></tr></thead>
+          <tbody>
+            <tr><td>New inquiry</td><td>You reply when you have a moment. Sometimes next day.</td><td>Reply within minutes, even on Saturday. You get a summary.</td></tr>
+            <tr><td>Follow-up</td><td>You rely on memory and sticky notes.</td><td>Agent monitors every contact and writes the reminder for you.</td></tr>
+            <tr><td>Data & invoices</td><td>Copying between email, spreadsheet and accounting.</td><td>Data moves on its own, you check exceptions.</td></tr>
+            <tr><td>Business overview</td><td>Friday afternoon in spreadsheets.</td><td>Monday summary arrives automatically on your phone.</td></tr>
+            <tr><td>New business</td><td>You look for clients when you don't have any.</td><td>Pipeline fills continuously, even when your hands are full.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 08 CALCULATOR -->
+    <section class="section alt" id="calculator">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow"><b>08</b> · Calculate it</span>
+          <h2>How much does routine work cost you per year?</h2>
+          <p>A rough estimate. At the audit we'll sharpen it with your actual numbers.</p>
+        </div>
+        <div class="calc rv">
+          <div class="calc-in">
+            <div class="calc-row">
+              <label for="c-people">How many people do routine work <output id="o-people">2</output></label>
+              <input type="range" id="c-people" min="1" max="30" value="2">
+            </div>
+            <div class="calc-row">
+              <label for="c-hours">Hours of routine per week per person <output id="o-hours">6 h</output></label>
+              <input type="range" id="c-hours" min="1" max="20" value="6">
+            </div>
+            <div class="calc-row">
+              <label for="c-rate">Value of one hour's work <output id="o-rate">600 CZK</output></label>
+              <input type="range" id="c-rate" min="200" max="2500" step="50" value="600">
             </div>
           </div>
-          <div class="calc-group">
-            <label class="calc-label">Hours per week on repetitive manual work (per person)</label>
-            <div class="calc-input-row">
-              <input type="range" id="calc-hours" min="1" max="20" value="6" class="calc-slider">
-              <span class="calc-val" id="calc-hours-val">6</span>
-            </div>
+          <div class="calc-out">
+            <span class="lbl">Routine costs you per year</span>
+            <div class="big" id="o-year">374,400 CZK</div>
+            <p class="sub" id="o-sub">That's 624 hours of work per year an agent could handle.</p>
+            <a href="#audit" class="btn btn-volt">Find out how much of that can be saved <span class="arr">→</span></a>
           </div>
-          <div class="calc-group">
-            <label class="calc-label">Average employee hourly rate (CZK)</label>
-            <div class="calc-input-row">
-              <input type="range" id="calc-rate" min="200" max="1500" value="450" step="50" class="calc-slider">
-              <span class="calc-val" id="calc-rate-val">450 CZK</span>
-            </div>
-          </div>
-        </div>
-        <div class="calc-result">
-          <div class="calc-result-main">
-            <span class="calc-result-label">Wasted costs per year</span>
-            <span class="calc-result-num" id="calc-output">1,123,200 CZK</span>
-          </div>
-          <div class="calc-result-sub">
-            <div class="calc-sub-item">
-              <span class="calc-sub-label">Per month</span>
-              <span class="calc-sub-val" id="calc-monthly">93,600 CZK</span>
-            </div>
-            <div class="calc-sub-item">
-              <span class="calc-sub-label">If we automate 70%</span>
-              <span class="calc-sub-val green" id="calc-saving">786,240 CZK saved per year</span>
-            </div>
-          </div>
-          <a href="#booking" class="btn-primary calc-cta">Find out what to automate →</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ -->
-  <section class="faq" id="faq">
-    <div class="section-inner">
-      <div class="section-header">
-        <h2>Questions you'll have anyway.</h2>
-        <p>We'd rather answer them upfront.</p>
+    <!-- 09 FOUNDER -->
+    <section class="section" id="about">
+      <div class="wrap founder">
+        <div class="avatar rv" aria-hidden="true">AK</div>
+        <div class="rv">
+          <span class="eyebrow"><b>09</b> · Who's behind it</span>
+          <blockquote style="margin-top:18px">"The goal isn't to deploy AI. The goal is for the business to work better: more customers, less unnecessary work and more time for what matters."</blockquote>
+          <p class="bio">I'm Adam Klásek and I founded UpToAI because I see how much time small businesses and freelancers waste on work software can handle today. I'm not here to sell you hype. I'll come, take a look, and if it doesn't make sense, I'll tell you.</p>
+          <div class="who">
+            <strong>Adam Klásek, founder</strong>
+            <a href="https://www.linkedin.com/in/adam-klasek/" target="_blank" rel="noopener">LinkedIn →</a>
+            <a href="https://www.instagram.com/uptoai.cz/" target="_blank" rel="noopener">Instagram →</a>
+            <a href="mailto:info@uptoai.cz">info@uptoai.cz</a>
+          </div>
+        </div>
       </div>
-      <div class="faq-grid">
-        <details class="faq-item">
-          <summary>What exactly do we get?</summary>
-          <p>Depends on what you need. Most commonly: customers get answers within 60 minutes instead of a day; reports generate automatically every week; follow-ups go out on their own; your team saves 20–32 hours a week. You'll get an exact list at the audit-free.</p>
-        </details>
-        <details class="faq-item">
-          <summary>How many more customers will I realistically get?</summary>
-          <p>That depends on how many opportunities you're currently losing-which we'll find at the audit. Typically businesses recover deals they were losing due to slow response. One client recovered 3–4 deals per month that would have gone to competitors.</p>
-        </details>
-        <details class="faq-item">
-          <summary>How fast will we see results?</summary>
-          <p>Customer communication and follow-ups-within two weeks. Revenue from better lead capture-within a month. Team time savings-from day one. You'll always know in advance what to expect and when.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What does it cost and when does it pay back?</summary>
-          <p>The audit is free. Implementation from CZK 45,000 (approx. €1,800). Average return on investment within 90 days-through recovered deals, saved hours, or reduced costs. You'll get a specific number after the audit.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Do we need technical expertise?</summary>
-          <p>Not at all. The technical side is our job. You define the outcome you want-we make it work. Your team only learns what they'll actually use every day.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What if we don't see results?</summary>
-          <p>Before we start, we define exactly what success looks like-specific numbers, in writing. If we don't hit them, we keep working without charging more-until it does. We'll never send you another invoice for failing to deliver what we promised.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What will you need from us? Do we have to give you system access?</summary>
-          <p>We need access only to the tools we're directly automating-typically email, CRM, or your messaging platform. You always know exactly what access we have and why. No access to anything unrelated to the project. Access can be revoked any time-and everything we build stays yours.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What happens if we stop working together-will everything still run?</summary>
-          <p>Yes. Everything we set up is yours-no vendor lock-in, no monthly fees to us to keep it running. We hand over a working system with documentation. Your team knows what to do. 30 days of support after handover is included.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Does this work in our industry?</summary>
-          <p>We work with businesses in retail, manufacturing, construction, HR, marketing, consulting, and e-commerce. The industry doesn't matter as much as whether you have repeating processes or customers waiting on responses. If you do, probably yes. If not, we'll tell you honestly at the audit.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Are we too small for AI?</summary>
-          <p>Smaller businesses typically get the most out of it-every hour saved makes a bigger difference than in a large corporation, and every customer you don't lose is visible in revenue. We work with businesses from 5 employees up. Size doesn't matter-results do.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- BOOKING -->
-  <section class="booking" id="booking">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-eyebrow">Free consultation</span>
-        <h2>Book a call<br>directly in the calendar.</h2>
-        <p class="booking-sub">Pick a time that works for you. 30 minutes-you'll know exactly what AI will do for your business.</p>
+    <!-- 10 FAQ -->
+    <section class="section alt" id="faq">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow"><b>10</b> · Frequently asked</span>
+          <h2>Questions people ask most.</h2>
+        </div>
+        <div class="faq-list rv">
+          <details class="faq-item"><summary>What's the difference between an AI agent and an automation?</summary><p class="a">An automation follows fixed steps: when an order arrives, write it to a spreadsheet and send a confirmation. An AI agent gets a goal and decides the steps itself: it reads an inquiry, recognises what the customer wants, looks up information and prepares a reply. Most businesses benefit from a combination: automations for fixed steps, agents where judgement is needed.</p></details>
+          <details class="faq-item"><summary>I'm a freelancer or small business. Is it worth it for me?</summary><p class="a">Small businesses and freelancers benefit the most – every hour saved is an hour you can invoice. If you spend at least 5 hours a week on routine work, it's worth calculating. If the numbers don't work out, we'll tell you at the audit.</p></details>
+          <details class="faq-item"><summary>How much does it cost?</summary><p class="a">The audit is free. Implementation starts at CZK 45,000 for 1–3 automations or agents. Ongoing management from CZK 18,000/month, no long-term commitment. You'll get the exact price in writing after the audit, before committing to anything.</p></details>
+          <details class="faq-item"><summary>How fast will it work?</summary><p class="a">The first automation usually runs within 14 days of approving the plan. The whole project typically takes 2–4 weeks.</p></details>
+          <details class="faq-item"><summary>Who owns what you build?</summary><p class="a">You do. Everything runs on your accounts and tools, you get documentation and access. If you decide to stop working with us, the system stays yours.</p></details>
+          <details class="faq-item"><summary>What if AI makes a mistake in front of a customer?</summary><p class="a">Where money or customer relationships are involved, we build in an approval step: the agent prepares, a human approves with one click. Every agent also has output checks and rules about what it cannot do. We only switch on automatic sending once results have been consistently good.</p></details>
+          <details class="faq-item"><summary>What happens to our data?</summary><p class="a">Data stays in your systems. We use tools with business terms that don't use data for model training, and we address personal data processing under GDPR with every client.</p></details>
+        </div>
       </div>
-      <div class="calendly-inline-widget" data-url="https://calendly.com/adaklasek/meet?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=2563EB" style="min-width:320px;height:700px;"></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section class="kontakt" id="contact">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-eyebrow">First step</span>
-        <h2>Find out what results<br>you can have.</h2>
-        <p class="form-note-top">Fill in the form. We'll get back to you within 24 hours and schedule a 30-minute call-after which you'll know exactly what you'll get: how many customers, how much revenue, how many hours back.</p>
+    <!-- FINAL CTA -->
+    <section class="final" id="audit">
+      <div class="wrap final-grid">
+        <div class="rv">
+          <span class="eyebrow"><b>Free audit</b> · 30 minutes</span>
+          <h2>Let's find the first thing <span class="em">you'll stop doing manually.</span></h2>
+          <p class="lead">Pick a time. By the end of the call you'll know what to automate first, how much it'll save and how much it'll cost.</p>
+          <ul>
+            <li><span>01</span>We look at where your time and customers are slipping away</li>
+            <li><span>02</span>We show how an agent would handle it</li>
+            <li><span>03</span>You get an estimate of savings and costs, no commitment</li>
+          </ul>
+          <div class="alt-contact">
+            <p>Time doesn't work? Write to us and we'll get back within 1 business day.</p>
+            <form class="form" action="https://formspree.io/f/xrpeldzv" method="POST">
+              <input type="text" name="name" placeholder="Name" required autocomplete="name">
+              <input type="email" name="email" placeholder="Email" required autocomplete="email">
+              <textarea name="message" placeholder="What takes up most of your time?"></textarea>
+              <input type="hidden" name="_subject" value="New inquiry from uptoai.cz/en/">
+              <button type="submit" class="btn btn-volt">Send <span class="arr">→</span></button>
+            </form>
+            <p style="margin-top:14px">Or directly at <a href="mailto:info@uptoai.cz">info@uptoai.cz</a></p>
+          </div>
+        </div>
+        <div class="book rv">
+          <div class="calendly-inline-widget" data-url="https://calendly.com/adaklasek/meet?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=1F6F4A" style="min-width:300px;height:680px;"></div>
+        </div>
       </div>
-      <form class="contact-form" action="https://formspree.io/f/xrpeldzv" method="POST">
-        <input type="hidden" name="_subject" value="New inquiry - free audit · UpToAI (EN)">
-        <input type="text" name="_gotcha" style="display:none">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Full name *</label>
-            <input type="text" name="name" required placeholder="John Smith">
-          </div>
-          <div class="form-group">
-            <label>Business email *</label>
-            <input type="email" name="email" required placeholder="john@company.com">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Company and role *</label>
-            <input type="text" name="company" required placeholder="ACME Ltd – owner / marketing manager">
-          </div>
-          <div class="form-group">
-            <label>Number of employees</label>
-            <select name="size">
-              <option value="">– Select –</option>
-              <option value="1">1 person (sole trader)</option>
-              <option value="2-5">2–5 employees</option>
-              <option value="6-10">6–10 employees</option>
-              <option value="11-25">11–25 employees</option>
-              <option value="25+">more than 25 employees</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>What's holding your business back the most right now? *</label>
-          <textarea name="situation" rows="4" required placeholder="What's taking the most time or costing the most money? Where are you falling behind? What would you do differently?"></textarea>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Phone (for faster scheduling)</label>
-            <input type="tel" name="phone" placeholder="+420 777 123 456">
-          </div>
-          <div class="form-group">
-            <label>Interested in</label>
-            <select name="service">
-              <option value="audit">First I want to know where I stand (free audit)</option>
-              <option value="automation">I want automation to handle it for me</option>
-              <option value="marketing">I want more customers with less manual work</option>
-              <option value="training">I want my team to work smarter</option>
-              <option value="unsure">Not sure – advise me</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-submit">
-          <button type="submit" class="btn-primary large">Get free audit →</button>
-          <p class="form-alt">Or write directly: <a href="mailto:info@uptoai.cz">info@uptoai.cz</a> · UpToAI, registered in the Czech Republic</p>
-        </div>
-      </form>
-    </div>
-  </section>
+      <div class="wrap">
+        <p class="book-alt">Calendar not loading? <a href="https://calendly.com/adaklasek/meet" target="_blank" rel="noopener">Open in a new window →</a></p>
+      </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-accent-line"></div>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <span class="logo-upto">upto</span><span class="logo-ai">ai</span>
-        </div>
-        <p class="footer-claim">AI WORKS. YOU GROW.</p>
-        <p class="footer-sub">Businesses that grow. Owners who breathe.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Contact</h5>
-        <p>UpToAI</p>
-        <p><a href="mailto:info@uptoai.cz">info@uptoai.cz</a></p>
-        <p><a href="https://www.linkedin.com/company/uptoai" target="_blank" rel="noopener">LinkedIn →</a></p>
-      </div>
-      <div class="footer-col">
-        <h5>What we do</h5>
-        <p>More customers</p>
-        <p>More free time</p>
-        <p>Smooth operations</p>
-        <p>Results in 14 days</p>
-      </div>
-      <div class="footer-col">
-        <h5>Navigation</h5>
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#how">How we work</a></li>
-          <li><a href="#results">Results</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="/">🇨🇿 Česká verze</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 UpToAI · <a href="/ochrana-osobnich-udaju/">Privacy Policy</a> · <a href="mailto:info@uptoai.cz">info@uptoai.cz</a></p>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <span>© 2026 UpToAI · AI agents and automation for small businesses · CZ & SK</span>
+      <nav>
+        <a href="/blog/">Blog</a>
+        <a href="/">Česky</a>
+        <a href="/ochrana-osobnich-udaju/">Privacy policy</a>
+        <a href="https://www.linkedin.com/company/uptoai.cz" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/uptoai.cz/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:info@uptoai.cz">info@uptoai.cz</a>
+      </nav>
     </div>
   </footer>
 
-  <script src="../script.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="/home.js" defer></script>
 </body>
 </html>
