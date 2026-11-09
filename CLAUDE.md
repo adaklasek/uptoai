@@ -48,7 +48,7 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 
 - **Make.com** – orchestrace automatizací (Organization: My Organization, Team: My Team, ID: 2180018, zone: eu2.make.com)
 - **Airtable** – CRM (Base ID: app2by9c8PSO1bKyi)
-  - Leads: tblSLScVF1xL0gILR (field demo_url: fldF1Oz4RY4W6mrGz)
+  - Leads: tblSLScVF1xL0gILR (field demo_url: fldF1Oz4RY4W6mrGz, field hero_image_url: fldgm8DspBr4IwWKq)
   - Clients: tblo7xClSBenPpmA5
   - Projects: tblQz7JsE0cywGm6B
   - Telegram Queue: tblqZ6NgY4xFfSW7T (message, chat_id, received_at, processed) – fronta Telegram zpráv pro CEO session polling
@@ -123,6 +123,7 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 2. **Adam**: Nastavit `AIRTABLE_TOKEN` v environment secrets → aktivuje COO Daily Briefing scénář v Make.com
 3. **Adam**: Aktivovat COO Daily Briefing scénář v Make.com (ID: 10051722) po nastavení tokenu
 4. **Adam**: V Make.com otevřít COO-Leads (ID: 10052185) → HTTP moduly → nahradit `VLOZ_SEM_AIRTABLE_TOKEN` skutečným tokenem
+5. **Adam**: Nastavit `OPENAI_API_KEY` v environment secrets (claude.ai → Settings → Environment) → aktivuje Grafik Agent (trig_011ZQc9EsYHtnWEvS7pBkSyN); bez tohoto klíče agent pošle Telegram upozornění a neprovede nic
 5. ~~**Adam**: V Make.com otevřít Web-Lead-Hunter (ID: 10054674) → HTTP modul (poslední) → nahradit VLOZ_SEM_AIRTABLE_TOKEN skutečným Airtable tokenem → aktivovat scénář~~ – HOTOVO (5.11.2026): HTTP method opravena get→post, token byl již v blueprint, scénář aktivován
 6. ~~**Adam**: V Make.com otevřít COO-Router (ID: 10042629) → modul "Watch Updates" → uložit/reconnect~~ – OBSOLETE (5.11.2026): Telegram pipeline přesunuta do n8n; COO-Router nepotřeba
 7. ~~**Adam**: V Make.com aktualizovat COO-Router~~ – OBSOLETE (5.11.2026): nahrazen n8n Telegram Receiver
@@ -198,7 +199,8 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Reply Watcher | Make.com | 10050828 | Aktivni | Kazdych 15min: sleduje Gmail odpovedi → Claude klasifikace → Telegram notif |
 | Web-Offer-Drafter | Make.com | 10054653 | ROZBITY (isinvalid) | Puvodni drafter pro web_offer - email connection nefunguje |
 | Web-Demo-Builder | Claude Code scheduled task | trig_01HE5UQk9vppsj7re9ATDgRd | Aktivni (on-demand) | Airtable leady (status=new, demo_url empty) → research notes → Claude custom Lovable prompt (industry-specific design) → Lovable projekt → preview_url do Airtable fldF1Oz4RY4W6mrGz → Telegram notif; max 2/run; testovano 28.10.2026 (Nikol Jahnova) |
-| Web Builder Agent | Claude Code scheduled task | trig_01XTBuM6e9ot3WyPCZW8tDfy | Aktivni | 11:45, 14:45, 17:45 CET Po-Pa: Airtable draft_web leady (bez demo_url) → web research → Lovable projekt → demo_url do Airtable → status=prepared → Telegram notif; max 2/run; opraven 8.11.2026 (byl vazan na tuto session, ted ma vlastni Worker session_01UaE9WFnRVm7YvW4ZffPacH) |
+| Grafik Agent | Claude Code scheduled task | trig_011ZQc9EsYHtnWEvS7pBkSyN | Aktivni | 11:00, 14:00, 17:00 CET Po-Pa: Airtable draft_web leady (bez hero_image_url) → web research → DALL-E 3 hero image (1792x1024) → Google Drive upload → hero_image_url do Airtable fldgm8DspBr4IwWKq → Telegram notif; max 3/run; vyzaduje OPENAI_API_KEY v environment secrets; vytvoren 9.11.2026 |
+| Web Builder Agent | Claude Code scheduled task | trig_01XTBuM6e9ot3WyPCZW8tDfy | Aktivni | 11:45, 14:45, 17:45 CET Po-Pa: Airtable draft_web leady (bez demo_url) → web research → Lovable projekt (pouziva hero_image_url z Grafik Agenta) → demo_url do Airtable → status=prepared → Telegram notif; max 2/run; opraven 8.11.2026 (byl vazan na tuto session, ted ma vlastni Worker session_01UaE9WFnRVm7YvW4ZffPacH) |
 | Web Agent - Blog Publisher | Claude Code scheduled task | trig_017CqyqxszHRPJoYUQony7p3 | Aktivni | 1. a 15. kazdy mesic 9:23 CET: fronta článků z CLAUDE.md → web research → HTML článek → /blog/[slug]/ → aktualizace blog/index.html + sitemap → git push → Telegram notif Adamovi; vytvoren 1.11.2026 |
 | Email Warmup – gmail→uptoai | Claude Code scheduled task | trig_01C2j2MuHdND3WAJUVucivXo | Aktivni | Po-Pa 10:17 CET: Gmail MCP odesle email adaklasek@gmail.com → adam@uptoai.cz (rotating 5 templates); zahrivani domeny; vytvoren 2.11.2026 |
 | Email Warmup – uptoai→gmail | n8n | 7IojZRRDcCSn3I97 | Aktivni | Po-Pa 11:23 CET: SMTP z adam@uptoai.cz → adaklasek@gmail.com (rotating 5 templates); zahrivani domeny; vytvoren 2.11.2026 |
