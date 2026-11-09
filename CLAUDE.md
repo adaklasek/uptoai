@@ -240,6 +240,7 @@ Make.com = lineární workflow, ne skutečné agenty. n8n má nativní AI Agent 
 - `docs/coo-blueprint.md` – technický blueprint COO agenta
 - Artifact (strategie): https://claude.ai/artifact/TDpWdD22ZBxPqWiWTeZG1d
 - Artifact (COO blueprint): https://claude.ai/artifact/9xanopC9U8NSm7ZsaE5xsC
+- **Jak funguje agentura (živý dokument)**: https://docs.google.com/document/d/1pIjPDcpDyE6r5EJXi9EeP-9wvn4LLPDQFq8rl6l8cs8/edit (Google Drive, ID: 1pIjPDcpDyE6r5EJXi9EeP-9wvn4LLPDQFq8rl6l8cs8) – aktualizovat při každé změně infrastruktury
 
 ## Google Drive – Document Hub
 
