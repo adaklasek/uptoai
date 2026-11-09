@@ -192,7 +192,8 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Drafter v2 | Make.com | 10022573 | DEAKTIVOVAN (1.11.2026) | Nahrazen n8n Drafter Agent v2 |
 | Drafter Agent v2 | n8n | dx76QKy76Na3OyiQ | Aktivni | Kazdych 30min 11-18 Po-Pa: bid_auto/bid_all → Claude personalizovany email → email_draft do Airtable → notif Adamovi → prepared; bid_web jde pres Analyst rovnou do draft_web |
 | Sender Agent | n8n | yRA3kCuQauHtzRME | Aktivni | Kazdych 15min 11-18 Po-Pa: schvaleno + email_draft != "" → odeslani emailu z adam@uptoai.cz na lead → odeslano |
-| Telegram Approval Notifier | Make.com | 10022585 | Aktivni (opraveno 2026-10-28) | Kazdych 15min 11:45-18:45: prepared leads → Telegram notifikace Adamovi; fix: filter "prepared" (bylo k_schvaleni), HTML parseMode (bylo MarkdownV2), route filter |
+| Telegram Approval Notifier | Make.com | 10022585 | ROZBITY - nahrazen (9.11.2026) | Cetal z Google Sheets misto Airtable - nikdy nenaslo prepared leady; nahrazen n8n workflow QS7oIZ4EMsyzCpiZ |
+| Telegram Approval Notifier v2 | n8n | QS7oIZ4EMsyzCpiZ | Aktivni (9.11.2026) | Kazdych 15min 11-18 Po-Pa: Airtable prepared leads (notif_sent_at prazdne, email_draft != "") → Telegram notif → update notif_sent_at; schvaleni pres Telegram reply nebo primo v Airtable; pole notif_sent_at: fldyoUEY0fy8sX4g3 |
 | Sender Agent (Make) | Make.com | 10029764 | isinvalid (nahrazen n8n Sender) | Nahrazen n8n Sender Agent |
 | Reply Watcher | Make.com | 10050828 | Aktivni | Kazdych 15min: sleduje Gmail odpovedi → Claude klasifikace → Telegram notif |
 | Web-Offer-Drafter | Make.com | 10054653 | ROZBITY (isinvalid) | Puvodni drafter pro web_offer - email connection nefunguje |
@@ -230,7 +231,7 @@ Make.com = lineární workflow, ne skutečné agenty. n8n má nativní AI Agent 
 ### Přechod - co zůstane v Make.com
 - ~~COO-Router (Telegram webhook)~~ – nahrazen n8n Telegram Receiver
 - COO-Telegram-Sender (odesílání zpráv)
-- Telegram Approval Notifier (notifikace prepared leadů)
+- ~~Telegram Approval Notifier Make.com (10022585) – NAHRAZEN n8n workflow QS7oIZ4EMsyzCpiZ~~
 - Jednoduché integrace bez AI logiky
 
 ## Dokumenty
