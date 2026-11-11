@@ -109,7 +109,7 @@ p { margin: 0; }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
 .logo { font-family: 'Public Sans', var(--sans); font-size: 20px; font-weight: 300; text-decoration: none; letter-spacing: 0.01em; display: flex; align-items: center; gap: 9px; color: var(--dark-text); }
 .logo span { color: var(--volt); font-weight: 300; }
-.nav-logo-img { height: 26px; width: 26px; display: block; flex-shrink: 0; }
+.nav-logo-img { height: 26px !important; width: 26px !important; min-width: 26px; display: block; flex-shrink: 0; }
 .nav-links { display: flex; gap: 30px; align-items: center; list-style: none; margin: 0; padding: 0; }
 .nav-links a { text-decoration: none; font-size: 15px; color: var(--dark-muted); transition: color .15s; }
 .nav-links a:hover { color: #fff; }
