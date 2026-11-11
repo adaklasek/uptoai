@@ -14,8 +14,10 @@
   --blue:        #2563EB;
   --blue-bright: #3B82F6;
   --blue-glow:   rgba(37, 99, 235, 0.15);
-  --teal:        #00D4AA;
-  --teal-dim:    rgba(0, 212, 170, 0.12);
+  --teal:        #0BCB91;
+  --teal-dim:    rgba(11, 203, 145, 0.12);
+  --green:       #2DBF4A;
+  --gradient-brand: linear-gradient(135deg, #2563EB 0%, #0BCB91 50%, #2DBF4A 100%);
   --gray:        #6B7280;
   --gray-light:  #D1D5DB;
   --gray-dim:    #374151;
@@ -169,10 +171,18 @@ strong { font-weight: 700; }
   font-weight: 900;
   letter-spacing: -0.03em;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+.nav-logo-img { height: 32px; width: auto; display: block; }
+.nav-brand-name { font-size: 1.1rem; font-weight: 800; color: var(--white); letter-spacing: -0.01em; }
 .logo-up { color: var(--white); }
 .logo-to { color: var(--white); }
 .logo-ai { color: var(--teal); }
+.footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+.footer-logo-img { height: 42px; width: auto; display: block; }
+.footer-brand-name { font-size: 1.2rem; font-weight: 800; color: var(--white); }
 
 .nav-links {
   display: flex;
