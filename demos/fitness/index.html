@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{NAZEV_FIRMY}} | Osobní trenér {{MESTO}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #111;
+      --bg2: #181818;
+      --bg3: #202020;
+      --accent: #00d97e;
+      --accent-d: #00b868;
+      --text: #e8e8e8;
+      --muted: #707070;
+      --white: #fff;
+      --r: 4px;
+      --max: 1080px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Roboto', sans-serif; line-height: 1.65; }
+
+    .demo-bar {
+      background: var(--accent); color: #111; text-align: center;
+      padding: 9px max(16px, env(safe-area-inset-left, 0px));
+      font-size: 13px; font-weight: 700;
+    }
+    .demo-bar a { color: #111; text-decoration: underline; }
+
+    header {
+      background: var(--bg2); border-bottom: 1px solid rgba(0,217,126,.12);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .hdr {
+      max-width: var(--max); margin: 0 auto;
+      padding: 16px max(16px, env(safe-area-inset-left, 0px));
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .logo { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: 1px; text-transform: uppercase; }
+    .logo em { color: var(--accent); font-style: normal; }
+    nav { display: flex; gap: 22px; align-items: center; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; transition: color .2s; }
+    nav a:hover { color: var(--accent); }
+    .cta-nav { background: var(--accent); color: #111 !important; padding: 10px 20px; border-radius: var(--r); font-weight: 700 !important; }
+    .cta-nav:hover { background: var(--accent-d) !important; }
+    @media (max-width: 600px) { nav .hide { display: none; } }
+
+    .hero {
+      padding: 100px max(16px, env(safe-area-inset-left, 0px)) 90px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, #0a1f14 0%, #111 60%, #0d1a10 100%);
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 60% at 20% 50%, rgba(0,217,126,.08) 0%, transparent 70%);
+    }
+    .hero-in { max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+    @media (max-width: 720px) { .hero-in { grid-template-columns: 1fr; } .hero-img { display: none; } }
+    .hero-tag { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    h1 { font-family: 'Oswald', sans-serif; font-size: clamp(40px,7vw,72px); font-weight: 700; line-height: 1.05; text-transform: uppercase; margin-bottom: 22px; letter-spacing: 1px; }
+    h1 em { color: var(--accent); font-style: normal; display: block; }
+    .sub { font-size: clamp(15px,1.8vw,17px); color: var(--muted); max-width: 480px; margin-bottom: 36px; font-weight: 300; line-height: 1.8; }
+    .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-p { background: var(--accent); color: #111; padding: 14px 28px; border-radius: var(--r); text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: .5px; transition: background .2s; text-transform: uppercase; }
+    .btn-p:hover { background: var(--accent-d); }
+    .btn-s { background: transparent; color: var(--text); padding: 14px 28px; border-radius: var(--r); text-decoration: none; font-size: 15px; border: 1px solid rgba(255,255,255,.15); transition: border-color .2s; }
+    .btn-s:hover { border-color: rgba(255,255,255,.4); }
+    .hero-img { width: 260px; height: 340px; background: var(--bg3); border-radius: 8px; border: 1px solid rgba(0,217,126,.15); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px; flex-shrink: 0; }
+    .hero-nums { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin-top: 60px; border: 1px solid rgba(255,255,255,.07); border-radius: 8px; overflow: hidden; }
+    .hn { padding: 20px; text-align: center; border-right: 1px solid rgba(255,255,255,.07); }
+    .hn:last-child { border-right: none; }
+    .hn-n { font-family: 'Oswald', sans-serif; font-size: 30px; font-weight: 700; color: var(--accent); }
+    .hn-l { font-size: 12px; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+
+    section { padding: 80px max(16px, env(safe-area-inset-left, 0px)); }
+    .in { max-width: var(--max); margin: 0 auto; }
+    .tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    h2 { font-family: 'Oswald', sans-serif; font-size: clamp(28px,4vw,46px); font-weight: 700; text-transform: uppercase; color: var(--white); margin-bottom: 14px; letter-spacing: 1px; text-wrap: balance; }
+    .lead { color: var(--muted); margin-bottom: 48px; font-weight: 300; }
+    .s-bg { background: var(--bg2); }
+
+    .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 18px; }
+    .plan {
+      background: var(--bg3); border: 1px solid rgba(255,255,255,.06); border-radius: 10px; padding: 28px;
+      position: relative; transition: border-color .2s;
+    }
+    .plan:hover { border-color: rgba(0,217,126,.3); }
+    .plan.featured { border-color: var(--accent); }
+    .plan-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #111; padding: 4px 14px; border-radius: 100px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+    .plan-name { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 700; text-transform: uppercase; color: var(--white); margin-bottom: 6px; letter-spacing: 1px; }
+    .plan-price { font-family: 'Oswald', sans-serif; font-size: 36px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+    .plan-price sub { font-size: 14px; color: var(--muted); }
+    .plan-desc { font-size: 13px; color: var(--muted); margin-bottom: 20px; font-weight: 300; }
+    .plan-feats { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    .plan-feats li { font-size: 14px; display: flex; gap: 8px; align-items: flex-start; }
+    .plan-feats li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+    .plan-feats li.no { color: var(--muted); }
+    .plan-feats li.no::before { content: '–'; color: var(--muted); }
+    .plan-cta { display: block; width: 100%; padding: 12px; text-align: center; border-radius: var(--r); text-decoration: none; font-weight: 700; font-size: 15px; text-transform: uppercase; letter-spacing: .5px; transition: background .2s; }
+    .plan.featured .plan-cta { background: var(--accent); color: #111; }
+    .plan.featured .plan-cta:hover { background: var(--accent-d); }
+    .plan:not(.featured) .plan-cta { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,.15); }
+    .plan:not(.featured) .plan-cta:hover { border-color: var(--accent); color: var(--accent); }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 18px; }
+    .scard { background: var(--bg3); border: 1px solid rgba(255,255,255,.05); border-radius: 8px; padding: 24px; transition: border-color .2s; }
+    .scard:hover { border-color: rgba(0,217,126,.25); }
+    .scard-i { font-size: 32px; margin-bottom: 14px; }
+    .scard h3 { font-family: 'Oswald', sans-serif; font-size: 17px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; color: var(--white); }
+    .scard p { font-size: 13px; color: var(--muted); font-weight: 300; }
+
+    .trainer { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: center; }
+    @media (max-width: 680px) { .trainer { grid-template-columns: 1fr; } }
+    .trainer-img { aspect-ratio: 3/4; background: var(--bg3); border-radius: 8px; border: 1px solid rgba(0,217,126,.12); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; }
+    .trainer-bio p { color: var(--muted); font-weight: 300; margin-bottom: 14px; line-height: 1.8; }
+    .trainer-certs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .cert { background: rgba(0,217,126,.1); border: 1px solid rgba(0,217,126,.2); color: var(--accent); padding: 6px 12px; border-radius: 100px; font-size: 12px; font-weight: 600; }
+
+    .cgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    @media (max-width: 680px) { .cgrid { grid-template-columns: 1fr; gap: 36px; } }
+    .ci { display: flex; gap: 14px; margin-bottom: 22px; align-items: flex-start; }
+    .ci-i { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .ci strong { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .ci a { color: var(--accent); text-decoration: none; font-size: 18px; font-weight: 700; font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
+    .ci span { font-size: 15px; }
+
+    form { display: flex; flex-direction: column; gap: 12px; }
+    input, textarea, select {
+      background: var(--bg3); border: 1px solid rgba(255,255,255,.09);
+      border-radius: var(--r); padding: 12px 16px; color: var(--text);
+      font-family: 'Roboto', sans-serif; font-size: 15px; outline: none;
+      transition: border-color .2s; width: 100%;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    select option { background: var(--bg3); }
+    textarea { resize: vertical; min-height: 100px; }
+    .form-h { font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--white); margin-bottom: 20px; }
+    button[type="submit"] {
+      background: var(--accent); color: #111; border: none; padding: 14px;
+      border-radius: var(--r); font-weight: 700; font-size: 15px; cursor: pointer; transition: background .2s;
+      text-transform: uppercase; letter-spacing: .5px;
+    }
+    button[type="submit"]:hover { background: var(--accent-d); }
+    .form-ok { display: none; background: rgba(0,217,126,.1); border: 1px solid rgba(0,217,126,.3); border-radius: var(--r); padding: 16px; text-align: center; color: var(--accent); font-weight: 600; }
+
+    footer {
+      background: var(--bg); border-top: 1px solid rgba(255,255,255,.06);
+      padding: 28px max(16px, env(safe-area-inset-left, 0px));
+      text-align: center; font-size: 13px; color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="demo-bar">
+  💪 Tento web jsme pro vás připravili zdarma jako ukázku. <a href="mailto:adam@uptoai.cz">Chci takový web pro svůj trénink</a>
+</div>
+
+<header>
+  <div class="hdr">
+    <a href="#" class="logo"><em>{{NAZEV_FIRMY}}</em></a>
+    <nav>
+      <a href="#sluzby" class="hide">Služby</a>
+      <a href="#balicky" class="hide">Balíčky</a>
+      <a href="#start" class="cta-nav">Začít trénovat</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-in">
+    <div>
+      <div class="hero-tag">Osobní trenér · {{MESTO}}</div>
+      <h1>Dosáhni<br>svých cílů<br><em>se mnou</em></h1>
+      <p class="sub">Tréninkové plány na míru, výživové poradenství a motivace, která funguje. Začneme tam, kde jsi teď.</p>
+      <div class="btns">
+        <a href="#start" class="btn-p">První lekce zdarma</a>
+        <a href="#balicky" class="btn-s">Zobrazit balíčky</a>
+      </div>
+      <div class="hero-nums">
+        <div class="hn"><div class="hn-n">8+</div><div class="hn-l">let zkušeností</div></div>
+        <div class="hn"><div class="hn-n">200+</div><div class="hn-l">klientů</div></div>
+        <div class="hn"><div class="hn-n">100%</div><div class="hn-l">individuální přístup</div></div>
+      </div>
+    </div>
+    <div class="hero-img">📸 foto trenéra</div>
+  </div>
+</section>
+
+<section class="s-bg" id="sluzby">
+  <div class="in">
+    <div class="tag">Co nabízím</div>
+    <h2>Moje služby</h2>
+    <p class="lead">Každý klient je jiný. Proto každý plán tréninku tvořím od začátku.</p>
+    <div class="services-grid">
+      <div class="scard">
+        <div class="scard-i">🏋️</div>
+        <h3>Osobní trénink</h3>
+        <p>1-on-1 tréninky v posilovně nebo venku. Naučím tě správné techniky a přizpůsobím zátěž tvým možnostem.</p>
+      </div>
+      <div class="scard">
+        <div class="scard-i">💻</div>
+        <h3>Online coaching</h3>
+        <p>Tréninkový plán, výživový plán a pravidelný check-in přes video. Funguje odkudkoliv.</p>
+      </div>
+      <div class="scard">
+        <div class="scard-i">👥</div>
+        <h3>Skupinové lekce</h3>
+        <p>Kruhový trénink nebo funkční fitness v malých skupinách (max. 6 lidí). Levnější, zábavnější.</p>
+      </div>
+      <div class="scard">
+        <div class="scard-i">🥗</div>
+        <h3>Výživové poradenství</h3>
+        <p>Jídelníček na míru, bez extremismů a bez hladovění. Výsledky, které vydrží.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="balicky">
+  <div class="in">
+    <div class="tag">Investice do sebe</div>
+    <h2>Balíčky a ceny</h2>
+    <p class="lead">Vyber si to, co ti sedí. Kdykoli můžeš přejít na vyšší balíček.</p>
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-name">Start</div>
+        <div class="plan-price">2 900 Kč<sub>/měs.</sub></div>
+        <div class="plan-desc">Pro začátečníky, 4× trénink měsíčně</div>
+        <ul class="plan-feats">
+          <li>4 osobní tréninky (60 min)</li>
+          <li>Vstupní konzultace zdarma</li>
+          <li>Základní tréninkový plán</li>
+          <li class="no">Výživové poradenství</li>
+          <li class="no">Online podpora</li>
+        </ul>
+        <a href="#start" class="plan-cta">Začít</a>
+      </div>
+      <div class="plan featured">
+        <div class="plan-badge">Nejoblíbenější</div>
+        <div class="plan-name">Progress</div>
+        <div class="plan-price">4 900 Kč<sub>/měs.</sub></div>
+        <div class="plan-desc">Pro vážné výsledky, 8× trénink měsíčně</div>
+        <ul class="plan-feats">
+          <li>8 osobních tréninků (60 min)</li>
+          <li>Vstupní konzultace zdarma</li>
+          <li>Individuální tréninkový plán</li>
+          <li>Základní výživové poradenství</li>
+          <li>WhatsApp podpora</li>
+        </ul>
+        <a href="#start" class="plan-cta">Vybrat Progress</a>
+      </div>
+      <div class="plan">
+        <div class="plan-name">Elite</div>
+        <div class="plan-price">7 900 Kč<sub>/měs.</sub></div>
+        <div class="plan-desc">Neomezený přístup + online coaching</div>
+        <ul class="plan-feats">
+          <li>Neomezené osobní tréninky</li>
+          <li>Kompletní výživový plán</li>
+          <li>Tréninkový plán na míru</li>
+          <li>Denní online podpora</li>
+          <li>Měsíční pokroková analýza</li>
+        </ul>
+        <a href="#start" class="plan-cta">Vybrat Elite</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-bg">
+  <div class="in">
+    <div class="tag">O trenérovi</div>
+    <h2>Kdo jsem</h2>
+    <div class="trainer">
+      <div class="trainer-img">📸 foto</div>
+      <div class="trainer-bio">
+        <p>Jmenuji se <strong>{{TRENER_JMENO}}</strong> a osobnímu tréninku se věnuji přes 8 let. Začínal jsem jako závodní sportovec a postupně jsem se zaměřil na pomáhání druhým dosáhnout jejich cílů.</p>
+        <p>Věřím, že každý člověk je jiný — proto nikdy nedávám generické plány. Vždy začínáme analýzou vašeho stavu, cílů a životního stylu.</p>
+        <div class="trainer-certs">
+          <span class="cert">Certifikovaný PT</span>
+          <span class="cert">Výživový poradce</span>
+          <span class="cert">TRX Instructor</span>
+          <span class="cert">CrossFit L1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="start">
+  <div class="in">
+    <div class="cgrid">
+      <div>
+        <div class="tag">Začni dnes</div>
+        <h2>Kontakt</h2>
+        <div class="ci">
+          <div class="ci-i">📞</div>
+          <div><strong>Telefon</strong><a href="tel:{{TELEFON}}">{{TELEFON}}</a></div>
+        </div>
+        <div class="ci">
+          <div class="ci-i">✉️</div>
+          <div><strong>Email</strong><span>{{EMAIL}}</span></div>
+        </div>
+        <div class="ci">
+          <div class="ci-i">📍</div>
+          <div><strong>Kde trénujeme</strong><span>{{GYM}}, {{MESTO}}</span></div>
+        </div>
+        <div style="background:rgba(0,217,126,.08);border:1px solid rgba(0,217,126,.2);border-radius:8px;padding:18px;margin-top:8px;">
+          <strong style="color:var(--accent);font-family:'Oswald',sans-serif;letter-spacing:.5px;">🎁 PRVNÍ LEKCE ZDARMA</strong>
+          <p style="font-size:13px;color:var(--muted);margin-top:6px;font-weight:300;">Bez závazků. Přijď, potkáme se, probereme cíle a zkusíme trénink. Pokud tě to nezaujme, nic neplatíš.</p>
+        </div>
+      </div>
+      <div>
+        <div class="form-h">Nezávazná konzultace</div>
+        <form id="f">
+          <input type="text" placeholder="Vaše jméno" required>
+          <input type="tel" placeholder="Telefon" required>
+          <input type="email" placeholder="Email">
+          <select>
+            <option value="">Váš cíl</option>
+            <option>Zhubnout</option>
+            <option>Nabrat svalovou hmotu</option>
+            <option>Zlepšit kondici</option>
+            <option>Trénovat na sport/závod</option>
+            <option>Rehabilitace / prevence zranění</option>
+          </select>
+          <select>
+            <option value="">Zájem o...</option>
+            <option>Osobní trénink (Praha)</option>
+            <option>Online coaching</option>
+            <option>Skupinová lekce</option>
+            <option>Výživové poradenství</option>
+          </select>
+          <textarea placeholder="Krátce o sobě a svém cíli..."></textarea>
+          <button type="submit">Odeslat — první lekce zdarma →</button>
+        </form>
+        <div class="form-ok" id="ok">✓ Zpráva odeslána! Ozveme se vám do 24 hodin.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 {{NAZEV_FIRMY}} · {{MESTO}} | Web vytvořen pomocí <a href="https://uptoai.cz">UpToAI</a></p>
+</footer>
+
+<script>
+  document.getElementById('f').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('ok').style.display = 'block';
+  });
+</script>
+</body>
+</html>

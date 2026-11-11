@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{NAZEV_FIRMY}} | Instalatér &amp; Elektrikář {{MESTO}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1923;
+      --bg2: #162030;
+      --bg3: #1c2a3a;
+      --accent: #f26419;
+      --accent-dark: #d45415;
+      --text: #e8edf2;
+      --muted: #8a9bb0;
+      --white: #fff;
+      --r: 6px;
+      --max: 1100px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Roboto', sans-serif; line-height: 1.65; }
+
+    .demo-bar {
+      background: var(--accent); color: #fff; text-align: center;
+      padding: 10px max(16px, env(safe-area-inset-left, 0px));
+      font-size: 13px; font-weight: 500;
+    }
+    .demo-bar a { color: #fff; font-weight: 700; }
+
+    header {
+      background: var(--bg2); border-bottom: 1px solid rgba(255,255,255,0.07);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .hdr {
+      max-width: var(--max); margin: 0 auto;
+      padding: 16px max(16px, env(safe-area-inset-left, 0px));
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .logo { font-family: 'Roboto Condensed', sans-serif; font-size: 20px; font-weight: 700; color: var(--white); text-decoration: none; }
+    .logo em { color: var(--accent); font-style: normal; }
+    .cta-phone {
+      background: var(--accent); color: #fff; padding: 10px 20px;
+      border-radius: var(--r); text-decoration: none; font-weight: 700; font-size: 15px;
+      white-space: nowrap; transition: background .2s;
+    }
+    .cta-phone:hover { background: var(--accent-dark); }
+
+    .hero {
+      background: linear-gradient(140deg, var(--bg) 0%, var(--bg3) 100%);
+      padding: 80px max(16px, env(safe-area-inset-left, 0px));
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 55% 55% at 50% 50%, rgba(242,100,25,.11) 0%, transparent 70%);
+    }
+    .hero-in { max-width: var(--max); margin: 0 auto; position: relative; }
+    .badge {
+      display: inline-block; background: rgba(242,100,25,.14);
+      border: 1px solid rgba(242,100,25,.4); color: var(--accent);
+      padding: 6px 16px; border-radius: 100px; font-size: 13px; font-weight: 600;
+      margin-bottom: 24px; letter-spacing: .4px;
+    }
+    h1 { font-family: 'Roboto Condensed', sans-serif; font-size: clamp(32px,6vw,60px); font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
+    h1 em { color: var(--accent); font-style: normal; }
+    .sub { font-size: clamp(16px,2vw,20px); color: var(--muted); max-width: 600px; margin: 0 auto 40px; }
+    .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-p { background: var(--accent); color: #fff; padding: 14px 28px; border-radius: var(--r); text-decoration: none; font-weight: 700; font-size: 16px; transition: background .2s; }
+    .btn-p:hover { background: var(--accent-dark); }
+    .btn-s { background: transparent; color: var(--text); padding: 14px 28px; border-radius: var(--r); text-decoration: none; font-weight: 500; font-size: 16px; border: 1px solid rgba(255,255,255,.2); transition: border-color .2s; }
+    .btn-s:hover { border-color: rgba(255,255,255,.5); }
+    .stats { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,.08); }
+    .stat { text-align: center; }
+    .stat-n { font-family: 'Roboto Condensed', sans-serif; font-size: 34px; font-weight: 700; color: var(--accent); }
+    .stat-l { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    section { padding: 80px max(16px, env(safe-area-inset-left, 0px)); }
+    .in { max-width: var(--max); margin: 0 auto; }
+    .tag { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    h2 { font-family: 'Roboto Condensed', sans-serif; font-size: clamp(26px,4vw,42px); font-weight: 700; margin-bottom: 16px; text-wrap: balance; }
+    .lead { color: var(--muted); margin-bottom: 48px; max-width: 560px; }
+
+    .s-bg { background: var(--bg2); }
+    .grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 18px; }
+    .card {
+      background: var(--bg3); border: 1px solid rgba(255,255,255,.06); border-radius: 12px; padding: 28px;
+      transition: border-color .2s, transform .2s;
+    }
+    .card:hover { border-color: rgba(242,100,25,.4); transform: translateY(-2px); }
+    .icon { font-size: 36px; margin-bottom: 14px; }
+    .card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .card p { font-size: 14px; color: var(--muted); }
+
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 24px; }
+    .step { text-align: center; padding: 24px; }
+    .step-n {
+      width: 56px; height: 56px; background: rgba(242,100,25,.13); border: 2px solid var(--accent);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px; font-family: 'Roboto Condensed', sans-serif; font-size: 22px; font-weight: 700; color: var(--accent);
+    }
+    .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--muted); }
+
+    .cgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    @media (max-width: 680px) { .cgrid { grid-template-columns: 1fr; gap: 36px; } }
+    .ci { display: flex; gap: 12px; margin-bottom: 20px; }
+    .ci-i { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .ci strong { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .ci a { color: var(--accent); text-decoration: none; font-size: 18px; font-weight: 700; }
+    .ci span { font-size: 15px; }
+
+    form { display: flex; flex-direction: column; gap: 12px; }
+    input, textarea, select {
+      background: var(--bg3); border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--r); padding: 12px 16px; color: var(--text);
+      font-family: 'Roboto', sans-serif; font-size: 15px; outline: none;
+      transition: border-color .2s; width: 100%;
+    }
+    input:focus, textarea:focus { border-color: var(--accent); }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    textarea { resize: vertical; min-height: 110px; }
+    .form-h { font-size: 18px; font-weight: 700; margin-bottom: 18px; }
+    button[type="submit"] {
+      background: var(--accent); color: #fff; border: none; padding: 14px;
+      border-radius: var(--r); font-weight: 700; font-size: 16px; cursor: pointer; transition: background .2s;
+    }
+    button[type="submit"]:hover { background: var(--accent-dark); }
+    .form-ok { display: none; background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.4); border-radius: var(--r); padding: 16px; text-align: center; color: #4ade80; font-weight: 600; }
+
+    footer {
+      background: var(--bg); border-top: 1px solid rgba(255,255,255,.06);
+      padding: 28px max(16px, env(safe-area-inset-left, 0px));
+      text-align: center; font-size: 13px; color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="demo-bar">
+  🔧 Tento web jsme pro vás připravili zdarma jako ukázku. Zaujal vás? <a href="mailto:adam@uptoai.cz">Napište nám</a>
+</div>
+
+<header>
+  <div class="hdr">
+    <a href="#" class="logo"><em>{{NAZEV_FIRMY}}</em></a>
+    <a href="tel:{{TELEFON}}" class="cta-phone">📞 {{TELEFON}}</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-in">
+    <div class="badge">⚡ Rychlý výjezd · {{MESTO}} a okolí</div>
+    <h1>Spolehlivý instalatér<br>a elektrikář<br><em>vždy po ruce</em></h1>
+    <p class="sub">Porucha vody, elektřiny nebo topení? Volejte nás — dorazíme rychle a opravíme na místě.</p>
+    <div class="btns">
+      <a href="tel:{{TELEFON}}" class="btn-p">📞 Zavolat hned</a>
+      <a href="#poptavka" class="btn-s">Poslat poptávku</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-n">15+</div><div class="stat-l">let na trhu</div></div>
+      <div class="stat"><div class="stat-n">500+</div><div class="stat-l">spokojených zákazníků</div></div>
+      <div class="stat"><div class="stat-n">24/7</div><div class="stat-l">havarijní linka</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="s-bg">
+  <div class="in">
+    <div class="tag">Co děláme</div>
+    <h2>Naše služby</h2>
+    <p class="lead">Kompletní servis pro váš domov i firmu — rychle, kvalitně, se zárukou.</p>
+    <div class="grid4">
+      <div class="card">
+        <div class="icon">🔧</div>
+        <h3>Instalatérství</h3>
+        <p>Opravy a montáž vodovodního potrubí, kohoutků, van a sprch. Odstraňování ucpávek.</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Elektrikářství</h3>
+        <p>Elektroinstalace, výměna rozvaděčů, revize a opravy. Montáž osvětlení a zásuvek.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌡️</div>
+        <h3>Topenářství</h3>
+        <p>Instalace a servis kotlů, radiátorů a podlahového topení. Revize a seřízení.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🏠</div>
+        <h3>Drobné stavební práce</h3>
+        <p>Obklady, dlažby, menší opravy. Rychlé a čisté dokončení.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="in">
+    <div class="tag">Jak to funguje</div>
+    <h2>Od hovoru k opravě za pár hodin</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Zavolejte nebo napište</h3>
+        <p>Popište problém, domluvíme termín výjezdu — i tentýž den.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Přijedeme a opravíme</h3>
+        <p>Dorazíme včas, problém diagnostikujeme a opravíme přímo na místě.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Hotovo se zárukou</h3>
+        <p>Zaplatíte za odvedenou práci a dostanete písemnou záruku.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-bg" id="poptavka">
+  <div class="in">
+    <div class="cgrid">
+      <div>
+        <div class="tag">Kontakt</div>
+        <h2>Máte problém?<br>Volejte nás.</h2>
+        <div class="ci">
+          <div class="ci-i">📞</div>
+          <div><strong>Telefon</strong><a href="tel:{{TELEFON}}">{{TELEFON}}</a></div>
+        </div>
+        <div class="ci">
+          <div class="ci-i">✉️</div>
+          <div><strong>Email</strong><span>{{EMAIL}}</span></div>
+        </div>
+        <div class="ci">
+          <div class="ci-i">📍</div>
+          <div><strong>Působiště</strong><span>{{MESTO}} a okolí do 30 km</span></div>
+        </div>
+        <div class="ci">
+          <div class="ci-i">🕐</div>
+          <div><strong>Dostupnost</strong><span>Po–Pá 7:00–19:00, havárie 24/7</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="form-h">Pošlete poptávku</div>
+        <form id="f">
+          <input type="text" placeholder="Vaše jméno" required>
+          <input type="tel" placeholder="Telefon" required>
+          <input type="email" placeholder="Email">
+          <textarea placeholder="Popište problém..."></textarea>
+          <button type="submit">Odeslat poptávku →</button>
+        </form>
+        <div class="form-ok" id="ok">✓ Zpráva odeslána! Ozveme se vám co nejdříve.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 {{NAZEV_FIRMY}} | Web vytvořen pomocí <a href="https://uptoai.cz">UpToAI</a></p>
+</footer>
+
+<script>
+  document.getElementById('f').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('ok').style.display = 'block';
+  });
+</script>
+</body>
+</html>

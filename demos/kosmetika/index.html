@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{NAZEV_FIRMY}} | Kosmetický salon {{MESTO}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf7f4;
+      --bg2: #f3ede6;
+      --bg3: #ede4d9;
+      --accent: #9b6b52;
+      --accent-l: #b8856a;
+      --dark: #2d1f1a;
+      --text: #3d2e28;
+      --muted: #8a7268;
+      --white: #fff;
+      --r: 6px;
+      --max: 1080px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #1e1510; --bg2: #261a12; --bg3: #2e2018;
+        --text: #e8ddd5; --muted: #9a8070; --dark: #f5ede5;
+        color-scheme: dark;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #1e1510; --bg2: #261a12; --bg3: #2e2018;
+      --text: #e8ddd5; --muted: #9a8070; --dark: #f5ede5;
+      color-scheme: dark;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; line-height: 1.7; }
+
+    .demo-bar {
+      background: var(--accent); color: #fff; text-align: center;
+      padding: 9px max(16px, env(safe-area-inset-left, 0px));
+      font-size: 13px; font-weight: 600;
+    }
+    .demo-bar a { color: #fff; text-decoration: underline; }
+
+    header {
+      background: var(--white); border-bottom: 1px solid rgba(0,0,0,.08);
+      position: sticky; top: 0; z-index: 100;
+    }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) header { background: var(--bg2); border-color: rgba(255,255,255,.06); } }
+    :root[data-theme="dark"] header { background: var(--bg2); border-color: rgba(255,255,255,.06); }
+    .hdr {
+      max-width: var(--max); margin: 0 auto;
+      padding: 16px max(16px, env(safe-area-inset-left, 0px));
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: .5px; }
+    .logo em { color: var(--accent); font-style: italic; }
+    nav { display: flex; gap: 24px; align-items: center; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color .2s; }
+    nav a:hover, nav a:focus { color: var(--accent); }
+    .cta-nav { background: var(--accent); color: #fff !important; padding: 9px 20px; border-radius: 100px; font-size: 13px !important; }
+    .cta-nav:hover { background: var(--accent-l) !important; }
+    @media (max-width: 580px) { nav .hide { display: none; } }
+
+    .hero {
+      padding: 90px max(16px, env(safe-area-inset-left, 0px)) 80px;
+      text-align: center; background: var(--bg2);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .hero-tag { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px,7vw,68px); font-weight: 700; color: var(--dark); line-height: 1.1; margin-bottom: 20px; text-wrap: balance; }
+    .sub { font-size: clamp(15px,1.8vw,18px); color: var(--muted); max-width: 500px; margin: 0 auto 40px; font-weight: 300; }
+    .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-p { background: var(--accent); color: #fff; padding: 14px 28px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 15px; transition: background .2s; }
+    .btn-p:hover { background: var(--accent-l); }
+    .btn-s { background: transparent; color: var(--text); padding: 14px 28px; border-radius: 100px; text-decoration: none; font-size: 15px; border: 1.5px solid rgba(155,107,82,.3); transition: border-color .2s; }
+    .btn-s:hover { border-color: var(--accent); }
+    .hero-points { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-top: 56px; padding-top: 40px; border-top: 1px solid rgba(0,0,0,.08); }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hero-points { border-color: rgba(255,255,255,.08); } }
+    .hp { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--muted); }
+    .hp-i { color: var(--accent); }
+
+    section { padding: 80px max(16px, env(safe-area-inset-left, 0px)); }
+    .in { max-width: var(--max); margin: 0 auto; }
+    .tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px,4vw,44px); font-weight: 700; color: var(--dark); margin-bottom: 14px; text-wrap: balance; }
+    .lead { color: var(--muted); margin-bottom: 48px; font-weight: 300; }
+    .s-bg { background: var(--bg2); }
+
+    .sgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 20px; }
+    .scard {
+      background: var(--white); border: 1px solid rgba(0,0,0,.07); border-radius: 12px; padding: 28px;
+      transition: box-shadow .2s, transform .2s;
+    }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .scard { background: var(--bg3); border-color: rgba(255,255,255,.06); } }
+    :root[data-theme="dark"] .scard { background: var(--bg3); border-color: rgba(255,255,255,.06); }
+    .scard:hover { box-shadow: 0 6px 24px rgba(155,107,82,.12); transform: translateY(-2px); }
+    .scard-i { font-size: 32px; margin-bottom: 14px; }
+    .scard h3 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; margin-bottom: 10px; color: var(--dark); }
+    .scard-items { list-style: none; }
+    .scard-items li { font-size: 13px; color: var(--muted); padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,.04); display: flex; justify-content: space-between; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .scard-items li { border-color: rgba(255,255,255,.04); } }
+    .scard-items li:last-child { border-bottom: none; }
+    .sp { font-weight: 700; color: var(--accent); white-space: nowrap; padding-left: 8px; }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    @media (max-width: 680px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-img {
+      aspect-ratio: 4/5; background: var(--bg3); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px;
+      min-height: 300px;
+    }
+    .about-text .tag { margin-bottom: 12px; }
+    .about-text p { color: var(--muted); margin-bottom: 16px; font-weight: 300; line-height: 1.8; }
+    .about-pts { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .apt { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--text); }
+    .apt-i { color: var(--accent); font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+
+    .cgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    @media (max-width: 680px) { .cgrid { grid-template-columns: 1fr; gap: 36px; } }
+    .ci { display: flex; gap: 14px; margin-bottom: 22px; align-items: flex-start; }
+    .ci-i { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .ci strong { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .ci a { color: var(--accent); text-decoration: none; font-size: 18px; font-weight: 700; font-family: 'Playfair Display', serif; }
+    .ci span { font-size: 15px; }
+
+    form { display: flex; flex-direction: column; gap: 12px; }
+    input, textarea, select {
+      background: var(--white); border: 1.5px solid rgba(0,0,0,.1);
+      border-radius: var(--r); padding: 12px 16px; color: var(--text);
+      font-family: 'Nunito', sans-serif; font-size: 15px; outline: none;
+      transition: border-color .2s; width: 100%;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) input,
+      :root:not([data-theme="light"]) textarea,
+      :root:not([data-theme="light"]) select { background: var(--bg3); border-color: rgba(255,255,255,.1); }
+    }
+    :root[data-theme="dark"] input, :root[data-theme="dark"] textarea, :root[data-theme="dark"] select { background: var(--bg3); border-color: rgba(255,255,255,.1); }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    select option { background: var(--bg); }
+    textarea { resize: vertical; min-height: 100px; }
+    .form-h { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--dark); margin-bottom: 20px; }
+    button[type="submit"] {
+      background: var(--accent); color: #fff; border: none; padding: 14px;
+      border-radius: 100px; font-weight: 700; font-size: 15px; cursor: pointer; transition: background .2s;
+    }
+    button[type="submit"]:hover { background: var(--accent-l); }
+    .form-ok { display: none; background: rgba(155,107,82,.1); border: 1px solid rgba(155,107,82,.3); border-radius: var(--r); padding: 16px; text-align: center; color: var(--accent); font-weight: 600; }
+
+    footer {
+      background: var(--dark); color: rgba(255,255,255,.5);
+      padding: 28px max(16px, env(safe-area-inset-left, 0px));
+      text-align: center; font-size: 13px;
+    }
+    footer a { color: var(--accent-l); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="demo-bar">
+  💅 Tento web jsme pro vás připravili zdarma jako ukázku. <a href="mailto:adam@uptoai.cz">Chci takový web</a>
+</div>
+
+<header>
+  <div class="hdr">
+    <a href="#" class="logo"><em>{{NAZEV_FIRMY}}</em></a>
+    <nav>
+      <a href="#sluzby" class="hide">Služby</a>
+      <a href="#o-nas" class="hide">O nás</a>
+      <a href="#rezervace" class="cta-nav">Rezervovat</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="in">
+    <div class="hero-tag">Kosmetický salon · {{MESTO}}</div>
+    <h1>Vaše krása<br>v dobrých rukou</h1>
+    <p class="sub">Profesionální péče o pleť, tělo a nehty. Každé ošetření je přizpůsobeno přesně vašim potřebám.</p>
+    <div class="btns">
+      <a href="#rezervace" class="btn-p">Rezervovat termín</a>
+      <a href="tel:{{TELEFON}}" class="btn-s">📞 {{TELEFON}}</a>
+    </div>
+    <div class="hero-points">
+      <div class="hp"><span class="hp-i">✓</span> Certifikované kosmetičky</div>
+      <div class="hp"><span class="hp-i">✓</span> Prémiová kosmetika</div>
+      <div class="hp"><span class="hp-i">✓</span> Klidná atmosféra</div>
+      <div class="hp"><span class="hp-i">✓</span> Parkování zdarma</div>
+    </div>
+  </div>
+</section>
+
+<section class="s-bg" id="sluzby">
+  <div class="in">
+    <div class="tag">Naše nabídka</div>
+    <h2>Služby &amp; ceník</h2>
+    <p class="lead">Vyberte si ze široké nabídky ošetření. Na vše objednáme termín, který vám vyhovuje.</p>
+    <div class="sgrid">
+      <div class="scard">
+        <div class="scard-i">✨</div>
+        <h3>Kosmetické ošetření</h3>
+        <ul class="scard-items">
+          <li>Klasické čistící ošetření<span class="sp">od 690 Kč</span></li>
+          <li>Hydratační ošetření<span class="sp">od 890 Kč</span></li>
+          <li>Anti-age ošetření<span class="sp">od 1 100 Kč</span></li>
+          <li>Mikrodermabráze<span class="sp">od 950 Kč</span></li>
+        </ul>
+      </div>
+      <div class="scard">
+        <div class="scard-i">💅</div>
+        <h3>Manikúra &amp; Pedikúra</h3>
+        <ul class="scard-items">
+          <li>Klasická manikúra<span class="sp">od 380 Kč</span></li>
+          <li>Gel nehty<span class="sp">od 580 Kč</span></li>
+          <li>Klasická pedikúra<span class="sp">od 450 Kč</span></li>
+          <li>Medicinální pedikúra<span class="sp">od 650 Kč</span></li>
+        </ul>
+      </div>
+      <div class="scard">
+        <div class="scard-i">🧖‍♀️</div>
+        <h3>Masáže &amp; tělo</h3>
+        <ul class="scard-items">
+          <li>Relaxační masáž (60 min)<span class="sp">od 800 Kč</span></li>
+          <li>Sportovní masáž<span class="sp">od 900 Kč</span></li>
+          <li>Lymfatická masáž<span class="sp">od 950 Kč</span></li>
+          <li>Baňková masáž<span class="sp">od 750 Kč</span></li>
+        </ul>
+      </div>
+      <div class="scard">
+        <div class="scard-i">🌸</div>
+        <h3>Depilace &amp; řasy</h3>
+        <ul class="scard-items">
+          <li>Depilace voskem (nohy)<span class="sp">od 400 Kč</span></li>
+          <li>Barvení obočí &amp; řas<span class="sp">od 250 Kč</span></li>
+          <li>Lash lifting<span class="sp">od 700 Kč</span></li>
+          <li>Brow lamination<span class="sp">od 600 Kč</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="o-nas">
+  <div class="in">
+    <div class="about-grid">
+      <div class="about-img">📸 foto salonu</div>
+      <div class="about-text">
+        <div class="tag">O nás</div>
+        <h2>Váš salon krásy<br>v {{MESTO}}</h2>
+        <p>Jsme tým zkušených odbornic, které milují svou práci. Každá klientka u nás dostává individuální přístup a péči šitou na míru.</p>
+        <p>Používáme výhradně prémiovou kosmetiku od renomovaných značek. Pravidelně se vzdělávame v nejnovějších trendech.</p>
+        <div class="about-pts">
+          <div class="apt"><span class="apt-i">🏅</span><span>Certifikované kosmetičky s praxí 10+ let</span></div>
+          <div class="apt"><span class="apt-i">🌿</span><span>Prémiová přírodní kosmetika</span></div>
+          <div class="apt"><span class="apt-i">📅</span><span>Rychlé objednání — termín do 48 hodin</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-bg" id="rezervace">
+  <div class="in">
+    <div class="cgrid">
+      <div>
+        <div class="tag">Kontakt</div>
+        <h2>Objednání</h2>
+        <div class="ci">
+          <div class="ci-i">📞</div>
+          <div><strong>Telefon</strong><a href="tel:{{TELEFON}}">{{TELEFON}}</a></div>
+        </div>
+        <div class="ci">
+          <div class="ci-i">📍</div>
+          <div><strong>Adresa</strong><span>{{ADRESA}}, {{MESTO}}</span></div>
+        </div>
+        <div class="tag" style="margin-top:32px">Otevírací doba</div>
+        <div style="margin-top:16px;font-size:15px;color:var(--text);">
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(0,0,0,.06)"><span>Po – Pá</span><strong>9:00 – 19:00</strong></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(0,0,0,.06)"><span>Sobota</span><strong>9:00 – 15:00</strong></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0"><span>Neděle</span><strong style="color:var(--muted)">Zavřeno</strong></div>
+        </div>
+      </div>
+      <div>
+        <div class="form-h">Zarezervovat termín</div>
+        <form id="f">
+          <input type="text" placeholder="Vaše jméno" required>
+          <input type="tel" placeholder="Telefon" required>
+          <select>
+            <option value="">Vyberte službu</option>
+            <option>Kosmetické ošetření</option>
+            <option>Manikúra</option>
+            <option>Pedikúra</option>
+            <option>Masáž</option>
+            <option>Depilace</option>
+            <option>Lash lifting / brow lamination</option>
+          </select>
+          <input type="text" placeholder="Preferovaný termín">
+          <textarea placeholder="Poznámka (alergie, zvláštní požadavky...)"></textarea>
+          <button type="submit">Odeslat rezervaci →</button>
+        </form>
+        <div class="form-ok" id="ok">✓ Rezervace přijata! Ozveme se vám do 24 hodin.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 {{NAZEV_FIRMY}} · {{MESTO}} | Web vytvořen pomocí <a href="https://uptoai.cz">UpToAI</a></p>
+</footer>
+
+<script>
+  document.getElementById('f').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('ok').style.display = 'block';
+  });
+</script>
+</body>
+</html>

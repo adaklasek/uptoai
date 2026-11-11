@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Řešení pro váš obor | UpToAI – AI automatizace</title>
+  <meta name="description" content="Konkrétní balíčky AI automatizací pro realitní makléře, řemeslníky, salóny, e-shopy a poradce. S reálnými výsledky z praxe.">
+  <link rel="canonical" href="https://uptoai.cz/reseni/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Automatizační balíčky pro různé obory",
+    "url": "https://uptoai.cz/reseni/",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Realitní makléř – automatizace poptávek"},
+      {"@type":"ListItem","position":2,"name":"Řemeslník – automatizace zakázek"},
+      {"@type":"ListItem","position":3,"name":"Kadeřnictví a salón – automatizace rezervací"},
+      {"@type":"ListItem","position":4,"name":"E-shop – automatizace péče o zákazníka"},
+      {"@type":"ListItem","position":5,"name":"Advokát a poradce – automatizace onboardingu"}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    :root {
+      --bg: #0a0a0f; --fg: #f0f0f5;
+      --ink: #e8e8ef; --ink-2: #9aa1ab; --ink-3: #6b7280;
+      --accent: #1F6F4A; --accent2: #3DB87B; --volt: #B9F45C;
+      --line: rgba(255,255,255,0.08); --surface: rgba(255,255,255,0.03);
+      --surface2: rgba(255,255,255,0.055);
+      --radius: 14px; --mono: 'JetBrains Mono', monospace;
+    }
+    body { background: var(--bg); color: var(--fg); font-family: 'Inter', sans-serif; }
+
+    /* ── HERO ── */
+    .rs-hero { padding: 120px 0 56px; }
+    .rs-wrap {
+      max-width: 980px; margin: 0 auto;
+      padding-inline: max(24px, env(safe-area-inset-left,0px));
+    }
+    .rs-eyebrow {
+      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 16px;
+    }
+    .rs-hero h1 {
+      font-size: clamp(30px, 5vw, 50px); font-weight: 800; line-height: 1.1;
+      margin: 0 0 16px; color: var(--fg);
+    }
+    .rs-hero h1 em { font-style: normal; color: var(--accent2); }
+    .rs-hero p { font-size: 17px; color: var(--ink-2); max-width: 540px; line-height: 1.65; }
+
+    /* ── INDUSTRY TABS ── */
+    .rs-tabs {
+      border-bottom: 1px solid var(--line);
+      padding: 0 max(24px, env(safe-area-inset-left,0px));
+      overflow-x: auto; white-space: nowrap;
+      scrollbar-width: none;
+    }
+    .rs-tabs::-webkit-scrollbar { display: none; }
+    .rs-tabs-inner { max-width: 980px; margin: 0 auto; display: flex; gap: 0; }
+    .rs-tab {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 20px; border: none; background: transparent;
+      color: var(--ink-3); font-size: 14px; font-weight: 600; cursor: pointer;
+      border-bottom: 2px solid transparent; margin-bottom: -1px;
+      transition: color .15s, border-color .15s; white-space: nowrap;
+      font-family: 'Inter', sans-serif;
+    }
+    .rs-tab:hover { color: var(--ink-2); }
+    .rs-tab.active { color: var(--accent2); border-bottom-color: var(--accent2); }
+    .rs-tab-icon { font-size: 16px; }
+
+    /* ── PANELS ── */
+    .rs-panels { padding: 48px max(24px, env(safe-area-inset-left,0px)) 80px; }
+    .rs-panel { display: none; }
+    .rs-panel.active { display: block; }
+
+    .rs-panel-grid {
+      max-width: 980px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 400px; gap: 56px;
+      align-items: start;
+    }
+
+    /* left col */
+    .rs-left h2 {
+      font-size: clamp(24px, 3vw, 34px); font-weight: 800; line-height: 1.2;
+      margin: 0 0 10px; color: var(--fg);
+    }
+    .rs-left .rs-lead {
+      font-size: 16px; color: var(--ink-2); line-height: 1.65; margin: 0 0 32px;
+    }
+
+    .rs-automations { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .rs-auto {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 16px 18px; border: 1px solid var(--line); border-radius: 10px;
+      background: var(--surface);
+    }
+    .rs-auto-icon {
+      font-size: 22px; flex: none; width: 40px; height: 40px;
+      display: grid; place-items: center;
+      background: rgba(63,184,123,0.1); border-radius: 8px;
+    }
+    .rs-auto-body { flex: 1; min-width: 0; }
+    .rs-auto-name { font-size: 14px; font-weight: 700; color: var(--fg); margin-bottom: 3px; }
+    .rs-auto-desc { font-size: 13px; color: var(--ink-2); line-height: 1.55; }
+
+    .rs-price-row {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      padding: 20px 22px; border: 1px solid rgba(63,184,123,0.25);
+      border-radius: 10px; background: rgba(63,184,123,0.05);
+    }
+    .rs-price-label { font-size: 13px; color: var(--ink-3); flex: none; }
+    .rs-price-val { font-size: 22px; font-weight: 800; color: var(--fg); flex: none; }
+    .rs-price-note { font-size: 12px; color: var(--ink-3); line-height: 1.5; }
+    .rs-price-cta {
+      margin-left: auto; padding: 10px 20px; background: var(--accent2);
+      color: #0a0a0f; border-radius: 8px; font-size: 13px; font-weight: 700;
+      text-decoration: none; white-space: nowrap;
+      transition: background .15s;
+    }
+    .rs-price-cta:hover { background: #4de090; }
+
+    /* right col – case study */
+    .rs-case {
+      border: 1px solid var(--line); border-radius: var(--radius);
+      background: var(--surface); overflow: hidden; position: sticky; top: 100px;
+    }
+    .rs-case-head {
+      padding: 18px 22px; border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .rs-case-label {
+      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .1em; color: var(--ink-3);
+    }
+    .rs-case-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent2); flex: none; margin-left: auto;
+      box-shadow: 0 0 6px var(--accent2);
+    }
+    .rs-case-body { padding: 22px; }
+    .rs-case-persona {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+    }
+    .rs-case-avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      display: grid; place-items: center; font-size: 20px; flex: none;
+    }
+    .rs-case-name { font-size: 15px; font-weight: 700; color: var(--fg); }
+    .rs-case-role { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+    .rs-case-quote {
+      font-size: 14px; color: var(--ink-2); line-height: 1.65;
+      border-left: 2px solid var(--accent2); padding-left: 14px;
+      margin-bottom: 22px; font-style: italic;
+    }
+    .rs-case-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    .rs-stat {
+      padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px;
+      background: rgba(255,255,255,0.025);
+    }
+    .rs-stat-val {
+      font-size: 26px; font-weight: 800;
+      color: var(--accent2); line-height: 1; margin-bottom: 4px;
+    }
+    .rs-stat-label { font-size: 11.5px; color: var(--ink-3); line-height: 1.4; }
+
+    /* ── CTA BOTTOM ── */
+    .rs-cta-section {
+      border-top: 1px solid var(--line);
+      padding: 56px max(24px, env(safe-area-inset-left,0px)) 80px;
+      text-align: center;
+    }
+    .rs-cta-inner { max-width: 540px; margin: 0 auto; }
+    .rs-cta-inner h2 { font-size: 28px; font-weight: 800; margin: 0 0 12px; }
+    .rs-cta-inner p { font-size: 16px; color: var(--ink-2); margin: 0 0 28px; line-height: 1.6; }
+    .rs-cta-inner a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; background: var(--accent2); color: #0a0a0f;
+      border-radius: 8px; font-size: 15px; font-weight: 700; text-decoration: none;
+      transition: background .15s;
+    }
+    .rs-cta-inner a:hover { background: #4de090; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 800px) {
+      .rs-panel-grid { grid-template-columns: 1fr; gap: 36px; }
+      .rs-case { position: static; }
+      .rs-price-cta { width: 100%; text-align: center; margin-left: 0; }
+      .rs-price-row { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      .rs-hero { padding: 100px 0 36px; }
+      .rs-tab { padding: 14px 14px; font-size: 13px; }
+      .rs-case-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-upto">upto</span><span class="logo-ai">ai</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#sluzby">Služby</a></li>
+        <li><a href="/#jak">Jak pracujeme</a></li>
+        <li><a href="/#reference">Reference</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#booking" class="nav-cta">Audit zdarma →</a></li>
+      </ul>
+      <button class="nav-burger" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="rs-hero">
+    <div class="rs-wrap">
+      <div class="rs-eyebrow">Řešení pro váš obor</div>
+      <h1>Konkrétní automatizace.<br><em>Konkrétní výsledky.</em></h1>
+      <p>Vyberte si obor a uvidíte přesně, co automatizujeme, kolik to stojí a co to udělalo jiné firmě ve stejné situaci.</p>
+    </div>
+  </section>
+
+  <!-- TABS -->
+  <div class="rs-tabs">
+    <div class="rs-tabs-inner">
+      <button class="rs-tab active" data-panel="makler">
+        <span class="rs-tab-icon">🏠</span> Realitní makléř
+      </button>
+      <button class="rs-tab" data-panel="remeslnik">
+        <span class="rs-tab-icon">🔨</span> Řemeslník
+      </button>
+      <button class="rs-tab" data-panel="salon">
+        <span class="rs-tab-icon">✂️</span> Salón / wellness
+      </button>
+      <button class="rs-tab" data-panel="eshop">
+        <span class="rs-tab-icon">🛒</span> E-shop
+      </button>
+      <button class="rs-tab" data-panel="poradce">
+        <span class="rs-tab-icon">⚖️</span> Advokát / poradce
+      </button>
+    </div>
+  </div>
+
+  <!-- PANELS -->
+  <div class="rs-panels">
+
+    <!-- ══ REALITNÍ MAKLÉŘ ══ -->
+    <div class="rs-panel active" id="panel-makler">
+      <div class="rs-panel-grid">
+        <div class="rs-left">
+          <h2>Realitní makléř</h2>
+          <p class="rs-lead">Každá zmeškaná poptávka je potenciálně ztracená provize. Automatizace zajistí, že na každou odpoví do 5 minut – i v neděli ve 22:00.</p>
+
+          <div class="rs-automations">
+            <div class="rs-auto">
+              <div class="rs-auto-icon">⚡</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Okamžitá odpověď na poptávku</div>
+                <div class="rs-auto-desc">Do 5 minut po odeslání formuláře dostane zákazník personalizovanou odpověď. Systém rozpozná, zda jde o kupce, prodávajícího nebo nájemce, a přizpůsobí text.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">🎯</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Scoring a prioritizace leadů</div>
+                <div class="rs-auto-desc">AI ohodnotí každou poptávku: lokalita, rozpočet, časový horizont. Horké leady jdou rovnou do vašeho kalendáře, studené do nurturing sekvence.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">📧</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Follow-up sekvence (14 dní)</div>
+                <div class="rs-auto-desc">Zákazník, který hned neodpověděl, dostane 3 follow-up zprávy v průběhu dvou týdnů. Každá přináší konkrétní hodnotu – nový výpis, tip na lokalitu.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">📊</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Denní přehled v Telegramu</div>
+                <div class="rs-auto-desc">Každý den ráno dostanete přehled: kolik nových poptávek, kolik schůzek, kolik follow-upů čeká na reakci. Vše na jednom místě.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rs-price-row">
+            <span class="rs-price-label">Implementace od</span>
+            <span class="rs-price-val">45 000 Kč</span>
+            <span class="rs-price-note">+ provoz od 5 000 Kč / měs.<br>Návratnost průměrně do 60 dní.</span>
+            <a href="/#booking" class="rs-price-cta">Chci audit zdarma →</a>
+          </div>
+        </div>
+
+        <aside class="rs-case">
+          <div class="rs-case-head">
+            <span class="rs-case-label">Případová studie</span>
+            <div class="rs-case-dot"></div>
+          </div>
+          <div class="rs-case-body">
+            <div class="rs-case-persona">
+              <div class="rs-case-avatar">🏠</div>
+              <div>
+                <div class="rs-case-name">Lukáš H.</div>
+                <div class="rs-case-role">Realitní makléř, Praha – 7 let v oboru</div>
+              </div>
+            </div>
+            <div class="rs-case-quote">
+              „Přes portály mi přicházelo 60–80 poptávek měsíčně. Odpovídat ručně mi bralo 2–3 hodiny denně. Na schůzky mi pak nezbýval čas."
+            </div>
+            <div class="rs-case-stats">
+              <div class="rs-stat">
+                <div class="rs-stat-val">–87 %</div>
+                <div class="rs-stat-label">méně času na admin (z 15 h/týden na 2 h)</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">5 min</div>
+                <div class="rs-stat-label">průměrný čas první odpovědi (bylo 4 hodiny)</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">+34 %</div>
+                <div class="rs-stat-label">více domluvených schůzek ze stejného počtu poptávek</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">3×</div>
+                <div class="rs-stat-label">více uzavřených obchodů v prvním kvartálu</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- ══ ŘEMESLNÍK ══ -->
+    <div class="rs-panel" id="panel-remeslnik">
+      <div class="rs-panel-grid">
+        <div class="rs-left">
+          <h2>Truhlář / řemeslník</h2>
+          <p class="rs-lead">Zákazník, který pošle poptávku a nedostane odpověď do hodiny, zavolá konkurenci. Automatizace zajistí okamžitou reakci a předběžnou kalkulaci – i když jste na stavbě.</p>
+
+          <div class="rs-automations">
+            <div class="rs-auto">
+              <div class="rs-auto-icon">📩</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Potvrzení poptávky do 2 minut</div>
+                <div class="rs-auto-desc">Zákazník okamžitě ví, že jste zprávu dostali. Automaticky se ptá na klíčové detaily (rozměry, materiál, termín), čímž zkracuje kolečko otázek a odpovědí.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">🧮</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Orientační kalkulace ceníku</div>
+                <div class="rs-auto-desc">AI vytáhne z poptávky parametry a odpoví orientační cenové rozmezí. Zákazník ví, co čekat – a vy dostanete předkvalifikovaný kontakt.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">🔔</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Upomínka po 48 hodinách</div>
+                <div class="rs-auto-desc">Pokud zákazník nereagoval na nabídku, dostane jednu přátelskou připomínku. Bez ní se ztratí průměrně 30 % zájemců, kteří by jinak koupili.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">⭐</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Žádost o recenzi po dokončení</div>
+                <div class="rs-auto-desc">Týden po předání zakázky přijde automatický email s žádostí o Google recenzi. Zákazníci, kteří jsou spokojeni, ji ochotně nechají – jen jim to nikdo neřekne.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rs-price-row">
+            <span class="rs-price-label">Implementace od</span>
+            <span class="rs-price-val">45 000 Kč</span>
+            <span class="rs-price-note">+ provoz od 4 000 Kč / měs.<br>Typická návratnost do 90 dní.</span>
+            <a href="/#booking" class="rs-price-cta">Chci audit zdarma →</a>
+          </div>
+        </div>
+
+        <aside class="rs-case">
+          <div class="rs-case-head">
+            <span class="rs-case-label">Případová studie</span>
+            <div class="rs-case-dot"></div>
+          </div>
+          <div class="rs-case-body">
+            <div class="rs-case-persona">
+              <div class="rs-case-avatar">🔨</div>
+              <div>
+                <div class="rs-case-name">Martin T.</div>
+                <div class="rs-case-role">Truhlář na zakázku, Brno – 12 let v oboru</div>
+              </div>
+            </div>
+            <div class="rs-case-quote">
+              „Přišla poptávka, já byl na stavbě. Odpověděl jsem večer. Zákazník mezitím objednal u konkurence. Tohle se dělo každý týden."
+            </div>
+            <div class="rs-case-stats">
+              <div class="rs-stat">
+                <div class="rs-stat-val">–40 %</div>
+                <div class="rs-stat-label">méně ztracených zakázek kvůli pozdní odpovědi</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">12 h</div>
+                <div class="rs-stat-label">ušetřeno měsíčně na administrativě</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">4.9★</div>
+                <div class="rs-stat-label">průměrné Google hodnocení po zavedení follow-up recenzí</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">+8</div>
+                <div class="rs-stat-label">nových recenzí za 3 měsíce (bylo 2 za celý rok)</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- ══ SALÓN / WELLNESS ══ -->
+    <div class="rs-panel" id="panel-salon">
+      <div class="rs-panel-grid">
+        <div class="rs-left">
+          <h2>Kadeřnictví / salón</h2>
+          <p class="rs-lead">No-show zákazníci stojí salóny tisíce korun měsíčně. Automatizace rezervačního procesu je eliminuje a zároveň plní diář opakujícími se klienty.</p>
+
+          <div class="rs-automations">
+            <div class="rs-auto">
+              <div class="rs-auto-icon">📅</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Potvrzení rezervace + připomínka</div>
+                <div class="rs-auto-desc">Zákazník dostane potvrzení okamžitě po rezervaci a upomínku 24 hodin i 2 hodiny před termínem. No-show klesají průměrně o 70 %.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">🔄</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Automatická re-booking nabídka</div>
+                <div class="rs-auto-desc">Po uplynutí obvyklého intervalu (6, 8 nebo 12 týdnů) přijde zákazníkovi zpráva s nabídkou termínu. Bez toho musí sám vzpomenout – a část z nich nezavolá.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">🎁</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Věrnostní program automaticky</div>
+                <div class="rs-auto-desc">Po 5. návštěvě zákazník dostane poukaz. Systém to hlídá sám – žádné razítko, žádný papír. Zákazníci se vrací a cítí se oceněni.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">⭐</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Follow-up a sběr recenzí</div>
+                <div class="rs-auto-desc">Den po návštěvě přijde krátká zpráva: „Jak se líbilo?" Spokojený zákazník klikne na Google – nespokojený napíše Vám, ne veřejně.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rs-price-row">
+            <span class="rs-price-label">Implementace od</span>
+            <span class="rs-price-val">45 000 Kč</span>
+            <span class="rs-price-note">+ provoz od 4 000 Kč / měs.<br>Přínosy viditelné od prvního měsíce.</span>
+            <a href="/#booking" class="rs-price-cta">Chci audit zdarma →</a>
+          </div>
+        </div>
+
+        <aside class="rs-case">
+          <div class="rs-case-head">
+            <span class="rs-case-label">Případová studie</span>
+            <div class="rs-case-dot"></div>
+          </div>
+          <div class="rs-case-body">
+            <div class="rs-case-persona">
+              <div class="rs-case-avatar">✂️</div>
+              <div>
+                <div class="rs-case-name">Jana M.</div>
+                <div class="rs-case-role">Kadeřnický salón, Praha – 3 křesla, 2 zaměstnanci</div>
+              </div>
+            </div>
+            <div class="rs-case-quote">
+              „Každý pátek jsem strávila hodinu telefonováním a posíláním SMS. A stejně se každý týden někdo nedostavil. Přestala jsem to řešit a dala to na autopilota."
+            </div>
+            <div class="rs-case-stats">
+              <div class="rs-stat">
+                <div class="rs-stat-val">0</div>
+                <div class="rs-stat-label">no-show za poslední 3 měsíce</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">4 h</div>
+                <div class="rs-stat-label">ušetřeno týdně na ručním potvrzování</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">+22 %</div>
+                <div class="rs-stat-label">nárůst opakujících se rezervací díky re-booking sekvenci</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">4.8★</div>
+                <div class="rs-stat-label">Google hodnocení (z původních 4.2)</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- ══ E-SHOP ══ -->
+    <div class="rs-panel" id="panel-eshop">
+      <div class="rs-panel-grid">
+        <div class="rs-left">
+          <h2>E-shop</h2>
+          <p class="rs-lead">Velká část zákazníků nakoupí jednou a zmizí. Automatizovaná péče po nákupu je vrací – bez toho, že byste museli cokoliv dělat ručně.</p>
+
+          <div class="rs-automations">
+            <div class="rs-auto">
+              <div class="rs-auto-icon">📦</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Personalizované potvrzení objednávky</div>
+                <div class="rs-auto-desc">Zákazník dostane více než jen číslo objednávky. Email obsahuje relevantní doplňky ke koupenému produktu a tip, jak produkt nejlépe využít.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">🔁</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Automatická re-order sekvence</div>
+                <div class="rs-auto-desc">Pro spotřební zboží: po uplynutí předpokládané doby spotřeby přijde nabídka znovu objednat. Zákazník nemusí vzpomínat – jen kliknout.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">🛒</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Záchrana opuštěného košíku</div>
+                <div class="rs-auto-desc">Zákazník, který nedokončil nákup, dostane po hodině a po dni připomínku. Průměrně se vrátí 15–20 % těchto zákazníků a dokončí objednávku.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">🤖</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">AI třídění zákaznické podpory</div>
+                <div class="rs-auto-desc">Příchozí emaily a zprávy AI automaticky zařadí: reklamace, dotaz na produkt, dotaz na dopravu, jiné. Každá kategorie dostane šablonovou odpověď nebo eskalaci.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rs-price-row">
+            <span class="rs-price-label">Implementace od</span>
+            <span class="rs-price-val">55 000 Kč</span>
+            <span class="rs-price-note">+ provoz od 6 000 Kč / měs.<br>Závisí na objemu objednávek a skladbě.</span>
+            <a href="/#booking" class="rs-price-cta">Chci audit zdarma →</a>
+          </div>
+        </div>
+
+        <aside class="rs-case">
+          <div class="rs-case-head">
+            <span class="rs-case-label">Případová studie</span>
+            <div class="rs-case-dot"></div>
+          </div>
+          <div class="rs-case-body">
+            <div class="rs-case-persona">
+              <div class="rs-case-avatar">🛒</div>
+              <div>
+                <div class="rs-case-name">Ondřej V.</div>
+                <div class="rs-case-role">E-shop se sportovním vybavením, 400–600 objednávek / měs.</div>
+              </div>
+            </div>
+            <div class="rs-case-quote">
+              „Zákaznická podpora mi brala celé dopoledne. Odpovídal jsem stále na ty samé dotazy – kde je zásilka, jak funguje vrácení. AI to teď zvládá sama."
+            </div>
+            <div class="rs-case-stats">
+              <div class="rs-stat">
+                <div class="rs-stat-val">+23 %</div>
+                <div class="rs-stat-label">opakujících se zákazníků po spuštění re-order sekvence</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">–65 %</div>
+                <div class="rs-stat-label">méně manuálně zodpovídaných emailů týdně</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">18 %</div>
+                <div class="rs-stat-label">opuštěných košíků zachráněno re-activation sekvencí</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">22 h</div>
+                <div class="rs-stat-label">ušetřeno měsíčně na zákaznické podpoře</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- ══ ADVOKÁT / PORADCE ══ -->
+    <div class="rs-panel" id="panel-poradce">
+      <div class="rs-panel-grid">
+        <div class="rs-left">
+          <h2>Advokát / poradce</h2>
+          <p class="rs-lead">Onboarding nového klienta trvá hodiny – sběr dokumentů, podpisy, opakované maily. Automatizace to zkrátí na minuty a Vám uvolní čas na práci, která skutečně vydělává.</p>
+
+          <div class="rs-automations">
+            <div class="rs-auto">
+              <div class="rs-auto-icon">📋</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Automatizovaný onboarding klienta</div>
+                <div class="rs-auto-desc">Po potvrzení spolupráce dostane klient automaticky formulář pro sběr podkladů, instrukce k přístupu do klientského portálu a checklist co připravit.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">📄</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Sběr a třídění dokumentů</div>
+                <div class="rs-auto-desc">Klient nahraje dokumenty přes bezpečný formulář. Systém je automaticky pojmenuje, uloží a upozorní Vás. Žádné hledání příloh v emailech.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">🔔</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Upomínky termínů a závazků</div>
+                <div class="rs-auto-desc">Systém hlídá klíčové termíny (podání, lhůty, platby) a automaticky upomíná jak Vás, tak klienta. Žádný promeškání lhůty kvůli přeplněné schránce.</div>
+              </div>
+            </div>
+            <div class="rs-auto">
+              <div class="rs-auto-icon">💬</div>
+              <div class="rs-auto-body">
+                <div class="rs-auto-name">Automatické odpovědi na FAQ klientů</div>
+                <div class="rs-auto-desc">Nejčastější otázky klientů (kde jsme s věcí, co ještě chybí, kolik to celkem bude stát) zodpoví AI podle podkladů, které jí dáte. Klient je spokojen, Vás to neruší.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rs-price-row">
+            <span class="rs-price-label">Implementace od</span>
+            <span class="rs-price-val">55 000 Kč</span>
+            <span class="rs-price-note">+ provoz od 5 500 Kč / měs.<br>Individuální podle objemu klientů.</span>
+            <a href="/#booking" class="rs-price-cta">Chci audit zdarma →</a>
+          </div>
+        </div>
+
+        <aside class="rs-case">
+          <div class="rs-case-head">
+            <span class="rs-case-label">Případová studie</span>
+            <div class="rs-case-dot"></div>
+          </div>
+          <div class="rs-case-body">
+            <div class="rs-case-persona">
+              <div class="rs-case-avatar">⚖️</div>
+              <div>
+                <div class="rs-case-name">Petra N.</div>
+                <div class="rs-case-role">Daňová poradkyně, Praha – 45 aktivních klientů</div>
+              </div>
+            </div>
+            <div class="rs-case-quote">
+              „Každý nový klient znamenal 2 hodiny na sběr podkladů, posílání formulářů tam a zpět. A vždy někdo zapomněl přiložit jeden dokument. Teď to systém dotáhne sám."
+            </div>
+            <div class="rs-case-stats">
+              <div class="rs-stat">
+                <div class="rs-stat-val">–75 %</div>
+                <div class="rs-stat-label">kratší onboarding nového klienta (z 2 h na 30 min)</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">0×</div>
+                <div class="rs-stat-label">promeškané termíny podání za 6 měsíců</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">+8</div>
+                <div class="rs-stat-label">nových klientů díky uvolněné kapacitě</div>
+              </div>
+              <div class="rs-stat">
+                <div class="rs-stat-val">16 h</div>
+                <div class="rs-stat-label">ušetřeno měsíčně na administrativě</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+  </div><!-- /rs-panels -->
+
+  <!-- CTA BOTTOM -->
+  <section class="rs-cta-section">
+    <div class="rs-cta-inner">
+      <h2>Váš obor tu není?</h2>
+      <p>Automatizujeme pro desítky různých oborů. Zarezervujte si bezplatný audit – za 30 minut zjistíte, které procesy Vám berou nejvíce času a jak je automatizovat.</p>
+      <a href="/#booking">Bezplatný audit →</a>
+    </div>
+  </section>
+
+  <script src="/script.js"></script>
+  <script>
+    // Tab switching
+    document.querySelectorAll('.rs-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var target = this.dataset.panel;
+        document.querySelectorAll('.rs-tab').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelectorAll('.rs-panel').forEach(function(p) { p.classList.remove('active'); });
+        this.classList.add('active');
+        document.getElementById('panel-' + target).classList.add('active');
+        // Scroll to panels on mobile
+        if (window.innerWidth < 800) {
+          document.querySelector('.rs-panels').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

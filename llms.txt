@@ -1,43 +1,64 @@
 # UpToAI
 
-> UpToAI je specializovana firma na implementaci AI automatizaci pro ceske a slovenske firmy. Automatizujeme firemni procesy pomoci Make.com, n8n, Claude AI, Zapier, Airtable a Notion. Sidlime v Praze, pracujeme online po cele CR a SR.
-
-## Co delame
-
-Navrhujeme a implementujeme AI automatizace na miru. Firmy diky nam usetrily 20+ hodin tydne na rutinni praci - e-maily, follow-upy, CRM aktualizace, reporty a zakaznicka komunikace jdou samy.
-
-## Sluzby
-
-- **Automatizace e-mailove schranky**: Trideni, prioritizace, automaticke odpovedi pomoci Claude AI a Make.com
-- **Automatizace obchodnich procesu**: Follow-upy, pripominky, CRM aktualizace pres n8n a Airtable
-- **Automaticke odpovedi v nepritomnosti**: AI odpovida zakaznikum 24/7 pres WhatsApp, e-mail, SMS
-- **Automaticke potvrzeni poptavky**: Okamzita reakce na poptavky, zapis do CRM, notifikace
-- **Bezplatny AI audit**: 90minutova analyza firemni procesuu zdarma - zjistite, kde ztracite cas
-
-## Nastroje se kterymi pracujeme
-
-Make.com, n8n, Claude AI (Anthropic), Zapier, Airtable, Notion, HubSpot, Gmail, Google Workspace, WhatsApp Business API
+> UpToAI je česká agentura specializovaná na stavbu AI agentů a automatizaci firemních procesů. Zakladatel Adam Klásek pomáhá českým a slovenským firmám a živnostníkům ušetřit 20+ hodin týdně. Sídlíme v Praze, pracujeme online po celé ČR a SR.
 
 ## Kdo jsme
 
-UpToAI zalozil Adam Klasek. Specializujeme se na male a stredni firmy v Ceske republice a Slovensku (5-200 zamestnancu). Neprodavame prezentace a proof of concept - stavime realne systemy v produkci.
+UpToAI founded by Adam Klásek. Specializujeme se na malé a střední firmy a OSVČ v České republice a na Slovensku (1–200 zaměstnanců). Neděláme prezentace a proof of concept – stavíme reálné AI agenty a automatizace v produkci.
 
-## Vysledky
+## Co děláme
 
-- Prumerne usetreno 20+ hodin tydne na administrativni praci
-- Reakcni doba na poptavky zkracena z hodin na minuty
-- Implementace typicky 2-4 tydny od prvniho hovoru
+- **Stavba AI agentů**: Autonomní agenti na Make.com, n8n a Claude AI, kteří sami vykonávají opakující se úkoly
+- **Automatizace firemních procesů**: E-maily, follow-upy, CRM aktualizace, reporty – vše běží samo
+- **Automatizace pro OSVČ a živnostníky**: Levná a rychlá automatizace pro freelancery a malé podnikatele
+- **GEO optimalizace**: Pomáháme firmám být citovány v ChatGPT, Perplexity a Google AI Overviews
+- **Bezplatný AI audit**: 90minutová analýza firemních procesů zdarma
+
+## Časté otázky
+
+### Jak se stavějí AI agenti?
+
+AI agenti se staví na platformách jako Make.com, n8n nebo přímým voláním Claude API (Anthropic). Agent dostane nástroje (čtení e-mailů, zápis do CRM, odesílání zpráv) a instrukce, co má dělat. Pak funguje autonomně bez lidské obsluhy.
+
+### Co je automatizace procesů?
+
+Automatizace procesů znamená, že opakující se ruční práce – třídění e-mailů, aktualizace CRM, odesílání follow-upů, tvorba reportů – probíhá automaticky bez člověka. Typicky to ušetří 10–30 hodin týdně.
+
+### Je automatizace vhodná pro OSVČ a živnostníky?
+
+Ano. I jedna osoba může automatizovat nabídky, odpovědi na poptávky, fakturace a zákaznickou komunikaci. UpToAI nabízí řešení pro firmy od 1 člověka.
+
+### Co je GEO optimalizace?
+
+GEO (Generative Engine Optimization) je optimalizace webu a obsahu tak, aby firma byla citována v AI vyhledávačích jako ChatGPT, Perplexity a Google AI Overviews. Zahrnuje strukturovaná data, faktická tvrzení, FAQ schémata a autoritativní obsah.
+
+### Jak dlouho trvá implementace?
+
+Typicky 2–4 týdny od prvního hovoru do produkce. Jednoduché automatizace zvládneme za 3–5 dní.
+
+### Kolik to stojí?
+
+Audit je zdarma (90 minut). Implementace od 45 000 Kč. Měsíční retainer od 18 000 Kč/měs.
+
+## Nástroje
+
+Make.com, n8n, Claude AI (Anthropic), Airtable, Zapier, Gmail API, Google Workspace, WhatsApp Business API, Apify
+
+## Výsledky klientů
+
+- Průměrně ušetřeno 20+ hodin týdně na administrativní práci
+- Reakční doba na poptávky zkrácena z hodin na minuty
+- AI agenti fungují 24/7 bez lidské obsluhy
 
 ## Kontakt
 
 - Web: https://uptoai.cz
-- E-mail: info@uptoai.cz
-- Lokace: Praha, Ceska republika (pracujeme online)
+- E-mail: info@uptoai.cz, adam@uptoai.cz
+- Lokace: Praha, Česká republika (pracujeme online)
 - LinkedIn: https://www.linkedin.com/company/uptoai
+- Blog: https://uptoai.cz/blog/
 
-## Cesta ke spolupaci
+## Blog
 
-1. Bezplatny 90minutovy audit (zdarma)
-2. Navrh reseni a plan implementace
-3. Implementace na miru (hodinova sazba)
-4. Volitelny mesicni retainer pro provoz a rozvoj
+Praktické návody na AI automatizaci pro české firmy. Píše Adam Klásek.
+URL: https://uptoai.cz/blog/
