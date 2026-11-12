@@ -72,14 +72,14 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 - **COO - Daily Briefing** (ID: 10051722) – denní analýza Airtable → Claude → Telegram; NEAKTIVNÍ (potřeba AIRTABLE_TOKEN)
 - **COO-Telegram-Sender** (ID: 10051783) – příjem textu → Telegram zpráva; aktivní
   - Webhook: `https://hook.eu2.make.com/ybk7d485ja85fs7ewmsraqi6vur071hy`
-  - Z Claude Code: `mcp__Make__scenarios_run` s `scenarioId: 10051783`, `data: {"text": "..."}`
+  - Z Claude Code: Bash `curl -s -X POST "https://hook.eu2.make.com/ybk7d485ja85fs7ewmsraqi6vur071hy" -H "Content-Type: application/json" -d '{"text": "..."}'` (NEPOUŽÍVAT mcp__Make__scenarios_run - vyžaduje approval dialogy)
 - **COO-Leads** (ID: 10052185) – webhook → router → Airtable CRUD; aktivní (nutno doplnit token viz TODO)
   - Webhook: `https://hook.eu2.make.com/1pddpzybkl1mntlc5lywptasaovc3fi3`
   - Interface: action, name, email, phone, notes, city, status, record_id
 
 ### Claude Code scheduled task
 - **CEO Daily Briefing** (ID: trig_011Y71uiLHcLyEY8WwbG7bSL) – 6:43 CET každý den; první run: 2026-10-28
-  - Používá: Airtable MCP + Make MCP (scenarios_run na COO-Telegram-Sender)
+  - Používá: Airtable MCP + Bash curl na COO-Telegram-Sender webhook (opraveno 12.11.2026 - scenarios_run blokoval approval dialogy)
   - Testováno: 27.10.2026 – funguje
 
 ### Intenty (COO-Router)
