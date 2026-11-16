@@ -208,6 +208,44 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | COO Telegram Agent | n8n | wrEFWuIA79kQwqck | Aktivni | Webhook POST /coo-agent → AI Agent (Claude Opus 5-5, maxIter 20) → 5 tools: Research Website, Create Lead, List Leads, Update Lead Status, Send Telegram; plny kontext pipeline + pravidel; vytvoren 4.11.2026, oprava+publish 5.11.2026 (byl aktivni stary draft bez List Leads/Update Status) |
 | Telegram Queue Processor | Claude Code scheduled task | trig_01LzABvJUH4bHgLhHbHEer1w | Aktivni | Kazde hodiny 8-21 CET: cte Airtable Telegram Queue (tblqZ6NgY4xFfSW7T), zpracovava nezpracovane zpravy od Adama, posila potvrzeni pres Make.com COO-Telegram-Sender; vytvoren 5.11.2026 |
 | Drafter Agent (stary) | n8n | yPYTLTAgY0icGK8N | DEAKTIVOVAN (5.11.2026) | Duplicit Drafter Agent v2; mel "Send Draft to Adam" node ktery posilal SMTP emaily na adaklasek@gmail.com; email node disablovano 5.11 |
+| Ester LinkedIn Content Agent | Claude Code scheduled task | trig_01CweqBfR2bK6p6auoqRTipw | Aktivni | Kazde pondeli 8:00 CET: generuje 5 LinkedIn prispevku na tyden + 5 outreach navrhů (connection request + follow-up zpravy) → Telegram notif Adamovi ke schvaleni; vytvoreno 16.11.2026 |
+
+## Ester Tomancová – Digitální zaměstnankyně
+
+**Email:** ester@uptoai.cz (TODO: Adam nastaví v Zoho Admin)
+**LinkedIn:** linkedin.com/in/ester-tomancova (TODO: Adam vytvoří účet)
+
+### Persona
+- Věk: 29 let, Praha 7
+- Background: 3 roky marketing koordinátorka → AI consultant → AI Specialist @ UpToAI
+- Styl: přímá, praktická, trochu sarkastická, žádné buzzwordy, konkrétní čísla
+- LinkedIn hlas: první osoba, zkušenostní storytelling, ne korporátní
+
+### Co dělá
+- **LinkedIn content**: každé pondělí 5 příspěvků (agent drafts, Adam postuje z Ester účtu)
+- **LinkedIn outreach**: každé pondělí 5 connection request + follow-up návrhů (Adam odesílá ručně)
+- **Email**: odpovídá na ester@uptoai.cz (TODO: až bude schránka nastavena)
+
+### Fotka
+Prompt pro AI generátor (DALL-E/Midjourney): "Professional LinkedIn headshot, 29-year-old Czech woman, shoulder-length brown hair, warm confident smile, business casual light blouse, clean neutral background, natural office lighting, shot from shoulders up"
+
+### LinkedIn profil texty
+**Headline:** AI Specialist @ UpToAI | Pomáhám českým firmám ušetřit 10+ hodin týdně díky AI automatizaci
+
+**About:**
+Měla jsem tři roky v marketingu v ruce procesy, které by za mě mohla dělat AI.
+Než jsem to zjistila, dělala jsem je ručně.
+
+Teď pomáhám firmám to zjistit rychleji.
+
+V UpToAI stavíme AI agenty a automatizace na míru – pro e-shopy, autoservisy, HR týmy, obchodní oddělení. Používáme Make.com, Claude API a Airtable. Bez zbytečné teorie, rovnou do praxe.
+
+Co mě baví nejvíc? Moment, kdy klient řekne "to jsme dřív dělali 2 dny". A teď to běží samo.
+
+Chcete vidět, co by šlo automatizovat u vás? → uptoai.cz nebo napište přímo.
+
+**Experience:**
+AI Specialist @ UpToAI (2024–současnost) – Implementace AI automatizací pro české firmy. Onboarding klientů, LinkedIn brand building, AI education.
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
 
