@@ -52,6 +52,7 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
   - Clients: tblo7xClSBenPpmA5
   - Projects: tblQz7JsE0cywGm6B
   - Telegram Queue: tblqZ6NgY4xFfSW7T (message, chat_id, received_at, processed) – fronta Telegram zpráv pro CEO session polling
+  - Tasks: tbljpYOkzM2efj3gf (task, priority [urgent/high/medium/low], status [todo/in_progress/review/done/blocked], assignee [Adam/Ester/CEO/Adam+CEO], description, due_date, notes, created_at) – interní task tracking; CEO autonomně vytváří úkoly z rozhovorů
   - API Token: v environment secrets (AIRTABLE_TOKEN)
 - **Claude API** – AI mozek (model: claude-opus-5-5, thinking: adaptive)
 - **Telegram** – komunikace s COO agentem
