@@ -58,6 +58,7 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 - **Telegram** – komunikace s COO agentem
 - **GitHub Pages** – web (uptoai.cz)
 - **Formspree** – kontaktní formulář (endpoint: xrpeldzv)
+- **ClickUp** – task tracking (Workspace ID: 1500520000026231, Space: Team Space ID: 1500520000141143, Folder: UpToAI Agency ID: 1500520000166370, List: Backlog ID: 1500520000175202); CEO autonomně vytváří úkoly z rozhovorů; connector aktivní
 - **Calendly** – bookingové schůzky (adaklasek/meet)
 - **Google Analytics** – G-QZL82EMB1N
 
