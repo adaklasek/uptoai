@@ -217,6 +217,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Ester Blog AI News Agent | Claude Code scheduled task | trig_01PnT6VfKD7ztEuScNs1chpT | Aktivni | Kazdy stredu 10:00 CET: WebSearch AI novinky → 500-800 slov clanek (Ester styl) → Google Doc (1SToxqwXYHjjlSiw6Nlu0SxYu_m2KwCf5Sz_t_QiS53k) → Telegram notif Adamovi; vytvoreno 17.11.2026 |
 | Ester Email Check Agent | Claude Code scheduled task | trig_01DcVALHMpBTBCgQKgYxyDuf | Aktivni | Po-Pa 9:00 CET: zkontroluje ester@uptoai.cz → drafty odpovedi pro potencialni klienty → Telegram notif; POZOR: Gmail connector je pro adaklasek@gmail.com - dokud neni ester@uptoai.cz nastavena, reportuje nedostupnost; vytvoreno 17.11.2026 |
 | CEO ClickUp Orchestrace | Claude Code scheduled task | trig_01AbQXdQHZ3dYVKrUmKc9Ngc | Aktivni | 9:00 11:00 13:00 15:00 17:00 CET Po-Pa: zkontroluje ClickUp Backlog → přiřadí úkoly (CEO Agent/Ester/Adam), vygeneruje 1-2 proaktivní nápady jako nové tasky, pošle Telegram jen pokud je co hlásit; vytvoreno 17.11.2026 |
+| Grafik Agent | Claude Code scheduled task | PLANOVANY | PLANOVANY | Kazde 30min 11-18 Po-Pa: Airtable Grafika Queue → Claude marketing expert persona → Runware.ai / DALL-E generace obrazku → URL zpet do Airtable + notif Adamovi; napojeni na Web Builder + Ester; vyzaduje RUNWARE_API_KEY (hotovo) + OPENAI_API_KEY (Adam TODO) |
 
 ## Ester Tomancová – Digitální zaměstnankyně
 
@@ -258,6 +259,48 @@ Chcete vidět, co by šlo automatizovat u vás? → uptoai.cz nebo napište př�
 
 **Experience:**
 AI Specialist @ UpToAI (2024–současnost) – Implementace AI automatizací pro české firmy. Onboarding klientů, LinkedIn brand building, AI education. Brno.
+
+**Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
+
+## Grafik Agent – AI Grafik
+
+Není to člověk. Je to AI agent s osobností zkušeného marketingového grafika.
+
+### Persona
+- Background: 15 let zkušeností v marketingové grafice
+- Styl: moderní, účelný, profesionální; vždy vhodné pro daný kontext
+- Výstup: vždy profi grafický materiál – žádné generické AI ilustrace, vše s účelem
+- Přístup: nejdřív pochopí brief, pak tvoří; navrhuje i varianty pokud smysl dává
+
+### Co dělá
+- **Hero images** pro demo weby (žádáno od Web Builder Agenta)
+- **LinkedIn grafika** pro Ester (cover images, post vizuály)
+- **Blog cover images** pro Ester
+- **Ostatní marketing materiály** na vyžádání CEO nebo Adama
+- Každý výstup = URL v Airtable + Telegram notifikace
+
+### Technický stack
+- **Runware.ai** – primární generace (Flux Schnell, model runware:100@1, ~$0.0013/img); RUNWARE_API_KEY v env secrets
+- **DALL-E / OpenAI** – záloha pro specifické styly; vyzaduje OPENAI_API_KEY (TODO Adam)
+- **Replicate** – hosting alternativa; vyzaduje REPLICATE_API_KEY (TODO Adam)
+- **Airtable** – fronta požadavků (Grafika Queue, TODO vytvorit tabulku) + ukladani URL výstupu
+- **Claude Opus** – mozek agenta (chápe brief, generuje prompt pro Runware/DALL-E)
+
+### Propojení s ostatními agenty
+- **Brand & Design Agent** vola Grafika pro hero images (zatim si generuje sam – TODO propojit)
+- **Web Builder Agent** muze zadat request na specificke vizualy pro sekce
+- **Ester LinkedIn/Blog agenti** zadavaji grafiku pres Airtable queue
+
+### Architektura (plán)
+1. Airtable tabulka **Grafika Queue** (fields: request_type, brief, lead_id/context, status, output_url, requested_by, created_at)
+2. Claude Code trigger kazdych 30min 11-18 Po-Pa
+3. Grafik Agent: cte fronta → Claude interpretuje brief → Runware.ai vygeneruje obr → URL zpet do Airtable → Telegram notif
+4. Requestori (Web Builder, Ester, CEO) zapisuji do Airtable queue
+
+### Co potřebuje od Adama
+- OPENAI_API_KEY do env secrets (pro DALL-E zálohu, neblokuje build)
+- REPLICATE_API_KEY do env secrets (pro Replicate hosting, neblokuje build)
+- Schválení buildu
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
 
