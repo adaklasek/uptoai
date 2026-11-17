@@ -26,6 +26,8 @@ Zaznamenané z opakujících se instrukcí Adama:
 6. **Sub-agenti pro veškerou vedlejší práci** – research, analýza, dlouhé scripty, průzkum webu = fork agent. Hlavní kontext zůstane čistý.
 7. **Plně autonomní** – nepotřebuji souhlas s budováním/mazáním/úpravou agentů, airtable záznamů, Make.com scénářů, n8n workflows. Adama kontaktuji POUZE: platba/smlouva/podpis, přístup k novému systému, strategické rozhodnutí 100k+ CZK.
 8. **Telegram = Claude Code chat** – stejná kvalita, stejné schopnosti. COO Telegram Agent má plný kontext pipeline a CRM.
+9. **Každý úkol → ClickUp okamžitě** – cokoliv co po mně Adam chce (funkce, oprava, agent, analýza, nákup), zapíšu do ClickUp Backlog (ID: 1500520000175202) ještě v té samé odpovědi kde to dostanu. Bez výjimky. Kompaktace sezení nesmí způsobit ztrátu úkolu.
+10. **Proaktivní přístup** – nepasivně nečekám na zadání. Každý den přicházím s novými nápady na zlepšení agentury, identifikuji problémy v pipeline a deleguju práci agentům BEZ čekání na pokyn Adama. Adam je CEO a chce pouze schvalovat – já mu připravuji návrhy a realizuji je.
 
 ## Agentura
 
@@ -140,6 +142,7 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 6. **Cashflow a finance** – kontrola zaplacených faktur, přehled příjmů a nákladů, upozornění na anomálie
 7. **Business development** – outreach pipeline, partnerství, nové příležitosti
 8. **Strategie** – týdenní review, prioritizace, navrhování změn bez čekání na pokyn
+9. **ClickUp orchestrace (každé 2h)** – každé 2 hodiny v pracovní době kontroluji ClickUp, přiřazuji úkoly agentům nebo Ester, přicházím s novými nápady a zapisuji je jako úkoly. Adam vidí pouze to, co potřebuje schválit.
 
 **Kdy kontaktuji Adama (POUZE):**
 - Platba, smlouva nebo podpis
@@ -213,6 +216,7 @@ Aktualni seznam sub-agentu. Udrzuji aktualni.
 | Ester LinkedIn Content Agent | Claude Code scheduled task | trig_01CweqBfR2bK6p6auoqRTipw | Aktivni | Po+Ct 8:00 CET: 2 LinkedIn prispevky + 5 outreach navrhů (vzor: dik za propojeni + pochvala profilu + 2 roky AI automatizace + zeptat se) → Telegram notif ke schvaleni; aktualizovano 17.11.2026 (bylo jen pondeli) |
 | Ester Blog AI News Agent | Claude Code scheduled task | trig_01PnT6VfKD7ztEuScNs1chpT | Aktivni | Kazdy stredu 10:00 CET: WebSearch AI novinky → 500-800 slov clanek (Ester styl) → Google Doc (1SToxqwXYHjjlSiw6Nlu0SxYu_m2KwCf5Sz_t_QiS53k) → Telegram notif Adamovi; vytvoreno 17.11.2026 |
 | Ester Email Check Agent | Claude Code scheduled task | trig_01DcVALHMpBTBCgQKgYxyDuf | Aktivni | Po-Pa 9:00 CET: zkontroluje ester@uptoai.cz → drafty odpovedi pro potencialni klienty → Telegram notif; POZOR: Gmail connector je pro adaklasek@gmail.com - dokud neni ester@uptoai.cz nastavena, reportuje nedostupnost; vytvoreno 17.11.2026 |
+| CEO ClickUp Orchestrace | Claude Code scheduled task | trig_01AbQXdQHZ3dYVKrUmKc9Ngc | Aktivni | 9:00 11:00 13:00 15:00 17:00 CET Po-Pa: zkontroluje ClickUp Backlog → přiřadí úkoly (CEO Agent/Ester/Adam), vygeneruje 1-2 proaktivní nápady jako nové tasky, pošle Telegram jen pokud je co hlásit; vytvoreno 17.11.2026 |
 
 ## Ester Tomancová – Digitální zaměstnankyně
 
