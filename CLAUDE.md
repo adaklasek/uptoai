@@ -180,6 +180,20 @@ Pokud chybí info pro rozhodnutí, rovnou se zeptám.
 
 Aktualni seznam sub-agentu. Udrzuji aktualni.
 
+### Standardy kvality demo webů (17.11.2026)
+
+Každý demo web musí splňovat:
+
+1. **Žádné placeholdery** – absolutně zakázané: "Jméno Příjmení", "[email]", "123-456-789", "[hodiny]", "Lorem ipsum", "Vaše firma", "Popis služby". Pokud data chybí, sekci vynech nebo použij obecný text, který dává smysl.
+2. **Reálná data klienta** – vždy dohledat z webu: telefon, adresa, otevírací hodiny, sociální sítě (Instagram, Facebook), konkrétní služby s cenami, jméno majitele/vedoucí, fotky provozovny.
+3. **Profesionální obrázky** – žádné generické AI ilustrace. Používat Unsplash/Pexels s konkrétními search termy pro daný obor. Obrázky musí sedět na web a dodat mu šmrnc.
+4. **Fonty s citem** – výběr fontů musí odpovídat oboru a pocitu značky. Kadeřnictví/beauty = editorial luxus (Cormorant Garamond). Gym = energy (Bebas Neue). Autoservis = síla (Barlow Condensed). Nikdy generické Inter+Roboto pro beauty obory.
+5. **Hotový vzhled** – web musí vypadat jako hotový produkt připravený k odeslání klientovi. Žádné "TODO sekce", žádné prázdné bloky.
+6. **Kvalitní šablony pro opakované použití** – stejná odvětví mohou sdílet strukturu, ale každý web musí mít unikátní data, barvy a copy. Gym vypadá jako gym, kadeřnictví jako kadeřnictví – ne genericky.
+
+**Vzor dobré práce:** Goodluckgym (b31a9749) – dobrá struktura, moderní design. Chybí reálná data klienta (vyřešit: načíst z Airtable/webu).
+**Co zlepšit:** Kadeřnictví weby – více editoriálního luxusu, méně "suché". Inspirace: Vogue Czech, Flautt.
+
 ### Pipeline flow (statusy v leads sheetu):
 `web_offer` → (Analyst) → `bid_web`/`bid_auto`/`bid_all` → Adam zmeni na `draft_web` → (Web Builder) → `prepared` → (Telegram notif) → `schvaleno` → (Sender) → `odeslano` → (Reply Watcher) → `deal`/`lost`/`needs_response`
 
