@@ -1,5 +1,25 @@
 {
   "permissions": {
-    "defaultMode": "dontAsk"
+    "defaultMode": "dontAsk",
+    "allow": [
+      "mcp__ClickUp__clickup_create_task",
+      "mcp__ClickUp__clickup_update_task",
+      "mcp__ClickUp__clickup_filter_tasks",
+      "mcp__ClickUp__clickup_get_task",
+      "mcp__ClickUp__clickup_get_workspace_hierarchy",
+      "mcp__ClickUp__clickup_create_folder",
+      "mcp__ClickUp__clickup_create_list",
+      "mcp__ClickUp__clickup_create_list_in_folder",
+      "mcp__ClickUp__clickup_delete_task",
+      "mcp__ClickUp__clickup_add_tag_to_task",
+      "mcp__ClickUp__clickup_create_comment",
+      "mcp__ClickUp__clickup_get_task_comments",
+      "mcp__ClickUp__clickup_find_member_by_name",
+      "mcp__ClickUp__clickup_resolve_assignees",
+      "mcp__ClickUp__clickup_search",
+      "mcp__ClickUp__clickup_execute_operator",
+      "mcp__ClickUp__clickup_get_operators",
+      "mcp__ClickUp__clickup_get_user"
+    ]
   }
 }
