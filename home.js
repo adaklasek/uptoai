@@ -1,6 +1,16 @@
 (function () {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Nav scroll effect
+  var navEl = document.querySelector('.nav');
+  if (navEl) {
+    function updateNav() {
+      navEl.classList.toggle('scrolled', window.scrollY > 10);
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  }
+
   // Mobile menu
   var burger = document.getElementById('burger');
   var links = document.getElementById('navLinks');
