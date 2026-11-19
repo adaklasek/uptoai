@@ -100,10 +100,10 @@ p { margin: 0; }
 /* Nav */
 .nav {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(10,13,25,.38);
-  backdrop-filter: saturate(200%) blur(28px);
-  -webkit-backdrop-filter: saturate(200%) blur(28px);
-  border-bottom: 1px solid rgba(255,255,255,.1);
+  background: rgba(10,13,25,.92);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
   color: var(--dark-text);
 }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
