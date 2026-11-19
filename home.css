@@ -89,10 +89,10 @@ p { margin: 0; }
 .btn-primary { background: var(--accent-gradient); color: var(--accent-ink); }
 .btn-primary:hover { filter: brightness(0.9); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(31,111,74,.3); }
 @keyframes voltShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
-.btn-volt { background: linear-gradient(135deg, #2DBF4A, #0BCB91, #0B8ACB, #0B5BCB, #2DBF4A); background-size: 300% 300%; animation: voltShift 2s ease infinite; color: #fff; }
+.btn-volt { background: linear-gradient(90deg, #2DBF4A, #0BCB91, #0B8ACB, #5B3FD4, #9B2DBF, #2DBF4A); background-size: 500% 100%; animation: voltShift 4s linear infinite; color: #fff; }
 .btn-volt:hover { filter: brightness(1.15); transform: translateY(-1px); }
 .btn-ghost { border-color: var(--line); color: var(--ink); background: transparent; }
 .btn-ghost:hover { border-color: var(--ink); }
