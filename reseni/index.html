@@ -23,7 +23,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Public+Sans:wght@200;300;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <style>
     :root {
@@ -37,7 +37,7 @@
     body { background: var(--bg); color: var(--fg); font-family: 'Inter', sans-serif; }
 
     /* ── HERO ── */
-    .rs-hero { padding: 120px 0 56px; }
+    .rs-hero { padding: 80px 0 56px; }
     .rs-wrap {
       max-width: 980px; margin: 0 auto;
       padding-inline: max(24px, env(safe-area-inset-left,0px));
@@ -151,7 +151,7 @@
     .rs-case-avatar {
       width: 48px; height: 48px; border-radius: 50%;
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-      display: grid; place-items: center; font-size: 20px; flex: none;
+      display: grid; place-items: center; font-size: 13px; font-weight: 700; color: #0a0a0f; letter-spacing: 0.03em; flex: none;
     }
     .rs-case-name { font-size: 15px; font-weight: 700; color: var(--fg); }
     .rs-case-role { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
@@ -190,6 +190,29 @@
     }
     .rs-cta-inner a:hover { background: #4de090; }
 
+    /* ── NAVBAR OVERRIDE (konzistentní s homepage) ── */
+    #nav { display: none; }
+    .site-nav { position: sticky; top: 0; z-index: 50; background: rgba(10,13,25,.38); backdrop-filter: saturate(200%) blur(28px); -webkit-backdrop-filter: saturate(200%) blur(28px); border-bottom: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,0.9); }
+    .site-nav .nav-wrap { max-width: 1140px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .site-logo { font-family: 'Public Sans', 'Inter', sans-serif; font-size: 22px; font-weight: 700; text-decoration: none; letter-spacing: -0.01em; display: flex; flex-direction: row; align-items: center; gap: 10px; color: rgba(255,255,255,0.9); }
+    .site-logo-img { height: 34px !important; width: 34px !important; min-width: 34px; display: block; flex-shrink: 0; }
+    .site-logo .logo-ai { font-weight: 700; background: linear-gradient(135deg, #2DBF4A, #0BCB91); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .site-nav-links { display: flex; gap: 30px; align-items: center; list-style: none; margin: 0; padding: 0; }
+    .site-nav-links a { text-decoration: none; font-size: 15px; color: rgba(255,255,255,0.8); transition: color .15s; }
+    .site-nav-links a:hover { color: #fff; }
+    .site-nav-cta { padding: 10px 18px; background: linear-gradient(135deg, #2DBF4A, #0BCB91); background-size: 300% 300%; animation: voltShift 3s ease infinite; color: #060A14 !important; border-radius: 8px; font-size: 14.5px; font-weight: 600; }
+    .site-nav-cta:hover { filter: brightness(1.1); }
+    .site-burger { display: none; background: none; border: 0; color: #fff; padding: 8px; cursor: pointer; }
+    .site-burger svg { width: 26px; height: 26px; }
+    @keyframes voltShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    @media (max-width: 860px) {
+      .site-nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+    }
+    @media (max-width: 600px) {
+      .site-nav-links { display: none; }
+      .site-burger { display: block; }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 800px) {
       .rs-panel-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -207,23 +230,21 @@
 <body>
 
   <!-- NAV -->
-  <nav id="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">
-        <span class="logo-upto">upto</span><span class="logo-ai">ai</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="/#sluzby">Služby</a></li>
-        <li><a href="/#jak">Jak pracujeme</a></li>
-        <li><a href="/#reference">Reference</a></li>
+  <header class="site-nav">
+    <div class="nav-wrap">
+      <a href="/" class="site-logo" aria-label="uptoai domů"><img src="/logo.svg" alt="" class="site-logo-img" width="26" height="26">upto<span class="logo-ai">ai</span></a>
+      <ul class="site-nav-links" id="siteNavLinks">
+        <li><a href="/#co-stavime">Co stavíme</a></li>
+        <li><a href="/#cenik">Ceník</a></li>
+        <li><a href="/#jak">Jak to probíhá</a></li>
         <li><a href="/blog/">Blog</a></li>
-        <li><a href="/#booking" class="nav-cta">Audit zdarma →</a></li>
+        <li><a href="/#audit" class="site-nav-cta">Audit zdarma</a></li>
       </ul>
-      <button class="nav-burger" id="burger">
-        <span></span><span></span><span></span>
+      <button class="site-burger" id="siteBurger" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
-  </nav>
+  </header>
 
   <!-- HERO -->
   <section class="rs-hero">
@@ -311,7 +332,7 @@
           </div>
           <div class="rs-case-body">
             <div class="rs-case-persona">
-              <div class="rs-case-avatar">🏠</div>
+              <div class="rs-case-avatar">LH</div>
               <div>
                 <div class="rs-case-name">Lukáš H.</div>
                 <div class="rs-case-role">Realitní makléř, Praha – 7 let v oboru</div>
@@ -396,7 +417,7 @@
           </div>
           <div class="rs-case-body">
             <div class="rs-case-persona">
-              <div class="rs-case-avatar">🔨</div>
+              <div class="rs-case-avatar">MT</div>
               <div>
                 <div class="rs-case-name">Martin T.</div>
                 <div class="rs-case-role">Truhlář na zakázku, Brno – 12 let v oboru</div>
@@ -481,7 +502,7 @@
           </div>
           <div class="rs-case-body">
             <div class="rs-case-persona">
-              <div class="rs-case-avatar">✂️</div>
+              <div class="rs-case-avatar">JM</div>
               <div>
                 <div class="rs-case-name">Jana M.</div>
                 <div class="rs-case-role">Kadeřnický salón, Praha – 3 křesla, 2 zaměstnanci</div>
@@ -566,7 +587,7 @@
           </div>
           <div class="rs-case-body">
             <div class="rs-case-persona">
-              <div class="rs-case-avatar">🛒</div>
+              <div class="rs-case-avatar">OV</div>
               <div>
                 <div class="rs-case-name">Ondřej V.</div>
                 <div class="rs-case-role">E-shop se sportovním vybavením, 400–600 objednávek / měs.</div>
@@ -651,7 +672,7 @@
           </div>
           <div class="rs-case-body">
             <div class="rs-case-persona">
-              <div class="rs-case-avatar">⚖️</div>
+              <div class="rs-case-avatar">PN</div>
               <div>
                 <div class="rs-case-name">Petra N.</div>
                 <div class="rs-case-role">Daňová poradkyně, Praha – 45 aktivních klientů</div>
