@@ -123,9 +123,11 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 - **n8n update_workflow**: Použij `replace: true` pro kompletní přepis parametrů node; bez toho se parametry mergují a původní špatná struktura zůstane
 - **n8n publish_workflow**: Po každém update_workflow VŽDY zavolat publish_workflow – jinak sameAsDraft=false a agent běží starý kód
 
-### Airtable leads (nové pole, 30.10.2026)
-- **pipeline_status** field ID: `fldOr6PMZa8xaw2mP` (singleSelect)
-- Choices: web_offer → bid_web/bid_auto/bid_all → prepared → schvaleno → odeslano → deal/lost/needs_response
+### Airtable leads (aktualizováno 20.11.2026)
+- **Status pole (pipeline_status) je teď `fldtkzslvFZs1ln9H`** (singleSelect). Starý `fldOr6PMZa8xaw2mP` už v tabulce NEEXISTUJE. Nikdy na něj neodkazuj.
+- Ostatní pole: demo_url `fldF1Oz4RY4W6mrGz`, email_draft `fldd1c84gFDy6F9H6`, email `fldQhf7Jj0J9nu4vZ`, feedback (ID neověřeno, najít přes schéma), sent_at `fldYgKUbzQY1h6N3X`, reminded_at `fldcH3s73amLJ6Xkd`, thread_id `flddkiv2gPZy8HQNl`, re_contact_at `fld2HNnDcJWPIMw54`, service_type `fld6yBj6QQnV3Wfj2`.
+- Stav leadu je určen pouze polem status. Prázdný status = nový lead, který musí dostat status a spustit akci.
+- Choices zatím v poli: draft_web, draft_automation, prepared, feedback, sent, remind, reminded, lost, active. Chybí: schvaleno, odeslano, ignored, replied, revize, finished (přidává Adam v Airtable UI).
 - 47 leadů importováno z Google Sheets (30.10.2026)
 - Analyst Agent filtruje na `fldOr6PMZa8xaw2mP = "web_offer"` a updatuje na bid_web/bid_auto/bid_all
 
