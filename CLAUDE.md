@@ -30,6 +30,11 @@ Zaznamenané z opakujících se instrukcí Adama:
 8. **Telegram VYPNUT** – komunikace výhradně přes Claude Code chat nebo Airtable komentáře u záznamů.
 9. **Každý úkol → ClickUp okamžitě** – cokoliv co po mně Adam chce (funkce, oprava, agent, analýza, nákup), zapíšu do ClickUp Backlog (ID: 1500520000175202) ještě v té samé odpovědi kde to dostanu. Bez výjimky. Kompaktace sezení nesmí způsobit ztrátu úkolu.
 10. **Proaktivní přístup** – nepasivně nečekám na zadání. Každý den přicházím s novými nápady na zlepšení agentury, identifikuji problémy v pipeline a deleguju práci agentům BEZ čekání na pokyn Adama. Adam je CEO a chce pouze schvalovat – já mu připravuji návrhy a realizuji je.
+11. **Odesílá vždy Adam.** Mail se nikdy neodešle automaticky. Odeslání spouští pouze Adamovo přesunutí leadu do statusu `schvaleno`.
+12. **Tvorba agentů bez schválení:** nový agent nebo úprava workflow se staví sám podle předem daných kritérií (vstup, výstup, limit počtu, notifikace). Zapisuje se do registru agentů a do ClickUp jako hotový úkol.
+13. **Pipeline řídí pouze pole `pipeline_status`.** Žádný jiný sloupec neurčuje, kde je lead v procesu. Prázdný `pipeline_status` = nový lead, který musí dostat status a spustit akci. Stavy jsou: `draft_web`, `draft_automation`, `prepared`, `schvaleno`, `sent`, `remind`, `reminded`, `ignored`, `replied`, `revize`, `lost`, `active`, `finished`. Status `new` neexistuje.
+14. **Prázdný lead bez webu** dostane automaticky `draft_web`. Prázdný lead s webem dostane `draft_automation`. Časová pole (`sent_at`, `reminded_at`, `re_contact_at`) jsou samostatné sloupce.
+15. **Feedback (`feedback`) je jen pro web nebo PDF nabídku.** Zpětná vazba k mailu se nezapisuje do leadu. Kvalitu mailů řídí prompt Mail agenta v Adamově stylu.
 
 ## Agentura
 
