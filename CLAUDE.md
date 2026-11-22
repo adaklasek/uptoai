@@ -123,13 +123,15 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 - **n8n update_workflow**: Použij `replace: true` pro kompletní přepis parametrů node; bez toho se parametry mergují a původní špatná struktura zůstane
 - **n8n publish_workflow**: Po každém update_workflow VŽDY zavolat publish_workflow – jinak sameAsDraft=false a agent běží starý kód
 
-### Airtable leads (aktualizováno 20.11.2026)
-- **Status pole (pipeline_status) je teď `fldtkzslvFZs1ln9H`** (singleSelect). Starý `fldOr6PMZa8xaw2mP` už v tabulce NEEXISTUJE. Nikdy na něj neodkazuj.
-- Ostatní pole: demo_url `fldF1Oz4RY4W6mrGz`, email_draft `fldd1c84gFDy6F9H6`, email `fldQhf7Jj0J9nu4vZ`, feedback (ID neověřeno, najít přes schéma), sent_at `fldYgKUbzQY1h6N3X`, reminded_at `fldcH3s73amLJ6Xkd`, thread_id `flddkiv2gPZy8HQNl`, re_contact_at `fld2HNnDcJWPIMw54`, service_type `fld6yBj6QQnV3Wfj2`.
-- Stav leadu je určen pouze polem status. Prázdný status = nový lead, který musí dostat status a spustit akci.
-- Choices zatím v poli: draft_web, draft_automation, prepared, feedback, sent, remind, reminded, lost, active. Chybí: schvaleno, odeslano, ignored, replied, revize, finished (přidává Adam v Airtable UI).
+### Airtable leads (aktualizováno 22.11.2026)
+- **Pole ve formulářích a dotazech se jmenují: `Name`, `Status`, `Email`, `Web`, `City`, `Industry`, `Notes`, `Pain`, `feedback`, `demo_url`, `design_brief`, `email_draft`, `thread_id`, `sent_at`, `reminded_at`.** Starý název `pipeline_status` a ID `fldOr6PMZa8xaw2mP` už v tabulce NEEXISTUJÍ. Nikdy na ně neodkazuj.
+- ID polí: Status `fldtkzslvFZs1ln9H`, Pain `fldUAiYGyfSfX2nTK`, feedback `fldGupep08ctJzoGU`, demo_url `fldF1Oz4RY4W6mrGz`, email_draft `fldd1c84gFDy6F9H6`, Email `fldQhf7Jj0J9nu4vZ`, sent_at `fldYgKUbzQY1h6N3X`, reminded_at `fldcH3s73amLJ6Xkd`, thread_id `flddkiv2gPZy8HQNl`, re_contact_at `fld2HNnDcJWPIMw54`, service_type `fld6yBj6QQnV3Wfj2`.
+- Stav leadu je určen pouze polem Status. Prázdný Status = nový lead, který musí dostat status a spustit akci.
+- Choices pole Status zatím: draft_web, draft_automation, prepared, feedback, sent, remind, reminded, lost, active. Chybí: schvaleno, odeslano, ignored, replied, revize, finished (přidává Adam v Airtable UI).
+- Odesílání: Sender Agent posílá přes Zoho Mail API (ne SMTP). Po odeslání uloží `thread_id` (ID zprávy v Zoho) a `sent_at`. Připomínky jdou jako odpověď na `thread_id`.
+- Lead follow-up (hodinově): `sent` starší 7 dní nebo `remind` → připomínka ve vlákně → `reminded`. `reminded` starší 3 dny → `ignored`.
+- Mail agent (každých 15 min v pracovní době): bere `draft_automation`, `revize` a `draft_web` s demo webem bez konceptu, píše koncept v Zoho a nastaví `prepared`. Neodesílá.
 - 47 leadů importováno z Google Sheets (30.10.2026)
-- Analyst Agent filtruje na `fldOr6PMZa8xaw2mP = "web_offer"` a updatuje na bid_web/bid_auto/bid_all
 
 ### Setup potřeba (TODO)
 1. ~~**Adam**: Opravit Status field v Airtable Leads~~ – HOTOVO (27.10.2026)
