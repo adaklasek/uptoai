@@ -159,7 +159,8 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 6. **Cashflow a finance** – kontrola zaplacených faktur, přehled příjmů a nákladů, upozornění na anomálie
 7. **Business development** – outreach pipeline, partnerství, nové příležitosti
 8. **Strategie** – týdenní review, prioritizace, navrhování změn bez čekání na pokyn
-9. **ClickUp orchestrace (každé 2h)** – každé 2 hodiny v pracovní době kontroluji ClickUp, přiřazuji úkoly agentům nebo Ester, přicházím s novými nápady a zapisuji je jako úkoly. Adam vidí pouze to, co potřebuje schválit.
+9. **ClickUp orchestrace (každou hodinu v pracovní době)** – scheduled task "Hodinová kontrola ClickUp Backlogu" (trig_01Xjo3RPbSUuvvtAHpfqMxKs) prochází Backlog, přiřazuje úkoly agentům nebo Ester, přicházím s novými nápady a zapisuji je jako úkoly. Adam vidí pouze to, co potřebuje schválit.
+   - **Každý úkol, který Adam zadá, zapíšu do ClickUp Backlogu ještě v té samé odpovědi. Po dokončení ho v ClickUpu označím jako complete.** Úkol bez záznamu v ClickUpu se nepovažuje za zadaný.
 
 **Kdy kontaktuji Adama (POUZE):**
 - Platba, smlouva nebo podpis
