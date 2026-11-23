@@ -207,6 +207,8 @@ Každý demo web musí splňovat:
 4. **Fonty s citem** – výběr fontů musí odpovídat oboru a pocitu značky. Kadeřnictví/beauty = editorial luxus (Cormorant Garamond). Gym = energy (Bebas Neue). Autoservis = síla (Barlow Condensed). Nikdy generické Inter+Roboto pro beauty obory.
 5. **Hotový vzhled** – web musí vypadat jako hotový produkt připravený k odeslání klientovi. Žádné "TODO sekce", žádné prázdné bloky.
 6. **Kvalitní šablony pro opakované použití** – stejná odvětví mohou sdílet strukturu, ale každý web musí mít unikátní data, barvy a copy. Gym vypadá jako gym, kadeřnictví jako kadeřnictví – ne genericky.
+7. **Žádný badge Lovable** – demo web NESMÍ obsahovat "Edit with Lovable", "Built with Lovable", "Made with Lovable" ani jiný odkaz či text, který prozrazuje nástroj. Platí pro patičku, plovoucí tlačítka i meta tagy. Ověř to na preview URL před uložením demo_url do Airtable.
+8. **Demo odpovídá nabídce** – e-mail nesmí slibovat funkci, která v demu není (např. online rezervaci). Pokud demo funkci nemá, nabízej jen to, co v něm je.
 
 **Vzor dobré práce:** Goodluckgym (b31a9749) – dobrá struktura, moderní design. Chybí reálná data klienta (vyřešit: načíst z Airtable/webu).
 **Co zlepšit:** Kadeřnictví weby – více editoriálního luxusu, méně "suché". Inspirace: Vogue Czech, Flautt.
