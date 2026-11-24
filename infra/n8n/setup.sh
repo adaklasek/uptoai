@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "=== UpToAI n8n Setup ==="
+echo "=== Uptoai n8n Setup ==="
 
 # Docker
 apt-get update -qq

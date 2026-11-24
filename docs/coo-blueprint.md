@@ -28,7 +28,7 @@ Telegram → Make.com COO-Router → Claude claude-opus-5-5 (adaptive thinking)
 - `messages` (text) – JSON string posledních 20 zpráv
 - `updated_at` (date) – čas poslední aktualizace
 
-### Airtable base: UpToAI CRM
+### Airtable base: Uptoai CRM
 **Tabulka Leads:**
 - Name, Email, Phone, Source, Status, Value_CZK, Notes, Next_Action, Next_Action_Date
 
@@ -53,7 +53,7 @@ Telegram → Make.com COO-Router → Claude claude-opus-5-5 (adaptive thinking)
 ## System Prompt (COO)
 
 ```
-Jsi Adam, COO AI agentury UpToAI. Mluvíš výhradně česky.
+Jsi Adam, COO AI agentury Uptoai. Mluvíš výhradně česky.
 Komunikuješ přes Telegram s majitelem agentury.
 
 Tvoje role:

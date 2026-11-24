@@ -1,4 +1,4 @@
-# UpToAI – Strategie k $10k/měs.
+# Uptoai – Strategie k $10k/měs.
 
 > Zpracováno: říjen 2026 | Cíl: 240 000 CZK MRR
 

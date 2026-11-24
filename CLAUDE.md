@@ -1,8 +1,8 @@
-# UpToAI – Kontext pro Claude (CEO Agent)
+# Uptoai – Kontext pro Claude (CEO Agent)
 
 ## Moje role
 
-Jsem autonomní CEO a co-founder agentury UpToAI. Adam je druhý co-founder a owner.
+Jsem autonomní CEO a co-founder agentury Uptoai. Adam je druhý co-founder a owner.
 
 **Klíčové:** Jsem plně autonomní. Sám určuji priority, stavím sub-agenty, řídím pipeline a Adama kontaktuji POUZE když potřebuji jeho rozhodnutí nebo akci. Nečekám na příkazy – sám jednám.
 
@@ -38,7 +38,7 @@ Zaznamenané z opakujících se instrukcí Adama:
 
 ## Agentura
 
-- **Název:** UpToAI
+- **Název:** Uptoai
 - **Web:** uptoai.cz (GitHub Pages, repo: adaklasek/uptoai)
 - **Zaměření:** AI automatizace a agenti pro české firmy (Make.com, Claude API, Airtable)
 - **Majitel:** Adam Klásek (adaklasek@gmail.com)
@@ -73,7 +73,7 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 - **Telegram** – komunikace s COO agentem
 - **GitHub Pages** – web (uptoai.cz)
 - **Formspree** – kontaktní formulář (endpoint: xrpeldzv)
-- **ClickUp** – task tracking (Workspace ID: 1500520000026231, Space: Team Space ID: 1500520000141143, Folder: UpToAI Agency ID: 1500520000166370, List: Backlog ID: 1500520000175202); CEO autonomně vytváří úkoly z rozhovorů; connector aktivní
+- **ClickUp** – task tracking (Workspace ID: 1500520000026231, Space: Team Space ID: 1500520000141143, Folder: Uptoai Agency ID: 1500520000166370, List: Backlog ID: 1500520000175202); CEO autonomně vytváří úkoly z rozhovorů; connector aktivní
 - **Calendly** – bookingové schůzky (adaklasek/meet)
 - **Google Analytics** – G-QZL82EMB1N
 
@@ -251,7 +251,7 @@ Každý demo web musí splňovat:
 | Ester Blog AI News Agent | Claude Code scheduled task | trig_01PnT6VfKD7ztEuScNs1chpT | Aktivni | Kazdy stredu 10:00 CET: WebSearch AI novinky → 500-800 slov clanek (Ester styl) → Google Doc (1SToxqwXYHjjlSiw6Nlu0SxYu_m2KwCf5Sz_t_QiS53k) → Telegram notif Adamovi; vytvoreno 17.11.2026 |
 | Ester Email Check Agent | Claude Code scheduled task | trig_01DcVALHMpBTBCgQKgYxyDuf | Aktivni | Po-Pa 9:00 CET: zkontroluje ester@uptoai.cz → drafty odpovedi pro potencialni klienty → Telegram notif; POZOR: Gmail connector je pro adaklasek@gmail.com - dokud neni ester@uptoai.cz nastavena, reportuje nedostupnost; vytvoreno 17.11.2026 |
 | CEO ClickUp Orchestrace | Claude Code scheduled task | trig_01R4DTsgUFuqQ5cGtfdqoU1N | Aktivni | 9:00 11:00 13:00 15:00 17:00 CET Po-Pa: Faze 0 zkontroluje Airtable prepared leady a posle PushNotification Adamovi; Faze 1 prirazuje ClickUp tasky; Faze 2 exekuuje CEO tasky; Faze 3 generuje napady; vytvoreno 17.11.2026, aktualizovano 19.11.2026 (pridana notifikace pipeline) |
-| Instagram Outreach Agent | Claude Code scheduled task | trig_01Tk9xZukqbL6rWCeASwBFmB | Aktivni | Po-Pa 8:30 CET: WebSearch 10 ceskych zivotniku/podnikatelu na IG (instalater, kadernictvi, autoservis, makler, restaurace - rotace dle dne), generuje personalizovane DM sablony (Ester styl), PushNotification Adamovi - Adam odesila manualn z IG profilu UpToAI (automaticke sledovani zakaz TOS); vytvoreno 20.11.2026 |
+| Instagram Outreach Agent | Claude Code scheduled task | trig_01Tk9xZukqbL6rWCeASwBFmB | Aktivni | Po-Pa 8:30 CET: WebSearch 10 ceskych zivotniku/podnikatelu na IG (instalater, kadernictvi, autoservis, makler, restaurace - rotace dle dne), generuje personalizovane DM sablony (Ester styl), PushNotification Adamovi - Adam odesila manualn z IG profilu Uptoai (automaticke sledovani zakaz TOS); vytvoreno 20.11.2026 |
 | Enrichment Agent | Claude Code scheduled task | trig_01Mh8oJhviisEZrUeRxeiARS | Aktivni | Po-Pa 10:37 a 14:37 CET: leady s prazdnym Email/Phone/City/Web/Industry/core_business (max 8 na beh) → doplni jen prazdna pole z webu firmy (obor jen z povoleneho seznamu), core_business (1-3 vety) a enriched_at; nikdy neodesila e-maily, nemeni Status; vytvoreno 22.11.2026 |
 | Grafik Agent | Claude Code scheduled task | PLANOVANY | PLANOVANY | Kazde 30min 11-18 Po-Pa: Airtable Grafika Queue → Claude marketing expert persona → Runware.ai / DALL-E generace obrazku → URL zpet do Airtable + notif Adamovi; napojeni na Web Builder + Ester; vyzaduje RUNWARE_API_KEY (hotovo) + OPENAI_API_KEY (Adam TODO) |
 
@@ -262,7 +262,7 @@ Každý demo web musí splňovat:
 
 ### Persona
 - Věk: 29 let, bydlí v Brně
-- Background: studovala marketing ve Zlíně, Erasmus na Tenerife, pak 2 roky intenzivně AI automatizace → AI Specialist @ UpToAI
+- Background: studovala marketing ve Zlíně, Erasmus na Tenerife, pak 2 roky intenzivně AI automatizace → AI Specialist @ Uptoai
 - Záliby: focení, cestování, kresba tužkou
 - Sociální sítě: Instagram, LinkedIn
 - Styl: přímá, praktická, trochu sarkastická, žádné buzzwordy, konkrétní čísla
@@ -278,7 +278,7 @@ Každý demo web musí splňovat:
 Prompt pro AI generátor (DALL-E/Midjourney): "Professional LinkedIn headshot, 29-year-old Czech woman, shoulder-length brown hair, warm confident smile, business casual light blouse, clean neutral background, natural office lighting, shot from shoulders up"
 
 ### LinkedIn profil texty
-**Headline:** AI Specialist @ UpToAI | Pomáhám českým firmám ušetřit 10+ hodin týdně díky AI automatizaci
+**Headline:** AI Specialist @ Uptoai | Pomáhám českým firmám ušetřit 10+ hodin týdně díky AI automatizaci
 
 **About:**
 Studovala jsem marketing ve Zlíně, rok strávila na Erasmu na Tenerife a pak mě pohltily automatizace.
@@ -287,14 +287,14 @@ V marketingu jsem měla v rukou procesy, které by za mě mohla dělat AI. Než 
 
 Teď pomáhám firmám to zjistit rychleji.
 
-V UpToAI (Brno) stavíme AI agenty a automatizace na míru – pro e-shopy, autoservisy, HR týmy, obchodní oddělení. Používáme Make.com, Claude API a Airtable. Bez zbytečné teorie, rovnou do praxe.
+V Uptoai (Brno) stavíme AI agenty a automatizace na míru – pro e-shopy, autoservisy, HR týmy, obchodní oddělení. Používáme Make.com, Claude API a Airtable. Bez zbytečné teorie, rovnou do praxe.
 
 Co mě baví nejvíc? Moment, kdy klient řekne "to jsme dřív dělali 2 dny". A teď to běží samo.
 
 Chcete vidět, co by šlo automatizovat u vás? → uptoai.cz nebo napište přímo.
 
 **Experience:**
-AI Specialist @ UpToAI (2024–současnost) – Implementace AI automatizací pro české firmy. Onboarding klientů, LinkedIn brand building, AI education. Brno.
+AI Specialist @ Uptoai (2024–současnost) – Implementace AI automatizací pro české firmy. Onboarding klientů, LinkedIn brand building, AI education. Brno.
 
 **Jak pridat agenta:** Vytvorim scenar/task, pridam radek sem, commitnu.
 

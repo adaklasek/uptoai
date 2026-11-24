@@ -1,4 +1,4 @@
-# Blog Writing Guidelines – UpToAI
+# Blog Writing Guidelines – Uptoai
 
 Instrukce pro agenta, který píše články pro uptoai.cz/blog/.
 Zachovávají Adamovu zpětnou vazbu z 1.–2. 11. 2026.
@@ -89,7 +89,7 @@ Obsahuje navigaci se zpět-linkem na `/blog/`.
 
 ### Povinné meta tagy
 ```html
-<title>[Název článku] | Blog UpToAI</title>
+<title>[Název článku] | Blog Uptoai</title>
 <meta name="description" content="[Max 155 znaků]">
 <link rel="canonical" href="https://uptoai.cz/blog/[slug]/">
 <meta property="og:title" content="[Název]">
@@ -112,7 +112,7 @@ Obsahuje navigaci se zpět-linkem na `/blog/`.
   },
   "publisher": {
     "@type": "Organization",
-    "name": "UpToAI",
+    "name": "Uptoai",
     "url": "https://uptoai.cz"
   }
 }

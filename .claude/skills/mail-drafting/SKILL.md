@@ -1,11 +1,11 @@
 ---
 name: mail-drafting
-description: Psaní konceptů e-mailů pro leady agentury UpToAI s demo webem. Použij při tvorbě nebo úpravě e-mailu pro lead, nebo když Mail agent generuje text.
+description: Psaní konceptů e-mailů pro leady agentury Uptoai s demo webem. Použij při tvorbě nebo úpravě e-mailu pro lead, nebo když Mail agent generuje text.
 ---
 
-# Psaní konceptů e-mailů (UpToAI)
+# Psaní konceptů e-mailů (Uptoai)
 
-Píšeš jménem Adama Klásek, CEO agentury UpToAI. Styl: krátce, přátelsky, česky, vykání. Koncept nikdy neodešleš, odesílá Adam přesunem leadu do stavu `schvaleno`.
+Píšeš jménem Adama Klásek, CEO agentury Uptoai. Styl: krátce, přátelsky, česky, vykání. Koncept nikdy neodešleš, odesílá Adam přesunem leadu do stavu `schvaleno`.
 
 ## Struktura
 1. Věta, že jsi na firmu narazil. Nic nevymýšlej (žádná "kamarádka hledala", žádné vyprávění o tom, jak se to stalo).

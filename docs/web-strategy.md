@@ -1,4 +1,4 @@
-# UpToAI – Web Strategy Brief
+# Uptoai – Web Strategy Brief
 
 *Verze: 1.11.2026 | Autor: CEO Agent + Adam Klásek*
 
@@ -10,7 +10,7 @@ Web technicky existuje, ale nefunguje jako prodejní nástroj:
 
 - **SEO/GEO**: klíčová slova jsou, ale obsah není dost autoritativní. AI asistenti (ChatGPT, Perplexity, Google AI Overview) web nereferencují – nemáme blog, žádné citovatelné zdroje, žádnou "odbornost na papíře".
 - **Vypadá AI**: generická struktura, generické headliny, žádná osobnost.
-- **Žádné logo**: nav je jen text "UpToAI" bez vizuální identity.
+- **Žádné logo**: nav je jen text "Uptoai" bez vizuální identity.
 - **Nulová důvěra**: čísla (32h, 3×, 14 dní) jsou bez zdroje. Žádné reálné recenze, žádné case studies, žádná tvář.
 - **Nabídka není přesvědčivá**: není cenová kotva, není FOMO, není garance správně podaná.
 - **Nulová personalizace**: Adam neexistuje. Tým neexistuje. Firma je anonymní.
@@ -66,7 +66,7 @@ Výsledek: 0 hodin manuální práce, -1 chyba týdně, +12h volného času.
 
 ### 4. Blog / Content hub (MEDIUM – dlouhodobý dopad)
 **Proč je to zásadní pro GEO**:
-AI asistenti citují zdroje, které jasně odpovídají na otázky. Blog s konkrétními odpověďmi = UpToAI se dostane do AI odpovědí, ne jen do Google.
+AI asistenti citují zdroje, které jasně odpovídají na otázky. Blog s konkrétními odpověďmi = Uptoai se dostane do AI odpovědí, ne jen do Google.
 
 **Plán: 1 článek každé 2 týdny**
 
@@ -109,7 +109,7 @@ AI asistenti citují zdroje, které jasně odpovídají na otázky. Blog s konkr
   "headline": "...",
   "author": {"@type": "Person", "name": "Adam Klásek"},
   "datePublished": "...",
-  "publisher": {"@type": "Organization", "name": "UpToAI"}
+  "publisher": {"@type": "Organization", "name": "Uptoai"}
 }
 </script>
 ```
@@ -122,7 +122,7 @@ AI asistenti citují zdroje, které jasně odpovídají na otázky. Blog s konkr
 - Zmínky na LinkedIn, oborová fóra
 
 ### 6. Logo + vizuální identita (MEDIUM)
-Aktuálně: jen text "UpToAI" v navbaru.
+Aktuálně: jen text "Uptoai" v navbaru.
 Potřeba: SVG logo s jednoduchým symbolem. Varianty: light/dark, favicon, OG image.
 
 ### 7. Sociální sítě (LOW – začít po fixu webu)

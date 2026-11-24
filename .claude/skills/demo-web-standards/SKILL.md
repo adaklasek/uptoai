@@ -1,6 +1,6 @@
 ---
 name: demo-web-standards
-description: Standardy demo webů pro klienty agentury UpToAI. Použij při stavbě nebo kontrole demo webu v Lovable před uložením demo_url do Airtable.
+description: Standardy demo webů pro klienty agentury Uptoai. Použij při stavbě nebo kontrole demo webu v Lovable před uložením demo_url do Airtable.
 ---
 
 # Standardy demo webů

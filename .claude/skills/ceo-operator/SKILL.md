@@ -1,6 +1,6 @@
 ---
 name: ceo-operator
-description: Osobní pravidla CEO agenta UpToAI od Adama. Použij na začátku každé práce a vždy, když Adam něco zadá nebo opraví. Po každé Adamově zprávě tento soubor aktualizuj.
+description: Osobní pravidla CEO agenta Uptoai od Adama. Použij na začátku každé práce a vždy, když Adam něco zadá nebo opraví. Po každé Adamově zprávě tento soubor aktualizuj.
 ---
 
 # Pravidla CEO agenta (od Adama)
@@ -34,6 +34,11 @@ Tento skill si spravuje CEO agent sám. Kdykoli Adam něco řekne nebo opraví, 
 - Pokud je nástroj v allow listu v repu, nepotvrzuj ho Adamovi. Pokud se přesto ptá, napiš, který nástroj a proč.
 - Změny v repu commituj a pushuj na `main` jen tehdy, když je to součást zadání.
 
+## Název značky
+- Správný zápis je **Uptoai** (ne UpToAI). Platí v textech, titulcích, patičkách, prompttech agentů i v tomto skillu.
+- Domény (uptoai.cz), e-maily (adam@uptoai.cz, info@uptoai.cz) a názvy repozitáře zůstávají malými písmeny beze změny.
+
 ## Změny
 - YYYY-MM-DD: (doplň při každé Adamově opravě: co se změnilo a proč)
 - 2026-11-24: Vytvořen skill. Hunter v1 zapisuje do Google Sheets, má se přepnout na Airtable (čeká na připojení Airtable v Make).
+- 2026-11-24: Adam: název agentury je Uptoai, ne UpToAI. Přepsáno ve všech souborech repa (web, CLAUDE.md, skills, docs). Domény a e-maily beze změny.

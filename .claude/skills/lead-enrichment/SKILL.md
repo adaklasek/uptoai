@@ -1,6 +1,6 @@
 ---
 name: lead-enrichment
-description: Doplňování chybějících dat o leadech agentury UpToAI z webu firmy. Použij při běhu Enrichment Agenta nebo při ručním doplnění leadu.
+description: Doplňování chybějících dat o leadech agentury Uptoai z webu firmy. Použij při běhu Enrichment Agenta nebo při ručním doplnění leadu.
 ---
 
 # Doplnění dat o leadech

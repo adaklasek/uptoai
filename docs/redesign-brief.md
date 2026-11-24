@@ -1,6 +1,6 @@
 # Redesign Brief: uptoai.cz
 
-*Analýza 9 agenturních webů + konkrétní doporučení pro UpToAI*
+*Analýza 9 agenturních webů + konkrétní doporučení pro Uptoai*
 
 ---
 
@@ -41,11 +41,11 @@ Konkrétní problémy:
 
 ---
 
-## Doporučený redesign UpToAI
+## Doporučený redesign Uptoai
 
 ### Koncept: "Systémový přístup"
 
-UpToAI není generická AI agentura. Je to firma, která **staví fungující systémy** pro konkrétní výsledky. Web musí vypadat jako výstup inženýrské práce — přesný, systematický, čitelný — ne jako agenturní marketing.
+Uptoai není generická AI agentura. Je to firma, která **staví fungující systémy** pro konkrétní výsledky. Web musí vypadat jako výstup inženýrské práce — přesný, systematický, čitelný — ne jako agenturní marketing.
 
 Inspirace: **Linear.app** estetika (clean, precise, product-studio feel) kombinovaná s **editorial serif** typografií jako má Frankenstein.
 
@@ -127,7 +127,7 @@ Výsledky do 6 týdnů, nebo vrátíme peníze.
 7. **Pricing** — 3 balíčky jasně, ne "kontaktujte nás pro cenu"
 8. **FAQ** — 5-7 otázek, accordeon
 9. **Final CTA** — "Zamluvte si bezplatný audit" + Calendly embed nebo formulář
-10. **Footer** — kontakt, social, © UpToAI 2025
+10. **Footer** — kontakt, social, © Uptoai 2025
 
 ---
 
