@@ -207,7 +207,7 @@ Odkazy: Claude úlohy `https://claude.ai/code/routines/<trig_id>`, n8n `https://
 
 ### Agent Runner (spouštění událostmi)
 - Účel: jedna Claude rutina, která spustí libovolného agenta podle souboru `agenti/<agent>.md` pro jeden záznam.
-- Platforma: Claude úloha `trig_015JSSJoDXXETJvSipp3AwQD` ([otevřít](https://claude.ai/code/routines/trig_015JSSJoDXXETJvSipp3AwQD)), bez rozvrhu, spouští ji API trigger
+- Platforma: Claude úloha `trig_01C6nSeaezkW13coMGVADAQ1` ([otevřít](https://claude.ai/code/routines/trig_01C6nSeaezkW13coMGVADAQ1)), bez rozvrhu, spouští ji API trigger
 - Řetěz: Airtable automatizace (nový lead / změna Status) → n8n Dispatcher → POST na API trigger Agent Runneru s `{agent, record_id, event}`
 - Stav: založeno 24.11.2026. Čeká na API trigger a token (Adam v UI rutiny) a n8n Dispatcher. První agent v novém systému: `agenti/lead-analyst.md`.
 
