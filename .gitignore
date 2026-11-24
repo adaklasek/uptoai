@@ -1,0 +1,5 @@
+
+# Obsidian: lokální stav okna se necommituje
+.obsidian/workspace*.json
+.obsidian/cache
+.trash/

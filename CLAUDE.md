@@ -1,8 +1,8 @@
-# Uptoai – Kontext pro Claude (CEO Agent)
+# Uptoai – Kontext pro Claude (COO Agent)
 
 ## Moje role
 
-Jsem autonomní CEO a co-founder agentury Uptoai. Adam je druhý co-founder a owner.
+Jsem autonomní COO agent, hlavní agent, který řídí agenturu Uptoai. Adam Klásek je CEO, co-founder a owner. Pozor: CEO = Adam, COO = já (hlavní agent).
 
 **Klíčové:** Jsem plně autonomní. Sám určuji priority, stavím sub-agenty, řídím pipeline a Adama kontaktuji POUZE když potřebuji jeho rozhodnutí nebo akci. Nečekám na příkazy – sám jednám.
 
@@ -69,18 +69,18 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
   - Leads: tblSLScVF1xL0gILR (field demo_url: fldF1Oz4RY4W6mrGz, field hero_image_url: fldgm8DspBr4IwWKq, field design_brief: fldkyaesztwucNVnB [JSON brand brief], field pipeline_status: fldOr6PMZa8xaw2mP)
   - Clients: tblo7xClSBenPpmA5
   - Projects: tblQz7JsE0cywGm6B
-  - Telegram Queue: tblqZ6NgY4xFfSW7T (message, chat_id, received_at, processed) – fronta Telegram zpráv pro CEO session polling
-  - Tasks: tbljpYOkzM2efj3gf (task, priority [urgent/high/medium/low], status [todo/in_progress/review/done/blocked], assignee [Adam/Ester/CEO/Adam+CEO], description, due_date, notes, created_at) – interní task tracking; CEO autonomně vytváří úkoly z rozhovorů
+  - Telegram Queue: tblqZ6NgY4xFfSW7T (message, chat_id, received_at, processed) – fronta Telegram zpráv pro COO session polling
+  - Tasks: tbljpYOkzM2efj3gf (task, priority [urgent/high/medium/low], status [todo/in_progress/review/done/blocked], assignee [Adam/Ester/CEO/Adam+CEO], description, due_date, notes, created_at) – interní task tracking; COO agent autonomně vytváří úkoly z rozhovorů
   - API Token: v environment secrets (AIRTABLE_TOKEN)
 - **Claude API** – AI mozek (model: claude-opus-5-5, thinking: adaptive)
 - **Telegram** – komunikace s COO agentem
 - **GitHub Pages** – web (uptoai.cz)
 - **Formspree** – kontaktní formulář (endpoint: xrpeldzv)
-- **ClickUp** – task tracking (Workspace ID: 1500520000026231, Space: Team Space ID: 1500520000141143, Folder: Uptoai Agency ID: 1500520000166370, List: Backlog ID: 1500520000175202); CEO autonomně vytváří úkoly z rozhovorů; connector aktivní
+- **ClickUp** – task tracking (Workspace ID: 1500520000026231, Space: Team Space ID: 1500520000141143, Folder: Uptoai Agency ID: 1500520000166370, List: Backlog ID: 1500520000175202); COO agent autonomně vytváří úkoly z rozhovorů; connector aktivní
 - **Calendly** – bookingové schůzky (adaklasek/meet)
 - **Google Analytics** – G-QZL82EMB1N
 
-## CEO Agent architektura
+## COO Agent architektura
 
 ### Komunikační kanály
 - **Telegram** (@uptoai_coo_bot): text zprávy (hlasovky: odpovím s návodem) → n8n Telegram Receiver → COO Agent → akce
@@ -91,10 +91,10 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 - **COO-Router** (ID: 10042629) – **NAHRAZEN (5.11.2026)** – Telegram pipeline přesunuta do n8n Telegram Receiver (fnbyyhsyqwcKyxSu); Make.com COO-Router je zbytečný
 - **COO - Daily Briefing** (ID: 10051722) – denní analýza Airtable → Claude → Telegram; NEAKTIVNÍ (potřeba AIRTABLE_TOKEN)
 - **COO-Telegram-Sender** (ID: 10051783) – příjem textu → Telegram zpráva; aktivní
-  - Webhook: `https://hook.eu2.make.com/ybk7d485ja85fs7ewmsraqi6vur071hy`
-  - Z Claude Code: Bash `curl -s -X POST "https://hook.eu2.make.com/ybk7d485ja85fs7ewmsraqi6vur071hy" -H "Content-Type: application/json" -d '{"text": "..."}'` (NEPOUŽÍVAT mcp__Make__scenarios_run - vyžaduje approval dialogy)
+  - Webhook: `(webhook odstraněn, scénář vypnut 24.11.2026)`
+  - Z Claude Code: Bash `curl -s -X POST "(webhook odstraněn, scénář vypnut 24.11.2026)" -H "Content-Type: application/json" -d '{"text": "..."}'` (NEPOUŽÍVAT mcp__Make__scenarios_run - vyžaduje approval dialogy)
 - **COO-Leads** (ID: 10052185) – webhook → router → Airtable CRUD; aktivní (nutno doplnit token viz TODO)
-  - Webhook: `https://hook.eu2.make.com/1pddpzybkl1mntlc5lywptasaovc3fi3`
+  - Webhook: `(webhook odstraněn, scénář vypnut 24.11.2026)`
   - Interface: action, name, email, phone, notes, city, status, record_id
 
 ### Claude Code scheduled task
@@ -152,7 +152,7 @@ Optimální mix: **8 retainerů × 20 000 CZK + 2 implementace × 45 000 CZK / m
 6. ~~**Adam**: V Make.com otevřít COO-Router (ID: 10042629) → modul "Watch Updates" → uložit/reconnect~~ – OBSOLETE (5.11.2026): Telegram pipeline přesunuta do n8n; COO-Router nepotřeba
 7. ~~**Adam**: V Make.com aktualizovat COO-Router~~ – OBSOLETE (5.11.2026): nahrazen n8n Telegram Receiver
 
-## Moje odpovědnosti jako CEO
+## Moje odpovědnosti jako COO
 
 1. **Autonomní denní run** – každý den 6:43 CET kontroluji stav, určuji priority, posílám briefing na Telegram
 2. **Pipeline řízení** – sledování leadů, follow-upy, konverze; sám rozhoduji a jednám
@@ -204,6 +204,12 @@ Aktuální seznam agentů. Stav ověřen 24.11.2026 přímo v n8n, Make a Claude
 Odkazy: Claude úlohy `https://claude.ai/code/routines/<trig_id>`, n8n `https://n8n.uptoai.cz/workflow/<id>`, Make `https://eu2.make.com/2180018/scenarios/<id>/edit`.
 
 **V přípravě (ClickUp):** Sent watcher, Offer agent (PDF nabídka), QA kontroloři (web, e-mail, nabídka), přechod na spouštění událostmi, sloučení Analyst do Enrichmentu, status `zavolat` ve follow-upu.
+
+### Agent Runner (spouštění událostmi)
+- Účel: jedna Claude rutina, která spustí libovolného agenta podle souboru `agenti/<agent>.md` pro jeden záznam.
+- Platforma: Claude úloha `trig_015JSSJoDXXETJvSipp3AwQD` ([otevřít](https://claude.ai/code/routines/trig_015JSSJoDXXETJvSipp3AwQD)), bez rozvrhu, spouští ji API trigger
+- Řetěz: Airtable automatizace (nový lead / změna Status) → n8n Dispatcher → POST na API trigger Agent Runneru s `{agent, record_id, event}`
+- Stav: založeno 24.11.2026. Čeká na API trigger a token (Adam v UI rutiny) a n8n Dispatcher. První agent v novém systému: `agenti/lead-analyst.md`.
 
 ### Pipeline leadů (pořadí toku)
 
@@ -301,7 +307,7 @@ Odkazy: Claude úlohy `https://claude.ai/code/routines/<trig_id>`, n8n `https://
 
 ### Řízení a kontrola
 
-**CEO ClickUp Orchestrace**
+**COO ClickUp Orchestrace**
 - Účel: přiřazuje a plní úkoly z Backlogu, hlídá `prepared` leady, zapisuje běh do Airtable Tasks.
 - Platforma: Claude úloha `trig_01R4DTsgUFuqQ5cGtfdqoU1N`
 - Spouštěč: Po-Pá 9, 11, 13, 15, 17
@@ -311,7 +317,7 @@ Odkazy: Claude úlohy `https://claude.ai/code/routines/<trig_id>`, n8n `https://
 - Účel: zpracuje otevřené úkoly, zastaralé zavře, nové nápady zapíše.
 - Platforma: Claude úloha `trig_01Xjo3RPbSUuvvtAHpfqMxKs`, skill `clickup-hourly-review`
 - Spouštěč: Po-Pá 9:07 až 18:07 každou hodinu
-- Stav: aktivní. Překrývá se s CEO ClickUp Orchestrací, sloučit.
+- Stav: aktivní. Překrývá se s COO ClickUp Orchestrací, sloučit.
 
 **Ranní souhrn běhů agentů**
 - Účel: souhrn včerejších běhů z tabulky Běhy (`tbll4p5WBThKWQhaU`) jako push.
@@ -330,7 +336,7 @@ Stále zapnuté, ale pracují se starou pipeline (pole `pipeline_status`, stavy 
 - n8n `cOEBh1jIYPL8SUI7` Analyst Agent - Lead Classification (aktivní)
 - n8n `dx76QKy76Na3OyiQ` Drafter Agent v2 (aktivní, překrývá se s Mail agentem v2)
 - Claude úloha `trig_01HE5UQk9vppsj7re9ATDgRd` Web-Demo-Builder (zapnutá bez rozvrhu, používá Telegram, nahrazena Web Builder Agentem)
-- Make `10052185` COO-Leads (aktivní webhook, Telegram éra)
+- Make `10052185` COO-Leads: VYPNUT 24.11.2026 (veřejně známý webhook, Telegram éra)
 
 Vypnuté a nepoužívané (Telegram nebo Google Sheets éra): Make `10051722` COO Daily Briefing, `10042629` COO-Router, `10051783` COO-Telegram-Sender, `10022585` Telegram Approval Notifier, `9987177` Analyst, `10022573` Drafter v2, `10050796` Email Enrichment, `10050828` Reply Watcher, `10029764` Sender, `10054674` Web-Lead-Hunter, `10054653` Web-Offer-Drafter, `9987163` Bootstrap; n8n `QS7oIZ4EMsyzCpiZ`, `fnbyyhsyqwcKyxSu`, `wrEFWuIA79kQwqck`, `yPYTLTAgY0icGK8N`, `N7wn7bahA1lue9jQ`; Claude úlohy `trig_01LzABvJUH4bHgLhHbHEer1w` Telegram Queue Processor, `trig_011Y71uiLHcLyEY8WwbG7bSL` CEO Daily Briefing.
 
