@@ -196,7 +196,152 @@ Pokud chybí info pro rozhodnutí, rovnou se zeptám.
 
 ## Registr agentů
 
-Aktualni seznam sub-agentu. Udrzuji aktualni.
+Aktuální seznam agentů. Stav ověřen 24.11.2026 přímo v n8n, Make a Claude naplánovaných úlohách. Každý nový nebo upravený agent se sem zapíše podle skillu `uptoai-agent-builder` (formát karty: účel, platforma a ID, spouštěč, vstup, výstup, limit, kontrola, stav). Telegram se nepoužívá, agenti hlásí přes PushNotification nebo Airtable.
+
+### Pipeline leadů (pořadí toku)
+
+**1. Hunter Agent**
+- Účel: hledá nové firmy přes Apify Google Maps a zakládá je jako leady.
+- Platforma: Make `10030268` (folder Up to AI)
+- Spouštěč: Po-Pá 9:00
+- Vstup: Google Sheet `hunter_targets` (řádky s enabled=yes)
+- Výstup: nový záznam v Airtable Leads
+- Stav: aktivní. Pozor: cíle ještě bere z Google Sheets, přepnout na Airtable.
+
+**2. Enrichment Agent**
+- Účel: doplní chybějící Email, Phone, City, Web, Industry, core_business z webu firmy.
+- Platforma: Claude úloha `trig_01Mh8oJhviisEZrUeRxeiARS`, skill `lead-enrichment`
+- Spouštěč: Po-Pá 10:37 a 14:37
+- Vstup: leady s prázdným polem, mimo `lost` a `active`
+- Výstup: jen prázdná pole + `enriched_at`, Status nemění
+- Limit: 8 leadů za běh
+- Stav: aktivní
+
+**3. Analyst Agent**
+- Účel: u leadů `draft_automation` popíše byznys a co automatizovat, zapíše do `Pain`.
+- Platforma: Claude úloha `trig_01EmjYqj9ha1tQpNn1jVjxux`
+- Spouštěč: Po-Pá 11:37, 14:37, 17:37
+- Vstup: Status `draft_automation` a prázdné `Pain`
+- Výstup: pole `Pain`, Status nemění
+- Limit: 10 leadů za běh
+- Stav: aktivní
+
+**4. Brand & Design Agent**
+- Účel: pro leady `draft_web` připraví design brief (JSON) a hero obrázek přes Runware.
+- Platforma: Claude úloha `trig_011ZQc9EsYHtnWEvS7pBkSyN`
+- Spouštěč: Po-Pá 11:00, 14:00, 17:00
+- Vstup: Status `draft_web` a prázdný `design_brief`
+- Výstup: `design_brief`, `hero_image_url`, Status nemění, push Adamovi
+- Limit: 2 leady za běh
+- Stav: aktivní (bez `RUNWARE_API_KEY` ukládá brief bez obrázku)
+
+**5. Web Builder Agent**
+- Účel: postaví demo web v Lovable podle briefu.
+- Platforma: Claude úloha `trig_01XTBuM6e9ot3WyPCZW8tDfy`, skill `demo-web-standards`
+- Spouštěč: Po-Pá 11:45, 14:45, 17:45
+- Vstup: Status `draft_web` a prázdné `demo_url`
+- Výstup: `demo_url`, Status `prepared`, push Adamovi
+- Limit: 2 leady za běh
+- Stav: aktivní
+
+**6. Mail agent v2**
+- Účel: napíše koncept e-mailu v Zoho, nikdy neodesílá.
+- Platforma: n8n `6ouvbgh8gAC13Ja8`, skill `mail-drafting`
+- Spouštěč: každých 15 min v pracovní dny
+- Vstup: `draft_automation`, `revize`, `draft_web` s demem bez konceptu
+- Výstup: `email_draft`, `thread_id`, Status `prepared`
+- Limit: 3 leady za běh
+- Kontrola: Adam přesune lead do `schvaleno`
+- Stav: aktivní
+
+**7. Sender Agent**
+- Účel: odešle schválený koncept z adam@uptoai.cz přes Zoho.
+- Platforma: n8n `yRA3kCuQauHtzRME`
+- Spouštěč: každých 15 min, Po-Pá 11-18
+- Vstup: Status `schvaleno` a vyplněný `email_draft`
+- Výstup: e-mail odeslán, `thread_id`, `sent_at`, Status `sent`
+- Stav: aktivní. Ověřit: popis workflow ještě zmiňuje staré pole `pipeline_status` a stav `odeslano`.
+
+**8. Lead follow-up**
+- Účel: připomínka ve stejném vlákně, pak uzavření neodpovídajících leadů.
+- Platforma: n8n `LKY5YoIqVPjoWM6x`
+- Spouštěč: každou hodinu
+- Vstup: `sent` starší 7 dní nebo `remind`; `reminded` starší 3 dny
+- Výstup: Status `reminded`, resp. `ignored`
+- Stav: aktivní
+
+### Obsah a outreach
+
+**Instagram Outreach Agent**
+- Účel: najde 10 IG profilů dle oboru dne a připraví DM.
+- Platforma: Claude úloha `trig_01Tk9xZukqbL6rWCeASwBFmB`
+- Spouštěč: Po-Pá 8:30
+- Výstup: push Adamovi, odesílá Adam ručně
+- Stav: aktivní
+
+**Ester: LinkedIn Content Agent**
+- Účel: 2 LinkedIn příspěvky a 5 outreach návrhů.
+- Platforma: Claude úloha `trig_01CweqBfR2bK6p6auoqRTipw`
+- Spouštěč: Po a Čt 8:00
+- Výstup: push Adamovi
+- Stav: aktivní
+
+**Ester: Blog AI News Agent**
+- Účel: týdenní článek o AI novinkách do Google Docu.
+- Platforma: Claude úloha `trig_01PnT6VfKD7ztEuScNs1chpT`
+- Spouštěč: St 10:00
+- Výstup: Google Doc `1SToxqwXYHjjlSiw6Nlu0SxYu_m2KwCf5Sz_t_QiS53k`, push Adamovi
+- Stav: aktivní
+
+**Web Agent: Blog Publisher**
+- Účel: článek na uptoai.cz jako PR k review.
+- Platforma: Claude úloha `trig_017CqyqxszHRPJoYUQony7p3`
+- Spouštěč: 1. a 15. v měsíci 9:23
+- Výstup: PR do `adaklasek/uptoai`, merge dělá Adam
+- Stav: aktivní
+
+**Ester: Email Check Agent**
+- Účel: koncepty odpovědí na e-maily pro ester@uptoai.cz.
+- Platforma: Claude úloha `trig_01DcVALHMpBTBCgQKgYxyDuf`
+- Spouštěč: Po-Pá 9:00
+- Stav: běží naprázdno, schránka ester@uptoai.cz není napojená v Gmail konektoru.
+
+### Řízení a kontrola
+
+**CEO ClickUp Orchestrace**
+- Účel: přiřazuje a plní úkoly z Backlogu, hlídá `prepared` leady, zapisuje běh do Airtable Tasks.
+- Platforma: Claude úloha `trig_01R4DTsgUFuqQ5cGtfdqoU1N`
+- Spouštěč: Po-Pá 9, 11, 13, 15, 17
+- Stav: aktivní
+
+**Hodinová kontrola ClickUp Backlogu**
+- Účel: zpracuje otevřené úkoly, zastaralé zavře, nové nápady zapíše.
+- Platforma: Claude úloha `trig_01Xjo3RPbSUuvvtAHpfqMxKs`, skill `clickup-hourly-review`
+- Spouštěč: Po-Pá 9:07 až 18:07 každou hodinu
+- Stav: aktivní. Překrývá se s CEO ClickUp Orchestrací, sloučit.
+
+**Ranní souhrn běhů agentů**
+- Účel: souhrn včerejších běhů z tabulky Běhy (`tbll4p5WBThKWQhaU`) jako push.
+- Platforma: Claude úloha `trig_01TR3AhfB2uNJe7ygDPKvob7`
+- Spouštěč: denně 8:00
+- Stav: aktivní (od 24.11.2026)
+
+### Warmup domény uptoai.cz
+- n8n `AUP95izGefnZRev8`: adam@uptoai.cz na 3 externí adresy, Po/St/Pá 12:17
+- n8n `7IojZRRDcCSn3I97`: adam@uptoai.cz na Gmail
+- Claude úloha `trig_01C2j2MuHdND3WAJUVucivXo`: Gmail na adam@uptoai.cz, Po-Pá 10:17
+- Claude úloha `trig_014mZY6qcFaDhSvdzmzR5VDC`: odpovědi na warmup maily v Gmailu, Po-Pá každé 2 h
+
+### Zastaralé, k vypnutí nebo smazání
+Stále zapnuté, ale pracují se starou pipeline (pole `pipeline_status`, stavy `web_offer`, `bid_*`), kterou nahradil Analyst, Mail agent v2 a Status:
+- n8n `cOEBh1jIYPL8SUI7` Analyst Agent - Lead Classification (aktivní)
+- n8n `dx76QKy76Na3OyiQ` Drafter Agent v2 (aktivní, překrývá se s Mail agentem v2)
+- Claude úloha `trig_01HE5UQk9vppsj7re9ATDgRd` Web-Demo-Builder (zapnutá bez rozvrhu, používá Telegram, nahrazena Web Builder Agentem)
+- Make `10052185` COO-Leads (aktivní webhook, Telegram éra)
+
+Vypnuté a nepoužívané (Telegram nebo Google Sheets éra): Make `10051722` COO Daily Briefing, `10042629` COO-Router, `10051783` COO-Telegram-Sender, `10022585` Telegram Approval Notifier, `9987177` Analyst, `10022573` Drafter v2, `10050796` Email Enrichment, `10050828` Reply Watcher, `10029764` Sender, `10054674` Web-Lead-Hunter, `10054653` Web-Offer-Drafter, `9987163` Bootstrap; n8n `QS7oIZ4EMsyzCpiZ`, `fnbyyhsyqwcKyxSu`, `wrEFWuIA79kQwqck`, `yPYTLTAgY0icGK8N`, `N7wn7bahA1lue9jQ`; Claude úlohy `trig_01LzABvJUH4bHgLhHbHEer1w` Telegram Queue Processor, `trig_011Y71uiLHcLyEY8WwbG7bSL` CEO Daily Briefing.
+
+Neznámý účel, ověřit: n8n Agents `Zadávač` (`P2gsA8R339rpyspW`, nepublikovaný) a `Kontrolor` (`uCVcnyLl1bBOFa3t`, publikovaný).
 
 ### Standardy kvality demo webů (17.11.2026)
 
