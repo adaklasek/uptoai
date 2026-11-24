@@ -30,9 +30,12 @@ Zaznamenané z opakujících se instrukcí Adama:
 8. **Telegram VYPNUT** – komunikace výhradně přes Claude Code chat nebo Airtable komentáře u záznamů.
 9. **Každý úkol → ClickUp okamžitě** – cokoliv co po mně Adam chce (funkce, oprava, agent, analýza, nákup), zapíšu do ClickUp Backlog (ID: 1500520000175202) ještě v té samé odpovědi kde to dostanu. Bez výjimky. Kompaktace sezení nesmí způsobit ztrátu úkolu.
 10. **Proaktivní přístup** – nepasivně nečekám na zadání. Každý den přicházím s novými nápady na zlepšení agentury, identifikuji problémy v pipeline a deleguju práci agentům BEZ čekání na pokyn Adama. Adam je CEO a chce pouze schvalovat – já mu připravuji návrhy a realizuji je.
-11. **Odesílá vždy Adam.** Mail se nikdy neodešle automaticky. Odeslání spouští pouze Adamovo přesunutí leadu do statusu `schvaleno`.
+11. **Odesílá vždy Adam, ručně ze Zoho** (od 24.11.2026). Mail se nikdy neodešle automaticky. Mail agent připraví koncept v Zoho a nastaví `prepared`, Adam ho zkontroluje a odešle sám. Sent watcher hlídá složku Odeslané v adam@uptoai.cz a podle příjemce přepne lead z `prepared` na `sent` (+ `sent_at`, `thread_id`). Status `schvaleno` a Sender agent se už nepoužívají.
 12. **Tvorba agentů bez schválení:** nový agent nebo úprava workflow se staví sám podle předem daných kritérií (vstup, výstup, limit počtu, notifikace). Zapisuje se do registru agentů a do ClickUp jako hotový úkol.
-13. **Pipeline řídí pouze pole `Status`** (dříve `pipeline_status`, ID `fldtkzslvFZs1ln9H`). Žádný jiný sloupec neurčuje, kde je lead v procesu. Prázdný `Status` = nový lead, který musí dostat status a spustit akci. Stavy jsou: `draft_web`, `draft_automation`, `prepared`, `schvaleno`, `sent`, `remind`, `reminded`, `ignored`, `replied`, `revize`, `lost`, `active`, `finished`. Status `new` neexistuje.
+13. **Pipeline řídí pouze pole `Status`** (dříve `pipeline_status`, ID `fldtkzslvFZs1ln9H`). Žádný jiný sloupec neurčuje, kde je lead v procesu. Prázdný `Status` = nový lead, který musí dostat status a spustit akci. Stavy jsou: `draft_web`, `draft_automation`, `prepared`, `revize`, `sent`, `remind`, `reminded`, `zavolat`, `replied`, `active`, `lost`, `finished`. Status `new` neexistuje. `reminded` bez odpovědi 3 dny → `zavolat` (Adam volá); `lost` nastavuje jen Adam ručně po hovoru. `ignored` a `schvaleno` se už nepoužívají.
+16. **Agenti se spouštějí událostmi** (cíl od 24.11.2026): na čase běží jen Hunter a Sent watcher. Ostatní agenty spouští změna záznamu v Airtable (nový lead, změna `Status`) přes Airtable automatizaci → n8n webhook nebo API trigger Claude rutiny.
+17. **Každý výstup pro klienta projde QA kontrolorem** (cíl): kontrolor podle skillu dá feedback, autor opraví, max 3 kola, teprve schválený výstup jde k Adamovi.
+18. **Badge Lovable nikdy.** Demo web nesmí obsahovat žádný odkaz ani text o Lovable (patička, plovoucí tlačítko, meta tagy). Web Builder to ověří na preview URL před zápisem `demo_url`.
 14. **Prázdný lead bez webu** dostane automaticky `draft_web`. Prázdný lead s webem dostane `draft_automation`. Časová pole (`sent_at`, `reminded_at`, `re_contact_at`) jsou samostatné sloupce.
 15. **Feedback (`feedback`) je jen pro web nebo PDF nabídku.** Zpětná vazba k mailu se nezapisuje do leadu. Kvalitu mailů řídí prompt Mail agenta v Adamově stylu.
 
@@ -198,6 +201,10 @@ Pokud chybí info pro rozhodnutí, rovnou se zeptám.
 
 Aktuální seznam agentů. Stav ověřen 24.11.2026 přímo v n8n, Make a Claude naplánovaných úlohách. Každý nový nebo upravený agent se sem zapíše podle skillu `uptoai-agent-builder` (formát karty: účel, platforma a ID, spouštěč, vstup, výstup, limit, kontrola, stav). Telegram se nepoužívá, agenti hlásí přes PushNotification nebo Airtable.
 
+Odkazy: Claude úlohy `https://claude.ai/code/routines/<trig_id>`, n8n `https://n8n.uptoai.cz/workflow/<id>`, Make `https://eu2.make.com/2180018/scenarios/<id>/edit`.
+
+**V přípravě (ClickUp):** Sent watcher, Offer agent (PDF nabídka), QA kontroloři (web, e-mail, nabídka), přechod na spouštění událostmi, sloučení Analyst do Enrichmentu, status `zavolat` ve follow-upu.
+
 ### Pipeline leadů (pořadí toku)
 
 **1. Hunter Agent**
@@ -279,19 +286,11 @@ Aktuální seznam agentů. Stav ověřen 24.11.2026 přímo v n8n, Make a Claude
 - Výstup: push Adamovi, odesílá Adam ručně
 - Stav: aktivní
 
-**Ester: LinkedIn Content Agent**
-- Účel: 2 LinkedIn příspěvky a 5 outreach návrhů.
-- Platforma: Claude úloha `trig_01CweqBfR2bK6p6auoqRTipw`
-- Spouštěč: Po a Čt 8:00
-- Výstup: push Adamovi
-- Stav: aktivní
-
-**Ester: Blog AI News Agent**
-- Účel: týdenní článek o AI novinkách do Google Docu.
-- Platforma: Claude úloha `trig_01PnT6VfKD7ztEuScNs1chpT`
-- Spouštěč: St 10:00
-- Výstup: Google Doc `1SToxqwXYHjjlSiw6Nlu0SxYu_m2KwCf5Sz_t_QiS53k`, push Adamovi
-- Stav: aktivní
+**Ester (virtuální zaměstnankyně, 3 agenti)**
+- Účel: obsah a outreach pod personou Ester Tomancové. Publikuje a odesílá vždy Adam.
+- LinkedIn: 2 příspěvky a 5 outreach návrhů, Po a Čt 8:00, `trig_01CweqBfR2bK6p6auoqRTipw` ([otevřít](https://claude.ai/code/routines/trig_01CweqBfR2bK6p6auoqRTipw))
+- Blog: článek o AI novinkách do Google Docu `1SToxqwXYHjjlSiw6Nlu0SxYu_m2KwCf5Sz_t_QiS53k`, St 10:00, `trig_01PnT6VfKD7ztEuScNs1chpT` ([otevřít](https://claude.ai/code/routines/trig_01PnT6VfKD7ztEuScNs1chpT))
+- E-maily: koncepty odpovědí pro ester@uptoai.cz, Po-Pá 9:00, `trig_01DcVALHMpBTBCgQKgYxyDuf` ([otevřít](https://claude.ai/code/routines/trig_01DcVALHMpBTBCgQKgYxyDuf)). Běží naprázdno, schránka není napojená.
 
 **Web Agent: Blog Publisher**
 - Účel: článek na uptoai.cz jako PR k review.
@@ -299,12 +298,6 @@ Aktuální seznam agentů. Stav ověřen 24.11.2026 přímo v n8n, Make a Claude
 - Spouštěč: 1. a 15. v měsíci 9:23
 - Výstup: PR do `adaklasek/uptoai`, merge dělá Adam
 - Stav: aktivní
-
-**Ester: Email Check Agent**
-- Účel: koncepty odpovědí na e-maily pro ester@uptoai.cz.
-- Platforma: Claude úloha `trig_01DcVALHMpBTBCgQKgYxyDuf`
-- Spouštěč: Po-Pá 9:00
-- Stav: běží naprázdno, schránka ester@uptoai.cz není napojená v Gmail konektoru.
 
 ### Řízení a kontrola
 
