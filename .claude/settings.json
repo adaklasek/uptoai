@@ -69,7 +69,39 @@
       "mcp__ClickUp__clickup_search",
       "mcp__ClickUp__clickup_execute_operator",
       "mcp__ClickUp__clickup_get_operators",
-      "mcp__ClickUp__clickup_get_user"
+      "mcp__ClickUp__clickup_get_user",
+      "mcp__Airtable__list_bases",
+      "mcp__Airtable__list_tables_for_base",
+      "mcp__Airtable__get_table_schema",
+      "mcp__Airtable__list_records_for_table",
+      "mcp__Airtable__search_records",
+      "mcp__Airtable__create_records_for_table",
+      "mcp__Airtable__update_records_for_table",
+      "mcp__Airtable__create_field",
+      "mcp__Airtable__update_field",
+      "mcp__n8n__search_workflows",
+      "mcp__n8n__get_workflow_details",
+      "mcp__n8n__update_workflow",
+      "mcp__n8n__publish_workflow",
+      "mcp__n8n__search_workflow_executions",
+      "mcp__n8n__get_workflow_execution",
+      "mcp__Gmail__search_threads",
+      "mcp__Gmail__get_thread",
+      "mcp__Gmail__reply",
+      "PushNotification",
+      "Edit",
+      "Write",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push origin main)"
+    ],
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)"
     ]
   }
 }
