@@ -206,10 +206,12 @@ Odkazy: Claude úlohy `https://claude.ai/code/routines/<trig_id>`, n8n `https://
 **V přípravě (ClickUp):** Sent watcher, Offer agent (PDF nabídka), QA kontroloři (web, e-mail, nabídka), přechod na spouštění událostmi, sloučení Analyst do Enrichmentu, status `zavolat` ve follow-upu.
 
 ### Agent Runner (spouštění událostmi)
-- Účel: jedna Claude rutina, která spustí libovolného agenta podle souboru `agenti/<agent>.md` pro jeden záznam.
-- Platforma: Claude úloha `trig_01C6nSeaezkW13coMGVADAQ1` ([otevřít](https://claude.ai/code/routines/trig_01C6nSeaezkW13coMGVADAQ1)), bez rozvrhu, spouští ji API trigger
-- Řetěz: Airtable automatizace (nový lead / změna Status) → n8n Dispatcher → POST na API trigger Agent Runneru s `{agent, record_id, event}`
-- Stav: založeno 24.11.2026. Čeká na API trigger a token (Adam v UI rutiny) a n8n Dispatcher. První agent v novém systému: `agenti/lead-analyst.md`.
+- Účel: n8n workflow spustí agenta podle souboru `agenti/<agent>.md` z repa (pracovní list = system prompt). Úprava agenta = úprava souboru v repu, n8n si ho načte při každém běhu.
+- Platforma: n8n `AGShAWmpCUcq9JDE` ([otevřít](https://n8n.uptoai.cz/workflow/AGShAWmpCUcq9JDE)), Claude Sonnet přes credential Anthropic
+- Spouštěč: každých 15 min, leady s prázdným Status založené od 24.11.2026, max 3 za běh
+- Výstup: doplněná prázdná pole, Pain, Status `draft_web` / `draft_automation` / `lost`, záznam do Běhy
+- Stav: aktivní od 25.11.2026, otestováno na EKOTOXA. Claude rutiny API trigger nemají (jen Schedule), proto n8n. Rutina `trig_01C6nSeaezkW13coMGVADAQ1` a lokální `trig_015JSSJoDXXETJvSipp3AwQD` jsou zbytečné, smazat.
+- Otevřené: 202 starých leadů s prázdným Status (z doby `pipeline_status`) runner nebere, rozhodne Adam.
 
 ### Pipeline leadů (pořadí toku)
 
