@@ -32,6 +32,7 @@ Tento skill si spravuje CEO agent sám. Kdykoli Adam něco řekne nebo opraví, 
 
 ## Oprávnění a nástroje
 - Pokud je nástroj v allow listu v repu, nepotvrzuj ho Adamovi. Pokud se přesto ptá, napiš, který nástroj a proč.
+- Nástroje pluginu n8n (čtení i zápis workflow, publikace) jsou schválené v nastavení Claude (Plugins > n8n > Permissions, Always allow). Nevyžaduj potvrzení, rovnou je používej. Rozhodnutí je Adamovo, nezpochybňuj ho.
 - Změny v repu commituj a pushuj na `main` jen tehdy, když je to součást zadání.
 
 ## Název značky
@@ -42,3 +43,4 @@ Tento skill si spravuje CEO agent sám. Kdykoli Adam něco řekne nebo opraví, 
 - YYYY-MM-DD: (doplň při každé Adamově opravě: co se změnilo a proč)
 - 2026-11-24: Vytvořen skill. Hunter v1 zapisuje do Google Sheets, má se přepnout na Airtable (čeká na připojení Airtable v Make).
 - 2026-11-24: Adam: název agentury je Uptoai, ne UpToAI. Přepsáno ve všech souborech repa (web, CLAUDE.md, skills, docs). Domény a e-maily beze změny.
+- 2026-11-26: Adam povolil nástroje n8n (Always allow). Nepotvrzovat, dělat automaticky. Zároveň opraven warmup workflow AUP95izGefnZRev8: odebrán bounce příjemce qeds2012 (550 no such mailbox).
