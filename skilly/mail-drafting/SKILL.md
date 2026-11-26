@@ -1,4 +1,5 @@
 ---
+aliases: [mail-drafting]
 name: mail-drafting
 description: Psaní konceptů e-mailů pro leady agentury Uptoai s demo webem. Použij při tvorbě nebo úpravě e-mailu pro lead, nebo když Mail agent generuje text.
 ---

@@ -1,4 +1,5 @@
 ---
+aliases: [uptoai-agent-builder]
 name: "uptoai-agent-builder"
 description: "Stavba, úprava a správa AI agentů agentury Uptoai (n8n, Make, Claude úlohy, skilly, registr agentů). Použij vždy, když Adam chce nového agenta, opravit agenta nebo skill."
 ---

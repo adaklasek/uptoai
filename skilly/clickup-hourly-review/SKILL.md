@@ -1,4 +1,5 @@
 ---
+aliases: [clickup-hourly-review]
 name: clickup-hourly-review
 description: Hodinová kontrola ClickUp Backlogu agentury Uptoai. Použij při každé hodinové kontrole, nebo když Adam zadá nový úkol.
 ---

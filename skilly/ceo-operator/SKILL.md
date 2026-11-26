@@ -1,4 +1,5 @@
 ---
+aliases: [ceo-operator]
 name: ceo-operator
 description: Osobní pravidla CEO agenta Uptoai od Adama. Použij na začátku každé práce a vždy, když Adam něco zadá nebo opraví. Po každé Adamově zprávě tento soubor aktualizuj.
 ---

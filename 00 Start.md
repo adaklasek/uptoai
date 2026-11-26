@@ -5,7 +5,7 @@ Tohle je domovská stránka vaultu. Všechno, co tu změníš, se do 5 minut sam
 ## Co kde je
 - `CLAUDE.md`: pravidla agentury a registr agentů. Čte ho COO agent i Agent Runner při každém běhu.
 - `agenti/`: jeden soubor na agenta. Hlavička říká, kdy se spouští, co bere a co vrací. Tělo je jeho pracovní postup. **Tohle je místo, kde agenty měníš.**
-- `skilly/`: návody, podle kterých agenti pracují (styl e-mailů, standardy webů, doplňování dat). Jeden skill může používat víc agentů.
+- `skilly/`: návody (každý skill je složka se souborem SKILL.md), podle kterých agenti pracují (styl e-mailů, standardy webů, doplňování dat). Jeden skill může používat víc agentů.
 - `docs/`: strategie, briefy, předávky sezení.
 
 ## Jak spolu vylepšujeme agenty
@@ -22,6 +22,7 @@ Když si nevíš rady, napiš mi do chatu "uprav agenta X, aby..." a já soubor 
 - Hlavičku agenta (mezi `---`) měň opatrně. `stav: vypnuto` agenta zastaví.
 - Velké změny procesu (nový status, nový krok v pipeline) napiš mně nebo COO agentovi, ať se promítnou i do Airtable a n8n.
 
-## Agenti v novém systému
-- [[agenti/lead-analyst|Lead Analyst]]: první agent spouštěný událostí (nový lead).
-- Ostatní agenti zatím běží podle registru v `CLAUDE.md` a budou se sem postupně přesouvat.
+## Kde začít
+- [[00-tym-agentu|Tým agentů]]: přehled všech agentů, kdo komu předává práci a co teď drhne.
+- [[00-pravidla|Společná pravidla]]: platí pro každého agenta.
+- Každý agent si svůj soubor stahuje z GitHubu při každém běhu, takže tvoje úprava platí od dalšího běhu.
