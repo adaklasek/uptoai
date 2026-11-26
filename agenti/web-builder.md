@@ -2,7 +2,7 @@
 agent: web-builder
 nazev_v_behy: Web Builder
 stav: aktivni
-platforma: Claude úloha trig_01XTBuM6e9ot3WyPCZW8tDfy
+platforma: Claude úloha trig_01BPEj8rpYv7CfxjTi8Aunr8
 spousti: Po-Pá 11:45, 14:45, 17:45
 vstup: leady se Status draft_web a prázdným demo_url
 vystup: demo_url, Status prepared, push Adamovi

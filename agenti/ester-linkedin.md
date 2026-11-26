@@ -2,7 +2,7 @@
 agent: ester-linkedin
 nazev_v_behy: Ester LinkedIn
 stav: aktivni
-platforma: Claude úloha trig_01CweqBfR2bK6p6auoqRTipw
+platforma: Claude úloha trig_01Rcwm9ZYubks915ACQ9Sx6X
 spousti: Po a Čt 8:00
 vystup: 2 příspěvky + 5 outreach návrhů, push Adamovi
 skilly: [[ester-persona]]

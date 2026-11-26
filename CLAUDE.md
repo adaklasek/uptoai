@@ -213,6 +213,9 @@ Odkazy: Claude úlohy `https://claude.ai/code/routines/<trig_id>`, n8n `https://
 - Stav: aktivní od 25.11.2026, otestováno na EKOTOXA. Claude rutiny API trigger nemají (jen Schedule), proto n8n. Rutina `trig_01C6nSeaezkW13coMGVADAQ1` a lokální `trig_015JSSJoDXXETJvSipp3AwQD` jsou zbytečné, smazat.
 - Otevřené: 202 starých leadů s prázdným Status (z doby `pipeline_status`) runner nebere, rozhodne Adam.
 
+### Pracovní listy agentů (od 26.11.2026)
+Prompty agentů jsou v `agenti/<agent>.md` (Obsidian), společná pravidla v `agenti/00-pravidla.md`, přehled v `agenti/00-tym-agentu.md`. Úlohy mají jen tenký prompt, který si pracovní list stáhne z GitHubu při každém běhu. Nové úlohy (čistá relace na běh): Web Builder `trig_01BPEj8rpYv7CfxjTi8Aunr8`, Brand & Design `trig_01P54dVch6hPe4Bt2pocCnSM`, Enrichment `trig_013Ltf8Bt8LqzBrKMFDcigFL`, Analyst `trig_01FGdVNdjHPvRvpyTgsWftJJ`, Ester LinkedIn `trig_01Rcwm9ZYubks915ACQ9Sx6X`, Ester Blog `trig_01Xzt3DkZ3bQDTHMPmfBtcLZ`. Staré úlohy ve sdílené relaci vypnuty, kromě Web Builder `trig_01XTBuM6e9ot3WyPCZW8tDfy` a Ester LinkedIn `trig_01CweqBfR2bK6p6auoqRTipw` (vypne Adam). ID v kartách níže jsou starší.
+
 ### Pipeline leadů (pořadí toku)
 
 **1. Hunter Agent**

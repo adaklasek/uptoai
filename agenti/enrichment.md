@@ -2,7 +2,7 @@
 agent: enrichment
 nazev_v_behy: Enrichment
 stav: aktivni (nahradí ho lead-analyst)
-platforma: Claude úloha trig_01Mh8oJhviisEZrUeRxeiARS
+platforma: Claude úloha trig_013Ltf8Bt8LqzBrKMFDcigFL
 spousti: Po-Pá 10:37 a 14:37
 vstup: leady s prázdným Email, Phone, City, Web, Industry nebo core_business
 vystup: jen prázdná pole + enriched_at, Status nemění

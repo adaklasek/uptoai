@@ -5,7 +5,7 @@ spousti: Airtable automatizace "Nový lead" -> n8n -> Agent Runner
 vstup: jeden lead (record_id) s prázdným Status
 vystup: doplněná data, Pain, Status draft_web nebo draft_automation
 skilly: [[lead-enrichment]]
-nahrazuje: Enrichment Agent (trig_01Mh8oJhviisEZrUeRxeiARS) a Analyst Agent (trig_01EmjYqj9ha1tQpNn1jVjxux)
+nahrazuje: Enrichment Agent (trig_013Ltf8Bt8LqzBrKMFDcigFL) a Analyst Agent (trig_01FGdVNdjHPvRvpyTgsWftJJ)
 ---
 
 # Lead Analyst

@@ -2,7 +2,7 @@
 agent: ester-blog
 nazev_v_behy: Ester Blog
 stav: aktivni
-platforma: Claude úloha trig_01PnT6VfKD7ztEuScNs1chpT
+platforma: Claude úloha trig_01Xzt3DkZ3bQDTHMPmfBtcLZ
 spousti: St 10:00
 vystup: článek do Google Docu 1SToxqwXYHjjlSiw6Nlu0SxYu_m2KwCf5Sz_t_QiS53k, push Adamovi
 skilly: [[ester-persona]]

@@ -2,7 +2,7 @@
 agent: analyst
 nazev_v_behy: Analyst
 stav: aktivni (nahradí ho lead-analyst)
-platforma: Claude úloha trig_01EmjYqj9ha1tQpNn1jVjxux
+platforma: Claude úloha trig_01FGdVNdjHPvRvpyTgsWftJJ
 spousti: Po-Pá 11:37, 14:37, 17:37
 vstup: Status draft_automation a prázdné Pain
 vystup: pole Pain, Status nemění
