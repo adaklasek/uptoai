@@ -37,3 +37,4 @@ Postavíš demo web podle dossieru od [[web-researcher]] a standardů v [[demo-w
 ## Změny
 - 2026-11-27: kompletní přestavba. Místo Lovable vlastní kód, vstup jen z dossieru, výstup jde do QA, ne k Adamovi.
 - 2026-11-26: přesunuto z nastavení úlohy do repa.
+- 2026-11-27: pilot Tenisová hala Jindřichův Hradec (2 kola QA, skóre 8). Zjištění: Unsplash je z úlohy blokovaný (potřeba API klíč nebo Runware pro doplňkové fotky), Google Maps iframe nahradit fotkou s odkazem.

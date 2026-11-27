@@ -15,7 +15,7 @@ Cíl: majitel firmy otevře odkaz a do 5 sekund si řekne "tohle chci". Nikoho n
 4. **Žádné placeholdery:** "Jméno Příjmení", "[email]", "123 456 789", "Lorem ipsum", "Vaše firma", "Popis služby".
 5. **Povinné funkce z dossieru.** Když měl starý web rezervaci, nový ji má taky (vložený widget nebo odkaz na jejich systém). Když nabízíme rezervaci, demo má funkční rezervační formulář: výběr služby, datum, čas, jméno, telefon, potvrzovací obrazovka.
 6. **Fotky klienta first.** Minimálně 6 fotek, z toho všechny dostupné dobré fotky klienta. Unsplash jen doplněk, nikdy AI ilustrace s textem nebo deformacemi.
-7. **Patička:** logo nebo název, adresa s odkazem na mapu, telefon (tel:), e-mail (mailto:), otevírací doba, sociální sítě, IČO, mapa (Google Maps embed nebo statický odkaz). Žádná prázdná patička.
+7. **Patička:** logo nebo název, adresa s odkazem na mapu, telefon (tel:), e-mail (mailto:), otevírací doba, sociální sítě, IČO, odkaz do Google Map. Mapu nevkládej jako iframe (v náhledech zůstává šedá), použij fotku provozovny s tlačítkem "Otevřít v Mapách". Žádná prázdná patička.
 8. **Demo má `noindex`.** `<meta name="robots" content="noindex">`.
 
 ## B. Struktura prodejní landing page (oba tiery)
