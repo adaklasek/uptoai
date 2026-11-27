@@ -220,8 +220,11 @@ details p{color:var(--muted);margin-top:.7rem;max-width:60ch}
 .kcard dd a{text-decoration:none}
 .kcard dd a:hover{text-decoration:underline}
 .map{border-radius:var(--r);overflow:hidden;min-height:420px;position:relative;background:#dfe6dc}
-.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.85)}
-.map .photo{position:absolute;right:16px;bottom:16px;width:44%;border-radius:12px;overflow:hidden;box-shadow:0 20px 40px -20px rgba(0,0,0,.5);border:4px solid #fff}
+.map .mapimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mapbtn{position:absolute;left:16px;right:16px;bottom:16px;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-radius:14px;padding:1rem 1.2rem;text-decoration:none;display:flex;flex-direction:column;transition:transform .25s}
+.mapbtn:hover{transform:translateY(-2px)}
+.mapbtn b{font-family:var(--fh);font-stretch:112%;font-size:1.1rem}
+.mapbtn span{font-size:.9rem;color:var(--muted)}
 
 footer{background:var(--ink);color:rgba(255,255,255,.75);padding:4rem 0 2.2rem;margin-top:clamp(3rem,5vw,4.5rem)}
 footer .cols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:2rem}
@@ -265,7 +268,6 @@ footer .bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:3rem;paddin
   .gal .g1{grid-column:span 2!important;grid-row:span 2!important}
   .amen{grid-template-columns:1fr}
   .map{min-height:340px}
-  .map .photo{display:none}
   footer .cols{grid-template-columns:1fr}
   .mbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:10px;right:10px;bottom:10px;z-index:60;transform:translateY(140%);transition:transform .4s}
   .mbar.show{transform:none}
@@ -479,8 +481,8 @@ footer .bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:3rem;paddin
       <div><a class="btn btn-ball" href="https://www.google.com/maps/search/?api=1&query=Deštenská+198,+377+01+Jindřichův+Hradec" target="_blank" rel="noopener">Navigovat</a></div>
     </div>
     <div class="map rv d1">
-      <iframe title="Mapa: Deštenská 198, Jindřichův Hradec" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=De%C5%A1tensk%C3%A1%20198%2C%20377%2001%20Jind%C5%99ich%C5%AFv%20Hradec&z=15&output=embed"></iframe>
-      <div class="photo"><img src="img/hala-zvenku-900.webp" alt="Vchod do tenisové haly" loading="lazy"></div>
+      <img class="mapimg" src="img/hala-zvenku-1600.webp" alt="Tenisová hala, Deštenská 198, Jindřichův Hradec" loading="lazy">
+      <a class="mapbtn" href="https://www.google.com/maps/search/?api=1&query=De%C5%A1tensk%C3%A1+198,+377+01+Jind%C5%99ich%C5%AFv+Hradec" target="_blank" rel="noopener"><b>Otevřít v Mapách</b><span>Deštenská 198, Radouňka, parkování u vchodu</span></a>
     </div>
   </div>
 </section>
