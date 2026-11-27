@@ -14,11 +14,17 @@ Cíl: majitel firmy otevře odkaz a do 5 sekund si řekne "tohle chci". Nikoho n
 3. **Jen pravdivé údaje z dossieru.** Telefon, adresa, hodiny, ceny, jména, recenze. Co v dossieru není, na webu není. Žádné vymyšlené recenze, čísla ani roky praxe.
 4. **Žádné placeholdery:** "Jméno Příjmení", "[email]", "123 456 789", "Lorem ipsum", "Vaše firma", "Popis služby".
 5. **Povinné funkce z dossieru.** Když měl starý web rezervaci, nový ji má taky (vložený widget nebo odkaz na jejich systém). Když nabízíme rezervaci, demo má funkční rezervační formulář: výběr služby, datum, čas, jméno, telefon, potvrzovací obrazovka.
-6. **Fotky klienta first.** Minimálně 6 fotek, z toho všechny dostupné dobré fotky klienta. Unsplash jen doplněk, nikdy AI ilustrace s textem nebo deformacemi.
+6. **Fotky klienta first.** Minimálně 6 fotek, z toho všechny dostupné dobré fotky klienta, každou použij jen jednou. Doplňky z Unsplash přes API (`UNSPLASH_ACCESS_KEY`, `https://api.unsplash.com/search/photos`, stahuj z `images.unsplash.com`, dodrž atribuci v patičce). Nikdy AI ilustrace s textem nebo deformacemi.
 7. **Patička:** logo nebo název, adresa s odkazem na mapu, telefon (tel:), e-mail (mailto:), otevírací doba, sociální sítě, IČO, odkaz do Google Map. Mapu nevkládej jako iframe (v náhledech zůstává šedá), použij fotku provozovny s tlačítkem "Otevřít v Mapách". Žádná prázdná patička.
 8. **Demo má `noindex`.** `<meta name="robots" content="noindex">`.
+9. **Žádný AI patos.** Zakázané vzorce: krátké heslovité věty typu "Jeden kurt. Žádné kompromisy.", "Žádné X." a "Bez X." jako samostatná věta, trojice sloves ("Přijedete, převléknete se, hrajete"), "za minutu", "bez starostí", "postaráme se o vše", "v klidu", "žádné příplatky", "Tenis i v lednu." a podobné řečnické zkratky. Piš věcně jako člověk z oboru: oznamovací věty s konkrétním faktem.
+10. **Žádná nepodložená tvrzení.** Přívlastky jako "rychlý", "stabilní", "nezáří do očí", "nejlepší" jen tehdy, když jsou v dossieru se zdrojem.
+11. **WhatsApp tlačítko.** Když má firma WhatsApp nebo mobilní číslo, web má plovoucí WhatsApp tlačítko vpravo dole: zelené kulaté tlačítko s ikonou WhatsApp, jemný puls, po 6 s bublina s krátkou výzvou (na mobilu až po odscrollování hero, nesmí překrývat CTA), odkaz `wa.me` s předvyplněnou zprávou. Bublina jde zavřít.
+12. **Sociální sítě.** Každý profil, který dossier uvádí (Instagram, Facebook, TikTok, Google profil), musí být na webu: ikona v hlavičce nebo patičce a u Instagramu i sekce s odkazem na profil. Když firma profil nemá, nic nevymýšlej.
+13. **Logo.** Když má klient logo, použij ho. Když ne, čistý typografický wordmark. Nikdy nekresli vlastní amatérské ikonky (míček z kroužků, zub z čar).
 
 ## B. Struktura prodejní landing page (oba tiery)
+0. **Hero na pozadí jako fotoshooting (výchozí pro oba tiery):** když má klient aspoň 3 fotky, hero je slideshow jeho fotek. Každá fotka 3 s, plynulé prolnutí, každá má jiný pohyb (pomalé přiblížení, oddálení, posun zleva doprava, shora dolů, tzv. Ken Burns), takže to působí jako krátké video. Tmavý gradient pro čitelnost textu. Respektuj `prefers-reduced-motion`.
 1. **Hero:** konkrétní nadpis (služba + město nebo hlavní přínos), podnadpis s důkazem (hodnocení, roky, specializace), primární CTA (Rezervovat / Zavolat), sekundární CTA. Velká fotka klienta.
 2. **Důkaz hned pod hero:** hodnocení z Google, počet recenzí, 3 krátké citace.
 3. **Služby s cenami** (karty bez emoji, s fotkou nebo jemnou ikonou).
@@ -37,7 +43,10 @@ Cíl: majitel firmy otevře odkaz a do 5 sekund si řekne "tohle chci". Nikoho n
 - Mikrointerakce: jemný fade a posun při scrollu (IntersectionObserver), hover stavy, plynulé přechody. Respektuj `prefers-reduced-motion`.
 - Výkon: fotky WebP, `loading="lazy"`, LCP pod 2,5 s, žádné těžké knihovny ve standard tieru.
 
-## D. Premium tier (navíc)
+## D. 3D prvek z oboru (premium povinně, standard doporučeně)
+Jeden 3D objekt, který souvisí s oborem a dělá web živým: tenisový míček nebo raketa, pneumatika nebo disk, nůžky, zubní kartáček, láhev produktu. Three.js (importmap z jsDelivr), realistické materiály (filc, kov, guma, sklo), skutečný tvar (např. šev tenisového míčku jako křivka na kouli), světla key a rim. Reaguje na myš a scroll, jemně se pohybuje (skok, rotace). Nesmí překrývat nadpis ani CTA, na mobilu menší. Když WebGL selže, prvek zmizí a web funguje dál. Žádné kreslené ani "clipart" modely.
+
+## E. Premium tier (navíc)
 Cíl: "wow" efekt jako produktové stránky Apple. Vyber jeden hlavní efekt podle oboru, nepřeplácat:
 1. **Scroll image sequence (Apple efekt):** video produktu nebo prostoru (start frame → end frame) rozložené na 60 až 120 snímků WebP, vykreslené na `<canvas>` podle pozice scrollu (GSAP ScrollTrigger, sticky sekce). Zdroj videa: video klienta, nebo vygenerované přes Runware (obrázek start a konec, pak image-to-video). Celková velikost snímků max 4 MB, na mobilu poloviční rozlišení.
 2. **3D vrstvy a parallax:** fotky klienta ve vrstvách s hloubkou (CSS `perspective`, GSAP), které se při scrollu rozjíždějí. Vhodné pro salony a interiéry.
@@ -45,7 +54,7 @@ Cíl: "wow" efekt jako produktové stránky Apple. Vyber jeden hlavní efekt pod
 - Plynulý scroll (Lenis), text reveal po řádcích, sticky storytelling sekce, kurzor efekty jen na desktopu.
 - Fallback bez JS a pro `prefers-reduced-motion`: statická verze, která pořád vypadá skvěle.
 
-## E. Viditelnost pro AI vyhledávače (GEO) a SEO
+## F. Viditelnost pro AI vyhledávače (GEO) a SEO
 - JSON-LD `LocalBusiness` (nebo podtyp: `BeautySalon`, `AutoRepair`, `LegalService`, `Dentist`): name, address, geo, telephone, openingHoursSpecification, priceRange, sameAs, `aggregateRating` jen s reálnými čísly z dossieru.
 - JSON-LD `FAQPage` z FAQ sekce, `Service` pro hlavní služby.
 - Sémantické HTML (header, main, section s nadpisy h2, footer), jeden h1 se službou a městem.
@@ -53,7 +62,7 @@ Cíl: "wow" efekt jako produktové stránky Apple. Vyber jeden hlavní efekt pod
 - Odstavec "O firmě" psaný fakticky (kdo, co, kde, od kdy, pro koho), aby ho AI mohla citovat.
 - Soubor `llms.txt` vedle `index.html` s fakty o firmě.
 
-## F. Checklist před odevzdáním (Builder) a při kontrole (QA)
+## G. Checklist před odevzdáním (Builder) a při kontrole (QA)
 - [ ] Žádné emoji (`grep -P '[\x{1F300}-\x{1FAFF}\x{2600}-\x{27BF}]'` nic nenajde)
 - [ ] Žádné placeholdery a zakázané fráze
 - [ ] Každý údaj sedí s dossierem (telefon, adresa, hodiny, ceny)
@@ -64,3 +73,8 @@ Cíl: "wow" efekt jako produktové stránky Apple. Vyber jeden hlavní efekt pod
 - [ ] Mobil 390 px bez vodorovného scrollu, CTA viditelné
 - [ ] Premium: hlavní efekt běží plynule a má fallback
 - [ ] `noindex`
+- [ ] Hero slideshow z fotek klienta (při 3 a více fotkách)
+- [ ] WhatsApp tlačítko (když má firma WhatsApp nebo mobil)
+- [ ] Všechny sociální sítě z dossieru odkázané
+- [ ] Žádný AI patos a nepodložené přívlastky (pravidla A9 a A10)
+- [ ] 3D prvek (premium povinně) nepřekrývá text a má fallback

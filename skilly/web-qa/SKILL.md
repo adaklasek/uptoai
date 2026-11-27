@@ -25,6 +25,10 @@ Hodnotíš jako art director a obchodník zároveň. Buď přísný: průměrný
 - placeholder nebo zakázaná fráze
 - stopa Lovable nebo jiného generátoru
 - rozbité rozložení na mobilu
+- AI patos nebo nepodložené přívlastky (demo-web-standards A9, A10)
+- chybí WhatsApp tlačítko, i když firma WhatsApp nebo mobil má
+- chybí odkaz na sociální síť, kterou dossier uvádí
+- vlastnoručně kreslené amatérské logo nebo ikona
 
 ## 3. Rubrika (každá 1 až 10)
 1. **První dojem (váha 2):** vypadá jako dílo dobrého studia? Je jasné, co firma dělá a kde, do 5 sekund?
@@ -34,7 +38,7 @@ Hodnotíš jako art director a obchodník zároveň. Buď přísný: průměrný
 5. **Fotky:** fotky klienta, kvalita, množství, konzistence.
 6. **Typografie a barvy:** fonty podle oboru, kontrast, hierarchie.
 7. **Mobil:** čitelnost, tlačítka, rychlost.
-8. **Premium efekt** (jen tier premium, váha 2): wow, plynulost, nepřeplácanost, fallback.
+8. **Živost a efekty** (váha 2 u premium): hero slideshow z fotek klienta, 3D prvek z oboru, plynulost, nepřeplácanost, fallback. Statický web bez pohybu dostane max 6.
 9. **AI a SEO:** JSON-LD, FAQ, title, description, faktický odstavec o firmě.
 
 Celkové skóre = vážený průměr, zaokrouhlený na celá čísla. Projde od 8 a bez stopek.

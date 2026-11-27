@@ -11,7 +11,8 @@ Web je tak dobrý, jak dobré jsou podklady. Tvým výstupem je dossier, podle k
 ## 1. Zdroje (v tomto pořadí)
 1. **Starý web firmy:** úvod, služby, ceník, o nás, kontakt, galerie, rezervace. Max 6 načtení stránek.
 2. **Google Maps profil** (vyhledej "název firmy město"): hodnocení, počet recenzí, 3 až 5 nejlepších recenzí doslovně se jménem autora, otevírací doba, adresa, telefon, fotky.
-3. **Facebook a Instagram:** bio, fotky prací, styl, co zákazníci chválí.
+3. **Facebook, Instagram, TikTok:** povinně dohledej, jestli profil existuje (vyhledej `"název firmy" instagram`, `site:instagram.com název město`, odkazy v patičce starého webu, Google profil). Zapiš přesné URL. Když profil nenajdeš, napiš do dossieru "Sociální sítě: nenalezeny (hledáno: ...)". Z profilu: bio, fotky prací, styl, co zákazníci chválí.
+   **WhatsApp:** zjisti, jestli firma uvádí WhatsApp. Když ne, ale má mobilní číslo, zapiš ho jako kandidáta pro WhatsApp tlačítko.
 4. **Firmy.cz, Zlaté stránky, Bookio, Reservio, Noona:** ceník a rezervační odkaz.
 5. **ARES:** IČO, oficiální název, sídlo.
 
