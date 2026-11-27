@@ -1,7 +1,7 @@
 ---
 agent: brand-design
 nazev_v_behy: Brand & Design
-stav: aktivni
+stav: vypnuto (sloučeno do web-researcher 27.11.2026)
 platforma: Claude úloha trig_01P54dVch6hPe4Bt2pocCnSM
 spousti: Po-Pá 11:00, 14:00, 17:00
 vstup: leady se Status draft_web a prázdným design_brief

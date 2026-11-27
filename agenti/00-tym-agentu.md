@@ -11,8 +11,8 @@ Společná pravidla pro všechny: [[00-pravidla]].
 
 ## Akvizice (pipeline leadů)
 ```
-Hunter (Make) → Lead Analyst → ┬→ draft_web → Brand & Design → Web Builder ┐
-                               └→ draft_automation → Analyst ──────────────┴→ Mail agent → prepared → Adam odešle
+Hunter (Make) → Lead Analyst → ┬→ draft_web → Web Researcher → Web Builder ⇄ Web QA (max 3 kola) ┐
+                               └→ draft_automation → Analyst ─────────────────────────────────────┴→ Mail agent → prepared → Adam odešle
 ```
 | Agent | Co dělá | Kdy |
 |---|---|---|
@@ -20,8 +20,10 @@ Hunter (Make) → Lead Analyst → ┬→ draft_web → Brand & Design → Web B
 | [[lead-analyst]] | nový lead: doplní data, nastaví Status | každých 15 min (n8n) |
 | [[enrichment]] | doplní prázdná pole u starších leadů | Po-Pá 10:37, 14:37 |
 | [[analyst]] | Pain u draft_automation | Po-Pá 11:37, 14:37, 17:37 |
-| [[brand-design]] | design brief + hero obrázek | Po-Pá 11:00, 14:00, 17:00 |
-| [[web-builder]] | demo web v Lovable | Po-Pá 11:45, 14:45, 17:45 |
+| [[web-researcher]] | dossier o firmě, tier, build prompt (pilot) | každou hodinu |
+| [[web-builder]] | demo web jako vlastní kód, standard nebo premium (pilot) | každou hodinu |
+| [[web-qa]] | kritické hodnocení, feedback, schválení (pilot) | každou hodinu |
+| [[brand-design]] | vypnuto, sloučeno do Web Researchera | |
 | [[mail-agent]] | koncept e-mailu v Zoho | Po-Pá 9 až 17 (n8n) |
 
 ## Marketing
@@ -41,7 +43,7 @@ Hunter (Make) → Lead Analyst → ┬→ draft_web → Brand & Design → Web B
 | [[clickup-kontrola]] | hodinová kontrola Backlogu | Po-Pá každou hodinu |
 
 ## Skilly (návody, které agenti používají)
-[[demo-web-standards]], [[mail-drafting]], [[lead-enrichment]], [[clickup-hourly-review]], [[uptoai-agent-builder]], [[ceo-operator]]. Najdeš je ve složce `skilly/`.
+[[web-research]], [[demo-web-standards]], [[web-qa]], [[mail-drafting]], [[lead-enrichment]], [[clickup-hourly-review]], [[uptoai-agent-builder]], [[ceo-operator]]. Najdeš je ve složce `skilly/`.
 
 ## Stav spolupráce (26.11.2026)
 - **Hunter nic nehledá**: v cílech není žádný aktivní řádek, poslední dny "nalezeno 0 firem".
@@ -49,3 +51,6 @@ Hunter (Make) → Lead Analyst → ┬→ draft_web → Brand & Design → Web B
 - **46 leadů čeká v `prepared`** na Adamovo odeslání.
 - **ClickUp agenti** nemají přístup do ClickUpu, jen 15x denně hlásí stav.
 - **Warmup Reply** padá každé 2 hodiny, chybí Gmail konektor v úloze.
+
+## Web větev (od 27.11.2026, pilot)
+Mezistav webu drží pole `web_stage` (Status zůstává `draft_web`): prázdné → `build` (Researcher hotov) → `qa` (Builder hotov) → `rebuild` (QA vrátil) → `qa` → … → `ready` (QA schválil, teprve teď Mail agent a Adam). `blokovano` = málo podkladů.
