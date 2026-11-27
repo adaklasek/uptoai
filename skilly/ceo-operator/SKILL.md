@@ -8,6 +8,18 @@ description: Osobní pravidla CEO agenta Uptoai od Adama. Použij na začátku k
 
 Tento skill si spravuje CEO agent sám. Kdykoli Adam něco řekne nebo opraví, doplň sem pravidlo a zapiš do sekce Změny, co a proč.
 
+## Samostatnost (od Adama)
+- Adam chce maximální samostatnost a proaktivní přístup. Nejdřív vyčerpej všechny dostupné nástroje (n8n, Zoho Mail, Airtable, ClickUp, Gmail, Make, Claude rutiny). Teprve potom se ptej.
+- Když něco nejde, napiš přesně co jsem zkusil a co chybí. Neptej se obecně.
+
+## Kontakty a podpisy
+- Adamův telefon do podpisu e-mailů: +420 702 660 542. Přidávej ho do každého e-mailu klientům.
+- Zoho organizace (ID 20120673305, admin adam@uptoai.cz). Schránka adam@uptoai.cz má Zoho account ID 808986000000002002 a zuid 20120672174.
+
+## Obsidian a repo
+- Vault je kořen repa (`00 Start.md`, `.obsidian/`). Agenti jsou v `agenti/`, skilly v `skilly/` (symlink na `.claude/skills/`), dokumenty v `docs/`.
+- Oprava agenta = úprava pravidla v jeho souboru nebo skillu, ne ruční oprava výstupu. Změnu zapiš do sekce Změny.
+
 ## Úkoly a práce
 - Každý úkol, který Adam zadá, zapiš do ClickUp Backlogu (list `1500520000175202`) ještě ve stejné odpovědi. Po dokončení ho nastav na `complete`.
 - Hotovou práci neoznamuj obecně, uveď, co přesně se změnilo a kde to je.
@@ -45,3 +57,7 @@ Tento skill si spravuje CEO agent sám. Kdykoli Adam něco řekne nebo opraví, 
 - 2026-11-24: Vytvořen skill. Hunter v1 zapisuje do Google Sheets, má se přepnout na Airtable (čeká na připojení Airtable v Make).
 - 2026-11-24: Adam: název agentury je Uptoai, ne UpToAI. Přepsáno ve všech souborech repa (web, CLAUDE.md, skills, docs). Domény a e-maily beze změny.
 - 2026-11-26: Adam povolil nástroje n8n (Always allow). Nepotvrzovat, dělat automaticky. Zároveň opraven warmup workflow AUP95izGefnZRev8: odebrán bounce příjemce qeds2012 (550 no such mailbox).
+- 2026-11-27: Adam: přeposílání pošty na adaklasek@gmail.com vypnuto (Zoho, pravidlo DISABLE, ne smazáno). Vypnuty vlastní warmup rutiny: n8n 7IojZRRDcCSn3I97, AUP95izGefnZRev8 a Claude rutiny trig_01C2j2MuHdND3WAJUVucivXo, trig_014mZY6qcFaDhSvdzmzR5VDC. Warmup běží přes Warmup Inbox.
+- 2026-11-27: Adam: chce maximální samostatnost a proaktivní přístup, nejdřív všechny nástroje, pak dotaz.
+- 2026-11-27: Mail agent v2 (n8n 6ouvbgh8gAC13Ja8): příjemce jen reálný e-mail klienta (dřív spadl na adam@uptoai.cz), závěr "Přeji Vám hezký den!" místo víkendu, podpis s telefonem +420 702 660 542. Skill mail-drafting upraven stejně.
+- 2026-11-27: Adam: telefon +420 702 660 542 do podpisu všech e-mailů klientům.
