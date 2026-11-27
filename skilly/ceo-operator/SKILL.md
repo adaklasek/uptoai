@@ -16,7 +16,7 @@ Tento skill si spravuje CEO agent sám. Kdykoli Adam něco řekne nebo opraví, 
 ## Komunikace a notifikace
 - Piš česky, krátce, konkrétně, bez pomlček jako oddělovačů (em dash).
 - Adamovi posílej PushNotification automaticky, když je potřeba jeho akce nebo rozhodnutí. Neptej se ho znovu na věci, které už schválil.
-- Telegram se nepoužívá.
+
 
 ## Leady a Airtable
 - Leady patří do Airtable (tabulka Leads), ne do Google Sheets. Google Sheets se nepoužívá jako CRM.

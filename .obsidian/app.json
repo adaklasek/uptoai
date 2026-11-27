@@ -1,4 +1,12 @@
 {
-  "userIgnoreFilters": ["demos/", "blog/", "portfolio/", "reseni/", "en/", "ochrana-osobnich-udaju/", "infra/"],
+  "userIgnoreFilters": [
+    "demos/",
+    "blog/",
+    "portfolio/",
+    "reseni/",
+    "en/",
+    "ochrana-osobnich-udaju/",
+    "infra/"
+  ],
   "alwaysUpdateLinks": true
 }
