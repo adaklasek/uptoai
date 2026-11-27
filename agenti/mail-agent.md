@@ -36,6 +36,7 @@ Nikdy nevymýšlej fakta, která nejsou v podkladech. Podpis nepiš, doplní se 
 Název firmy, Obor, Město, Web, Demo web, Poznámky, Pain, design_brief, feedback.
 
 ## Známé problémy (26.11.2026)
+- 27.11.: web leady bere až s web_stage = ready (po QA).
 - n8n zatím bere prompt ze svého kódu, ne z tohoto souboru. Napojení na repo je v práci.
 - Bere `draft_automation` i bez vyplněného Pain, takže může psát dřív, než Analyst doplní analýzu.
 - "Krásný víkend" je napevno, i když se píše v pondělí.
