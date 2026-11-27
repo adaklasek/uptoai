@@ -59,5 +59,5 @@ Tento skill si spravuje CEO agent sám. Kdykoli Adam něco řekne nebo opraví, 
 - 2026-11-26: Adam povolil nástroje n8n (Always allow). Nepotvrzovat, dělat automaticky. Zároveň opraven warmup workflow AUP95izGefnZRev8: odebrán bounce příjemce qeds2012 (550 no such mailbox).
 - 2026-11-27: Adam: přeposílání pošty na adaklasek@gmail.com vypnuto (Zoho, pravidlo DISABLE, ne smazáno). Vypnuty vlastní warmup rutiny: n8n 7IojZRRDcCSn3I97, AUP95izGefnZRev8 a Claude rutiny trig_01C2j2MuHdND3WAJUVucivXo, trig_014mZY6qcFaDhSvdzmzR5VDC. Warmup běží přes Warmup Inbox.
 - 2026-11-27: Adam: chce maximální samostatnost a proaktivní přístup, nejdřív všechny nástroje, pak dotaz.
-- 2026-11-27: Mail agent v2 (n8n 6ouvbgh8gAC13Ja8): příjemce jen reálný e-mail klienta (dřív spadl na adam@uptoai.cz), závěr "Přeji Vám hezký den!" místo víkendu, podpis s telefonem +420 702 660 542. Skill mail-drafting upraven stejně.
+- 2026-11-27: Mail agent v2 (n8n 6ouvbgh8gAC13Ja8): příjemce je e-mail klienta, a když chybí nebo je neplatný, koncept jde na adam@uptoai.cz (Adam: nic nesmí zůstat nenadraftované). Závěr "Přeji Vám hezký den!" místo víkendu, podpis s telefonem +420 702 660 542. Skill mail-drafting upraven stejně.
 - 2026-11-27: Adam: telefon +420 702 660 542 do podpisu všech e-mailů klientům.
